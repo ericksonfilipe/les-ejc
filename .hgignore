@@ -1,0 +1,6 @@
+syntax: glob
+
+#arquivos a serem ignorados pelo mercurial
+
+*.class
+*~
