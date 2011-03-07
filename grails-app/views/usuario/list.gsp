@@ -24,11 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'usuario.id.label', default: 'Id')}" />
                         
-                            <th><g:message code="usuario.end.label" default="End" /></th>
-                        
                             <g:sortableColumn property="nome" title="${message(code: 'usuario.nome.label', default: 'Nome')}" />
                         
                             <g:sortableColumn property="sobrenome" title="${message(code: 'usuario.sobrenome.label', default: 'Sobrenome')}" />
+                        
+                            <g:sortableColumn property="dataDeNascimento" title="${message(code: 'usuario.dataDeNascimento.label', default: 'Data De Nascimento')}" />
+                        
+                            <g:sortableColumn property="email" title="${message(code: 'usuario.email.label', default: 'Email')}" />
+                        
+                            <g:sortableColumn property="apelido" title="${message(code: 'usuario.apelido.label', default: 'Apelido')}" />
                         
                         </tr>
                     </thead>
@@ -38,11 +42,15 @@
                         
                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: usuarioInstance, field: "end")}</td>
-                        
                             <td>${fieldValue(bean: usuarioInstance, field: "nome")}</td>
                         
                             <td>${fieldValue(bean: usuarioInstance, field: "sobrenome")}</td>
+                        
+                            <td><g:formatDate date="${usuarioInstance.dataDeNascimento}" /></td>
+                        
+                            <td>${fieldValue(bean: usuarioInstance, field: "email")}</td>
+                        
+                            <td>${fieldValue(bean: usuarioInstance, field: "apelido")}</td>
                         
                         </tr>
                     </g:each>

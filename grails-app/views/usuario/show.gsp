@@ -30,13 +30,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.end.label" default="End" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="endereco" action="show" id="${usuarioInstance?.end?.id}">${usuarioInstance?.end?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.nome.label" default="Nome" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nome")}</td>
@@ -47,6 +40,27 @@
                             <td valign="top" class="name"><g:message code="usuario.sobrenome.label" default="Sobrenome" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "sobrenome")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></td>
+                            
+                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.email.label" default="Email" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.apelido.label" default="Apelido" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "apelido")}</td>
                             
                         </tr>
                     
