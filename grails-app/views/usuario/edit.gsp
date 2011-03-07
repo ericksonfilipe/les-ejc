@@ -51,6 +51,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                  <label for="apelido"><g:message code="usuario.apelido.label" default="Apelido" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'apelido', 'errors')}">
+                                    <g:textField name="apelido" value="${usuarioInstance?.apelido}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                   <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento', 'errors')}">
@@ -69,10 +78,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="apelido"><g:message code="usuario.apelido.label" default="Apelido" /></label>
+                                  <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'apelido', 'errors')}">
-                                    <g:textField name="apelido" value="${usuarioInstance?.apelido}" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'status', 'errors')}">
+                                    <g:select name="status" from="${les.ejc.Status?.values()}" keys="${les.ejc.Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
                                 </td>
                             </tr>
                         

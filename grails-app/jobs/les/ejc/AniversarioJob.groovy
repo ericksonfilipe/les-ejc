@@ -2,7 +2,7 @@ package les.ejc
 
 class AniversarioJob {
      static triggers = {
-		cron name: 'aniversarioTrigger', cronExpression: "0 47 14 * * ?"
+		cron name: 'aniversarioTrigger', cronExpression: "0 50 16 * * ?"
 	}
 
 	def senderService
@@ -20,6 +20,7 @@ Abraços!”
 Atenciosamente,
 Família EJC :D
 """
+				println("plecas")
 				senderService.enviaEmail(usuarios[i].email, "Feliz Aniversario", mensagem)
 			}
 		}

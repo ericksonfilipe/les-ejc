@@ -44,6 +44,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.apelido.label" default="Apelido" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "apelido")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
@@ -58,9 +65,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.apelido.label" default="Apelido" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "apelido")}</td>
+                            <td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
                             
                         </tr>
                     
