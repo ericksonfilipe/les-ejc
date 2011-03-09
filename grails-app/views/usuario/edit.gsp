@@ -69,19 +69,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
+                                  <label for="apelido"><g:message code="usuario.apelido.label" default="Apelido" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
-                                    <g:select name="tipo" from="${usuarioInstance.constraints.tipo.inList}" value="${usuarioInstance?.tipo}" valueMessagePrefix="usuario.tipo"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'status', 'errors')}">
-                                    <g:select name="status" from="${usuarioInstance.constraints.status.inList}" value="${usuarioInstance?.status}" valueMessagePrefix="usuario.status"  />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'apelido', 'errors')}">
+                                    <g:textField name="apelido" value="${usuarioInstance?.apelido}" />
                                 </td>
                             </tr>
                         
@@ -132,10 +123,28 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                  <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'status', 'errors')}">
+                                    <g:select name="status" from="${les.ejc.Usuario$Status?.values()}" keys="${les.ejc.Usuario$Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                   <label for="telefone"><g:message code="usuario.telefone.label" default="Telefone" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone', 'errors')}">
                                     <g:textField name="telefone" value="${usuarioInstance?.telefone}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
+                                    <g:select name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}"  />
                                 </td>
                             </tr>
                         

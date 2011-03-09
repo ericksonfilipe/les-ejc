@@ -58,16 +58,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.tipo.label" default="Tipo" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.apelido.label" default="Apelido" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "tipo")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "status")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "apelido")}</td>
                             
                         </tr>
                     
@@ -105,9 +98,23 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
+                            
+                            <td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.tipo.label" default="Tipo" /></td>
+                            
+                            <td valign="top" class="value">${usuarioInstance?.tipo?.encodeAsHTML()}</td>
                             
                         </tr>
                     
