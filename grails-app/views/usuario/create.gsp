@@ -93,10 +93,28 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
+                                    <g:textField name="equipesTrabalhadas" value="${usuarioInstance?.equipesTrabalhadas}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="foto"><g:message code="usuario.foto.label" default="Foto" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foto', 'errors')}">
                                     <input type="file" id="foto" name="foto" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observacoes" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
+                                    <g:textField name="observacoes" value="${usuarioInstance?.observacoes}" />
                                 </td>
                             </tr>
                         

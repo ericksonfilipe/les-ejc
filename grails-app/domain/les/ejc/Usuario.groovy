@@ -11,9 +11,9 @@ class Usuario {
     String email
     byte[] foto
     String paroquia
-    List<String> equipesTrabalhadas
+    String equipesTrabalhadas
     String status
-    List<String> observacoes
+    String observacoes
     Date dataDeNascimento
 
     static constraints = {
