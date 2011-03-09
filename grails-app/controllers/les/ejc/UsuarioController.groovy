@@ -15,20 +15,12 @@ class UsuarioController {
 
     def create = {
         def usuarioInstance = new Usuario()
-		usuarioInstance.properties = params
+        usuarioInstance.properties = params
         return [usuarioInstance: usuarioInstance]
     }
 
     def save = {
         def usuarioInstance = new Usuario(params)
-
-		//Se usuario tem email e eh cadastrado ATIVO, deve receber email com login e senha
-		if (usuarioInstance.status == Status.ATIVO && usuarioInstance.email != null) {
-			usuarioInstance.login = usuarioInstance.email
-			usuarioInstance.senha = usuarioInstance.nome + (usuarioInstance.dataDeNascimento?.year+1900)
-			//enviarEmailParaUsuario
-		}
-
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
             redirect(action: "show", id: usuarioInstance.id)

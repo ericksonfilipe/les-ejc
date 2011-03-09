@@ -2,26 +2,26 @@ package les.ejc
 
 class Usuario {
 
-	String nome
-	String sobrenome
-	String apelido
-	Date dataDeNascimento
-	String email
-	Status status
-	
-	private String login
-	private String senha
+    String tipo
+    
+    String nome
+    String sobrenome
+    String endereco
+    String telefone
+    String email
+    byte[] foto
+    String paroquia
+    List<String> equipesTrabalhadas
+    String status
+    List<String> observacoes
+    Date dataDeNascimento
 
     static constraints = {
-		nome(blank : false)
-		sobrenome()
-		apelido()
-		dataDeNascimento()
-		email(email : true)
-	}
-	
-}
-
-enum Status {
-	ATIVO, INATIVO
+        nome(blank : false)
+	sobrenome()
+	dataDeNascimento()
+	email(email : true)
+        tipo(inList: ["Jovem", "Casal", "Padre"])
+        status(inList: ["Ativo", "Casado", "Impedido", "Sem Contato"])
+    }
 }

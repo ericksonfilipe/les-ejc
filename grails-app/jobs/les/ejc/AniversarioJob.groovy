@@ -2,7 +2,7 @@ package les.ejc
 
 class AniversarioJob {
      static triggers = {
-		cron name: 'aniversarioTrigger', cronExpression: "0 50 16 * * ?"
+		cron name: 'aniversarioTrigger', cronExpression: "0 30 19 * * ?"
 	}
 
 	def senderService
@@ -12,13 +12,13 @@ class AniversarioJob {
 		Date data = new Date()
 		for (int i in 0..<usuarios.size()) {
 			if ( usuarios[i]?.dataDeNascimento?.day == data.day && usuarios[i]?.dataDeNascimento?.month == data.month ) {
-				String mensagem = """Parabéns, ${usuarios[i].nome}!
-O EJC da Paróquia de São Cristóvão o(a) felicita por mais um ano de vida.
-Deus o(a) abençoe cada vez mais.
-Abraços!”
+				String mensagem = """Parabï¿½ns, ${usuarios[i].nome}!
+O EJC da Parï¿½quia de Sï¿½o Cristï¿½vï¿½o o(a) felicita por mais um ano de vida.
+Deus o(a) abenï¿½oe cada vez mais.
+Abraï¿½os!ï¿½
 
 Atenciosamente,
-Família EJC :D
+Famï¿½lia EJC :D
 """
 				println("plecas")
 				senderService.enviaEmail(usuarios[i].email, "Feliz Aniversario", mensagem)
