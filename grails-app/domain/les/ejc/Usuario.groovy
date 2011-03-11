@@ -5,7 +5,7 @@ class Usuario {
     Tipo tipo
     String nome
     String sobrenome
-	String apelido
+    String apelido
     String endereco
     String telefone
     String email
@@ -16,21 +16,22 @@ class Usuario {
     String observacoes
     Date dataDeNascimento
 	
-	private String login
-	private String senha
+    private String login
+    private String senha
 
     static constraints = {
-        nome(blank : false)
-		sobrenome()
-		dataDeNascimento()
-		email(email : true)
+        nome(blank:false, size:2..40, matches:'([a-zA-Z]| )+')
+        sobrenome(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
+        sobrenome()
+	dataDeNascimento()
+	email(email : true)
     }
 	
-	enum Status {
-		ATIVO, INATIVO
-	}
-	
-	enum Tipo {
-		Jovem, Casal, Padre
-	}
+    enum Status {
+	ATIVO, INATIVO
+    }
+
+    enum Tipo {
+	Jovem, Casal, Padre
+    }
 }

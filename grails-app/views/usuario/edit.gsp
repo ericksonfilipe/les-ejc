@@ -36,7 +36,7 @@
                                   <label for="nome"><g:message code="usuario.nome.label" default="Nome" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nome', 'errors')}">
-                                    <g:textField name="nome" value="${usuarioInstance?.nome}" />
+                                    <g:textField name="nome" maxlength="40" value="${usuarioInstance?.nome}" />
                                 </td>
                             </tr>
                         
