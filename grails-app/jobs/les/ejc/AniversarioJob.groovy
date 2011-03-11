@@ -2,7 +2,7 @@ package les.ejc
 
 class AniversarioJob {
      static triggers = {
-		cron name: 'aniversarioTrigger', cronExpression: "0 30 19 * * ?"
+		cron name: 'aniversarioTrigger', cronExpression: "0 41 17 * * ?"
 	}
 
 	def senderService
