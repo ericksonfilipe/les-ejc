@@ -30,16 +30,16 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.nome.label" default="Nome" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nome")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.sobrenome.label" default="Sobrenome" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.nomeUsual.label" default="Nome Usual" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "sobrenome")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeUsual")}</td>
                             
                         </tr>
                     
@@ -51,42 +51,23 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.email.label" default="Email" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.apelido.label" default="Apelido" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "apelido")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "endereco")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.foto.label" default="Foto" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observacoes" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
                             
                         </tr>
                     
@@ -98,16 +79,35 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas" /></td>
                             
-                            <td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observacoes" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.j5Atual}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.foto.label" default="Foto" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
+                            
+                            <td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
                             
                         </tr>
                     

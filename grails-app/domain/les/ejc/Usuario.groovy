@@ -2,29 +2,34 @@ package les.ejc
 
 class Usuario {
 
-    Tipo tipo
-    String nome
-    String sobrenome
-    String apelido
-    String endereco
+    String nomeCompleto
+    String nomeUsual
+    Date dataDeNascimento
+    Endereco endereco
     String telefone
     String email
     byte[] foto
     String paroquia
     String equipesTrabalhadas
-    Status status
     String observacoes
-    Date dataDeNascimento
+    Status status
+    Tipo tipo
+    boolean j5Atual
 	
     private String login
     private String senha
 
     static constraints = {
-        nome(blank:false, size:2..40, matches:'([a-zA-Z]| )+')
-        sobrenome(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
-        sobrenome()
-	dataDeNascimento()
-	email(email : true)
+        nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
+        nomeUsual(size:2..40, matches:'([a-zA-Z]| )+')
+        dataDeNascimento()
+        endereco(nullable:true)
+        telefone(maxSize:10, minSize:10, matches:'([0-9])+')
+        email(email:true)
+        paroquia()
+        equipesTrabalhadas()
+        observacoes()
+        j5Atual()
     }
 	
     enum Status {
