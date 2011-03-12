@@ -1,0 +1,8 @@
+--Output from testConstraints--
+--Output from testUnicidadeDeEmail--
+--Output from testNomeUsualAutomatico--
+--Output from testCriacaoLoginSenhaAutomatica--
+--Output from testEnvioDeEmailNotificandoLoginSenha--
+--Output from testAlteracaoDeSenha--
+--Output from testEnvioDeEmailNotificandoAniversario--
+

@@ -25,7 +25,7 @@ class UsuarioController {
         //Se usuario tem email e eh cadastrado ATIVO, deve receber email com login e senha
 		if (usuarioInstance.status == Status.ATIVO && usuarioInstance.email != null) {
 			usuarioInstance.login = usuarioInstance.email
-			usuarioInstance.senha = usuarioInstance.nome + (usuarioInstance.dataDeNascimento?.year+1900)
+			usuarioInstance.senha = usuarioInstance.nomeUsual + (usuarioInstance.dataDeNascimento?.year+1900)
 			//enviarEmailParaUsuario
 		}
 

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="0" name="AniversarioJobTests" package="les.ejc" tests="1" time="1.515" timestamp="2011-03-12T17:35:29">
+      <properties />
+
+      <testcase classname="les.ejc.AniversarioJobTests" name="testSomething" time="1.468" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="1" name="SenderServiceTests" package="les.ejc" tests="1" time="0.015" timestamp="2011-03-12T17:35:31">
+      <properties />
+
+      <testcase classname="les.ejc.SenderServiceTests" name="testSomething" time="0.0" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="2" name="UsuarioControllerTests" package="les.ejc" tests="1" time="3.75" timestamp="2011-03-12T17:35:32">
+      <properties />
+
+      <testcase classname="les.ejc.UsuarioControllerTests" name="testSomething" time="3.734" />
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="4" failures="0" hostname="Janderson_Jason" id="3" name="UsuarioTests" package="les.ejc" tests="7" time="6.75" timestamp="2011-03-12T17:35:37">
+      <properties />
+
+      <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="5.563">
+          <error message="No such property: usuario_J5Completo for class: les.ejc.UsuarioTests" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: usuario_J5Completo for class: les.ejc.UsuarioTests
+	at les.ejc.UsuarioTests.testConstraints(UsuarioTests.groovy:43)
+</error>
+
+      </testcase>
+
+      <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="0.344" />
+
+      <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.266">
+          <error message="No such property: nomeUsual for class: les.ejc.Usuario" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: nomeUsual for class: les.ejc.Usuario
+	at les.ejc.UsuarioTests.testNomeUsualAutomatico(UsuarioTests.groovy:117)
+</error>
+
+      </testcase>
+
+      <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.36">
+          <error message="No such property: IMPEDIDO for class: les.ejc.Status" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: IMPEDIDO for class: les.ejc.Status
+	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:124)
+</error>
+
+      </testcase>
+
+      <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoLoginSenha" time="0.015" />
+
+      <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.078">
+          <error message="No signature of method: les.ejc.UsuarioTests.newDate() is applicable for argument types: (java.lang.String) values: [22/03/1990] Possible solutions: setName(java.lang.String), getName(), getName(), getAt(java.lang.String)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: les.ejc.UsuarioTests.newDate() is applicable for argument types: (java.lang.String) values: [22/03/1990]
+Possible solutions: setName(java.lang.String), getName(), getName(), getAt(java.lang.String)
+	at les.ejc.UsuarioTests.testAlteracaoDeSenha(UsuarioTests.groovy:172)
+</error>
+
+      </testcase>
+
+      <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.016" />
+
+      <system-out><![CDATA[--Output from testConstraints--
+--Output from testUnicidadeDeEmail--
+--Output from testNomeUsualAutomatico--
+--Output from testCriacaoLoginSenhaAutomatica--
+--Output from testEnvioDeEmailNotificandoLoginSenha--
+--Output from testAlteracaoDeSenha--
+--Output from testEnvioDeEmailNotificandoAniversario--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testConstraints--
+--Output from testUnicidadeDeEmail--
+--Output from testNomeUsualAutomatico--
+--Output from testCriacaoLoginSenhaAutomatica--
+--Output from testEnvioDeEmailNotificandoLoginSenha--
+--Output from testAlteracaoDeSenha--
+--Output from testEnvioDeEmailNotificandoAniversario--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

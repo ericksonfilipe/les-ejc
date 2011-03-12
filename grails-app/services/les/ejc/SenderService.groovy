@@ -10,7 +10,7 @@ class SenderService {
 		mailService.sendMail {
 			to emailDestinatario
 			subject assunto
-			body "${mensagem}\n---\nDa Equipe EJC"
+			body "${mensagem}\n---\nAtenciosamente,\nFamilia EJC"
 		}
     }
 }
