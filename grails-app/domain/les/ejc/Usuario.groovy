@@ -16,8 +16,8 @@ class Usuario {
     Tipo tipo
     boolean j5Atual
 	
-    private String login = null
-    private String senha = null
+    private String login
+    private String senha
 
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
@@ -30,6 +30,9 @@ class Usuario {
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
+		senha(nullable:true, blank:false)
+		login(nullable:true, blank:false)
+		
         j5Atual()
     }
 	
@@ -49,11 +52,11 @@ class Usuario {
 		login = novoLogin
 	}
 	
-	private String getSenha(){
+	public String getSenha(){
 		return senha
 	}
 	
-	private setSenha(String novaSenha) {
+	public setSenha(String novaSenha) {
 		senha = novaSenha
 	}
 	
@@ -82,15 +85,14 @@ class Usuario {
 	}
 
 	/**
-	Se usuario tem email e eh cadastrado Ativo, deve receber email com login e senha
+	Se usuario tem email e eh cadastrado Ativo, deve ter login e senha
 	*/
 	private geraLoginSenhaAutomaticos() {
-        if (status == Status.Ativo && (email != null || email?.equals(""))) {
+        if (status == Status.Ativo && (email != null)) {
 			setLogin(email)
 			def novaSenha = nomeUsual
 			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.year+1900 }
 			setSenha(novaSenha)
-			//enviarEmailParaUsuario
 		}
 	}
 		

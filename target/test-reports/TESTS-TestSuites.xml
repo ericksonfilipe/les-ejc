@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="0" name="AniversarioJobTests" package="les.ejc" tests="1" time="0.781" timestamp="2011-03-13T04:00:28">
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="0" name="AniversarioJobTests" package="les.ejc" tests="1" time="1.735" timestamp="2011-03-13T17:07:08">
       <properties />
 
-      <testcase classname="les.ejc.AniversarioJobTests" name="testSomething" time="0.734" />
+      <testcase classname="les.ejc.AniversarioJobTests" name="testSomething" time="1.61" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -12,10 +12,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="1" name="EnderecoControllerTests" package="les.ejc" tests="1" time="1.438" timestamp="2011-03-13T04:00:32">
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="1" name="EnderecoControllerTests" package="les.ejc" tests="1" time="2.672" timestamp="2011-03-13T17:07:20">
       <properties />
 
-      <testcase classname="les.ejc.EnderecoControllerTests" name="testSomething" time="1.438" />
+      <testcase classname="les.ejc.EnderecoControllerTests" name="testSomething" time="2.656" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -24,10 +24,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="2" name="EnderecoTests" package="les.ejc" tests="1" time="0.031" timestamp="2011-03-13T04:00:34">
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="2" name="EnderecoTests" package="les.ejc" tests="1" time="0.11" timestamp="2011-03-13T17:07:24">
       <properties />
 
-      <testcase classname="les.ejc.EnderecoTests" name="testSomething" time="0.015" />
+      <testcase classname="les.ejc.EnderecoTests" name="testSomething" time="0.0" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -36,10 +36,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="3" name="SenderServiceTests" package="les.ejc" tests="1" time="0.015" timestamp="2011-03-13T04:00:29">
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="3" name="SenderServiceTests" package="les.ejc" tests="1" time="0.062" timestamp="2011-03-13T17:07:10">
       <properties />
 
-      <testcase classname="les.ejc.SenderServiceTests" name="testSomething" time="0.015" />
+      <testcase classname="les.ejc.SenderServiceTests" name="testSomething" time="0.016" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -48,10 +48,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="4" name="UsuarioControllerTests" package="les.ejc" tests="1" time="0.218" timestamp="2011-03-13T04:00:34">
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="4" name="UsuarioControllerTests" package="les.ejc" tests="1" time="0.594" timestamp="2011-03-13T17:07:26">
       <properties />
 
-      <testcase classname="les.ejc.UsuarioControllerTests" name="testSomething" time="0.203" />
+      <testcase classname="les.ejc.UsuarioControllerTests" name="testSomething" time="0.594" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -60,29 +60,24 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="1" hostname="Janderson_Jason" id="5" name="UsuarioTests" package="les.ejc" tests="8" time="3.297" timestamp="2011-03-13T04:00:29">
+  <testsuite errors="0" failures="0" hostname="Janderson_Jason" id="5" name="UsuarioTests" package="les.ejc" tests="8" time="9.188" timestamp="2011-03-13T17:07:11">
       <properties />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testPersistencia" time="2.266" />
+      <testcase classname="les.ejc.UsuarioTests" name="testPersistencia" time="7.703" />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="0.344" />
+      <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="0.656" />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="0.156" />
+      <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="0.172" />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.093" />
+      <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.11" />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.235">
-          <failure message="junit.framework.ComparisonFailure: null expected:&lt;null&gt; but was:&lt;Janderson&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:&lt;null&gt; but was:&lt;Janderson&gt;
-	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:185)
-</failure>
+      <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.281" />
 
-      </testcase>
+      <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoLoginSenha" time="0.016" />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoLoginSenha" time="0.015" />
+      <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.109" />
 
-      <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.157" />
-
-      <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.015" />
+      <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.0" />
 
       <system-out><![CDATA[--Output from testPersistencia--
 --Output from testConstraints--
