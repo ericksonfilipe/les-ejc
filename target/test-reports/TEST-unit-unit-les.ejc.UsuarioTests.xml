@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="4" failures="0" hostname="Janderson_Jason" name="les.ejc.UsuarioTests" tests="7" time="6.75" timestamp="2011-03-12T17:35:37">
+<testsuite errors="0" failures="3" hostname="Janderson_Jason" name="les.ejc.UsuarioTests" tests="7" time="10.969" timestamp="2011-03-13T02:43:10">
   <properties />
-  <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="5.563">
-    <error message="No such property: usuario_J5Completo for class: les.ejc.UsuarioTests" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: usuario_J5Completo for class: les.ejc.UsuarioTests
-	at les.ejc.UsuarioTests.testConstraints(UsuarioTests.groovy:43)
-</error>
+  <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="8.641" />
+  <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="1.047" />
+  <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.39">
+    <failure message="junit.framework.ComparisonFailure: null expected:&lt;[Janderson]&gt; but was:&lt;[]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:&lt;[Janderson]&gt; but was:&lt;[]&gt;
+	at les.ejc.UsuarioTests.testNomeUsualAutomatico(UsuarioTests.groovy:120)
+</failure>
   </testcase>
-  <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="0.344" />
-  <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.266">
-    <error message="No such property: nomeUsual for class: les.ejc.Usuario" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: nomeUsual for class: les.ejc.Usuario
-	at les.ejc.UsuarioTests.testNomeUsualAutomatico(UsuarioTests.groovy:117)
-</error>
-  </testcase>
-  <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.36">
-    <error message="No such property: IMPEDIDO for class: les.ejc.Status" type="groovy.lang.MissingPropertyException">groovy.lang.MissingPropertyException: No such property: IMPEDIDO for class: les.ejc.Status
-	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:124)
-</error>
+  <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.407">
+    <failure message="junit.framework.ComparisonFailure: null expected:&lt;aleatorio3@email.com&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:&lt;aleatorio3@email.com&gt; but was:&lt;null&gt;
+	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:156)
+</failure>
   </testcase>
   <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoLoginSenha" time="0.015" />
-  <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.078">
-    <error message="No signature of method: les.ejc.UsuarioTests.newDate() is applicable for argument types: (java.lang.String) values: [22/03/1990]
-Possible solutions: setName(java.lang.String), getName(), getName(), getAt(java.lang.String)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: les.ejc.UsuarioTests.newDate() is applicable for argument types: (java.lang.String) values: [22/03/1990]
-Possible solutions: setName(java.lang.String), getName(), getName(), getAt(java.lang.String)
-	at les.ejc.UsuarioTests.testAlteracaoDeSenha(UsuarioTests.groovy:172)
-</error>
+  <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.141">
+    <failure message="junit.framework.ComparisonFailure: null expected:&lt;algumacoisa@email.com&gt; but was:&lt;null&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:&lt;algumacoisa@email.com&gt; but was:&lt;null&gt;
+	at les.ejc.UsuarioTests.testAlteracaoDeSenha(UsuarioTests.groovy:185)
+</failure>
   </testcase>
-  <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.016" />
+  <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.015" />
   <system-out><![CDATA[--Output from testConstraints--
 --Output from testUnicidadeDeEmail--
 --Output from testNomeUsualAutomatico--

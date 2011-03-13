@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Janderson_Jason" name="les.ejc.UsuarioControllerTests" tests="1" time="3.75" timestamp="2011-03-12T17:35:32">
+<testsuite errors="0" failures="0" hostname="Janderson_Jason" name="les.ejc.UsuarioControllerTests" tests="1" time="0.266" timestamp="2011-03-13T02:43:23">
   <properties />
-  <testcase classname="les.ejc.UsuarioControllerTests" name="testSomething" time="3.734" />
+  <testcase classname="les.ejc.UsuarioControllerTests" name="testSomething" time="0.25" />
   <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
   <system-err><![CDATA[--Output from testSomething--

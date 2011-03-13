@@ -1,5 +1,5 @@
 Testsuite: les.ejc.UsuarioControllerTests
-Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 3,75 sec
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,266 sec
 ------------- Standard Output ---------------
 --Output from testSomething--
 ------------- ---------------- ---------------
@@ -7,4 +7,4 @@ Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 3,75 sec
 --Output from testSomething--
 ------------- ---------------- ---------------
 
-Testcase: testSomething took 3,734 sec
+Testcase: testSomething took 0,25 sec

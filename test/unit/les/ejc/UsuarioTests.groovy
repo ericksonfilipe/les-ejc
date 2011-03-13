@@ -2,6 +2,7 @@ package les.ejc
 
 import grails.test.*
 
+
 class UsuarioTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
@@ -20,146 +21,151 @@ class UsuarioTests extends GrailsUnitTestCase {
 
 		
 		//usuario deve possuir pelo menos nome
-		def usuario_null = new Usuario(nomeCompleto:null, nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario_null = new Usuario(nomeCompleto:null, nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertFalse usuario_null.validate()
 		
 		
 		//nome completo nao deve ter caracteres especiais e numeros
-		def usuario_problemaNomeCompleto2 = new Usuario(nomeCompleto:"Janderson 1", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
-		assertFalse usuario_problemaNomeCompleto2.validate()
+		def usuario_problemaNomeCompleto1 = new Usuario(nomeCompleto:"Janderson 1", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertFalse usuario_problemaNomeCompleto1.validate()
 		
 		
 		//nome completo nao pode ser vazio
-		def usuario_problemaNomeCompleto1 = new Usuario(nomeCompleto:"", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
-		assertFalse usuario_J5Completo.validate()
-		
+		def usuario_problemaNomeCompleto2 = new Usuario(nomeCompleto:"", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertFalse usuario_problemaNomeCompleto2.validate()
+
 		
 		//pode ter soh o nome
-		def usuario_apenasNome = new Usuario(nomeCompleto:"Janderson J B A", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario_apenasNome = new Usuario(nomeCompleto:"Janderson J B A", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertTrue usuario_apenasNome.validate()
 		
 		
 		//exemplo de usuario com dados completos
-		data = newDate("22/03/1990")
-		def usuario_J5Completo = new Usuario(nomeCompleto:"Janderson J B A", nomeUsual:"Jason", dataDeNascimento:data,
-										endereco:"Santa Rosa ...", telefone:"99999999", email:"janderson@email.com", foto:null, 
-										paroquia:"Sao Cristovao", equipesTrabalhadas:"secretaria", observacoes:"",
-										status:ATIVO, tipo:Jovem, j5Atual:true)
+		def usuario_J5Completo = new Usuario(nomeCompleto:"Janderson J B A", nomeUsual:"Jason", dataDeNascimento:new Date("1990/03/22"),
+										endereco:new Endereco(rua:"Avenida Jose Martins",bairro:"Santa Rosa",cidade:"CG",estado:"PB"),
+										telefone:"8399999999", email:"janderson@email.com", foto:null, 
+										paroquia:"Sao Cristovao", equipesTrabalhadas:"secretaria", observacoes:"xxx",
+										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:true)
 		assertTrue usuario_J5Completo.validate()
 		
 		
 		//email deve ser valido
-		def usuario_problemaEmail = new Usuario(nomeCompleto:"Janderson", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:"email", foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario_problemaEmail = new Usuario(nomeCompleto:"Janderson", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:"email", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertFalse usuario_problemaEmail.validate()
 		
 		
 		//nome usual nao deve ter caracteres especiais e numeros
-		def usuario_problemaNomeUsual = new Usuario(nomeCompleto:"Janderson 1", nomeUsual:"123", dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario_problemaNomeUsual = new Usuario(nomeCompleto:"Janderson", nomeUsual:"123", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertFalse usuario_problemaNomeUsual.validate()
 		
 		
 		//nome da paroquia nao deve ter caracteres especiais e numeros
-		def usuario_problemaParoquia = new Usuario(nomeCompleto:"Janderson 1", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:"3 irmas", equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario_problemaParoquia = new Usuario(nomeCompleto:"Janderson", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"3 irmas", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertFalse usuario_problemaParoquia.validate()
 		
 		
 		//nome das equipes nao deve ter caracteres especiais e numeros
-		def usuario_problemaEquipes = new Usuario(nomeCompleto:"Janderson 1", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:"equipe A e equipe 10", observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario_problemaEquipes = new Usuario(nomeCompleto:"Janderson", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"equipe A e equipe 10", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertFalse usuario_problemaEquipes.validate()
 		
     }
 	
 	void testUnicidadeDeEmail() {
 		mockDomain Usuario, []
-		def usuario1 = new Usuario(nomeCompleto:"Maria Joao", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:"mariaj@email.com", foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario1 = new Usuario(nomeCompleto:"Maria Joao", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:"mariaj@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		usuario1.save()
-		def usuario2 = new Usuario(nomeCompleto:"Maria Jose", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:"mariaj@email.com", foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
+		def usuario2 = new Usuario(nomeCompleto:"Maria Jose", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:"mariaj@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertFalse usuario2.validate() // ja existe email mariaj@email.com
 	}
 	
 	void testNomeUsualAutomatico() {
 		mockDomain Usuario, []
-		def usuario1 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:null, tipo:null, j5Atual:null)
-		usuario1.save()
-		assertEquals usuario1.nomeUsual,"Janderson"
+		def usuario = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertTrue usuario.validate()
+		assertEquals "",usuario.nomeUsual
+		usuario.save()
+		assertEquals "Janderson",usuario.nomeUsual		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
 	}
 	
 	void testCriacaoLoginSenhaAutomatica() {
 		mockDomain Usuario, []
 		
 		
-		def usuario1 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:Status.IMPEDIDO, tipo:null, j5Atual:null)
+		def usuario1 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Impedido, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertTrue usuario1.validate()
 		usuario1.save()
-		//usuario nao ativo nao tem login/senha
-		assertEquals usuario1.login, null
-		assertEquals usuario1.senha, null
+		//usuario nao Ativo nao tem login/senha
+		assertEquals null, usuario1.login
+		assertEquals null, usuario1.senha
 		
 		
-		def usuario2 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:null, foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:Status.ATIVO, tipo:null, j5Atual:null)
+		def usuario2 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:null, foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertTrue usuario2.validate()
 		usuario2.save()
 		//usuario sem email cadastrado nao tem login/senha
-		assertEquals usuario2.login, null
-		assertEquals usuario2.senha, null
+		assertEquals null, usuario2.login
+		assertEquals null, usuario2.senha
 		
 		
-		def usuario3 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:null, dataDeNascimento:newDate("22/03/1990"),
-										endereco:null, telefone:null, email:"janderson_jason@yahoo.com.br", foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:Status.ATIVO, tipo:null, j5Atual:null)
+		def usuario3 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:new Date("1990/03/22"),
+										endereco:null, telefone:"", email:"aleatorio3@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertTrue usuario3.validate()
 		usuario3.save()
 		//usuario ok com login/senha
-		assertEquals usuario3.login, usuario3.email
-		assertEquals usuario3.senha, "Janderson1990"
+		assertEquals usuario3.email, usuario3.login			//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		assertEquals "Janderson1990", usuario3.senha		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
 		
 		
-		def usuario4 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:null, dataDeNascimento:null,
-										endereco:null, telefone:null, email:"janderson_jason@yahoo.com.br", foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:Status.ATIVO, tipo:null, j5Atual:null)
+		def usuario4 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:"aleatorio4@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertTrue usuario4.validate()
 		usuario4.save()
 		//usuario sem data de nascimento com login/senha
-		assertEquals usuario4.login, usuario4.email
-		assertEquals usuario4.senha, "Janderson" //ver como fica com data null
-
+		assertEquals usuario4.email, usuario4.login			//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		assertEquals "Janderson", usuario4.senha			//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
 	}
 	
 	void testEnvioDeEmailNotificandoLoginSenha() {
@@ -169,17 +175,18 @@ class UsuarioTests extends GrailsUnitTestCase {
 	void testAlteracaoDeSenha() {
 		mockDomain Usuario, []
 		
-		def usuario = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:null, dataDeNascimento:newDate("22/03/1990"),
-										endereco:null, telefone:null, email:"janderson_jason@yahoo.com.br", foto:null, 
-										paroquia:null, equipesTrabalhadas:null, observacoes:null,
-										status:Status.ATIVO, tipo:null, j5Atual:null)
+		def usuario = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:new Date("1990/03/22"),
+										endereco:null, telefone:"", email:"algumacoisa@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		assertTrue usuario.validate()
 		usuario.save()
-
-		assertEquals usuario.login, usuario3.email
-		assertEquals usuario.senha, "Janderson1990"
+		
+		assertEquals usuario.email, usuario.login		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		assertEquals "Janderson1990", usuario.senha		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
 		
 		usuario.alteraSenha("janderson123")
-		assertEquals usuario.senha, "janderson123"
+		assertEquals "janderson123", usuario.senha
 		
 	}
 	

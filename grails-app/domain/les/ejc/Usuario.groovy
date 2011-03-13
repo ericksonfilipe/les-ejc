@@ -21,22 +21,35 @@ class Usuario {
 
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
-        nomeUsual(size:2..40, matches:'([a-zA-Z]| )+')
-        dataDeNascimento()
+        nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
+        dataDeNascimento(nullable:true)
         endereco(nullable:true)
-        telefone(maxSize:10, minSize:10, matches:'([0-9])+')
-        email(email:true)
-        paroquia()
-        equipesTrabalhadas()
-        observacoes()
+        telefone(blank:true, maxSize:10, minSize:10, matches:'([0-9])+')
+        email(nullable:true, blank:false, email:true, unique:true)
+		foto(nullable:true)
+        paroquia(blank:true, matches:'([a-zA-Z]| )+')
+        equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
+        observacoes(blank:true, matches:'([a-zA-Z]| )+')
         j5Atual()
+		login(nullable:true)
+		senha(nullable:true)
     }
 	
     enum Status {
-	ATIVO, INATIVO
+	Ativo, Casado, Impedido, Sem_Contato
     }
 
     enum Tipo {
 	Jovem, Casal, Padre
     }
+	
+	public String getLogin(){ return login }
+	public String getSenha(){ return senha }
+	public setLogin(String novoLogin) { login = novoLogin }
+	public setSenha(String novaSenha) { senha = novaSenha }
+	
+	public alteraSenha(String novaSenha) { setSenha(novaSenha) } //alterar pra fazer testes de senha segura
+	
+	
+	
 }

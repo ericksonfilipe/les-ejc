@@ -21,14 +21,21 @@ class UsuarioController {
 
     def save = {
         def usuarioInstance = new Usuario(params)
-
-        //Se usuario tem email e eh cadastrado ATIVO, deve receber email com login e senha
-		if (usuarioInstance.status == Status.ATIVO && usuarioInstance.email != null) {
-			usuarioInstance.login = usuarioInstance.email
-			usuarioInstance.senha = usuarioInstance.nomeUsual + (usuarioInstance.dataDeNascimento?.year+1900)
+		
+		//Se usuario tem nomeUsual=="", deve ser o primeiro nome do usuario
+		if (usuarioInstance.nomeUsual.equals("")) {
+			usuarioInstance.nomeUsual = usuarioInstance.nomeCompleto.split(" ")[0]
+		}
+		
+        //Se usuario tem email e eh cadastrado Ativo, deve receber email com login e senha
+		if (usuarioInstance.status == Usuario.Status.Ativo && (!usuarioInstance.email.equals("") || usuarioInstance != null)) {
+			usuarioInstance.setLogin(usuarioInstance.email)
+			def novaSenha = usuarioInstance.nomeUsual
+			if (usuarioInstance.dataDeNascimento != null) { novaSenha += usuarioInstance.dataDeNascimento.year+1900 }
+			usuarioInstance.setSenha(novaSenha)
 			//enviarEmailParaUsuario
 		}
-
+		
         if (usuarioInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
             redirect(action: "show", id: usuarioInstance.id)

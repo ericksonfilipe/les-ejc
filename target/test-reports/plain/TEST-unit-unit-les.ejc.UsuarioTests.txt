@@ -1,5 +1,5 @@
 Testsuite: les.ejc.UsuarioTests
-Tests run: 7, Failures: 0, Errors: 4, Time elapsed: 6,75 sec
+Tests run: 7, Failures: 3, Errors: 0, Time elapsed: 10,969 sec
 ------------- Standard Output ---------------
 --Output from testConstraints--
 --Output from testUnicidadeDeEmail--
@@ -19,32 +19,25 @@ Tests run: 7, Failures: 0, Errors: 4, Time elapsed: 6,75 sec
 --Output from testEnvioDeEmailNotificandoAniversario--
 ------------- ---------------- ---------------
 
-Testcase: testConstraints took 5,563 sec
-	Caused an ERROR
-No such property: usuario_J5Completo for class: les.ejc.UsuarioTests
-groovy.lang.MissingPropertyException: No such property: usuario_J5Completo for class: les.ejc.UsuarioTests
-	at les.ejc.UsuarioTests.testConstraints(UsuarioTests.groovy:43)
+Testcase: testConstraints took 8,641 sec
+Testcase: testUnicidadeDeEmail took 1,047 sec
+Testcase: testNomeUsualAutomatico took 0,39 sec
+	FAILED
+junit.framework.ComparisonFailure: null expected:<[Janderson]> but was:<[]>
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:<[Janderson]> but was:<[]>
+	at les.ejc.UsuarioTests.testNomeUsualAutomatico(UsuarioTests.groovy:120)
 
-Testcase: testUnicidadeDeEmail took 0,344 sec
-Testcase: testNomeUsualAutomatico took 0,266 sec
-	Caused an ERROR
-No such property: nomeUsual for class: les.ejc.Usuario
-groovy.lang.MissingPropertyException: No such property: nomeUsual for class: les.ejc.Usuario
-	at les.ejc.UsuarioTests.testNomeUsualAutomatico(UsuarioTests.groovy:117)
-
-Testcase: testCriacaoLoginSenhaAutomatica took 0,36 sec
-	Caused an ERROR
-No such property: IMPEDIDO for class: les.ejc.Status
-groovy.lang.MissingPropertyException: No such property: IMPEDIDO for class: les.ejc.Status
-	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:124)
+Testcase: testCriacaoLoginSenhaAutomatica took 0,407 sec
+	FAILED
+junit.framework.ComparisonFailure: null expected:<aleatorio3@email.com> but was:<null>
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:<aleatorio3@email.com> but was:<null>
+	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:156)
 
 Testcase: testEnvioDeEmailNotificandoLoginSenha took 0,015 sec
-Testcase: testAlteracaoDeSenha took 0,078 sec
-	Caused an ERROR
-No signature of method: les.ejc.UsuarioTests.newDate() is applicable for argument types: (java.lang.String) values: [22/03/1990]
-Possible solutions: setName(java.lang.String), getName(), getName(), getAt(java.lang.String)
-groovy.lang.MissingMethodException: No signature of method: les.ejc.UsuarioTests.newDate() is applicable for argument types: (java.lang.String) values: [22/03/1990]
-Possible solutions: setName(java.lang.String), getName(), getName(), getAt(java.lang.String)
-	at les.ejc.UsuarioTests.testAlteracaoDeSenha(UsuarioTests.groovy:172)
+Testcase: testAlteracaoDeSenha took 0,141 sec
+	FAILED
+junit.framework.ComparisonFailure: null expected:<algumacoisa@email.com> but was:<null>
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:<algumacoisa@email.com> but was:<null>
+	at les.ejc.UsuarioTests.testAlteracaoDeSenha(UsuarioTests.groovy:185)
 
-Testcase: testEnvioDeEmailNotificandoAniversario took 0,016 sec
+Testcase: testEnvioDeEmailNotificandoAniversario took 0,015 sec

@@ -54,7 +54,7 @@
                                   <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento', 'errors')}">
-                                    <g:datePicker name="dataDeNascimento" precision="day" value="${usuarioInstance?.dataDeNascimento}"  />
+                                    <g:datePicker name="dataDeNascimento" precision="day" value="${usuarioInstance?.dataDeNascimento}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
                         
@@ -82,6 +82,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email', 'errors')}">
                                     <g:textField name="email" value="${usuarioInstance?.email}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="foto"><g:message code="usuario.foto.label" default="Foto" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foto', 'errors')}">
+                                    <input type="file" id="foto" name="foto" />
                                 </td>
                             </tr>
                         
@@ -123,10 +132,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="foto"><g:message code="usuario.foto.label" default="Foto" /></label>
+                                  <label for="login"><g:message code="usuario.login.label" default="Login" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foto', 'errors')}">
-                                    <input type="file" id="foto" name="foto" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'login', 'errors')}">
+                                    <g:textField name="login" value="${usuarioInstance?.login}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="senha"><g:message code="usuario.senha.label" default="Senha" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'senha', 'errors')}">
+                                    <g:textField name="senha" value="${usuarioInstance?.senha}" />
                                 </td>
                             </tr>
                         
