@@ -1,3 +1,4 @@
+--Output from testPersistencia--
 --Output from testConstraints--
 --Output from testUnicidadeDeEmail--
 --Output from testNomeUsualAutomatico--

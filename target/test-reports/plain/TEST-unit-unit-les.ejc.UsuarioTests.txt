@@ -1,6 +1,7 @@
 Testsuite: les.ejc.UsuarioTests
-Tests run: 7, Failures: 3, Errors: 0, Time elapsed: 10,969 sec
+Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 3,438 sec
 ------------- Standard Output ---------------
+--Output from testPersistencia--
 --Output from testConstraints--
 --Output from testUnicidadeDeEmail--
 --Output from testNomeUsualAutomatico--
@@ -10,6 +11,7 @@ Tests run: 7, Failures: 3, Errors: 0, Time elapsed: 10,969 sec
 --Output from testEnvioDeEmailNotificandoAniversario--
 ------------- ---------------- ---------------
 ------------- Standard Error -----------------
+--Output from testPersistencia--
 --Output from testConstraints--
 --Output from testUnicidadeDeEmail--
 --Output from testNomeUsualAutomatico--
@@ -19,25 +21,11 @@ Tests run: 7, Failures: 3, Errors: 0, Time elapsed: 10,969 sec
 --Output from testEnvioDeEmailNotificandoAniversario--
 ------------- ---------------- ---------------
 
-Testcase: testConstraints took 8,641 sec
-Testcase: testUnicidadeDeEmail took 1,047 sec
-Testcase: testNomeUsualAutomatico took 0,39 sec
-	FAILED
-junit.framework.ComparisonFailure: null expected:<[Janderson]> but was:<[]>
-junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:<[Janderson]> but was:<[]>
-	at les.ejc.UsuarioTests.testNomeUsualAutomatico(UsuarioTests.groovy:120)
-
-Testcase: testCriacaoLoginSenhaAutomatica took 0,407 sec
-	FAILED
-junit.framework.ComparisonFailure: null expected:<aleatorio3@email.com> but was:<null>
-junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:<aleatorio3@email.com> but was:<null>
-	at les.ejc.UsuarioTests.testCriacaoLoginSenhaAutomatica(UsuarioTests.groovy:156)
-
-Testcase: testEnvioDeEmailNotificandoLoginSenha took 0,015 sec
-Testcase: testAlteracaoDeSenha took 0,141 sec
-	FAILED
-junit.framework.ComparisonFailure: null expected:<algumacoisa@email.com> but was:<null>
-junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: null expected:<algumacoisa@email.com> but was:<null>
-	at les.ejc.UsuarioTests.testAlteracaoDeSenha(UsuarioTests.groovy:185)
-
-Testcase: testEnvioDeEmailNotificandoAniversario took 0,015 sec
+Testcase: testPersistencia took 2,36 sec
+Testcase: testConstraints took 0,359 sec
+Testcase: testUnicidadeDeEmail took 0,187 sec
+Testcase: testNomeUsualAutomatico took 0,094 sec
+Testcase: testCriacaoLoginSenhaAutomatica took 0,297 sec
+Testcase: testEnvioDeEmailNotificandoLoginSenha took 0 sec
+Testcase: testAlteracaoDeSenha took 0,078 sec
+Testcase: testEnvioDeEmailNotificandoAniversario took 0,016 sec

@@ -16,8 +16,8 @@ class Usuario {
     Tipo tipo
     boolean j5Atual
 	
-    private String login
-    private String senha
+    private String login = null
+    private String senha = null
 
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
@@ -31,25 +31,67 @@ class Usuario {
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
         j5Atual()
-		login(nullable:true)
-		senha(nullable:true)
     }
 	
     enum Status {
-	Ativo, Casado, Impedido, Sem_Contato
+		Ativo, Casado, Impedido, Sem_Contato
     }
 
     enum Tipo {
-	Jovem, Casal, Padre
+		Jovem, Casal, Padre
     }
 	
-	public String getLogin(){ return login }
-	public String getSenha(){ return senha }
-	public setLogin(String novoLogin) { login = novoLogin }
-	public setSenha(String novaSenha) { senha = novaSenha }
+	public String getLogin(){
+		return login
+	}
 	
-	public alteraSenha(String novaSenha) { setSenha(novaSenha) } //alterar pra fazer testes de senha segura
+	public setLogin(String novoLogin) {
+		login = novoLogin
+	}
 	
+	private String getSenha(){
+		return senha
+	}
 	
+	private setSenha(String novaSenha) {
+		senha = novaSenha
+	}
 	
+	/**
+	Altera a senha fazendo testes de senha segura - metodo a ser modificado dependendo do cliente
+	*/
+	public alteraSenha(String novaSenha) {
+		setSenha(novaSenha)
+	}
+	
+	/**
+	Uma vez que um usuario eh criado, testa se ele terah alguns preenchimentos automaticos
+	*/
+	public realizaCriacoesAutomaticas() {
+		geraNomeUsualAutomatico()
+		geraLoginSenhaAutomaticos()
+	}
+	
+	/**
+	Se usuario tem nomeUsual em branco, deve ser seu primeiro nome
+	*/
+	private geraNomeUsualAutomatico() {
+		if (nomeUsual.equals("")) {
+			nomeUsual = nomeCompleto.split(" ")[0]
+		}
+	}
+
+	/**
+	Se usuario tem email e eh cadastrado Ativo, deve receber email com login e senha
+	*/
+	private geraLoginSenhaAutomaticos() {
+        if (status == Status.Ativo && (email != null || email?.equals(""))) {
+			setLogin(email)
+			def novaSenha = nomeUsual
+			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.year+1900 }
+			setSenha(novaSenha)
+			//enviarEmailParaUsuario
+		}
+	}
+		
 }

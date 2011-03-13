@@ -12,6 +12,40 @@ class UsuarioTests extends GrailsUnitTestCase {
         super.tearDown()
     }
 
+	
+	
+    void testPersistencia() {
+		mockDomain Usuario, []
+		
+        new Usuario(nomeCompleto:"pessoa um", nomeUsual:"", dataDeNascimento:null,
+					endereco:null, telefone:"", email:null, foto:null, 
+					paroquia:"", equipesTrabalhadas:"", observacoes:"",
+					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false).save()
+		assert 1 == Usuario.count()
+        new Usuario(nomeCompleto:"pessoa dois", nomeUsual:"", dataDeNascimento:null,
+					endereco:null, telefone:"", email:null, foto:null, 
+					paroquia:"", equipesTrabalhadas:"", observacoes:"",
+					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false).save()
+		assert 2 == Usuario.count()
+        new Usuario(nomeCompleto:"pessoa tres", nomeUsual:"", dataDeNascimento:null,
+					endereco:null, telefone:"", email:null, foto:null, 
+					paroquia:"", equipesTrabalhadas:"", observacoes:"",
+					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false).save()
+		assert 3 == Usuario.count()
+        new Usuario(nomeCompleto:"pessoa invalida", nomeUsual:"", dataDeNascimento:null,
+					endereco:null, telefone:"", email:"invalido", foto:null, 
+					paroquia:"", equipesTrabalhadas:"", observacoes:"",
+					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false).save()
+		assert 3 == Usuario.count()
+		new Usuario(nomeCompleto:"pessoa quatro", nomeUsual:"", dataDeNascimento:null,
+					endereco:null, telefone:"", email:null, foto:null, 
+					paroquia:"", equipesTrabalhadas:"", observacoes:"",
+					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false).save()
+		assert 4 == Usuario.count()
+    }
+
+
+	
     void testConstraints() {
 		mockDomain Usuario
 		
@@ -117,7 +151,8 @@ class UsuarioTests extends GrailsUnitTestCase {
 		assertTrue usuario.validate()
 		assertEquals "",usuario.nomeUsual
 		usuario.save()
-		assertEquals "Janderson",usuario.nomeUsual		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		usuario.realizaCriacoesAutomaticas()
+		assertEquals "Janderson",usuario.nomeUsual
 	}
 	
 	void testCriacaoLoginSenhaAutomatica() {
@@ -130,6 +165,8 @@ class UsuarioTests extends GrailsUnitTestCase {
 										status:Usuario.Status.Impedido, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertTrue usuario1.validate()
 		usuario1.save()
+		usuario1.realizaCriacoesAutomaticas()
+		
 		//usuario nao Ativo nao tem login/senha
 		assertEquals null, usuario1.login
 		assertEquals null, usuario1.senha
@@ -141,6 +178,8 @@ class UsuarioTests extends GrailsUnitTestCase {
 										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertTrue usuario2.validate()
 		usuario2.save()
+		usuario2.realizaCriacoesAutomaticas()
+		
 		//usuario sem email cadastrado nao tem login/senha
 		assertEquals null, usuario2.login
 		assertEquals null, usuario2.senha
@@ -152,9 +191,11 @@ class UsuarioTests extends GrailsUnitTestCase {
 										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertTrue usuario3.validate()
 		usuario3.save()
+		usuario3.realizaCriacoesAutomaticas()
+		
 		//usuario ok com login/senha
-		assertEquals usuario3.email, usuario3.login			//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
-		assertEquals "Janderson1990", usuario3.senha		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		assertEquals usuario3.email, usuario3.login
+		assertEquals "Janderson1990", usuario3.senha
 		
 		
 		def usuario4 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:null,
@@ -163,9 +204,11 @@ class UsuarioTests extends GrailsUnitTestCase {
 										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertTrue usuario4.validate()
 		usuario4.save()
+		usuario4.realizaCriacoesAutomaticas()
+		
 		//usuario sem data de nascimento com login/senha
-		assertEquals usuario4.email, usuario4.login			//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
-		assertEquals "Janderson", usuario4.senha			//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		assertEquals usuario4.email, usuario4.login
+		assertEquals "Janderson", usuario4.senha
 	}
 	
 	void testEnvioDeEmailNotificandoLoginSenha() {
@@ -181,9 +224,10 @@ class UsuarioTests extends GrailsUnitTestCase {
 										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
 		assertTrue usuario.validate()
 		usuario.save()
+		usuario.realizaCriacoesAutomaticas()
 		
-		assertEquals usuario.email, usuario.login		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
-		assertEquals "Janderson1990", usuario.senha		//pega qd se testa pelo browser - RESOLVER E TIRAR ESSE COMENTARIO!
+		assertEquals usuario.email, usuario.login
+		assertEquals "Janderson1990", usuario.senha
 		
 		usuario.alteraSenha("janderson123")
 		assertEquals "janderson123", usuario.senha

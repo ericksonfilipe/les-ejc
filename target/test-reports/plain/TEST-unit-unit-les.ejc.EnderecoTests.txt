@@ -1,5 +1,5 @@
-Testsuite: les.ejc.SenderServiceTests
-Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,031 sec
+Testsuite: les.ejc.EnderecoTests
+Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,016 sec
 ------------- Standard Output ---------------
 --Output from testSomething--
 ------------- ---------------- ---------------
