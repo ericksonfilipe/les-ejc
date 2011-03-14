@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="lcc2-13" name="les.ejc.EnderecoControllerTests" tests="1" time="0.738" timestamp="2011-03-14T15:45:19">
+<testsuite errors="0" failures="0" hostname="lcc2-17" name="les.ejc.EnderecoControllerTests" tests="1" time="0.824" timestamp="2011-03-14T16:59:18">
   <properties />
-  <testcase classname="les.ejc.EnderecoControllerTests" name="testSomething" time="0.734" />
+  <testcase classname="les.ejc.EnderecoControllerTests" name="testSomething" time="0.818" />
   <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
   <system-err><![CDATA[--Output from testSomething--

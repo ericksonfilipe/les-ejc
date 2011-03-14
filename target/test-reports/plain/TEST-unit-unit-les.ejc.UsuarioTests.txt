@@ -1,5 +1,5 @@
 Testsuite: les.ejc.UsuarioTests
-Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 1,564 sec
+Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 1,686 sec
 ------------- Standard Output ---------------
 --Output from testPersistencia--
 --Output from testConstraints--
@@ -25,13 +25,13 @@ Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 1,564 sec
 --Output from testEnvioDeEmailNotificandoAniversario--
 ------------- ---------------- ---------------
 
-Testcase: testPersistencia took 1,135 sec
-Testcase: testConstraints took 0,19 sec
-Testcase: testUnicidadeDeEmail took 0,043 sec
-Testcase: testRemocaoUsuario took 0,021 sec
-Testcase: testAtualizacaoDadosUsuario took 0,036 sec
-Testcase: testNomeUsualAutomatico took 0,025 sec
-Testcase: testCriacaoLoginSenhaAutomatica took 0,062 sec
-Testcase: testEnvioDeEmailNotificandoLoginSenha took 0,004 sec
-Testcase: testAlteracaoDeSenha took 0,028 sec
-Testcase: testEnvioDeEmailNotificandoAniversario took 0,004 sec
+Testcase: testPersistencia took 1,228 sec
+Testcase: testConstraints took 0,123 sec
+Testcase: testUnicidadeDeEmail took 0,066 sec
+Testcase: testRemocaoUsuario took 0,037 sec
+Testcase: testAtualizacaoDadosUsuario took 0,056 sec
+Testcase: testNomeUsualAutomatico took 0,031 sec
+Testcase: testCriacaoLoginSenhaAutomatica took 0,079 sec
+Testcase: testEnvioDeEmailNotificandoLoginSenha took 0,005 sec
+Testcase: testAlteracaoDeSenha took 0,035 sec
+Testcase: testEnvioDeEmailNotificandoAniversario took 0,006 sec
