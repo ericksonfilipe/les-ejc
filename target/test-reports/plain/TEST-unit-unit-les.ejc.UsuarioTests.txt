@@ -1,0 +1,37 @@
+Testsuite: les.ejc.UsuarioTests
+Tests run: 10, Failures: 0, Errors: 0, Time elapsed: 6,547 sec
+------------- Standard Output ---------------
+--Output from testPersistencia--
+--Output from testConstraints--
+--Output from testUnicidadeDeEmail--
+--Output from testRemocaoUsuario--
+--Output from testAtualizacaoDadosUsuario--
+--Output from testNomeUsualAutomatico--
+--Output from testCriacaoLoginSenhaAutomatica--
+--Output from testEnvioDeEmailNotificandoLoginSenha--
+--Output from testAlteracaoDeSenha--
+--Output from testEnvioDeEmailNotificandoAniversario--
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+--Output from testPersistencia--
+--Output from testConstraints--
+--Output from testUnicidadeDeEmail--
+--Output from testRemocaoUsuario--
+--Output from testAtualizacaoDadosUsuario--
+--Output from testNomeUsualAutomatico--
+--Output from testCriacaoLoginSenhaAutomatica--
+--Output from testEnvioDeEmailNotificandoLoginSenha--
+--Output from testAlteracaoDeSenha--
+--Output from testEnvioDeEmailNotificandoAniversario--
+------------- ---------------- ---------------
+
+Testcase: testPersistencia took 3,953 sec
+Testcase: testConstraints took 0,828 sec
+Testcase: testUnicidadeDeEmail took 0,531 sec
+Testcase: testRemocaoUsuario took 0,25 sec
+Testcase: testAtualizacaoDadosUsuario took 0,328 sec
+Testcase: testNomeUsualAutomatico took 0,219 sec
+Testcase: testCriacaoLoginSenhaAutomatica took 0,234 sec
+Testcase: testEnvioDeEmailNotificandoLoginSenha took 0 sec
+Testcase: testAlteracaoDeSenha took 0,062 sec
+Testcase: testEnvioDeEmailNotificandoAniversario took 0,016 sec

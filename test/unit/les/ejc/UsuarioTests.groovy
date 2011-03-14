@@ -142,6 +142,37 @@ class UsuarioTests extends GrailsUnitTestCase {
 		assertFalse usuario2.validate() // ja existe email mariaj@email.com
 	}
 	
+		
+	void testRemocaoUsuario() {
+		mockDomain Usuario, []
+		def usuario = new Usuario(nomeCompleto:"Maria Joao", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:"mariaj@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		usuario.save()
+		assert 1 == Usuario.count()
+		usuario.delete()
+		assert 0 == Usuario.count()
+	}
+	
+		
+	void testAtualizacaoDadosUsuario() {
+		mockDomain Usuario, []
+		def usuario = new Usuario(nomeCompleto:"Maria Joao", nomeUsual:"", dataDeNascimento:null,
+										endereco:null, telefone:"", email:"mariaj@email.com", foto:null, 
+										paroquia:"", equipesTrabalhadas:"", observacoes:"",
+										status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:false)
+		usuario.save()
+		assertTrue usuario.validate()
+		usuario.nomeUsual = "Mari"
+		usuario.save()
+		assertEquals "Mari", usuario.nomeUsual
+		usuario.nomeUsual = "Mari100%"
+		usuario.save()
+		assertFalse usuario.validate()
+	}
+	
+	
 	void testNomeUsualAutomatico() {
 		mockDomain Usuario, []
 		def usuario = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:null,
