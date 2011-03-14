@@ -25,13 +25,13 @@ class Usuario {
         dataDeNascimento(nullable:true)
         endereco(nullable:true)
         telefone(blank:true, maxSize:10, minSize:10, matches:'([0-9])+')
-        email(nullable:true, blank:false, email:true, unique:true)
+        email(nullable:true, email:true, unique:true)
 		foto(nullable:true)
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
-		senha(nullable:true, blank:false)
-		login(nullable:true, blank:false)
+		senha(nullable:true)
+		login(nullable:true)
 		
         j5Atual()
     }

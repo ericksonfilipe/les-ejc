@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Janderson_Jason" name="les.ejc.EnderecoControllerTests" tests="1" time="2.672" timestamp="2011-03-13T17:07:20">
-  <properties />
-  <testcase classname="les.ejc.EnderecoControllerTests" name="testSomething" time="2.656" />
-  <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-  <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-</testsuite>
