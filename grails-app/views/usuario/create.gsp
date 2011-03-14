@@ -120,7 +120,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-<<<<<<< local
                                     <label for="senha"><g:message code="usuario.senha.label" default="Senha" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'senha', 'errors')}">
@@ -139,8 +138,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-=======
->>>>>>> other
                                     <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'j5Atual', 'errors')}">

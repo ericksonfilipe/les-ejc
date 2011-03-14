@@ -98,7 +98,6 @@
                         </tr>
                     
                         <tr class="prop">
-<<<<<<< local
                             <td valign="top" class="name"><g:message code="usuario.senha.label" default="Senha" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "senha")}</td>
@@ -113,8 +112,6 @@
                         </tr>
                     
                         <tr class="prop">
-=======
->>>>>>> other
                             <td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></td>
                             
                             <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.j5Atual}" /></td>
