@@ -9,18 +9,16 @@ class AniversarioJob {
 
     def execute() {
 		def usuarios = Usuario.list()
-		Date data = new Date()
-		println("${data.day}")
+		Calendar data = new GregorianCalendar()
 		for (int i in 0..<usuarios.size()) {
-			if ( usuarios[i]?.dataDeNascimento?.day == data.day && usuarios[i]?.dataDeNascimento?.month == data.month ) {
+			Calendar dataUsuario = usuarios[i].dataDeNascimento
+			if ( dataUsuario?.get(Calendar.DAY_OF_MONTH) == data.get(Calendar.DAY_OF_MONTH) && dataUsuario?.get(Calendar.MONTH) == data.get(Calendar.MONTH) ) {
 				String mensagem = """Parabens, ${usuarios[i].nomeCompleto}!
 O EJC da Paroquia de Sao Cristovao o(a) felicita por mais um ano de vida.
 Deus o(a) abencoe cada vez mais.
 Abracos!
 """
-				println("enviar email diario de aniversario...")
 				senderService.enviaEmail(usuarios[i].email, "Feliz Aniversario", mensagem)
-				println("envio para ${usuarios[i].nomeUsual} ok!")
 			}
 		}
     }

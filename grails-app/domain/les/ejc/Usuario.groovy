@@ -4,7 +4,7 @@ class Usuario {
 
     String nomeCompleto
     String nomeUsual
-    Date dataDeNascimento
+    Calendar dataDeNascimento
     Endereco endereco
     String telefone
     String email
