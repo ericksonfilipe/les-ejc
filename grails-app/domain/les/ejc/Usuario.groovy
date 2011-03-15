@@ -91,7 +91,7 @@ class Usuario {
         if (status == Status.Ativo && (email != null)) {
 			setLogin(email)
 			def novaSenha = nomeUsual
-			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.year+1900 }
+			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.get(Calendar.YEAR) }
 			setSenha(novaSenha)
 		}
 	}

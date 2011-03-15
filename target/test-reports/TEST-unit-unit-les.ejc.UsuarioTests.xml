@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="lcc2-17" name="les.ejc.UsuarioTests" tests="10" time="1.686" timestamp="2011-03-14T16:59:16">
+<testsuite errors="0" failures="0" hostname="Erickson-PC" name="les.ejc.UsuarioTests" tests="10" time="0.778" timestamp="2011-03-15T22:33:34">
   <properties />
-  <testcase classname="les.ejc.UsuarioTests" name="testPersistencia" time="1.226" />
-  <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="0.123" />
-  <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="0.066" />
-  <testcase classname="les.ejc.UsuarioTests" name="testRemocaoUsuario" time="0.037" />
-  <testcase classname="les.ejc.UsuarioTests" name="testAtualizacaoDadosUsuario" time="0.056" />
-  <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.031" />
-  <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.079" />
-  <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoLoginSenha" time="0.0050" />
-  <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.035" />
-  <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.0060" />
+  <testcase classname="les.ejc.UsuarioTests" name="testPersistencia" time="0.518" />
+  <testcase classname="les.ejc.UsuarioTests" name="testConstraints" time="0.08" />
+  <testcase classname="les.ejc.UsuarioTests" name="testUnicidadeDeEmail" time="0.028" />
+  <testcase classname="les.ejc.UsuarioTests" name="testRemocaoUsuario" time="0.018" />
+  <testcase classname="les.ejc.UsuarioTests" name="testAtualizacaoDadosUsuario" time="0.03" />
+  <testcase classname="les.ejc.UsuarioTests" name="testNomeUsualAutomatico" time="0.017" />
+  <testcase classname="les.ejc.UsuarioTests" name="testCriacaoLoginSenhaAutomatica" time="0.051" />
+  <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoLoginSenha" time="0.0030" />
+  <testcase classname="les.ejc.UsuarioTests" name="testAlteracaoDeSenha" time="0.021" />
+  <testcase classname="les.ejc.UsuarioTests" name="testEnvioDeEmailNotificandoAniversario" time="0.0030" />
   <system-out><![CDATA[--Output from testPersistencia--
 --Output from testConstraints--
 --Output from testUnicidadeDeEmail--

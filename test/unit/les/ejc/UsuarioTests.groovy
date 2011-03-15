@@ -216,7 +216,7 @@ class UsuarioTests extends GrailsUnitTestCase {
 		assertEquals null, usuario2.senha
 		
 		
-		def usuario3 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:new Date("1990/03/22"),
+		def usuario3 = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:new GregorianCalendar(1990, Calendar.MARCH, 22),
 										endereco:null, telefone:"", email:"aleatorio3@email.com", foto:null, 
 										paroquia:"", equipesTrabalhadas:"", observacoes:"",
 										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
@@ -249,7 +249,7 @@ class UsuarioTests extends GrailsUnitTestCase {
 	void testAlteracaoDeSenha() {
 		mockDomain Usuario, []
 		
-		def usuario = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:new Date("1990/03/22"),
+		def usuario = new Usuario(nomeCompleto:"Janderson Jason", nomeUsual:"", dataDeNascimento:new GregorianCalendar(1990, Calendar.MARCH, 22),
 										endereco:null, telefone:"", email:"algumacoisa@email.com", foto:null, 
 										paroquia:"", equipesTrabalhadas:"", observacoes:"",
 										status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false)
