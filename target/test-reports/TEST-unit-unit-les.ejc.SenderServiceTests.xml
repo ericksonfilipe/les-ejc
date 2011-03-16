@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Erickson-PC" name="les.ejc.SenderServiceTests" tests="1" time="0.0090" timestamp="2011-03-15T22:33:34">
-  <properties />
-  <testcase classname="les.ejc.SenderServiceTests" name="testSomething" time="0.0040" />
-  <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-  <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-</testsuite>

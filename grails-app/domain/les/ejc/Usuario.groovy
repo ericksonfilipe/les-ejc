@@ -19,6 +19,8 @@ class Usuario {
     private String login
     private String senha
 
+	static hasMany = [entry:Entry]
+
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
@@ -30,8 +32,8 @@ class Usuario {
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
-		senha(nullable:true)
-		login(nullable:true)
+		senha(nullable:true, password:true)
+		login(nullable:true, unique:true)
 		
         j5Atual()
     }
@@ -94,6 +96,10 @@ class Usuario {
 			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.get(Calendar.YEAR) }
 			setSenha(novaSenha)
 		}
+	}
+
+	String toString() {
+		return "${nomeCompleto}";
 	}
 		
 }

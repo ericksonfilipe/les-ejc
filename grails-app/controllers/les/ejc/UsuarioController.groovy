@@ -10,6 +10,26 @@ class UsuarioController {
         redirect(action: "list", params: params)
     }
 
+	def login = {}
+
+	def authenticate = {
+		def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)
+		if (usuario) {
+			session.user = usuario
+			flash.message = "Hello ${usuario.nomeUsual}!"
+			redirect(controller:"usuario", action:"list")
+		} else {
+			flash.message = "Sorry, ${params.login}. Please try again."
+			redirect(action:"login")
+		}
+	}
+
+	def logout = {
+		flash.message = "Goodbye ${session.user.nomeUsual}"
+		session.user = null
+		redirect(controller:"usuario", action:"login")
+	}
+
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]

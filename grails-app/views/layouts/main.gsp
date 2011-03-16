@@ -6,6 +6,11 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <g:javascript library="application" />
+		<div id="header">
+		  <div id="loginHeader">
+			<g:loginControl />
+		  </div>
+		</div>
     </head>
     <body>
         <div id="spinner" class="spinner" style="display:none;">
