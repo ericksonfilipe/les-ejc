@@ -19,9 +19,7 @@ class Usuario {
     private String login
     private String senha
 
-	static hasMany = [entry:Entry]
-
-    static constraints = {
+	static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
         dataDeNascimento(nullable:true)
