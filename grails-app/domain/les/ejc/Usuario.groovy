@@ -19,29 +19,40 @@ class Usuario {
     private String login
     private String senha
 
-	static constraints = {
+    /*
+    static has = [circuloOrigem:Circulo]
+    static mapping = {
+        circuloOrigem column:'usuario_id', joinTable:'usuario_nomeCirculo'
+    }
+
+    static hasMany = [equipesQueTrabalhou:EquipesDeTrabalho]
+    static mapping = {
+        equipesQueTrabalhou column:'usuario_id', joinTable:'usuario_nomeEquipe'
+    }
+    */
+
+    static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
         dataDeNascimento(nullable:true)
         endereco(nullable:true)
         telefone(blank:true, maxSize:10, minSize:10, matches:'([0-9])+')
         email(nullable:true, email:true, unique:true)
-		foto(nullable:true)
+	foto(nullable:true)
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
-		senha(nullable:true, password:true)
-		login(nullable:true, unique:true)
-		
-        j5Atual()
+	senha(nullable:true, password:true)
+	login(nullable:true, unique:true)
+	j5Atual()
     }
 	
     enum Status {
-		Ativo, Casado, Impedido, Sem_Contato
+	Ativo, Casado, Impedido, Sem_Contato
     }
 
     enum Tipo {
-		Jovem, Casal, Padre
+	Jovem, Casal, Padre
     }
 	
 	public String getLogin(){
