@@ -39,10 +39,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="nome"><g:message code="circulo.nome.label" default="Nome" /></label>
+                                    <label for="nomeCirculo"><g:message code="circulo.nomeCirculo.label" default="Nome Circulo" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'nome', 'errors')}">
-                                    <g:textField name="nome" value="${circuloInstance?.nome}" />
+                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'nomeCirculo', 'errors')}">
+                                    <g:textField name="nomeCirculo" value="${circuloInstance?.nomeCirculo}" />
                                 </td>
                             </tr>
                         
@@ -66,10 +66,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="participantes"><g:message code="circulo.participantes.label" default="Participantes" /></label>
+                                    <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'participantes', 'errors')}">
-                                    
+                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
+                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
                                 </td>
                             </tr>
                         

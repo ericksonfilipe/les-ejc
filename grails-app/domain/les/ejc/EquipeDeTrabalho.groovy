@@ -3,23 +3,13 @@ package les.ejc
 class EquipeDeTrabalho {
 
     NomeEquipe nomeEquipe
-    //Usuario[] participantes
     Usuario jovemCoordenador1
     Usuario jovemCoordenador2
     Usuario casalCoordenador
 
-    /*
-    static hasMany = [participantes:Usuario]
-    static belongsTo = Usuario
-    static mapping = {
-        participantes column:'equipeDeTrabalho', joinTable:'usuario_nomeEquipe'
-    }
+    static hasMany = [ encontreiros : Usuario ]
 
-    static has = [encontro:Encontro]
-    static mapping = {
-        encontro column:'equipeDeTrabalho_id', joinTable:'equipeDeTrabalho_tema'
-    }
-    */
+    static belongsTo = [ encontro : Encontro ]
 
     static constraints = {
         nomeEquipe(nullable:false)
@@ -30,7 +20,6 @@ class EquipeDeTrabalho {
     }
 
     enum NomeEquipe {
-        DIRIGENTE_ESPIRITUAL,
         COORDENACAO_GERAL,
         J5,
         COORDENACAO_DE_CIRCULOS,

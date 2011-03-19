@@ -67,6 +67,24 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="encontreiros"><g:message code="equipeDeTrabalho.encontreiros.label" default="Encontreiros" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: equipeDeTrabalhoInstance, field: 'encontreiros', 'errors')}">
+                                    <g:select name="encontreiros" from="${les.ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${equipeDeTrabalhoInstance?.encontreiros*.id}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="encontro"><g:message code="equipeDeTrabalho.encontro.label" default="Encontro" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: equipeDeTrabalhoInstance, field: 'encontro', 'errors')}">
+                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${equipeDeTrabalhoInstance?.encontro?.id}"  />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>
