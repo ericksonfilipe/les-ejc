@@ -11,13 +11,9 @@ class Circulo {
 
     static hasMany = [ participantes : Usuario ]
 
-    //static mapping = {
-    //    sort nomeCirculo:"desc"
-    //}
-
     static constraints = {
-        cor(nullable:false)
-        nomeCirculo(nullable:false)
+        cor(nullable:false, editable:false)
+        nomeCirculo(nullable:false, blank:false)
         jovemCoordenador(nullable:false, tipo: Usuario.Tipo.Jovem)
         casalApoio(nullable:false, tipo: Usuario.Tipo.Casal)
     }
@@ -32,4 +28,5 @@ class Circulo {
         Lilas,
         Marrom
     }
+
 }

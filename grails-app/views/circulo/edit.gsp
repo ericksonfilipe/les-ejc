@@ -69,19 +69,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="participantes"><g:message code="circulo.participantes.label" default="Participantes" /></label>
+                                  <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'participantes', 'errors')}">
-                                    <g:select name="participantes" from="${les.ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${circuloInstance?.participantes*.id}" />
+                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
+                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
+                                  <label for="participantes"><g:message code="circulo.participantes.label" default="Participantes" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
-                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
+                                <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'participantes', 'errors')}">
+                                    <g:select name="participantes" from="${les.ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${circuloInstance?.participantes*.id}" />
                                 </td>
                             </tr>
                         

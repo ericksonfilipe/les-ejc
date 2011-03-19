@@ -9,26 +9,17 @@ class CirculoController {
     }
 
     def list = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [circuloInstanceList: Circulo.list(params), circuloInstanceTotal: Circulo.count()]
     }
 
     def create = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         def circuloInstance = new Circulo()
         circuloInstance.properties = params
         return [circuloInstance: circuloInstance]
     }
 
     def save = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         def circuloInstance = new Circulo(params)
         if (circuloInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'circulo.label', default: 'Circulo'), circuloInstance.id])}"
@@ -40,9 +31,6 @@ class CirculoController {
     }
 
     def show = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         def circuloInstance = Circulo.get(params.id)
         if (!circuloInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'circulo.label', default: 'Circulo'), params.id])}"
@@ -54,9 +42,6 @@ class CirculoController {
     }
 
     def edit = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         def circuloInstance = Circulo.get(params.id)
         if (!circuloInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'circulo.label', default: 'Circulo'), params.id])}"
@@ -68,9 +53,6 @@ class CirculoController {
     }
 
     def update = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         def circuloInstance = Circulo.get(params.id)
         if (circuloInstance) {
             if (params.version) {
@@ -98,9 +80,6 @@ class CirculoController {
     }
 
     def delete = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
-		}
         def circuloInstance = Circulo.get(params.id)
         if (circuloInstance) {
             try {

@@ -70,6 +70,19 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="encontro.equipesDeTrabalho.label" default="Equipes De Trabalho" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${encontroInstance.equipesDeTrabalho}" var="e">
+                                    <li><g:link controller="equipeDeTrabalho" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>
