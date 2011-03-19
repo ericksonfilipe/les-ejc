@@ -39,24 +39,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="circulos"><g:message code="encontro.circulos.label" default="Circulos" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'circulos', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="equipes"><g:message code="encontro.equipes.label" default="Equipes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'equipes', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="data"><g:message code="encontro.data.label" default="Data" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'data', 'errors')}">

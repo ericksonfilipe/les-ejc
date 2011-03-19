@@ -4,22 +4,16 @@ class Circulo {
 
     Cor cor
     String nomeCirculo
-    //Usuario[] participantes
     Usuario jovemCoordenador
     Usuario casalApoio
 
-    /*
-    static hasMany = [participantes:Usuario]
-    static belongsTo = Usuario
-    static mapping = {
-        participantes column:'circulo', joinTable:'usuario_nomeCirculo'
-    }
+    static belongsTo = [ encontro : Encontro ]
 
-    static has = [encontro:Encontro]
-    static mapping = {
-        encontro column:'circulo_id', joinTable:'circulo_tema'
-    }
-    */
+    static hasMany = [ participantes : Usuario ]
+
+    //static mapping = {
+    //    sort nomeCirculo:"desc"
+    //}
 
     static constraints = {
         cor(nullable:false)
