@@ -1,0 +1,28 @@
+#files ignored by mercurial
+syntax: glob
+
+#personal config files ignored
+build-local.properties
+seam-gen-local.properties
+
+#.hiddenfiles
+.metadata/*
+.classpath
+
+#ending with
+*.orig
+*~
+*.swp
+*.class
+*.pyc
+*.spdia
+cookielib
+
+#folders to ignore
+target/*
+exploded-archives/*
+test-build/*
+classes/*
+test-report/*
+test-output/*
+dist/*
