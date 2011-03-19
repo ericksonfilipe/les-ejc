@@ -2,7 +2,16 @@ package les.ejc
 
 class AppController {
 
-	def login = {}
+	def index = {
+		if (session.user) {
+			render(view:'../index')
+		} else {
+			redirect(action:"login")
+		}
+	}
+
+	def login = {
+	}
 
 	def authenticate = {
 		def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)

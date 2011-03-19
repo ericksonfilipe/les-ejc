@@ -9,7 +9,7 @@ class UrlMappings {
 
 		"/" {
 			controller = "app"
-			action = "login"
+			action = "index"
 		}
 		"500"(view:'/error')
 	}
