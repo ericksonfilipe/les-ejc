@@ -16,7 +16,7 @@
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
-        <div id="logo">Sistema de Gerenciamento do EJC da Paroquia Sao Cristovao</div>
+        <div id="logo"><a href="${createLink(uri: '/index.gsp')}"><g:message code="nomeSistema"/></a></div>
         <g:layoutBody />
     </body>
 </html>
