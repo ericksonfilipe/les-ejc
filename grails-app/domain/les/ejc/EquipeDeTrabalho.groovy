@@ -15,8 +15,7 @@ class EquipeDeTrabalho {
         nomeEquipe(nullable:false)
         jovemCoordenador1(nullable:true, tipo: Usuario.Tipo.Jovem)
         jovemCoordenador2(nullable:true, tipo: Usuario.Tipo.Jovem)
-        casalCoordenador(nullable:true, tipo: Usuario.Tipo.Casal)
-        //Deve-se ter pelo menos um coordenador por equipe.
+        casalCoordenador(nullable:true, tipo: Usuario.Tipo.Casal)    
     }
 
     enum NomeEquipe {

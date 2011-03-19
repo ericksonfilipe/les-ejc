@@ -58,6 +58,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="circulo.encontro.label" default="Encontro" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">${circuloInstance?.encontro?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="circulo.participantes.label" default="Participantes" /></td>
                             
                             <td valign="top" style="text-align: left;" class="value">
@@ -67,13 +74,6 @@
                                 </g:each>
                                 </ul>
                             </td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="circulo.encontro.label" default="Encontro" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">${circuloInstance?.encontro?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
