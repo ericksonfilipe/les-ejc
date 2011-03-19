@@ -32,6 +32,8 @@
                         
                             <th><g:message code="equipeDeTrabalho.casalCoordenador.label" default="Casal Coordenador" /></th>
                         
+                            <th><g:message code="equipeDeTrabalho.encontro.label" default="Encontro" /></th>
+                        
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +49,8 @@
                             <td>${fieldValue(bean: equipeDeTrabalhoInstance, field: "jovemCoordenador2")}</td>
                         
                             <td>${fieldValue(bean: equipeDeTrabalhoInstance, field: "casalCoordenador")}</td>
+                        
+                            <td>${fieldValue(bean: equipeDeTrabalhoInstance, field: "encontro")}</td>
                         
                         </tr>
                     </g:each>

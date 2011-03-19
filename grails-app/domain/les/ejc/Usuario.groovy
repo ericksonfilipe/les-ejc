@@ -19,17 +19,6 @@ class Usuario {
     private String login
     private String senha
 
-    /*
-    static has = [circuloOrigem:Circulo]
-    static mapping = {
-        circuloOrigem column:'usuario_id', joinTable:'usuario_nomeCirculo'
-    }
-
-    static hasMany = [equipesQueTrabalhou:EquipesDeTrabalho]
-    static mapping = {
-        equipesQueTrabalhou column:'usuario_id', joinTable:'usuario_nomeEquipe'
-    }
-    */
 
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
