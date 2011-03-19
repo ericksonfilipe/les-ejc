@@ -37,16 +37,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="encontro.circulos.label" default="Circulos" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="encontro.equipes.label" default="Equipes" /></td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="encontro.data.label" default="Data" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${encontroInstance?.data}" /></td>
@@ -64,6 +54,19 @@
                             <td valign="top" class="name"><g:message code="encontro.local.label" default="Local" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: encontroInstance, field: "local")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="encontro.circulos.label" default="Circulos" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${encontroInstance.circulos}" var="c">
+                                    <li><g:link controller="circulo" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
                             
                         </tr>
                     

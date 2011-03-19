@@ -37,9 +37,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="circulo.nome.label" default="Nome" /></td>
+                            <td valign="top" class="name"><g:message code="circulo.nomeCirculo.label" default="Nome Circulo" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: circuloInstance, field: "nome")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: circuloInstance, field: "nomeCirculo")}</td>
                             
                         </tr>
                     
@@ -59,6 +59,21 @@
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="circulo.participantes.label" default="Participantes" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${circuloInstance.participantes}" var="p">
+                                    <li><g:link controller="usuario" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="circulo.encontro.label" default="Encontro" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">${circuloInstance?.encontro?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
