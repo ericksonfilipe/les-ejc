@@ -26,13 +26,11 @@
                         
                             <th><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></th>
                         
-                            <g:sortableColumn property="circulos" title="${message(code: 'encontro.circulos.label', default: 'Circulos')}" />
-                        
-                            <g:sortableColumn property="equipes" title="${message(code: 'encontro.equipes.label', default: 'Equipes')}" />
-                        
                             <g:sortableColumn property="data" title="${message(code: 'encontro.data.label', default: 'Data')}" />
                         
                             <g:sortableColumn property="tema" title="${message(code: 'encontro.tema.label', default: 'Tema')}" />
+                        
+                            <g:sortableColumn property="local" title="${message(code: 'encontro.local.label', default: 'Local')}" />
                         
                         </tr>
                     </thead>
@@ -44,13 +42,11 @@
                         
                             <td>${fieldValue(bean: encontroInstance, field: "dirigenteEspiritual")}</td>
                         
-                            <td>${fieldValue(bean: encontroInstance, field: "circulos")}</td>
-                        
-                            <td>${fieldValue(bean: encontroInstance, field: "equipes")}</td>
-                        
                             <td><g:formatDate date="${encontroInstance.data}" /></td>
                         
                             <td>${fieldValue(bean: encontroInstance, field: "tema")}</td>
+                        
+                            <td>${fieldValue(bean: encontroInstance, field: "local")}</td>
                         
                         </tr>
                     </g:each>

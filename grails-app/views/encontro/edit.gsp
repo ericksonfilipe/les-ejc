@@ -42,24 +42,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="circulos"><g:message code="encontro.circulos.label" default="Circulos" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'circulos', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="equipes"><g:message code="encontro.equipes.label" default="Equipes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'equipes', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="data"><g:message code="encontro.data.label" default="Data" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'data', 'errors')}">
@@ -82,6 +64,22 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'local', 'errors')}">
                                     <g:textField name="local" value="${encontroInstance?.local}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="circulos"><g:message code="encontro.circulos.label" default="Circulos" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'circulos', 'errors')}">
+                                    
+<ul>
+<g:each in="${encontroInstance?.circulos?}" var="c">
+    <li><g:link controller="circulo" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="circulo" action="create" params="['encontro.id': encontroInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'circulo.label', default: 'Circulo')])}</g:link>
+
                                 </td>
                             </tr>
                         

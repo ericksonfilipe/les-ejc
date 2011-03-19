@@ -26,13 +26,13 @@
                         
                             <g:sortableColumn property="cor" title="${message(code: 'circulo.cor.label', default: 'Cor')}" />
                         
-                            <g:sortableColumn property="nome" title="${message(code: 'circulo.nome.label', default: 'Nome')}" />
+                            <g:sortableColumn property="nomeCirculo" title="${message(code: 'circulo.nomeCirculo.label', default: 'Nome Circulo')}" />
                         
                             <th><g:message code="circulo.jovemCoordenador.label" default="Jovem Coordenador" /></th>
                         
                             <th><g:message code="circulo.casalApoio.label" default="Casal Apoio" /></th>
                         
-                            <g:sortableColumn property="participantes" title="${message(code: 'circulo.participantes.label', default: 'Participantes')}" />
+                            <th><g:message code="circulo.encontro.label" default="Encontro" /></th>
                         
                         </tr>
                     </thead>
@@ -44,13 +44,13 @@
                         
                             <td>${fieldValue(bean: circuloInstance, field: "cor")}</td>
                         
-                            <td>${fieldValue(bean: circuloInstance, field: "nome")}</td>
+                            <td>${fieldValue(bean: circuloInstance, field: "nomeCirculo")}</td>
                         
                             <td>${fieldValue(bean: circuloInstance, field: "jovemCoordenador")}</td>
                         
                             <td>${fieldValue(bean: circuloInstance, field: "casalApoio")}</td>
                         
-                            <td>${fieldValue(bean: circuloInstance, field: "participantes")}</td>
+                            <td>${fieldValue(bean: circuloInstance, field: "encontro")}</td>
                         
                         </tr>
                     </g:each>

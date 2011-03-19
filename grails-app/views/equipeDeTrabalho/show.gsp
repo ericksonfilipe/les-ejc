@@ -57,6 +57,26 @@
                             
                         </tr>
                     
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="equipeDeTrabalho.encontreiros.label" default="Encontreiros" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${equipeDeTrabalhoInstance.encontreiros}" var="e">
+                                    <li><g:link controller="usuario" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="equipeDeTrabalho.encontro.label" default="Encontro" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="encontro" action="show" id="${equipeDeTrabalhoInstance?.encontro?.id}">${equipeDeTrabalhoInstance?.encontro?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
                     </tbody>
                 </table>
             </div>
