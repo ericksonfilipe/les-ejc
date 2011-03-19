@@ -1,0 +1,14 @@
+--Output from testTituloBasico--
+--Output from testListaUsuarios--
+--Output from testCadastroValido--
+--Output from testCadastroNulo--
+--Output from testCadastroNomeVazio--
+--Output from testCadastroNomeInvalido--
+--Output from testCadastroDeNomeUsualInvalido--
+--Output from testCadastroDeParoquiaInvalido--
+--Output from testCadastroDeEquipesTrabalhadasInvalido--
+--Output from testCadastroObservacoesInvalido--
+--Output from testEmailInvalido--
+--Output from testNomeUsualAutomatico--
+--Output from testTelefoneInvalido--
+
