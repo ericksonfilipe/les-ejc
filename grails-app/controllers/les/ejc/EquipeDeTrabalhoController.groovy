@@ -9,17 +9,26 @@ class EquipeDeTrabalhoController {
     }
 
     def list = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [equipeDeTrabalhoInstanceList: EquipeDeTrabalho.list(params), equipeDeTrabalhoInstanceTotal: EquipeDeTrabalho.count()]
     }
 
     def create = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def equipeDeTrabalhoInstance = new EquipeDeTrabalho()
         equipeDeTrabalhoInstance.properties = params
         return [equipeDeTrabalhoInstance: equipeDeTrabalhoInstance]
     }
 
     def save = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def equipeDeTrabalhoInstance = new EquipeDeTrabalho(params)
         if (equipeDeTrabalhoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho'), equipeDeTrabalhoInstance.id])}"
@@ -31,6 +40,9 @@ class EquipeDeTrabalhoController {
     }
 
     def show = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def equipeDeTrabalhoInstance = EquipeDeTrabalho.get(params.id)
         if (!equipeDeTrabalhoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho'), params.id])}"
@@ -42,6 +54,9 @@ class EquipeDeTrabalhoController {
     }
 
     def edit = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def equipeDeTrabalhoInstance = EquipeDeTrabalho.get(params.id)
         if (!equipeDeTrabalhoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho'), params.id])}"
@@ -53,6 +68,9 @@ class EquipeDeTrabalhoController {
     }
 
     def update = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def equipeDeTrabalhoInstance = EquipeDeTrabalho.get(params.id)
         if (equipeDeTrabalhoInstance) {
             if (params.version) {
@@ -80,6 +98,9 @@ class EquipeDeTrabalhoController {
     }
 
     def delete = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def equipeDeTrabalhoInstance = EquipeDeTrabalho.get(params.id)
         if (equipeDeTrabalhoInstance) {
             try {

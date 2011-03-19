@@ -19,12 +19,18 @@ class UsuarioController {
     }
 
     def create = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def usuarioInstance = new Usuario()
         usuarioInstance.properties = params
         return [usuarioInstance: usuarioInstance]
     }
 
     def save = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def usuarioInstance = new Usuario(params)
 		
 		//cria nomeUsual, login e senha, caso possivel
@@ -33,12 +39,11 @@ class UsuarioController {
         if (usuarioInstance.save(flush: true)) {
 		
 			//envia email notificando login e senha
-			/*if (usuarioInstance.email != null) {
+			if (usuarioInstance.email != null) {
 				String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${usuarioInstance.senha}\n" + 
 								  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
 				senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
             }
-	*/		
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
             redirect(action: "show", id: usuarioInstance.id)
         }
@@ -48,6 +53,9 @@ class UsuarioController {
     }
 
     def show = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def usuarioInstance = Usuario.get(params.id)
         if (!usuarioInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
@@ -59,6 +67,9 @@ class UsuarioController {
     }
 
     def edit = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def usuarioInstance = Usuario.get(params.id)
         if (!usuarioInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
@@ -70,6 +81,9 @@ class UsuarioController {
     }
 
     def update = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def usuarioInstance = Usuario.get(params.id)
         if (usuarioInstance) {
             if (params.version) {
@@ -97,6 +111,9 @@ class UsuarioController {
     }
 
     def delete = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         def usuarioInstance = Usuario.get(params.id)
         if (usuarioInstance) {
             try {
