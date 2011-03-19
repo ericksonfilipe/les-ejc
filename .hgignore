@@ -16,6 +16,7 @@ seam-gen-local.properties
 *.class
 *.pyc
 *.spdia
+*.log
 cookielib
 
 #folders to ignore
