@@ -11,6 +11,9 @@ class UsuarioController {
     }
 
     def list = {
+		if (session.user == null) {
+			render(view:'../permissaoNegada')
+		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
     }

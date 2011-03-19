@@ -16,6 +16,10 @@ class AppController {
 			redirect(action:"login")
 		}
 	}
+	
+	def visitante = {
+		render(view:'../index')
+	}
 
 	def logout = {
 		flash.message = "Goodbye ${session.user.nomeCompleto}"

@@ -44,6 +44,7 @@
           </span>
         </div>
       </g:form>
+	  <g:link action="visitante">Navegue como um visitante comum</g:link>
     </div>
   </body>
 </html>
