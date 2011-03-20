@@ -35,4 +35,23 @@ class AppController {
 		session.user = null
 		redirect(controller:"app", action:"login")
 	}
+    
+        def esqueciminhasenha = {
+            render(view:'esqueciminhasenha')
+        }
+
+        def EnviarSenhaPorEmail = {
+            String email = params.email
+            def usuario  = Usuario.findByEmail(email)
+            if (usuario) {
+                flash.message = "Foi enviado uma nova senha para ${params.email}."
+                redirect(action:"login")
+            }
+            else {
+                flash.message = "Desculpe, ${params.email} nao encontrado."
+                redirect(action:"login")
+            }
+
+        }
+
 }
