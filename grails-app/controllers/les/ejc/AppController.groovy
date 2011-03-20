@@ -2,7 +2,9 @@ package les.ejc
 
 class AppController {
 
-	def index = {
+        def senderService
+
+        def index = {
 		if (session.user) {
 			render(view:'../index')
 		} else {
@@ -43,7 +45,14 @@ class AppController {
 		String email = params.email
 		def usuario  = Usuario.findByEmail(email)
 		if (usuario) {
-			flash.message = "Foi enviado uma nova senha para ${params.email}."
+			Random random = new Random()
+                        String orig = (1..10).collect { random.nextInt(9) }.join()
+                        usuario.setSenha(orig)
+                        usuario.save()
+                        String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario.login}\nsenha: ${usuario.senha}\nAconselhamos mudar sua senha.\nAbraços"
+
+                        senderService.enviaEmail(usuario.email,"Recuperação de Senha - Sistema do EJC - Paróquia de São Cristóvão", mensagem)
+                        flash.message = "Foi enviado uma nova senha para ${params.email}."
 			redirect(action:"login")
 		}
 		else {
