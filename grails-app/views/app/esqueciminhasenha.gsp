@@ -14,11 +14,10 @@
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
-      <g:form action="authenticate" method="post" >
+      <g:form action="enviarSenhaPorEmail" method="post" >
         <div class="dialog">
           <table>
             <tbody>            
-          
               <tr class="prop">
                 <td class="name">
                   <label for="email">E-Mail:</label>
