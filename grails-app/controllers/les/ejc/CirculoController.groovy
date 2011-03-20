@@ -3,22 +3,33 @@ package les.ejc
 class CirculoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def error = {}
 
     def index = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         redirect(action: "list", params: params)
     }
-
+	
     def list = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [circuloInstanceList: Circulo.list(params), circuloInstanceTotal: Circulo.count()]
     }
 
     def create = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def circuloInstance = new Circulo()
         circuloInstance.properties = params
@@ -26,8 +37,12 @@ class CirculoController {
     }
 
     def save = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def circuloInstance = new Circulo(params)
         if (circuloInstance.save(flush: true)) {
@@ -40,8 +55,9 @@ class CirculoController {
     }
 
     def show = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
 		}
         def circuloInstance = Circulo.get(params.id)
         if (!circuloInstance) {
@@ -54,8 +70,12 @@ class CirculoController {
     }
 
     def edit = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def circuloInstance = Circulo.get(params.id)
         if (!circuloInstance) {
@@ -68,8 +88,12 @@ class CirculoController {
     }
 
     def update = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def circuloInstance = Circulo.get(params.id)
         if (circuloInstance) {
@@ -98,8 +122,12 @@ class CirculoController {
     }
 
     def delete = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def circuloInstance = Circulo.get(params.id)
         if (circuloInstance) {
