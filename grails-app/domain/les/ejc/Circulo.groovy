@@ -13,7 +13,7 @@ class Circulo {
 
     static constraints = {
         cor(nullable:false, editable:false)
-        nomeCirculo(nullable:false, blank:false)
+        nomeCirculo(nullable:false, blank:false, matches:'([a-zA-Z]| )+')
         jovemCoordenador(nullable:false, tipo: Usuario.Tipo.Jovem)
         casalApoio(nullable:false, tipo: Usuario.Tipo.Casal)
     }
@@ -28,5 +28,9 @@ class Circulo {
         Lilas,
         Marrom
     }
+	
+	String toString() {
+		return "${nomeCirculo}";
+	}
 
 }

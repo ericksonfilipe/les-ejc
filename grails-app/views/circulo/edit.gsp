@@ -36,7 +36,7 @@
                                   <label for="cor"><g:message code="circulo.cor.label" default="Cor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'cor', 'errors')}">
-                                    <g:select name="cor" from="${les.ejc.Circulo$Cor?.values()}" keys="${les.ejc.Circulo$Cor?.values()*.name()}" value="${circuloInstance?.cor?.name()}"  />
+                                    <label><g:message code="${circuloInstance?.cor?.name()}" /></label>
                                 </td>
                             </tr>
                         

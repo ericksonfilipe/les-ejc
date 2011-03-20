@@ -39,4 +39,8 @@ class EquipeDeTrabalho {
         VISITACAO_E_EXTERNA
     }
 
+	String toString() {
+		return "${nomeEquipe}";
+	}
+	
 }
