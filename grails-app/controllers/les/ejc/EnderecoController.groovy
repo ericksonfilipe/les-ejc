@@ -3,22 +3,33 @@ package les.ejc
 class EnderecoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def error = {}
 
     def index = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         redirect(action: "list", params: params)
     }
 
     def list = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [enderecoInstanceList: Endereco.list(params), enderecoInstanceTotal: Endereco.count()]
     }
 
     def create = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def enderecoInstance = new Endereco()
         enderecoInstance.properties = params
@@ -26,8 +37,12 @@ class EnderecoController {
     }
 
     def save = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def enderecoInstance = new Endereco(params)
         if (enderecoInstance.save(flush: true)) {
@@ -40,8 +55,9 @@ class EnderecoController {
     }
 
     def show = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
 		}
         def enderecoInstance = Endereco.get(params.id)
         if (!enderecoInstance) {
@@ -54,8 +70,12 @@ class EnderecoController {
     }
 
     def edit = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def enderecoInstance = Endereco.get(params.id)
         if (!enderecoInstance) {
@@ -68,8 +88,12 @@ class EnderecoController {
     }
 
     def update = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def enderecoInstance = Endereco.get(params.id)
         if (enderecoInstance) {
@@ -98,8 +122,12 @@ class EnderecoController {
     }
 
     def delete = {
-		if (session.user == null) {
-			render(view:'../permissaoNegada')
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
 		}
         def enderecoInstance = Endereco.get(params.id)
         if (enderecoInstance) {

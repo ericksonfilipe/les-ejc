@@ -3,23 +3,47 @@ package les.ejc
 class EncontroController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def error = {}
 
     def index = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         redirect(action: "list", params: params)
     }
 
     def list = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [encontroInstanceList: Encontro.list(params), encontroInstanceTotal: Encontro.count()]
     }
 
     def create = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def encontroInstance = new Encontro()
         encontroInstance.properties = params
         return [encontroInstance: encontroInstance]
     }
 
     def save = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def encontroInstance = new Encontro(params)
         if (encontroInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'encontro.label', default: 'Encontro'), encontroInstance.id])}"
@@ -31,6 +55,10 @@ class EncontroController {
     }
 
     def show = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         def encontroInstance = Encontro.get(params.id)
         if (!encontroInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'encontro.label', default: 'Encontro'), params.id])}"
@@ -42,6 +70,13 @@ class EncontroController {
     }
 
     def edit = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def encontroInstance = Encontro.get(params.id)
         if (!encontroInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'encontro.label', default: 'Encontro'), params.id])}"
@@ -53,6 +88,13 @@ class EncontroController {
     }
 
     def update = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def encontroInstance = Encontro.get(params.id)
         if (encontroInstance) {
             if (params.version) {
@@ -80,6 +122,13 @@ class EncontroController {
     }
 
     def delete = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def encontroInstance = Encontro.get(params.id)
         if (encontroInstance) {
             try {
