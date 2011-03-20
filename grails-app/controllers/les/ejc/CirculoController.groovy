@@ -3,23 +3,47 @@ package les.ejc
 class CirculoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def error = {}
 
     def index = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         redirect(action: "list", params: params)
     }
-
+	
     def list = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [circuloInstanceList: Circulo.list(params), circuloInstanceTotal: Circulo.count()]
     }
 
     def create = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def circuloInstance = new Circulo()
         circuloInstance.properties = params
         return [circuloInstance: circuloInstance]
     }
 
     def save = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def circuloInstance = new Circulo(params)
         if (circuloInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'circulo.label', default: 'Circulo'), circuloInstance.id])}"
@@ -31,6 +55,10 @@ class CirculoController {
     }
 
     def show = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		}
         def circuloInstance = Circulo.get(params.id)
         if (!circuloInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'circulo.label', default: 'Circulo'), params.id])}"
@@ -42,6 +70,13 @@ class CirculoController {
     }
 
     def edit = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def circuloInstance = Circulo.get(params.id)
         if (!circuloInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'circulo.label', default: 'Circulo'), params.id])}"
@@ -53,6 +88,13 @@ class CirculoController {
     }
 
     def update = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def circuloInstance = Circulo.get(params.id)
         if (circuloInstance) {
             if (params.version) {
@@ -80,6 +122,13 @@ class CirculoController {
     }
 
     def delete = {
+		if (!session.user) {
+			redirect(action:'error')
+			return
+		} else if (!session.user?.j5Atual) {
+			redirect(action:'error')
+			return
+		}
         def circuloInstance = Circulo.get(params.id)
         if (circuloInstance) {
             try {
