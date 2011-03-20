@@ -12,8 +12,12 @@ class Encontro {
     static constraints = {
         dirigenteEspiritual(nullable:false)
         data(nullable:false)
-        tema(nullable:false, blank:false)
+        tema(nullable:false, blank:false, matches:'([a-zA-Z]| )+')
         local(nullable:false, blank:false)
     }
+	
+	String toString() {
+		return "${tema}";
+	}
 
 }
