@@ -45,6 +45,8 @@
         </div>
       </g:form>
 	  <g:link action="visitante">Navegue como um visitante comum</g:link>
+          <br>
+          <g:link action="esqueciminhasenha">Esqueci Minha Senha!</g:link>
     </div>
   </body>
 </html>
