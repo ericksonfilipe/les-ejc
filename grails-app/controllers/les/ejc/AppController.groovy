@@ -36,21 +36,21 @@ class AppController {
 		redirect(controller:"app", action:"login")
 	}
     
-        def esqueciminhasenha = {
-        }
+	def esqueciminhasenha = {
+	}
 
-        def EnviarSenhaPorEmail = {
-            String email = params.email
-            def usuario  = Usuario.findByEmail(email)
-            if (usuario) {
-                flash.message = "Foi enviado uma nova senha para ${params.email}."
-                redirect(action:"login")
-            }
-            else {
-                flash.message = "Desculpe, ${params.email} nao encontrado."
-                redirect(action:"login")
-            }
+	def enviarSenhaPorEmail = {
+		String email = params.email
+		def usuario  = Usuario.findByEmail(email)
+		if (usuario) {
+			flash.message = "Foi enviado uma nova senha para ${params.email}."
+			redirect(action:"login")
+		}
+		else {
+			flash.message = "Desculpe, ${params.email} nao encontrado."
+			redirect(action:"login")
+		}
 
-        }
+	}
 
 }
