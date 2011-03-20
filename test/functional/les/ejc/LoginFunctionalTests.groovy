@@ -16,7 +16,7 @@ class LoginFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "Hello admin!"
+		assertContentContains "Ola admin!"
 		
 	}
 
@@ -27,7 +27,7 @@ class LoginFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 			senha = "senha"
 			click "Login"
 		}
-		assertContentContains "Sorry, usuario. Please try again."
+		assertContentContains "O login e senha digitados sao incorretos."
 	}
 
 	void testLogout() {
@@ -37,10 +37,10 @@ class LoginFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "Hello admin!"
+		assertContentContains "Ola admin!"
 		
 		click "Logout"
-		assertContentContains "Goodbye admin!"
+		assertContentContains "Usuario admin desconectado!"
 	}
 
 }

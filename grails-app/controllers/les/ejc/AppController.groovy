@@ -19,11 +19,10 @@ class AppController {
 		def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)
 		if (usuario) {
 			session.user = usuario
-			flash.message = "Hello ${usuario.nomeCompleto}!"
-			//redirect(controller:"usuario", action:"index")
+			flash.message = "Ola ${usuario.nomeCompleto}!"
 			render(view:'../index')
 		} else {
-			flash.message = "Sorry, ${params.login}. Please try again."
+			flash.message = "O login e senha digitados sao incorretos."
 			redirect(action:"login")
 		}
 	}
@@ -33,7 +32,7 @@ class AppController {
 	}
 
 	def logout = {
-		flash.message = "Goodbye ${session.user.nomeCompleto}!"
+		flash.message = "Usuario ${session.user.nomeCompleto} desconectado!"
 		session.user = null
 		redirect(controller:"app", action:"login")
 	}
