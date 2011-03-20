@@ -37,7 +37,6 @@ class AppController {
 	}
     
         def esqueciminhasenha = {
-            render(view:'esqueciminhasenha')
         }
 
         def EnviarSenhaPorEmail = {
