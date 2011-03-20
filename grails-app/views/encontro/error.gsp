@@ -1,11 +1,11 @@
 <html>
   <head>
-	  <title>Permiss&atilde;o Negada</title>
+	  <title>Permissao Negada</title>
   </head>
 
   <body>
-    <h1>Permiss&atilde;o Negada</h1>
-    <h2>Voc&ecirc; n&atilde;o tem permiss&atilde;o para visualizar essa p&aacute;gina.</h2>
-	<a href="${createLink(uri: '/')}">Voltar para a p&aacute;gina principal</a>
+    <h1>Permissao Negada</h1>
+    <h2>Voce nao tem permissao para visualizar essa pagina.</h2>
+	<a href="${createLink(uri: '/')}">Voltar para a pagina principal</a>
   </body>
 </html>

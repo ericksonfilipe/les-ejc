@@ -74,8 +74,12 @@ class EnderecoController {
 			redirect(action:'error')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
-			return
+			println(params.id)
+			//println(session.user.endereco)
+			//if (session.user.endereco?.id != params.id.toLong()) {
+				//redirect(action:'error')
+				//return
+			//}
 		}
         def enderecoInstance = Endereco.get(params.id)
         if (!enderecoInstance) {

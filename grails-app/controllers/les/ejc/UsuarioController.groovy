@@ -188,8 +188,10 @@ class UsuarioController {
 			return
 		}
 		else if (!session.user?.j5Atual) {
-			if (params.id.toLong() != session.user.id)
+			if (params.id.toLong() != session.user.id) {
 				redirect(action:'error')
+				return
+			}
 		}
         def usuarioInstance = Usuario.get(params.id)
         if (!usuarioInstance) {
