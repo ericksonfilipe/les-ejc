@@ -4,7 +4,7 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
 
     private String defaultLocation = "http://localhost:8080/les-ejc/"
 
-    void testMudarSenhaNovaSenhaErradas(){
+    void testMudarSenhasenhanovaErradas(){
 		get(this.defaultLocation);
 		form() {
 			login = "admin"
@@ -16,8 +16,8 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
         form() {
             login = "admin"
             senha = "admin"
-            novasenha1 = "oie1"
-            novasenha2 = "oie2"
+            senhanova1 = "oie1"
+            senhanova2 = "oie2"
             click "Mudar Senha"
         }
         assertContentContains "Campos de nova senha não são iguais."
@@ -36,8 +36,8 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
         form() {
             login = "admin"
             senha = "adminnnnn"
-            novasenha1 = "oie"
-            novasenha2 = "oie"
+            senhanova1 = "oie"
+            senhanova2 = "oie"
             click "Mudar Senha"
         }
         assertContentContains "Desculpa, Campos senha ou login invalido."
@@ -56,8 +56,8 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
         form() {
             login = "adminn"
             senha = "admin"
-            novasenha1 = "oie"
-            novasenha2 = "oie"
+            senhanova1 = "oie"
+            senhanova2 = "oie"
             click "Mudar Senha"
         }
         assertContentContains "Desculpa, Campos senha ou login invalido."
@@ -66,7 +66,7 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
  
 
 
-    void testMudarSenhaNovaSenhaCerto(){
+    void testMudarSenhasenhanovaCerto(){
 		get(this.defaultLocation);
 		form() {
 			login = "admin"
@@ -78,8 +78,8 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
         form() {
             login = "admin"
             senha = "admin"
-            novasenha1 = "oie"
-            novasenha2 = "oie"
+            senhanova1 = "oie"
+            senhanova2 = "oie"
             click "Mudar Senha"
         }
         assertContentContains "Senha atualizada com sucesso"
@@ -88,8 +88,8 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
         form() {
             login = "admin"
             senha = "oie"
-            novasenha1 = "admin"
-            novasenha2 = "admin"
+            senhanova1 = "admin"
+            senhanova2 = "admin"
             click "Mudar Senha"
         }
         assertContentContains "Senha atualizada com sucesso"
