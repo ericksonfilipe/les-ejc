@@ -30,7 +30,7 @@ class CirculoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
 	}
 	
-	void testVisualizarEncontro() {
+	void testVisualizarCirculo() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"

@@ -17,7 +17,7 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		assertContentContains("Lista de EquipeDeTrabalho")
 	}
 	
-	void testCriarEncontro() {
+	void testCriarEquipeDeTrabalho() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
@@ -30,7 +30,7 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
 	}
 	
-	void testVisualizarEncontro() {
+	void testVisualizarEquipeDeTrabalho() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
@@ -44,7 +44,7 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		assertContentContains("J5")
 	}
 	
-	void testEditarEncontro() {
+	void testEditarEquipeDeTrabalho() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
@@ -63,7 +63,7 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
 	}
 	
-	void testExcluirEncontro() {
+	void testExcluirEquipeDeTrabalho() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
