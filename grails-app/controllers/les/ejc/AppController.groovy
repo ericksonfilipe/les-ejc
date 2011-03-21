@@ -45,11 +45,13 @@ class AppController {
         
         def trocarminhasenha = {
             def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)
-            if (usuario) {
-                if (params.senhanova1 != params.senhanova2) {
-                    flash.message = "Campos de nova senha não são iguais."
-                    redirect(action: "index")
-                }
+            
+            if (params.senhanova1 != params.senhanova2) {
+                flash.message = "Campos de nova senha não são iguais."
+                redirect(action: "index")
+            }
+           
+            else if (usuario) {
                 usuario.setSenha(params.senhanova1)
                 usuario.save()
                 flash.message = "Senha atualizada com sucesso"
@@ -58,8 +60,6 @@ class AppController {
             else {
                 flash.message = "Desculpa, Campos senha ou login invalido."
                 redirect(action: "index")
-
-
             }
 
         }
