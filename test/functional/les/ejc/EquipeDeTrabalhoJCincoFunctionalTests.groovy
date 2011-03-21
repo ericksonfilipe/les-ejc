@@ -25,12 +25,11 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 			click "Login"
 		}
 		
-		get("http://localhost:8080/les-ejc/equipedetrabalho/list");
+		get("http://localhost:8080/les-ejc/equipeDeTrabalho/list");
 		assertContentContains "Lista de EquipeDeTrabalho"
 	}
 	
-	
-	void testCadastroValido() {			//ver como testar isso e, se der certo, add teste parecido em Encontro e Circulo
+	void testEditarEquipeDeTrabalho() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -38,35 +37,23 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 			click "Login"
 		}
 		
-		get(this.defaultLocation);
+		get("http://localhost:8080/les-ejc/equipeDeTrabalho/index");
+		click "1"
+		assertTitle("Mostrar EquipeDeTrabalho")
+		assertContentContains("J5")
 		form() {
-		    selects['nomeEquipe.id'].select "MINI_BOX"
-			jovemCoordenador1 = ""
-			jovemCoordenador2 = ""
-			casalCoordenador = ""
-			encontro = ""
-			click "Criar"
+			click "Editar"
 		}
-		assertContentContains "criado"
+		assertTitle("Edit EquipeDeTrabalho")
+		form() {
+			click "Alterar"
+		}
+		assertContentContains("alterado")
 	}
-
-	void testEncontroNulo(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			click "Criar"
-		}
-		assertContentContains "O campo [encontro] nao pode ser vazia"
-	}
-
 	
-	void testNomeEquipeVazio(){
+	
+	
+	void testCriaEExcluirEquipeDeTrabalho() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -76,9 +63,19 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 		
 		get(this.defaultLocation);
 		form() {
-			nomeEquipe = ""
-			click "Criar"
+			click "Criar" //criando uma equipe para nao ter problema com outros testes
 		}
-		assertContentContains "O campo [nomeEquipe] nao pode ser vazia" //verr
+		assertContentContains("criado")
+		
+		get("http://localhost:8080/les-ejc/equipeDeTrabalho/index");
+		click "2"
+		assertTitle("Mostrar EquipeDeTrabalho")
+		assertContentContains("COORDENACAO_GERAL")
+		form() {
+			click "Excluir"
+		}
+		assertContentContains("excluido")
+		
+
 	}
 }
