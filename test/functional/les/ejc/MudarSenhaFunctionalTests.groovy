@@ -4,7 +4,14 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
 
     private String defaultLocation = "http://localhost:8080/les-ejc/"
 
-    void MudarSenhaNovaSenhaErradas(){
+    void testMudarSenhaNovaSenhaErradas(){
+		get(this.defaultLocation);
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+		
         get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
             login = "admin"
@@ -17,7 +24,14 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
 
     }
       
-    void MudarSenhaAntigaSenhaErrada(){
+    void testMudarSenhaAntigaSenhaErrada(){
+		get(this.defaultLocation);
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+	
         get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
             login = "admin"
@@ -30,7 +44,14 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
 
     }
 
-    void MudarSenhaLoginErrado(){
+    void testMudarSenhaLoginErrado(){
+		get(this.defaultLocation);
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+
         get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
             login = "adminn"
@@ -45,13 +66,30 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
  
 
 
-    void MudarSenhaNovaSenhaCerto(){
+    void testMudarSenhaNovaSenhaCerto(){
+		get(this.defaultLocation);
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+
         get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
             login = "admin"
             senha = "admin"
             novasenha1 = "oie"
             novasenha2 = "oie"
+            click "Mudar Senha"
+        }
+        assertContentContains "Senha atualizada com sucesso"
+		
+		get("http://localhost:8080/les-ejc/app/trocarsenha")
+        form() {
+            login = "admin"
+            senha = "oie"
+            novasenha1 = "admin"
+            novasenha2 = "admin"
             click "Mudar Senha"
         }
         assertContentContains "Senha atualizada com sucesso"
