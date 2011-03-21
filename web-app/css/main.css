@@ -16,7 +16,12 @@ body {
     color: #333;
     font: 11px verdana, arial, helvetica, sans-serif;
 }
-#grailsLogo {
+#logo {
+	text-align: center;
+	color: #000000;
+	width: 100%;
+	font-weight: bold;
+    font-size: 20px;
 	padding:20px;
 }
 
@@ -270,4 +275,10 @@ th.desc a {
 .buttons input.save {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
+}
+
+#loginHeader {
+  float: right;
+  color: #fff;
+  padding-top: 75px;
 }
