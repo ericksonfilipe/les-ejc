@@ -32,8 +32,8 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
-grails.views.gsp.encoding = "UTF-8"  //padrao: "UTF-8", alterei para "ISO-8859-1" pois vi num tutorial pra resolver acentacao - JJ
-grails.converters.encoding = "UTF-8" //padrao: "UTF-8", alterei para "ISO-8859-1" pois vi num tutorial pra resolver acentacao - JJ
+grails.views.gsp.encoding = "UTF-8"
+grails.converters.encoding = "UTF-8"
 // enable Sitemesh preprocessing of GSP pages
 grails.views.gsp.sitemesh.preprocess = true
 // scaffolding templates configuration
@@ -42,9 +42,7 @@ grails.scaffolding.templates.domainSuffix = 'Instance'
 // Set to false to use the new Grails 1.2 JSONBuilder in the render method
 grails.json.legacy.builder = false
 // enabled native2ascii conversion of i18n properties files
-
-// enabled native2ascii conversion of i18n properties files
-grails.enable.native2ascii = true //antes era true, alterei pra false pois vi num tutorial pra resolver acentacao - JJ
+grails.enable.native2ascii = true
 // whether to install the java.util.logging bridge for sl4j. Disable for AppEngine!
 grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
@@ -89,17 +87,4 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
-}
-
-grails {
-	mail {
-		host = "smtp.gmail.com"
-		port = 465
-		username = "ejc.saocristovao.cg@gmail.com"
-		password = "3jcsaocristova0"
-		props = ["mail.smtp.auth":"true", 					   
-              "mail.smtp.socketFactory.port":"465",
-              "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-              "mail.smtp.socketFactory.fallback":"false"]
-	}
 }
