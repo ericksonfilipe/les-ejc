@@ -67,6 +67,8 @@
                     </g:each>
                 </ul>
             </div>
+            <br>
+            <g:link action="trocarsenha">Mudar Senha</g:link>
         </div>
     </body>
 </html>

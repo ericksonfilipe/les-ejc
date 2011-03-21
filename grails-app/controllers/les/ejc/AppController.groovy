@@ -40,7 +40,32 @@ class AppController {
 	def esqueciminhasenha = {
 	}
 
-	def enviarSenhaPorEmail = {
+	def trocarsenha = {
+        }
+        
+        def trocarminhasenha = {
+            def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)
+            if (usuario) {
+                if (params.senhanova1 != params.senhanova2) {
+                    flash.message = "Campos de nova senha não são iguais."
+                    redirect(action: "index")
+                }
+                usuario.setSenha(params.senhanova1)
+                usuario.save()
+                flash.message = "Senha atualizada com sucesso"
+                redirect(action: "index")
+            }
+            else {
+                flash.message = "Desculpa, Campos senha ou login invalido."
+                redirect(action: "index")
+
+
+            }
+
+        }
+        
+        
+        def enviarSenhaPorEmail = {
 		String email = params.email
 		def usuario  = Usuario.findByEmail(email)
 		if (usuario) {
@@ -50,7 +75,7 @@ class AppController {
                         usuario.save()
                         String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario.login}\nsenha: ${usuario.senha}\nAconselhamos mudar sua senha.\nAbraços"
 
-                        senderService.enviaEmail(usuario.email,"Recuperação de Senha - Sistema do EJC - Paróquia de São Cristóvão", mensagem)
+                        senderService.enviaEmail(usuario.email,"Recuperação de Senha - Paróquia de São Cristóvão", mensagem)
                         flash.message = "Foi enviado uma nova senha para ${params.email}."
 			redirect(action:"login")
 		}
