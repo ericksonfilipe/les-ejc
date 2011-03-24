@@ -32,5 +32,9 @@ class Circulo {
 	String toString() {
 		return "${nomeCirculo}";
 	}
+	
+	Boolean setCor() {
+		//se jah tiver um circulo com aquela cor, nao criar outro
+	}
 
 }
