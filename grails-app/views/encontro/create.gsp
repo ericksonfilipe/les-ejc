@@ -7,6 +7,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'encontro.label', default: 'Encontro')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+		<resource:dateChooser />
     </head>
     <body>
         <div class="nav">
@@ -42,7 +43,7 @@
                                     <label for="data"><g:message code="encontro.data.label" default="Data" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'data', 'errors')}">
-                                    <g:datePicker name="data" precision="day" value="${encontroInstance?.data}"  />
+									<richui:dateChooser name="data" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="Mo" />
                                 </td>
                             </tr>
                         
