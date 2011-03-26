@@ -11,7 +11,6 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
@@ -30,10 +29,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="estado"><g:message code="endereco.estado.label" default="Estado" /></label>
+                                    <label for="rua"><g:message code="endereco.rua.label" default="Rua" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
-                                    <g:select name="estado" from="${enderecoInstance.constraints.estado.inList}" value="${enderecoInstance?.estado}" valueMessagePrefix="endereco.estado"  />
+                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'rua', 'errors')}">
+                                    <g:textField name="rua" maxlength="100" value="${enderecoInstance?.rua}" />
                                 </td>
                             </tr>
                         
@@ -42,7 +41,7 @@
                                     <label for="bairro"><g:message code="endereco.bairro.label" default="Bairro" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'bairro', 'errors')}">
-                                    <g:textField name="bairro" value="${enderecoInstance?.bairro}" />
+                                    <g:textField name="bairro" maxlength="100" value="${enderecoInstance?.bairro}" />
                                 </td>
                             </tr>
                         
@@ -51,7 +50,16 @@
                                     <label for="cidade"><g:message code="endereco.cidade.label" default="Cidade" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'cidade', 'errors')}">
-                                    <g:textField name="cidade" value="${enderecoInstance?.cidade}" />
+                                    <g:textField name="cidade" maxlength="100" value="${enderecoInstance?.cidade}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="estado"><g:message code="endereco.estado.label" default="Estado" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
+                                    <g:select name="estado" from="${enderecoInstance.constraints.estado.inList}" value="${enderecoInstance?.estado}" valueMessagePrefix="endereco.estado"  />
                                 </td>
                             </tr>
                         
@@ -75,10 +83,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="rua"><g:message code="endereco.rua.label" default="Rua" /></label>
+                                    <label for="usuario"><g:message code="endereco.usuario.label" default="Usuario" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'rua', 'errors')}">
-                                    <g:textField name="rua" value="${enderecoInstance?.rua}" />
+                                <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'usuario', 'errors')}">
+                                    <g:select name="usuario.id" from="${les.ejc.Usuario.list()}" optionKey="id" value="${enderecoInstance?.usuario?.id}"  />
                                 </td>
                             </tr>
                         

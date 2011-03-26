@@ -5,7 +5,7 @@ class Usuario {
     String nomeCompleto
     String nomeUsual
     Calendar dataDeNascimento
-    Endereco endereco
+	
     String telefone
     String email
     byte[] foto
@@ -18,8 +18,10 @@ class Usuario {
 	
     private String login
     private String senha
+	
+	static hasOne = [ endereco : Endereco ]
 
-
+	
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
