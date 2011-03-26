@@ -60,15 +60,13 @@
             </g:if>
             <h1>Bem-Vindo!</h1>	
             <div id="controllerList" class="dialog">
-                <h2>Controladores:</h2>
+                <h2>Opcoes:</h2>
                 <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.name } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.name}</g:link></li>
-                    </g:each>
+					<li class="controller"><g:link controller='encontro'>Controle de Encontros</g:link></li>
+					<li class="controller"><g:link controller='usuario'>Controle de Usuarios</g:link></li>
+					<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
                 </ul>
             </div>
-            <br>
-            <g:link action="trocarsenha">Mudar Senha</g:link>
-        </div>
+       </div>
     </body>
 </html>
