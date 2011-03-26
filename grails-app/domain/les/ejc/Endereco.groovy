@@ -8,6 +8,8 @@ class Endereco {
     String bairro
     String cidade
     String estado
+	
+	static belongsTo = [ usuario : Usuario ]
 
     static constraints = {
         rua(blank:false, size:2..100)
