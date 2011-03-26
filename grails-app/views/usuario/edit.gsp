@@ -58,15 +58,26 @@
                                 </td>
                             </tr>
                         
+
+
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="endereco"><g:message code="usuario.endereco.label" default="Endereco" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'endereco', 'errors')}">
-                                    <g:select name="endereco.id" from="${les.ejc.Endereco.list()}" optionKey="id" value="${usuarioInstance?.endereco?.id}" noSelection="['null': '']" />
+                                    
+<ul>
+<g:each in="${usuarioInstance?.endereco?}" var="e">
+    <li><g:link controller="endereco" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
+</g:each>
+</ul>
+<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
+
                                 </td>
                             </tr>
-                        
+ 
+							
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="telefone"><g:message code="usuario.telefone.label" default="Telefone" /></label>

@@ -10,7 +10,6 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
@@ -24,15 +23,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'endereco.id.label', default: 'Id')}" />
                         
-                            <g:sortableColumn property="estado" title="${message(code: 'endereco.estado.label', default: 'Estado')}" />
+                            <g:sortableColumn property="rua" title="${message(code: 'endereco.rua.label', default: 'Rua')}" />
                         
                             <g:sortableColumn property="bairro" title="${message(code: 'endereco.bairro.label', default: 'Bairro')}" />
                         
                             <g:sortableColumn property="cidade" title="${message(code: 'endereco.cidade.label', default: 'Cidade')}" />
                         
-                            <g:sortableColumn property="complemento" title="${message(code: 'endereco.complemento.label', default: 'Complemento')}" />
+                            <g:sortableColumn property="estado" title="${message(code: 'endereco.estado.label', default: 'Estado')}" />
                         
-                            <g:sortableColumn property="numero" title="${message(code: 'endereco.numero.label', default: 'Numero')}" />
+                            <g:sortableColumn property="complemento" title="${message(code: 'endereco.complemento.label', default: 'Complemento')}" />
                         
                         </tr>
                     </thead>
@@ -42,15 +41,15 @@
                         
                             <td><g:link action="show" id="${enderecoInstance.id}">${fieldValue(bean: enderecoInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: enderecoInstance, field: "estado")}</td>
+                            <td>${fieldValue(bean: enderecoInstance, field: "rua")}</td>
                         
                             <td>${fieldValue(bean: enderecoInstance, field: "bairro")}</td>
                         
                             <td>${fieldValue(bean: enderecoInstance, field: "cidade")}</td>
                         
-                            <td>${fieldValue(bean: enderecoInstance, field: "complemento")}</td>
+                            <td>${fieldValue(bean: enderecoInstance, field: "estado")}</td>
                         
-                            <td>${fieldValue(bean: enderecoInstance, field: "numero")}</td>
+                            <td>${fieldValue(bean: enderecoInstance, field: "complemento")}</td>
                         
                         </tr>
                     </g:each>
