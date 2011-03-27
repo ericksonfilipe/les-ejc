@@ -7,7 +7,7 @@ class AtaController {
 	def error = {}
 
     def index = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -15,7 +15,7 @@ class AtaController {
     }
 
     def list = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -24,7 +24,7 @@ class AtaController {
     }
 
     def create = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -34,7 +34,7 @@ class AtaController {
     }
 
     def save = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -49,7 +49,7 @@ class AtaController {
     }
 
     def show = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -64,7 +64,7 @@ class AtaController {
     }
 
     def edit = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -79,7 +79,7 @@ class AtaController {
     }
 
     def update = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
@@ -110,7 +110,7 @@ class AtaController {
     }
 
     def delete = {
-		if (!session.user) {
+		if (!session?.user?.j5Atual) {
 			redirect(action:'error')
 			return
 		}
