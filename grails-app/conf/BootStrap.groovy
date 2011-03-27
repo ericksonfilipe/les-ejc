@@ -2,6 +2,7 @@ import les.ejc.Usuario
 import les.ejc.Encontro
 import les.ejc.Circulo
 import les.ejc.EquipeDeTrabalho
+import les.ejc.Oficio
 
 class BootStrap {
 
@@ -44,6 +45,14 @@ class BootStrap {
 		casalCoordenador: Usuario.findByEmail("andre@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
 		println("Equipe J5 cadastrado!")
 		println("Equipes de Trabalho cadastrados!")
+		println()
+		
+		println("Cadastrando Oficio...")
+		new Oficio(nomeDestinatario: "Lula", cargoDestinatario: "Presidente", empresaDestinatario: "Brasil",
+			nomeRemetente: "Andre Farias", estadoCivilRemetente: "Solteiro(a)", profissaoRemetente: "CEO",
+			enderecoRemetente: "Rua: Bossuet Wanderley, no. 74, centro", solicitacao: "1 trilhao de reais",
+			objetivoSolicitacao: "Ser o homem mais rico do mundo", local: "Patos", data: new Date()).save(failOnError: true)
+		println("Oficio cadastrado!")
 		println()
 		
 		println("Usuarios:")
