@@ -18,7 +18,9 @@ class Usuario {
 	
     private String login
     private String senha
-	
+
+	static hasMany = [atas:Ata]
+	static belongsTo = [Ata]
 	static hasOne = [ endereco : Endereco ]
 
 	
