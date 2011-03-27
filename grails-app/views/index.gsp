@@ -65,7 +65,8 @@
 						<li class="controller"><g:link controller='encontro'>Controle de Encontros</g:link></li>
 						<li class="controller"><g:link controller='usuario'>Controle de Usuarios</g:link></li>
 						<li class="controller"><g:link controller='oficio'>Controle de Oficio</g:link></li>
-						<li class="controller"><g:link controller='ata'>Controle de Atas</g:link></li>
+                  <g:if test="${session?.user?.j5Atual}">
+                    <li class="controller"><g:link controller='ata'>Controle de Atas</g:link></li>
 						</g:if>
 						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
 					</g:if>
