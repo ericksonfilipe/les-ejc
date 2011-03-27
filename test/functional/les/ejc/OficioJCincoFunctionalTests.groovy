@@ -67,7 +67,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		form() {
 			click "Criar"
 		}
-		assertContentContains "O campo nomeRemetente deve ser preenchido!"
+		assertContentContains "O campo [cargoDestinatario] nao pode ficar em branco"
 	}
 
 	
@@ -84,7 +84,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 			nomeRemetente = ""
 			click "Criar"
 		}
-		assertContentContains "O campo nomeRemetente deve ser preenchido!"
+		assertContentContains "O campo [cargoDestinatario] nao pode ficar em branco"
 	}
 
 	void testCadastroNomeInvalido(){
