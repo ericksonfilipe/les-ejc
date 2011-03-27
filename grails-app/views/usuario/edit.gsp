@@ -66,15 +66,15 @@
                                   <label for="endereco"><g:message code="usuario.endereco.label" default="Endereco" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'endereco', 'errors')}">
-                                    
-<ul>
-<g:each in="${usuarioInstance?.endereco?}" var="e">
-    <li><g:link controller="endereco" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
-
-                                </td>
+									<g:if test="${usuarioInstance?.endereco == null}">
+										<span class="menuButton">
+											<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
+										</span>
+									</g:if>
+									<g:else>
+										<g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
+									</g:else>
+								</td>
                             </tr>
  
 							
