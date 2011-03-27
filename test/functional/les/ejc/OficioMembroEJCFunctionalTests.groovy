@@ -40,7 +40,6 @@ class OficioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		}
 
 		get("http://localhost:8080/les-ejc/oficio/index");
-		click "1"
 		assertTitle("Permissao Negada")
 		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
 	}
