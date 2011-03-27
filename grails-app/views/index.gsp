@@ -57,6 +57,7 @@
         <div id="pageBody">
 			<g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
+			</g:if>
             <h1>Bem-Vindo!</h1>	
             <div id="controllerList" class="dialog">
                 <h2>Opcoes:</h2>
@@ -65,8 +66,8 @@
 						<li class="controller"><g:link controller='encontro'>Controle de Encontros</g:link></li>
 						<li class="controller"><g:link controller='usuario'>Controle de Usuarios</g:link></li>
 						<li class="controller"><g:link controller='oficio'>Controle de Oficio</g:link></li>
-                  <g:if test="${session?.user?.j5Atual}">
-                    <li class="controller"><g:link controller='ata'>Controle de Atas</g:link></li>
+						<g:if test="${session?.user?.j5Atual}">
+							<li class="controller"><g:link controller='ata'>Controle de Atas</g:link></li>
 						</g:if>
 						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
 					</g:if>
