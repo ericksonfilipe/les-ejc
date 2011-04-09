@@ -145,12 +145,13 @@ class UsuarioController {
 			return
 		}
 		
-        def usuarioInstance = new Usuario(params)
+		def usuarioInstance = new Usuario(params)
 		
 		//cria nomeUsual, login e senha, caso possivel
 		usuarioInstance.realizaCriacoesAutomaticas()
-				
-        if (usuarioInstance.save(flush: true)) {
+		usuarioInstance.senha = new String(usuarioInstance.senha.encodeAsMD5Hex())
+
+		if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
 		
 			//envia email notificando login e senha
 			if (usuarioInstance.email != null) {
@@ -256,4 +257,11 @@ class UsuarioController {
 			redirect(action: "list")
 		}
     }
+	
+	
+	def senhacriptografada = {
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
+ 	}
+	
 }

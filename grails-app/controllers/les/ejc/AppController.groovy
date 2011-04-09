@@ -16,7 +16,7 @@ class AppController {
 	}
 
 	def authenticate = {
-		def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)
+		def usuario = Usuario.findByLoginAndSenha(params.login, new String(params.senha.encodeAsMD5Hex()))
 		if (usuario) {
 			session.user = usuario
 			flash.message = "Ola ${usuario.nomeCompleto}!"
@@ -44,7 +44,7 @@ class AppController {
         }
         
         def trocarminhasenha = {
-            def usuario = Usuario.findByLoginAndSenha(params.login, params.senha)
+            def usuario = Usuario.findByLoginAndSenha(params.login, new String(params.senha.encodeAsMD5Hex()))
             
             if (params.senhanova1 != params.senhanova2) {
                 flash.message = "Campos de nova senha não são iguais."
@@ -52,7 +52,7 @@ class AppController {
             }
            
             else if (usuario) {
-                usuario.setSenha(params.senhanova1)
+                usuario.setSenha(new String(params.senhanova1.encodeAsMD5Hex()))
                 usuario.save()
                 flash.message = "Senha atualizada com sucesso"
                 redirect(action: "index")
