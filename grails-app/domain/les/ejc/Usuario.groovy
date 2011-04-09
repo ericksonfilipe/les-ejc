@@ -68,7 +68,7 @@ class Usuario {
 	Altera a senha fazendo testes de senha segura - metodo a ser modificado dependendo do cliente
 	*/
 	public alteraSenha(String novaSenha) {
-		setSenha(novaSenha)
+		senha=novaSenha
 	}
 	
 	/**
@@ -93,10 +93,10 @@ class Usuario {
 	*/
 	private geraLoginSenhaAutomaticos() {
         if (status == Status.Ativo && (email != null)) {
-			setLogin(email)
+			login = email
 			def novaSenha = nomeUsual
 			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.get(Calendar.YEAR) }
-			setSenha(novaSenha)
+			senha = novaSenha
 		}
 	}
 
