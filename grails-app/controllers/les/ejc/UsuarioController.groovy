@@ -149,13 +149,15 @@ class UsuarioController {
 		
 		//cria nomeUsual, login e senha, caso possivel
 		usuarioInstance.realizaCriacoesAutomaticas()
+		
+		def senhaNaoCriptografada = usuarioInstance.senha
 		usuarioInstance.senha = new String(usuarioInstance.senha.encodeAsMD5Hex())
 
 		if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
 		
 			//envia email notificando login e senha
 			if (usuarioInstance.email != null) {
-				String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${usuarioInstance.senha}\n" + 
+				String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${senhaNaoCriptografada}\n" + 
 								  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
 				senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
             }
