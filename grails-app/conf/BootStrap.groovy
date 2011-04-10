@@ -19,12 +19,18 @@ class BootStrap {
 		new Usuario(nomeCompleto:"Andre", nomeUsual:"", dataDeNascimento:null,
 					endereco:null, telefone:"", email:"andre@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
-					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:false, login:"andre", senha:new String("andre".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, login:"andre", senha:new String("andre".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Andre cadastrado!")
+		println("Cadastrando Usuario Casal...")
+		new Usuario(nomeCompleto:"Casal", nomeUsual:"", dataDeNascimento:null,
+					endereco:null, telefone:"", email:"casal@plecas.com", foto:null, 
+					paroquia:"", equipesTrabalhadas:"", observacoes:"",
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, login:"casal", senha:new String("casal".encodeAsMD5Hex())).save(failOnError: true)
+		println("Usuario Casal cadastrado!")
 		println("Usuarios cadastrados!")
 		println()
 		
-		println("Cadastrando Encontros...")
+/*		println("Cadastrando Encontros...")
 		println("Cadastrando Encontro Mei do Mato...")
 		new Encontro(dirigenteEspiritual:Usuario.findByEmail("admin@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
 		println("Encontro Mei do Mato cadastrado!")
@@ -54,11 +60,12 @@ class BootStrap {
 			objetivoSolicitacao: "Ser o homem mais rico do mundo", local: "Patos", data: new Date()).save(failOnError: true)
 		println("Oficio cadastrado!")
 		println()
-		
+		*/
 		println("Usuarios:")
 		println("Login     Senha")
-		println(Usuario.findByEmail("admin@plecas.com").login + "     " + Usuario.findByEmail("admin@plecas.com").senha)
-		println(Usuario.findByEmail("andre@plecas.com").login + "     " + Usuario.findByEmail("andre@plecas.com").senha)
+		println(Usuario.findByEmail("admin@plecas.com").login + "      admin")
+		println(Usuario.findByEmail("andre@plecas.com").login + "      andre")
+		println(Usuario.findByEmail("casal@plecas.com").login + "      casal")
 		println("-------------------------------------------------")
 		
     }
