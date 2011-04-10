@@ -2,10 +2,6 @@ package les.ejc
 
 import les.ejc.Usuario.Tipo;
 
-
-
-
-
 class Encontro {
 
     Usuario dirigenteEspiritual

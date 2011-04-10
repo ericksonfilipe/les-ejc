@@ -1,5 +1,7 @@
 package les.ejc
 
+import les.ejc.Usuario.Tipo;
+
 class EquipeDeTrabalho {
 
     NomeEquipe nomeEquipe
@@ -13,9 +15,12 @@ class EquipeDeTrabalho {
 
     static constraints = {
         nomeEquipe(nullable:false)
-        jovemCoordenador1(nullable:true, tipo: Usuario.Tipo.Jovem)
-        jovemCoordenador2(nullable:true, tipo: Usuario.Tipo.Jovem)
-        casalCoordenador(nullable:true, tipo: Usuario.Tipo.Casal)    
+        jovemCoordenador1(nullable:true, validator: {if (it.tipo == Tipo.Jovem) return true
+                                                        else return ["erro.tipo.invalido", it.tipo]})
+        jovemCoordenador2(nullable:true, validator: {if (it.tipo == Tipo.Jovem) return true
+                                                        else return ["erro.tipo.invalido", it.tipo]})
+        casalCoordenador(nullable:true, validator: {if (it.tipo == Tipo.Casal) return true
+                                                        else return ["erro.tipo.invalido", it.tipo]})
     }
 
     enum NomeEquipe {
