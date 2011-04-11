@@ -15,12 +15,12 @@ class EquipeDeTrabalho {
 
     static constraints = {
         nomeEquipe(nullable:false)
-        jovemCoordenador1(nullable:true, validator: {if (it.tipo == Tipo.Jovem) return true
-                                                        else return ["erro.tipo.invalido", it.tipo]})
-        jovemCoordenador2(nullable:true, validator: {if (it.tipo == Tipo.Jovem) return true
-                                                        else return ["erro.tipo.invalido", it.tipo]})
-        casalCoordenador(nullable:true, validator: {if (it.tipo == Tipo.Casal) return true
-                                                        else return ["erro.tipo.invalido", it.tipo]})
+        jovemCoordenador1(nullable: true, validator: {valor, objeto -> 
+            if (valor == null && objeto.properties['jovemCoordenador2'] == null && objeto.properties['casalCoordenador'] == null) return "erro.coordenador.insuficiente" else if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+        jovemCoordenador2(nullable: true, validator: {valor, objeto -> 
+            if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+        casalCoordenador(nullable: true, validator: {valor, objeto -> 
+            if (valor == null || valor.tipo == Tipo.Casal) return true else return ["erro.tipo.invalido", valor.tipo]})
     }
 
     enum NomeEquipe {
