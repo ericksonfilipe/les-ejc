@@ -27,5 +27,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.13'
+        runtime 'org.springframework.security:spring-security-core:3.0.4.RELEASE' // http -> https redirecting
+        runtime 'org.springframework.security:spring-security-web:3.0.4.RELEASE' //  http -> https redirecting
     }
 }

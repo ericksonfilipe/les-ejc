@@ -16,6 +16,13 @@
         <param-value>@grails.project.key@</param-value>
     </context-param>
 
+<!-- START: use SSL on secure pages -->
+	<filter>
+        	<filter-name>channelProcessingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+<!-- END: use SSL on secure pages -->
+
     <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>org.codehaus.groovy.grails.web.sitemesh.GrailsPageFilter</filter-class>
@@ -33,6 +40,13 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
+
+<!-- START: use SSL on secure pages -->
+<filter-mapping>
+	<filter-name>channelProcessingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+<!-- END: use SSL on secure pages -->
 
     <filter-mapping>
         <filter-name>charEncodingFilter</filter-name>
