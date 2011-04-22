@@ -1,7 +1,10 @@
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        
+		<meta http-equiv="Content-Type" content="text/html" />
         <meta name="layout" content="main" />
+		<title>EJC - Paroquia Sao Cristovao</title>
+		
         <style type="text/css" media="screen">
 
         #nav {
@@ -53,6 +56,7 @@
     <body>
 		<div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+			<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre Nos" args="[entityName]" /></g:link></span>
 		</div>
         <div id="pageBody">
 			<g:if test="${flash.message}">

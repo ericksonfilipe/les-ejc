@@ -8,6 +8,7 @@
   <body>
 	<div class="nav">
         <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+		<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre Nós"/></g:link></span>
     </div>
     <div class="body">
       <h1>Login</h1>
