@@ -32,8 +32,8 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
-grails.views.gsp.encoding = "UTF-8"  //padrao: "UTF-8", alterei para "ISO-8859-1" pois vi num tutorial pra resolver acentacao - JJ
-grails.converters.encoding = "UTF-8" //padrao: "UTF-8", alterei para "ISO-8859-1" pois vi num tutorial pra resolver acentacao - JJ
+grails.views.gsp.encoding = "UTF-8"  //padrao: "UTF-8", alterei para "ISO-8859-1" pois vi num tutorial pra resolver acentuacao - JJ
+grails.converters.encoding = "UTF-8" //padrao: "UTF-8", alterei para "ISO-8859-1" pois vi num tutorial pra resolver acentuacao - JJ
 // enable Sitemesh preprocessing of GSP pages
 grails.views.gsp.sitemesh.preprocess = true
 // scaffolding templates configuration
@@ -44,7 +44,7 @@ grails.json.legacy.builder = false
 // enabled native2ascii conversion of i18n properties files
 
 // enabled native2ascii conversion of i18n properties files
-grails.enable.native2ascii = true //antes era true, alterei pra false pois vi num tutorial pra resolver acentacao - JJ
+grails.enable.native2ascii = true //padrao: true, alterei pra false pois vi num tutorial pra resolver acentuacao - JJ
 // whether to install the java.util.logging bridge for sl4j. Disable for AppEngine!
 grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning

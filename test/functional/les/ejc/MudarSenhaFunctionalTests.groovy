@@ -40,7 +40,7 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
             senhanova2 = "oie"
             click "Mudar Senha"
         }
-        assertContentContains "Desculpa, Campos senha ou login invalido."
+        assertContentContains "Campos senha ou login inválido."
 
     }
 
@@ -60,7 +60,7 @@ class MudarSenhaFunctionalTests extends functionaltestplugin.FunctionalTestCase 
             senhanova2 = "oie"
             click "Mudar Senha"
         }
-        assertContentContains "Desculpa, Campos senha ou login invalido."
+        assertContentContains "Campos senha ou login inválido."
 
     }
  
