@@ -3,7 +3,7 @@
         
 		<meta http-equiv="Content-Type" content="text/html" />
         <meta name="layout" content="main" />
-		<title>EJC - Paroquia Sao Cristovao</title>
+		<title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
 		
         <style type="text/css" media="screen">
 
@@ -56,7 +56,7 @@
     <body>
 		<div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-			<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre Nos" args="[entityName]" /></g:link></span>
+			<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s" args="[entityName]" /></g:link></span>
 		</div>
         <div id="pageBody">
 			<g:if test="${flash.message}">
@@ -68,11 +68,11 @@
                 <ul>
 					<g:if test="${session.user}">
 						<li class="controller"><g:link controller='encontro'>Controle de Encontros</g:link></li>
-						<li class="controller"><g:link controller='usuario'>Controle de Usuarios</g:link></li>
-						<li class="controller"><g:link controller='oficio'>Controle de Oficio</g:link></li>
+						<li class="controller"><g:link controller='usuario'>Controle de Usu&aacute;rios</g:link></li>
+						<li class="controller"><g:link controller='oficio'>Controle de Of&iacute;cio</g:link></li>
 						<g:if test="${session?.user?.j5Atual}">
 							<li class="controller"><g:link controller='ata'>Controle de Atas</g:link></li>
-                                                        <li class="controller"><g:link controller='evento'>Controle de Eventos</g:link></li>
+                            <li class="controller"><g:link controller='evento'>Controle de Eventos</g:link></li>
 						</g:if>
 						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
 					</g:if>

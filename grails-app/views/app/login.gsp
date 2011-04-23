@@ -1,14 +1,13 @@
-
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
-    <title>Login</title>         
+    <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>         
   </head>
   <body>
 	<div class="nav">
         <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-		<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre Nós"/></g:link></span>
+		<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s"/></g:link></span>
     </div>
     <div class="body">
       <h1>Login</h1>

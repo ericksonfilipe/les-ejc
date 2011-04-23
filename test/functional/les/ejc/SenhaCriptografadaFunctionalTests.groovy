@@ -10,7 +10,9 @@ class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalT
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "Ola admin!"
+		//mensagem "Olá, admin!" separada por causa de problema com acento
+		assertContentContains "Ol"
+		assertContentContains ", admin!"
 		
 		get ("http://localhost:8080/les-ejc/usuario/senhacriptografada")
 		assertContentContains "<td>admin</td><td>" + new String("admin".encodeAsMD5Hex()) + "</td>"
@@ -23,7 +25,9 @@ class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalT
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "Ola admin!"
+		//mensagem "Olá, admin!" separada por causa de problema com acento
+		assertContentContains "Ol"
+		assertContentContains ", admin!"
 
         get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
@@ -59,12 +63,14 @@ class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalT
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "Ola admin!"
+		//mensagem "Olá, admin!" separada por causa de problema com acento
+		assertContentContains "Ol"
+		assertContentContains ", admin!"
 		
 		get("http://localhost:8080/les-ejc/usuario/create")
 		form() {
 			nomeCompleto = "Novato da Silva"
-			dataDeNascimento = new Date("01/01/2011")
+			dataDeNascimento = new Date()
 			email = "novato@email.test"
 			click "Criar"
 		}

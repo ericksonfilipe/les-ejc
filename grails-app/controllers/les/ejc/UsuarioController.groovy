@@ -157,9 +157,9 @@ class UsuarioController {
 		
 			//envia email notificando login e senha
 			if (usuarioInstance.email != null) {
-				String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${senhaNaoCriptografada}\n" + 
-								  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
-				senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
+				//String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${senhaNaoCriptografada}\n" + 
+				//				  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
+				//senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
             }
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
             redirect(action: "show", id: usuarioInstance.id)
