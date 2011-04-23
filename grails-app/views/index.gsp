@@ -67,12 +67,12 @@
                 <h2>Opcoes:</h2>
                 <ul>
 					<g:if test="${session.user}">
-						<li class="controller"><g:link controller='encontro'>Controle de Encontros</g:link></li>
-						<li class="controller"><g:link controller='usuario'>Controle de Usu&aacute;rios</g:link></li>
-						<li class="controller"><g:link controller='oficio'>Controle de Of&iacute;cio</g:link></li>
+						<li class="controller"><g:link controller='encontro'>Encontros</g:link></li>
+						<li class="controller"><g:link controller='usuario'>Usu&aacute;rios</g:link></li>
+						<li class="controller"><g:link controller='evento'>Eventos</g:link></li>
 						<g:if test="${session?.user?.j5Atual}">
-							<li class="controller"><g:link controller='ata'>Controle de Atas</g:link></li>
-                            <li class="controller"><g:link controller='evento'>Controle de Eventos</g:link></li>
+							<li class="controller"><g:link controller='ata'>Atas</g:link></li>
+							<li class="controller"><g:link controller='oficio'>Of&iacute;cios</g:link></li>
 						</g:if>
 						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
 					</g:if>
