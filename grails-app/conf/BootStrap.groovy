@@ -30,9 +30,9 @@ class BootStrap {
 		println("Usuarios cadastrados!")
 		println()
 		
-/*		println("Cadastrando Encontros...")
+		println("Cadastrando Encontros...")
 		println("Cadastrando Encontro Mei do Mato...")
-		new Encontro(dirigenteEspiritual:Usuario.findByEmail("admin@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
+		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
 		println("Encontro Mei do Mato cadastrado!")
 		println("Encontros cadastrados!")
 		println()
@@ -47,8 +47,8 @@ class BootStrap {
 		
 		println("Cadastrando Equipes de Trabalho...")
 		println("Cadastrando Equipe J5...")
-		new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"), jovemCoordenador2: Usuario.findByEmail("andre@plecas.com"),
-		casalCoordenador: Usuario.findByEmail("andre@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
+		new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+		casalCoordenador: Usuario.findByEmail("casal@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
 		println("Equipe J5 cadastrado!")
 		println("Equipes de Trabalho cadastrados!")
 		println()
@@ -60,7 +60,7 @@ class BootStrap {
 			objetivoSolicitacao: "Ser o homem mais rico do mundo", local: "Patos", data: new Date()).save(failOnError: true)
 		println("Oficio cadastrado!")
 		println()
-		*/
+		
 		println("Usuarios:")
 		println("Login     Senha")
 		println(Usuario.findByEmail("admin@plecas.com").login + "      admin")
