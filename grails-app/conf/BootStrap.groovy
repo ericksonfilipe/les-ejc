@@ -11,19 +11,19 @@ class BootStrap {
 		println("Cadastrando Usuarios...")
 		println("Cadastrando Usuario Admin...")
 		new Usuario(nomeCompleto:"admin", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, telefone:"", email:"admin@plecas.com", foto:null, 
+					endereco:null, email:"admin@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
 					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:true, login:"admin", senha:new String("admin".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Admin cadastrado!")
 		println("Cadastrando Usuario Andre...")
 		new Usuario(nomeCompleto:"Andre", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, telefone:"", email:"andre@plecas.com", foto:null, 
+					endereco:null, email:"andre@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
 					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, login:"andre", senha:new String("andre".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Andre cadastrado!")
 		println("Cadastrando Usuario Casal...")
 		new Usuario(nomeCompleto:"Casal", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, telefone:"", email:"casal@plecas.com", foto:null, 
+					endereco:null, email:"casal@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
 					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, login:"casal", senha:new String("casal".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Casal cadastrado!")
