@@ -105,6 +105,15 @@
                                     <input type="file" id="foto" name="foto" />
                                 </td>
                             </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'ficha', 'errors')}">
+                                    <input type="file" id="ficha" name="ficha" />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

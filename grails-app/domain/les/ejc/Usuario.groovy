@@ -9,6 +9,7 @@ class Usuario {
     String telefone
     String email
     byte[] foto
+	byte[] ficha
     String paroquia
     String equipesTrabalhadas
     String observacoes
@@ -32,6 +33,7 @@ class Usuario {
         telefone(blank:true, maxSize:10, minSize:10, matches:'([0-9])+')
         email(nullable:true, email:true, unique:true)
 		foto(nullable:true)
+		ficha(nullable:true)
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')

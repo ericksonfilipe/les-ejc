@@ -24,7 +24,7 @@
                 <g:renderErrors bean="${usuarioInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save"  enctype="multipart/form-data">
+            <g:uploadForm action="save"  enctype="multipart/form-data">
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -92,6 +92,15 @@
                                     <input type="file" id="foto" name="foto" />
                                 </td>
                             </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="ficha"><g:message code="usuario.ficha.label" default="ficha" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'ficha', 'errors')}">
+                                    <input type="file" id="ficha" name="ficha" />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -153,7 +162,7 @@
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
-            </g:form>
+            </g:uploadForm>
         </div>
     </body>
 </html>

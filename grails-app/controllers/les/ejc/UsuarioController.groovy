@@ -6,107 +6,6 @@ class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
-	/*def beforeInterceptor = {
-		//println(params.action)
-		switch (params.action) {
-			case "index":
-				println("index requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return true
-				} else if (!session.user?.j5Atual) {
-					return true
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "list":
-				println("list requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					return true
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "create":
-				println("create requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					redirect(action:'error')
-					return false
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "save":
-				println("save requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					redirect(action:'error')
-					return false
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "show":
-				println("show requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					return true
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "edit":
-				println("edit requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					redirect(action:'error')
-					return false
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "update":
-				println("update requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					return true
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-			case "delete":
-				println("delete requested")
-				if (!session.user) {
-					redirect(action:'error')
-					return false
-				} else if (!session.user?.j5Atual) {
-					return true
-				} else if (session.useruser?.j5Atual) {
-					return true
-				}
-				break
-		}
-
-		/*if(!session.user) {
-			render(view:'../permissaoNegada')
-		}
-	}*/
-	
 	def error = {}
 
     def index = {
@@ -265,5 +164,14 @@ class UsuarioController {
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
  	}
-	
+
+	def renderFoto = {
+		def usuarioInstance = Usuario.get(params.id)
+		if (usuarioInstance?.foto) {
+			response.setContentLength(usuarioInstance.foto.length)
+			response.outputStream.write(usuarioInstance.foto)
+		} else {
+			response.sendError(404)
+		}
+	}
 }
