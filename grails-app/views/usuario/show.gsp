@@ -11,9 +11,7 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-			<g:if test="${session.user?.j5Atual == true}">
-				<span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-			</g:if>
+            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -60,9 +58,23 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.telefone.label" default="Telefone" /></td>
+                            <td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+                            <td valign="top" class="value"><g:link controller="telefone" action="show" id="${usuarioInstance?.telefone1?.id}">${usuarioInstance?.telefone1?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.telefone2.label" default="Telefone2" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="telefone" action="show" id="${usuarioInstance?.telefone2?.id}">${usuarioInstance?.telefone2?.encodeAsHTML()}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.telefone3.label" default="Telefone3" /></td>
+                            
+                            <td valign="top" class="value"><g:link controller="telefone" action="show" id="${usuarioInstance?.telefone3?.id}">${usuarioInstance?.telefone3?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -100,6 +112,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.senha.label" default="Senha" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "senha")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.login.label" default="Login" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "login")}</td>
@@ -110,6 +129,19 @@
                             <td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></td>
                             
                             <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.j5Atual}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.atas.label" default="Atas" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${usuarioInstance.atas}" var="a">
+                                    <li><g:link controller="ata" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
                             
                         </tr>
                     

@@ -127,6 +127,7 @@ class UsuarioController {
     }
 
     def create = {
+		//println("Params: " + params)
 		if (!session.user) {
 			redirect(action:'error')
 			return
@@ -145,6 +146,19 @@ class UsuarioController {
 			return
 		}
 		
+		/*def tel = '(' + params.get('telefone1ddd') + ')' + params.get('telefone1prefixo') + '-' + params.get('telefone1sufixo')
+		if (tel.size() != 13)
+			tel = ''
+		params['telefone1'] = tel
+		tel = '(' + params.get('telefone2ddd') + ')' + params.get('telefone2prefixo') + '-' + params.get('telefone2sufixo')
+		if (tel.size() != 13)
+			tel = ''
+		params['telefone2'] = tel
+		tel = '(' + params.get('telefone3ddd') + ')' + params.get('telefone3prefixo') + '-' + params.get('telefone3sufixo')
+		if (tel.size() != 13)
+			tel = ''
+		params['telefone3'] = tel*/
+		//println(params)
 		def usuarioInstance = new Usuario(params)
 		
 		//cria nomeUsual, login e senha, caso possivel

@@ -194,7 +194,7 @@ class UsuarioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		}
 		assertContentContains '<tdvalign="top"class="name">nomeusual</td><tdvalign="top"class="value">jose</td>'
 	}
-	
+	/*
 	void testTelefoneInvalido(){
 		get("http://localhost:8080/les-ejc/");
 		form() {
@@ -211,5 +211,6 @@ class UsuarioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		}
 		assertContentContains "O campo [telefone] com o valor [12345] nao atinge o tamanho minimo de [10]"
 	}
+	*/
 
 }
