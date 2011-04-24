@@ -11,28 +11,28 @@ class BootStrap {
 		println("Cadastrando Usuarios...")
 		println("Cadastrando Usuario Admin...")
 		new Usuario(nomeCompleto:"admin", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, telefone:"", email:"admin@plecas.com", foto:null, 
+					endereco:null, email:"admin@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
 					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:true, login:"admin", senha:new String("admin".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Admin cadastrado!")
 		println("Cadastrando Usuario Andre...")
 		new Usuario(nomeCompleto:"Andre", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, telefone:"", email:"andre@plecas.com", foto:null, 
+					endereco:null, email:"andre@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
 					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, login:"andre", senha:new String("andre".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Andre cadastrado!")
 		println("Cadastrando Usuario Casal...")
 		new Usuario(nomeCompleto:"Casal", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, telefone:"", email:"casal@plecas.com", foto:null, 
+					endereco:null, email:"casal@plecas.com", foto:null, 
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
 					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, login:"casal", senha:new String("casal".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Casal cadastrado!")
 		println("Usuarios cadastrados!")
 		println()
 		
-/*		println("Cadastrando Encontros...")
+		println("Cadastrando Encontros...")
 		println("Cadastrando Encontro Mei do Mato...")
-		new Encontro(dirigenteEspiritual:Usuario.findByEmail("admin@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
+		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
 		println("Encontro Mei do Mato cadastrado!")
 		println("Encontros cadastrados!")
 		println()
@@ -47,8 +47,8 @@ class BootStrap {
 		
 		println("Cadastrando Equipes de Trabalho...")
 		println("Cadastrando Equipe J5...")
-		new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"), jovemCoordenador2: Usuario.findByEmail("andre@plecas.com"),
-		casalCoordenador: Usuario.findByEmail("andre@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
+		new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+		casalCoordenador: Usuario.findByEmail("casal@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
 		println("Equipe J5 cadastrado!")
 		println("Equipes de Trabalho cadastrados!")
 		println()
@@ -60,7 +60,7 @@ class BootStrap {
 			objetivoSolicitacao: "Ser o homem mais rico do mundo", local: "Patos", data: new Date()).save(failOnError: true)
 		println("Oficio cadastrado!")
 		println()
-		*/
+		
 		println("Usuarios:")
 		println("Login     Senha")
 		println(Usuario.findByEmail("admin@plecas.com").login + "      admin")

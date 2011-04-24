@@ -52,7 +52,8 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 	}
 	
 	
-	
+	//Esse teste não deve ser mais considerado, pois as equipes serão pré-definidas!
+	/*
 	void testCriaEExcluirEquipeDeTrabalho() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
@@ -75,7 +76,6 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 			click "Excluir"
 		}
 		assertContentContains("excluido")
-		
-
 	}
+	*/
 }

@@ -7,7 +7,6 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
-		<resource:dateChooser />
     </head>
     <body>
         <div class="nav">
@@ -52,8 +51,7 @@
                                     <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento', 'errors')}">
-                                    
-									<richui:dateChooser name="dataDeNascimento" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="Mo" />
+                                    <g:datePicker name="dataDeNascimento" precision="day" value="${usuarioInstance?.dataDeNascimento}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
                         
@@ -68,10 +66,28 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="telefone"><g:message code="usuario.telefone.label" default="Telefone" /></label>
+                                    <label for="telefone1"><g:message code="usuario.telefone1.label" default="Telefone1" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone', 'errors')}">
-                                    <g:textField name="telefone" maxlength="10" value="${usuarioInstance?.telefone}" />
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone1', 'errors')}">
+                                    <g:select name="telefone1.id" from="${les.ejc.Telefone.list()}" optionKey="id" value="${usuarioInstance?.telefone1?.id}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="telefone2"><g:message code="usuario.telefone2.label" default="Telefone2" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone2', 'errors')}">
+                                    <g:select name="telefone2.id" from="${les.ejc.Telefone.list()}" optionKey="id" value="${usuarioInstance?.telefone2?.id}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="telefone3"><g:message code="usuario.telefone3.label" default="Telefone3" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone3', 'errors')}">
+                                    <g:select name="telefone3.id" from="${les.ejc.Telefone.list()}" optionKey="id" value="${usuarioInstance?.telefone3?.id}"  />
                                 </td>
                             </tr>
                         
@@ -126,6 +142,24 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
                                     <g:textField name="observacoes" value="${usuarioInstance?.observacoes}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="senha"><g:message code="usuario.senha.label" default="Senha" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'senha', 'errors')}">
+                                    <g:passwordField name="senha" value="${usuarioInstance?.senha}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="login"><g:message code="usuario.login.label" default="Login" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'login', 'errors')}">
+                                    <g:textField name="login" value="${usuarioInstance?.login}" />
                                 </td>
                             </tr>
                         

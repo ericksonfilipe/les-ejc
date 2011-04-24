@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title><g:layoutTitle default="Grails" /></title>
@@ -16,7 +15,7 @@
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
-        <div id="logo">Sistema de Gerenciamento do EJC da Paroquia Sao Cristovao</div>
+        <div id="logo">Sistema de Gerenciamento do EJC da Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</div>
         <g:layoutBody />
     </body>
 </html>
