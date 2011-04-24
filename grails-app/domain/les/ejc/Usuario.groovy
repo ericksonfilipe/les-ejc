@@ -6,7 +6,10 @@ class Usuario {
     String nomeUsual
     Calendar dataDeNascimento
 	
-    String telefone
+    Telefone telefone1
+    Telefone telefone2
+    Telefone telefone3
+    
     String email
     byte[] foto
 	byte[] ficha
@@ -30,7 +33,12 @@ class Usuario {
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
         dataDeNascimento(nullable:true)
         endereco(nullable:true)
-        telefone(blank:true, maxSize:10, minSize:10, matches:'([0-9])+')
+		telefone1(nullable:true)
+		telefone3(nullable:true)
+		telefone2(nullable:true)
+		//telefone1(blank:true, maxSize:13, minSize:13, matches:'.[0-9][0-9].[0-9][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]')
+        //telefone2(blank:true, maxSize:13, minSize:13, matches:'.[0-9][0-9].[0-9][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]')
+        //telefone3(blank:true, maxSize:13, minSize:13, matches:'.[0-9][0-9].[0-9][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]')
         email(nullable:true, email:true, unique:true)
 		foto(nullable:true)
 		ficha(nullable:true)

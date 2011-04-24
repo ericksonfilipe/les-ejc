@@ -10,9 +10,7 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-			<g:if test="${session.user?.j5Atual == true}">
-				<span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-			</g:if>
+            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
@@ -34,7 +32,7 @@
                         
                             <th><g:message code="usuario.endereco.label" default="Endereco" /></th>
                         
-                            <g:sortableColumn property="telefone" title="${message(code: 'usuario.telefone.label', default: 'Telefone')}" />
+                            <th><g:message code="usuario.telefone1.label" default="Telefone1" /></th>
                         
                         </tr>
                     </thead>
@@ -52,7 +50,7 @@
                         
                             <td>${fieldValue(bean: usuarioInstance, field: "endereco")}</td>
                         
-                            <td>${fieldValue(bean: usuarioInstance, field: "telefone")}</td>
+                            <td>${fieldValue(bean: usuarioInstance, field: "telefone1")}</td>
                         
                         </tr>
                     </g:each>

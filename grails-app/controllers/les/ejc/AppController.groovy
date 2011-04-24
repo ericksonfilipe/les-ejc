@@ -19,10 +19,10 @@ class AppController {
 		def usuario = Usuario.findByLoginAndSenha(params.login, new String(params.senha.encodeAsMD5Hex()))
 		if (usuario) {
 			session.user = usuario
-			flash.message = "Ola ${usuario.nomeCompleto}!"
+			flash.message = "Olá, ${usuario.nomeCompleto}!"
 			render(view:'../index')
 		} else {
-			flash.message = "O login e senha digitados sao incorretos."
+			flash.message = "O login e senha digitados são incorretos."
 			redirect(action:"login")
 		}
 	}
@@ -32,7 +32,7 @@ class AppController {
 	}
 
 	def logout = {
-		flash.message = "Usuario ${session.user.nomeCompleto} desconectado!"
+		flash.message = "Usuário ${session.user.nomeCompleto} desconectado!"
 		session.user = null
 		redirect(controller:"app", action:"login")
 	}
@@ -58,7 +58,7 @@ class AppController {
                 redirect(action: "index")
             }
             else {
-                flash.message = "Desculpa, Campos senha ou login invalido."
+                flash.message = "Campos senha ou login inválido."
                 redirect(action: "index")
             }
 
@@ -76,7 +76,7 @@ class AppController {
                         String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario.login}\nsenha: ${usuario.senha}\nAconselhamos mudar sua senha.\nAbraços"
 
                         senderService.enviaEmail(usuario.email,"Recuperação de Senha - Paróquia de São Cristóvão", mensagem)
-                        flash.message = "Foi enviado uma nova senha para ${params.email}."
+                        flash.message = "Foi enviada uma nova senha para ${params.email}."
 			redirect(action:"login")
 		}
 		else {
