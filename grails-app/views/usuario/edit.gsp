@@ -111,13 +111,13 @@
                                     <input type="file" id="foto" name="foto" />
                                 </td>
                             </tr>
-							
+
 							<tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
+									<label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'ficha', 'errors')}">
-                                    <input type="file" id="ficha" name="ficha" />
+                                    <input type="file" id="ficha" name="ficha"/>
                                 </td>
                             </tr>
                         
@@ -145,15 +145,6 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
                                     <g:textField name="observacoes" value="${usuarioInstance?.observacoes}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="senha"><g:message code="usuario.senha.label" default="Senha" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'senha', 'errors')}">
-                                    <g:passwordField name="senha" value="${usuarioInstance?.senha}" />
                                 </td>
                             </tr>
                         
