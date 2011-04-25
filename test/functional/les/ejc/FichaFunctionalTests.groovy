@@ -13,7 +13,7 @@ class FichaFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		assertContentContains("Ficha")
 	}
 
-	void testCampoFichaEditar() {
+	void testCampoFichaExibir() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -24,7 +24,7 @@ class FichaFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		assertContentContains("Ficha")
 	}
 
-	void testCampoFichaExibir() {
+	void testCampoFichaEditar() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
