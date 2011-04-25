@@ -1,5 +1,7 @@
 package les.ejc
 
+import java.util.Random
+
 class Usuario {
 
     String nomeCompleto
@@ -89,6 +91,41 @@ class Usuario {
 		geraLoginSenhaAutomaticos()
 	}
 	
+	private String getSenhaAleatoria(int digitos) {
+		String senha = "";
+		(1..digitos).each {  
+			senha += getRandomChar()
+		}
+		
+		return senha
+	}
+	
+	private String getRandomChar() {
+		def randomIntegerList = []
+		
+		randomIntegerList << getRandomNumber()
+		randomIntegerList << getRandomCharMaiusculo()
+		randomIntegerList << getRandomCharMinusculo()
+		
+		Random random = new Random()
+		return randomIntegerList[random.nextInt(3)]
+	}
+	
+	private String getRandomNumber() {
+		Random random = new Random()
+		return (char) (48 + random.nextInt(10))
+	}
+	
+	private String getRandomCharMaiusculo() {
+		Random random = new Random()
+		return (char) (65 + random.nextInt(26))
+	}
+	
+	private String getRandomCharMinusculo() {
+		Random random = new Random()
+		return (char) (97 + random.nextInt(26))
+	}
+	
 	/**
 	Se usuario tem nomeUsual em branco, deve ser seu primeiro nome
 	*/
@@ -104,9 +141,9 @@ class Usuario {
 	private geraLoginSenhaAutomaticos() {
         if (status == Status.Ativo && (email != null)) {
 			login = email
-			def novaSenha = nomeUsual
-			if (dataDeNascimento != null) { novaSenha += dataDeNascimento.get(Calendar.YEAR) }
-			senha = novaSenha
+			//def novaSenha = nomeUsual
+			//if (dataDeNascimento != null) { novaSenha += dataDeNascimento.get(Calendar.YEAR) }
+			senha = getSenhaAleatoria(8)
 		}
 	}
 

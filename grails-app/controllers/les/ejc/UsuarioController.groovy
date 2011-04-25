@@ -64,7 +64,6 @@ class UsuarioController {
 		usuarioInstance.realizaCriacoesAutomaticas()
 		
 		def senhaNaoCriptografada = usuarioInstance.senha
-		usuarioInstance.senha = new String(usuarioInstance.senha.encodeAsMD5Hex())
 
 		if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
 		
@@ -74,6 +73,8 @@ class UsuarioController {
 				//				  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
 				//senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
             }
+			
+			usuarioInstance.senha = new String(usuarioInstance.senha.encodeAsMD5Hex())
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
             redirect(action: "show", id: usuarioInstance.id)
         }
