@@ -3,8 +3,13 @@ package les.ejc
 class AtaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+    
+    def gerarhtml = {
+        def ataInstance = Ata.get(params.id)
+        [ataInstance:ataInstance]
+    }
 
-	def error = {}
+    def error = {}
 
     def index = {
 		if (!session?.user?.j5Atual) {
