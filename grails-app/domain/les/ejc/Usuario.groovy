@@ -47,6 +47,7 @@ class Usuario {
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
+		//senha(nullable:true, password:true, minSize:8)
 		senha(nullable:true, password:true)
 		login(nullable:true, unique:true)
 		j5Atual()

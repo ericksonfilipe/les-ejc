@@ -63,9 +63,9 @@ class BootStrap {
 		
 		println("Usuarios:")
 		println("Login     Senha")
-		println(Usuario.findByEmail("admin@plecas.com").login + "      admin")
-		println(Usuario.findByEmail("andre@plecas.com").login + "      andre")
-		println(Usuario.findByEmail("casal@plecas.com").login + "      casal")
+		println(Usuario.findByEmail("admin@plecas.com").login + "     admin")
+		println(Usuario.findByEmail("andre@plecas.com").login + "     andre")
+		println(Usuario.findByEmail("casal@plecas.com").login + "     casal")
 		println("-------------------------------------------------")
 		
     }
