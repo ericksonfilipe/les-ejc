@@ -6,14 +6,17 @@ class AtaController {
     
     def gerarhtml = {
         def ataInstance = Ata.get(params.id)
+        if (!ataInstance) {
+            redirect(action: 'list')
+            return
+        }
         [ataInstance:ataInstance]
     }
 
-    def error = {}
-
     def index = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         redirect(action: "list", params: params)
@@ -21,7 +24,8 @@ class AtaController {
 
     def list = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -30,7 +34,8 @@ class AtaController {
 
     def create = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def ataInstance = new Ata()
@@ -40,7 +45,8 @@ class AtaController {
 
     def save = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def ataInstance = new Ata(params)
@@ -55,7 +61,8 @@ class AtaController {
 
     def show = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def ataInstance = Ata.get(params.id)
@@ -70,7 +77,8 @@ class AtaController {
 
     def edit = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def ataInstance = Ata.get(params.id)
@@ -85,7 +93,8 @@ class AtaController {
 
     def update = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def ataInstance = Ata.get(params.id)

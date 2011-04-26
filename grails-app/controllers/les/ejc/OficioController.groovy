@@ -12,7 +12,8 @@ class OficioController {
 
     def list = {
 		if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -21,7 +22,8 @@ class OficioController {
 
     def create = {
 		if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def oficioInstance = new Oficio()
@@ -31,7 +33,8 @@ class OficioController {
 
     def save = {
 		if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
 		def oficioInstance = new Oficio(params)
@@ -46,7 +49,8 @@ class OficioController {
 
     def show = {
 		if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
 		def oficioInstance = Oficio.get(params.id)
@@ -61,7 +65,8 @@ class OficioController {
 
     def edit = {
         if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
 		def oficioInstance = Oficio.get(params.id)
@@ -76,7 +81,8 @@ class OficioController {
 
     def update = {
         if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
 		def oficioInstance = Oficio.get(params.id)
@@ -107,7 +113,8 @@ class OficioController {
 
     def delete = {
         if (!session.user || !session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
 		def oficioInstance = Oficio.get(params.id)

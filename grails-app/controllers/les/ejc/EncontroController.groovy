@@ -8,7 +8,8 @@ class EncontroController {
 
     def index = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         redirect(action: "list", params: params)
@@ -16,7 +17,8 @@ class EncontroController {
 
     def list = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -25,10 +27,12 @@ class EncontroController {
 
     def create = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def encontroInstance = new Encontro()
@@ -38,10 +42,12 @@ class EncontroController {
 
     def save = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def encontroInstance = new Encontro(params)
@@ -56,7 +62,8 @@ class EncontroController {
 
     def show = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def encontroInstance = Encontro.get(params.id)
@@ -71,10 +78,12 @@ class EncontroController {
 
     def edit = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def encontroInstance = Encontro.get(params.id)
@@ -89,10 +98,12 @@ class EncontroController {
 
     def update = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def encontroInstance = Encontro.get(params.id)
@@ -123,10 +134,12 @@ class EncontroController {
 
     def delete = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def encontroInstance = Encontro.get(params.id)
