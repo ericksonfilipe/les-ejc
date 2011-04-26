@@ -71,16 +71,17 @@ class AppController {
 		if (usuario) {
 			Random random = new Random()
                         String orig = (1..10).collect { random.nextInt(9) }.join()
-                        usuario.setSenha(orig)
+                        String origmd5 = orig.encodeAsMD5Hex()
+                        usuario.setSenha(origmd5)
                         usuario.save()
-                        String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario.login}\nsenha: ${usuario.senha}\nAconselhamos mudar sua senha.\nAbraços"
+                        String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario.login}\nsenha: ${orig}\nAconselhamos mudar sua senha.\nAbraços"
 
                         senderService.enviaEmail(usuario.email,"Recuperação de Senha - Paróquia de São Cristóvão", mensagem)
                         flash.message = "Foi enviada uma nova senha para ${params.email}."
 			redirect(action:"login")
 		}
 		else {
-			flash.message = "Desculpe, ${params.email} nao encontrado."
+			flash.message = "Desculpe, ${params.email} não encontrado."
 			redirect(action:"login")
 		}
 
