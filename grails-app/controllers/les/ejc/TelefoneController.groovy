@@ -8,10 +8,12 @@ class TelefoneController {
 	
     def index = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         redirect(action: "list", params: params)
@@ -19,10 +21,12 @@ class TelefoneController {
 
     def list = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -31,10 +35,12 @@ class TelefoneController {
 
     def create = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def telefoneInstance = new Telefone()
@@ -44,10 +50,12 @@ class TelefoneController {
 
     def save = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def telefoneInstance = new Telefone(params)
@@ -62,10 +70,12 @@ class TelefoneController {
 
     def show = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def telefoneInstance = Telefone.get(params.id)
@@ -80,10 +90,12 @@ class TelefoneController {
 
     def edit = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def telefoneInstance = Telefone.get(params.id)
@@ -98,10 +110,12 @@ class TelefoneController {
 
     def update = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def telefoneInstance = Telefone.get(params.id)
@@ -132,10 +146,12 @@ class TelefoneController {
 
     def delete = {
 		if (!session.user) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def telefoneInstance = Telefone.get(params.id)

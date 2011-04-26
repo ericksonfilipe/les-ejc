@@ -4,10 +4,10 @@ class EventoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-	def error = { }
     def index = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         redirect(action: "list", params: params)
@@ -15,7 +15,8 @@ class EventoController {
 
     def list = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
@@ -24,7 +25,8 @@ class EventoController {
 
     def create = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def eventoInstance = new Evento()
@@ -34,7 +36,8 @@ class EventoController {
 
     def save = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def eventoInstance = new Evento(params)
@@ -48,10 +51,6 @@ class EventoController {
     }
 
     def show = {
-		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
-			return
-		}
         def eventoInstance = Evento.get(params.id)
         if (!eventoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'evento.label', default: 'Evento'), params.id])}"
@@ -64,7 +63,8 @@ class EventoController {
 
     def edit = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def eventoInstance = Evento.get(params.id)
@@ -79,7 +79,8 @@ class EventoController {
 
     def update = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def eventoInstance = Evento.get(params.id)
@@ -110,7 +111,8 @@ class EventoController {
 
     def delete = {
 		if (!session?.user?.j5Atual) {
-			redirect(action:'error')
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
 			return
 		}
         def eventoInstance = Evento.get(params.id)
