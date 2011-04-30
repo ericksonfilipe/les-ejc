@@ -14,8 +14,8 @@ class OficioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 
 		get("http://localhost:8080/les-ejc/oficio/index");
 
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 
 	void testCriarOficio() {
@@ -27,8 +27,8 @@ class OficioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		}
 
 		get("http://localhost:8080/les-ejc/oficio/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 
 	void testVisualizarOficio() {
@@ -40,7 +40,7 @@ class OficioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		}
 
 		get("http://localhost:8080/les-ejc/oficio/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

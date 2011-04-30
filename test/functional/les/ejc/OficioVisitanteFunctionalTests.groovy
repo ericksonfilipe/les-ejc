@@ -6,19 +6,19 @@ class OficioVisitanteFunctionalTests extends functionaltestplugin.FunctionalTest
 	
 	void testTituloBasico() {
 		get(this.defaultLocation)
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testListaOficio(){
 		get("http://localhost:8080/les-ejc/oficio/list");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testIndexOficio(){
 		get("http://localhost:8080/les-ejc/oficio/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

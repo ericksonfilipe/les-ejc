@@ -6,19 +6,19 @@ class UsuarioVisitanteFunctionalTests extends functionaltestplugin.FunctionalTes
 	
 	void testTituloBasico() {
 		get(this.defaultLocation)
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testListaUsuarios(){
 		get("http://localhost:8080/les-ejc/usuario/list");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testIndexUsuarios(){
 		get("http://localhost:8080/les-ejc/usuario/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

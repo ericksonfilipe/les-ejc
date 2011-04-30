@@ -26,8 +26,8 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		}
 		
 		get("http://localhost:8080/les-ejc/equipeDeTrabalho/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testVisualizarEquipeDeTrabalho() {
@@ -59,8 +59,8 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		form() {
 			click "Editar"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testExcluirEquipeDeTrabalho() {
@@ -78,7 +78,7 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		form() {
 			click "Excluir"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

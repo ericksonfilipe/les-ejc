@@ -26,8 +26,8 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		}
 		
 		get("http://localhost:8080/les-ejc/encontro/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testVisualizarEncontro() {
@@ -59,8 +59,8 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		form() {
 			click "Editar"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testExcluirEncontro() {
@@ -78,7 +78,6 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		form() {
 			click "Excluir"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
-	}
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"	}
 }

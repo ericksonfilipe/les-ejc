@@ -26,8 +26,8 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		}
 		
 		get("http://localhost:8080/les-ejc/usuario/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testVisualizarUsuario() {
@@ -59,8 +59,8 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		form() {
 			click "Editar"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testEditarProprioUsuario() {
@@ -102,8 +102,8 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		form() {
 			click "Excluir"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testExcluirProprioUsuario() {
@@ -121,7 +121,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		form() {
 			click "Excluir"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

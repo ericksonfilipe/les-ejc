@@ -6,19 +6,19 @@ class CirculoVisitanteFunctionalTests extends functionaltestplugin.FunctionalTes
 	
 	void testTituloBasico() {
 		get(this.defaultLocation)
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testListaCirculos(){
 		get("http://localhost:8080/les-ejc/circulo/list");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testIndexCirculos(){
 		get("http://localhost:8080/les-ejc/circulo/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

@@ -22,24 +22,6 @@ class EventoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		assertContentContains "O campo [local] nao pode ficar em branco"
 	}
 	
-	void testHorario() {
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			descricao = "uma descricao"
-			horario = "um horario"
-			local = "Um local"			
-			click "Criar"
-		}
-		assertContentContains "O campo [horario] com o valor [um horario] ultrapassa o tamanho maximo de [5]"
-	}
-	
 	void testOk() {
 		get("http://localhost:8080/les-ejc/");
 		form() {

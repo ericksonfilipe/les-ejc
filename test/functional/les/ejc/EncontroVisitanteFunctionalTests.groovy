@@ -6,19 +6,19 @@ class EncontroVisitanteFunctionalTests extends functionaltestplugin.FunctionalTe
 	
 	void testTituloBasico() {
 		get(this.defaultLocation)
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testListaEncontros(){
 		get("http://localhost:8080/les-ejc/encontro/list");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testIndexEncontros(){
 		get("http://localhost:8080/les-ejc/encontro/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }
