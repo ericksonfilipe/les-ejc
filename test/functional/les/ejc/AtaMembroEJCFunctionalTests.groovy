@@ -8,7 +8,7 @@ class AtaMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -21,7 +21,7 @@ class AtaMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		

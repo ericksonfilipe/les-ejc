@@ -8,7 +8,7 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -21,7 +21,7 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -33,7 +33,7 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -58,7 +58,7 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		

@@ -8,7 +8,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -21,7 +21,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -34,7 +34,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -48,7 +48,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -67,7 +67,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -91,7 +91,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -110,7 +110,7 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		

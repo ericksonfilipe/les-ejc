@@ -8,7 +8,7 @@ class LoginFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get(this.defaultLocation);
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -35,7 +35,7 @@ class LoginFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get(this.defaultLocation);
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		//mensagem "Olá, admin!" separada por causa de problema com acento

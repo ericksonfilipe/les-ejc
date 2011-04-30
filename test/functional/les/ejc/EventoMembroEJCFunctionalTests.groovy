@@ -8,7 +8,7 @@ class EventoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -21,7 +21,7 @@ class EventoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
