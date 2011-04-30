@@ -13,8 +13,8 @@ class EventoVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalT
 		}
 		
 		get("http://localhost:8080/les-ejc/evento/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testCriarAta() {
@@ -26,7 +26,7 @@ class EventoVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalT
 		}
 		
 		get("http://localhost:8080/les-ejc/evento/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

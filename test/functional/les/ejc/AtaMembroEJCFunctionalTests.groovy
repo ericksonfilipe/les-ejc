@@ -13,8 +13,8 @@ class AtaMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		}
 		
 		get("http://localhost:8080/les-ejc/ata/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testCriarAta() {
@@ -26,7 +26,7 @@ class AtaMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		}
 		
 		get("http://localhost:8080/les-ejc/ata/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

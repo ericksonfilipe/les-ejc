@@ -26,8 +26,8 @@ class CirculoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		}
 		
 		get("http://localhost:8080/les-ejc/circulo/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testVisualizarCirculo() {
@@ -59,8 +59,8 @@ class CirculoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		form() {
 			click "Editar"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testExcluirCirculo() {
@@ -78,7 +78,7 @@ class CirculoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		form() {
 			click "Excluir"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }
