@@ -151,15 +151,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="login"><g:message code="usuario.login.label" default="Login" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'login', 'errors')}">
-                                    <g:textField name="login" value="${usuarioInstance?.login}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'j5Atual', 'errors')}">
