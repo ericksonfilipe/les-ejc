@@ -8,19 +8,21 @@ class EquipeDeTrabalho {
     Usuario jovemCoordenador1
     Usuario jovemCoordenador2
     Usuario casalCoordenador
+	Encontro encontro
 
     static hasMany = [ encontreiros : Usuario ]
 
-    static belongsTo = [ encontro : Encontro ]
+    //static belongsTo = [ encontro : Encontro ]
 
     static constraints = {
-        nomeEquipe(nullable:false)
-        jovemCoordenador1(nullable: true, validator: {valor, objeto -> 
-            if (valor == null && objeto.properties['jovemCoordenador2'] == null && objeto.properties['casalCoordenador'] == null) return "erro.coordenador.insuficiente" else if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
-        jovemCoordenador2(nullable: true, validator: {valor, objeto -> 
-            if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
-        casalCoordenador(nullable: true, validator: {valor, objeto -> 
-            if (valor == null || valor.tipo == Tipo.Casal) return true else return ["erro.tipo.invalido", valor.tipo]})
+		encontro(nullable:true)
+        nomeEquipe(nullable:true)
+        jovemCoordenador1(nullable: true)//jovemCoordenador1(nullable: true, validator: {valor, objeto -> 
+        //    if (valor == null && objeto.properties['jovemCoordenador2'] == null && objeto.properties['casalCoordenador'] == null) return "erro.coordenador.insuficiente" else if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+        jovemCoordenador2(nullable: true)//jovemCoordenador2(nullable: true, validator: {valor, objeto -> 
+        //    if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+        casalCoordenador(nullable: true)//casalCoordenador(nullable: true, validator: {valor, objeto -> 
+        //    if (valor == null || valor.tipo == Tipo.Casal) return true else return ["erro.tipo.invalido", valor.tipo]})
     }
 
     enum NomeEquipe {

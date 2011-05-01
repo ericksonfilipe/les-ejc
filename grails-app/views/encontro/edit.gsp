@@ -74,12 +74,12 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'circulos', 'errors')}">
                                     
-<ul>
-<g:each in="${encontroInstance?.circulos?}" var="c">
-    <li><g:link controller="circulo" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="circulo" action="create" params="['encontro.id': encontroInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'circulo.label', default: 'Circulo')])}</g:link>
+								<ul>
+								<g:each in="${encontroInstance?.circulos?}" var="c">
+									<li><g:link controller="circulo" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+								</g:each>
+								</ul>
+								<g:link controller="circulo" action="create" params="['encontro.id': encontroInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'circulo.label', default: 'Circulo')])}</g:link>
 
                                 </td>
                             </tr>

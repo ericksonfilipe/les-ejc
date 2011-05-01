@@ -20,12 +20,7 @@
                 <table>
                     <tbody>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="equipeDeTrabalho.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: equipeDeTrabalhoInstance, field: "id")}</td>
-                            
-                        </tr>
+
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="equipeDeTrabalho.nomeEquipe.label" default="Nome Equipe" /></td>
@@ -68,12 +63,6 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="equipeDeTrabalho.encontro.label" default="Encontro" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="encontro" action="show" id="${equipeDeTrabalhoInstance?.encontro?.id}">${equipeDeTrabalhoInstance?.encontro?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
                     
                     </tbody>
                 </table>
@@ -85,6 +74,11 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+			<div class="buttons">
+				<table><td>
+				<span class="button"><g:link controller="encontro" action="show" id="${equipeDeTrabalhoInstance?.encontro?.id}">Voltar para o Encontro: ${equipeDeTrabalhoInstance?.encontro?.encodeAsHTML()}</g:link></span>
+				</td></table>
+			</div>
         </div>
     </body>
 </html>

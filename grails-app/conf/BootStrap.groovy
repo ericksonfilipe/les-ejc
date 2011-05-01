@@ -32,7 +32,17 @@ class BootStrap {
 		
 		println("Cadastrando Encontros...")
 		println("Cadastrando Encontro Mei do Mato...")
-		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
+		println("Cadastrando Equipes de Trabalho do Encontro Mei do Mato...")
+		//equipeJ5 = new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5,
+		//								jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+		//								casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true)
+		println("Equipes cadastradas.")								
+		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com"),
+						j5: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+		
+						data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
 		println("Encontro Mei do Mato cadastrado!")
 		println("Encontros cadastrados!")
 		println()
@@ -45,13 +55,13 @@ class BootStrap {
 		println("Circulos cadastrados!")
 		println()
 		
-		println("Cadastrando Equipes de Trabalho...")
+		/*println("Cadastrando Equipes de Trabalho...")
 		println("Cadastrando Equipe J5...")
 		new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
 		casalCoordenador: Usuario.findByEmail("casal@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
 		println("Equipe J5 cadastrado!")
 		println("Equipes de Trabalho cadastrados!")
-		println()
+		println()*/
 		
 		println("Cadastrando Oficio...")
 		new Oficio(nomeDestinatario: "Lula", cargoDestinatario: "Presidente", empresaDestinatario: "Brasil",
