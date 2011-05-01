@@ -12,9 +12,9 @@ class Encontro {
     String tema
     String local
 	
-	//EquipeDeTrabalho coordenacao_geral
+	EquipeDeTrabalho coordenacao_geral
     EquipeDeTrabalho j5
-    /*EquipeDeTrabalho coordenacao_de_circulos
+    EquipeDeTrabalho coordenacao_de_circulos
     EquipeDeTrabalho apresentadores
     EquipeDeTrabalho bandinha
     EquipeDeTrabalho boa_vontade
@@ -29,7 +29,7 @@ class Encontro {
     EquipeDeTrabalho ordem_e_limpeza
     EquipeDeTrabalho mini_box
     EquipeDeTrabalho lanchinho
-    EquipeDeTrabalho visitacao_e_externa*/
+    EquipeDeTrabalho visitacao_e_externa
 
     static hasMany = [circulos:Circulo]
 
@@ -53,15 +53,15 @@ class Encontro {
 	
 
 	public criaEquipesPredefinidas() {
-		//coordenacao_geral
+		coordenacao_geral
 		j5 = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.J5, encontro:this).save(failOnError: true)
-		/*coordenacao_de_circulos
+		coordenacao_de_circulos
 		apresentadores
 		bandinha
 		boa_vontade
 		cozinha
 		liturgia_e_vigilia
-		correio_interno,
+		correio_interno
 		recepcao_aos_palestrantes
 		som_e_iluminacao
 		compras
@@ -70,7 +70,7 @@ class Encontro {
 		ordem_e_limpeza
 		mini_box
 		lanchinho
-		visitacao_e_externa*/
+		visitacao_e_externa
 	}
 
 }
