@@ -64,14 +64,7 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="encontro"><g:message code="equipeDeTrabalho.encontro.label" default="Encontro" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: equipeDeTrabalhoInstance, field: 'encontro', 'errors')}">
-                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${equipeDeTrabalhoInstance?.encontro?.id}"  />
-                                </td>
-                            </tr>
+
                         
                         </tbody>
                     </table>

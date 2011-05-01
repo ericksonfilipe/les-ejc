@@ -11,7 +11,6 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
@@ -69,7 +68,7 @@
                                     <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
-                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
+                                    <g:select name="encontro.id" from="${les.ejc.Encontro.findById(circuloInstance?.encontro?.id)}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
                                 </td>
                             </tr>
                         
@@ -79,6 +78,11 @@
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
+				<div class="buttons">
+					<table><td>
+					<span class="button"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">Voltar para o Encontro: ${circuloInstance?.encontro?.encodeAsHTML()}</g:link></span>
+					</td></table>
+				</div>
             </g:form>
         </div>
     </body>
