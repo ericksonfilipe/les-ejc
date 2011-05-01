@@ -24,7 +24,7 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'encontro.id.label', default: 'Id')}" />
 							
-							<g:sortableColumn property="codigo" title="${message(code: 'encontro.codigo.label', default: 'Código')}" />
+							<g:sortableColumn property="numero" title="${message(code: 'encontro.numero.label', default: 'Número')}" />
                         
                             <th><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></th>
                         
@@ -42,7 +42,7 @@
                         
                             <td><g:link action="show" id="${encontroInstance.id}">${fieldValue(bean: encontroInstance, field: "id")}</g:link></td>
                         
-							<td>${fieldValue(bean: encontroInstance, field: "codigo")}</td>
+							<td>${fieldValue(bean: encontroInstance, field: "numero")}</td>
 							
                             <td>${fieldValue(bean: encontroInstance, field: "dirigenteEspiritual")}</td>
                         

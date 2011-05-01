@@ -6,7 +6,7 @@ import les.ejc.EquipeDeTrabalho;
 
 class Encontro {
 
-	Integer codigo
+	Integer numero
     Usuario dirigenteEspiritual
     Date data
     String tema
@@ -34,9 +34,9 @@ class Encontro {
     static hasMany = [circulos:Circulo]
 
     static constraints = {
-		codigo(nullable:false, unique:true, validator: { cod, encontro -> for (Encontro e: Encontro.list()) {
-															if (e.data < encontro.data && e.codigo > cod) return ["encontro.codigo.validator.dataMaior.error", encontro.data]
-															if (e.data > encontro.data && e.codigo < cod) return ["encontro.codigo.validator.dataMenor.error", encontro.data]
+		numero(nullable:false, unique:true, validator: { num, encontro -> for (Encontro e: Encontro.list()) {
+															if (e.data < encontro.data && e.numero > num) return ["encontro.numero.validator.dataMaior.error", encontro.data]
+															if (e.data > encontro.data && e.numero < num) return ["encontro.numero.validator.dataMenor.error", encontro.data]
 														 }
 														 return true })
         dirigenteEspiritual(nullable:false, validator: {if (it?.tipo == Tipo.Padre) return true
