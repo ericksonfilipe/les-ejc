@@ -37,7 +37,7 @@ class BootStrap {
 		//								jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
 		//								casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true)
 		println("Equipes cadastradas.")								
-		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com"),
+		new Encontro(codigo:1, dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com"),
 						j5: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5,
 										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
 										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
