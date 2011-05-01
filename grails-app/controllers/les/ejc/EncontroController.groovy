@@ -51,16 +51,8 @@ class EncontroController {
 			return
 		}
         def encontroInstance = new Encontro(params)
-		encontroInstance.criaEquipesPredefinidas() //precisa ser aqui
-		//def equipeJ5 = new les.ejc.EquipeDeTrabalho(nomeEquipe:les.ejc.EquipeDeTrabalho.NomeEquipe.J5)
-		
-		//encontroInstance.j5 = new les.ejc.EquipeDeTrabalho(nomeEquipe: les.ejc.EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1:null).save(failOnError: true)
-		
-		//equipeJ5.save(flush: true)
-		//encontroInstance.j5 = equipeJ5
-		//encontroInstance.j5.save(flush: true)
-		
-        if (encontroInstance.save(flush: true)) {
+		encontroInstance.criaEquipesPredefinidas() //criar todas as equipes
+		if (encontroInstance.save(flush: true)) {
 			
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'encontro.label', default: 'Encontro'), encontroInstance.id])}"
             redirect(action: "show", id: encontroInstance.id)
