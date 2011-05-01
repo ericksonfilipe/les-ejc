@@ -108,10 +108,21 @@
                                 <td valign="top" class="name">
                                   <label for="foto"><g:message code="usuario.foto.label" default="Foto" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foto', 'errors')}">
+								
+								<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foto', 'errors')}">
                                     <input type="file" id="foto" name="foto" />
                                 </td>
                             </tr>
+							
+							<tr class="prop">
+								<td valign="top" class="name">
+									<g:if test="${usuarioInstance.foto}">
+										<img src="
+											<g:createLink action='renderFoto' id='${usuarioInstance.id}' />
+										"/>
+									</g:if>
+								</td>
+							</tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

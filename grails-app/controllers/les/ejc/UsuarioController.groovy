@@ -145,7 +145,11 @@ class UsuarioController {
                     return
                 }
             }
+			def foto = usuarioInstance.foto
             usuarioInstance.properties = params
+			if (foto != [] && usuarioInstance.foto == []) {
+				usuarioInstance.foto = foto
+			}
             if (!usuarioInstance.hasErrors() && usuarioInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance.id])}"
                 redirect(action: "show", id: usuarioInstance.id)
