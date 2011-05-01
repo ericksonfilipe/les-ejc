@@ -120,7 +120,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		get(this.defaultLocation);
 		Calendar hoje = new GregorianCalendar()
 		form() {
-			codigo = "5"
+			numero = "5"
 			selects['dirigenteEspiritual.id'].select "2"
 			data_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 5}"
 			data_month = "${hoje.get(Calendar.MONTH) + 1}"
@@ -132,7 +132,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		assertContentContains "Encontro 2 criado"
 	}
 	
-	void testCodigoInvalidoPoisExistemEncontrosComDataAnteriorECodigoMaior() {
+	void testNumeroInvalidoPoisExistemEncontrosComDataAnteriorEnumeroMaior() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -143,7 +143,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		get(this.defaultLocation);
 		Calendar hoje = new GregorianCalendar()
 		form() {
-			codigo = "4"
+			numero = "4"
 			selects['dirigenteEspiritual.id'].select "2"
 			data_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 6}"
 			data_month = "${hoje.get(Calendar.MONTH) + 1}"
@@ -152,10 +152,10 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			local = "local"
 			click "Criar"
 		}
-		assertContentContains "O c&oacute;digo 4 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data anterior a"
+		assertContentContains "O n&uacute;mero 4 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data anterior a"
 	}
 	
-	void testCodigoInvalidoPoisExistemEncontrosComDataPosteriorECodigoMenor() {
+	void testNumeroInvalidoPoisExistemEncontrosComDataPosteriorEnumeroMenor() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -166,7 +166,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		get(this.defaultLocation);
 		Calendar hoje = new GregorianCalendar()
 		form() {
-			codigo = "8"
+			numero = "8"
 			selects['dirigenteEspiritual.id'].select "2"
 			data_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 2}"
 			data_month = "${hoje.get(Calendar.MONTH) + 1}"
@@ -175,7 +175,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			local = "local"
 			click "Criar"
 		}
-		assertContentContains "O c&oacute;digo 8 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a"
+		assertContentContains "O n&uacute;mero 8 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a"
 	}
 
 }

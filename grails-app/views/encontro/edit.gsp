@@ -33,10 +33,10 @@
                         <tbody>
 							<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="codigo"><g:message code="encontro.codigo.label" default="Código" /></label>
+                                    <label for="numero"><g:message code="encontro.numero.label" default="Número" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'codigo', 'errors')}">
-                                    <g:textField name="codigo" value="${encontroInstance?.codigo}" />
+                                <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'numero', 'errors')}">
+                                    <g:textField name="numero" value="${encontroInstance?.numero}" />
                                 </td>
                             </tr>
 							
