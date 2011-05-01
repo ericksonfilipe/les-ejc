@@ -32,7 +32,7 @@ class BootStrap {
 		
 		println("Cadastrando Encontros...")
 		println("Cadastrando Encontro Mei do Mato...")
-		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
+		new Encontro(codigo:1,dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
 		println("Encontro Mei do Mato cadastrado!")
 		println("Encontros cadastrados!")
 		println()
