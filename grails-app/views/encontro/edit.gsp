@@ -97,15 +97,27 @@
                                   <label for="equipesDeTrabalho"><g:message code="encontro.equipesDeTrabalho.label" default="Equipes De Trabalho" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'equipesDeTrabalho', 'errors')}">
-                                    
-<ul>
-<g:each in="${encontroInstance?.equipesDeTrabalho?}" var="e">
-    <li><g:link controller="equipeDeTrabalho" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="equipeDeTrabalho" action="create" params="['encontro.id': encontroInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho')])}</g:link>
-
-                                </td>
+								<ul>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.coordenacao_geral?.id}">${encontroInstance?.coordenacao_geral?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.j5?.id}">${encontroInstance?.j5?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.coordenacao_de_circulos?.id}">${encontroInstance?.coordenacao_de_circulos?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.apresentadores?.id}">${encontroInstance?.apresentadores?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.bandinha?.id}">${encontroInstance?.bandinha?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.boa_vontade?.id}">${encontroInstance?.boa_vontade?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.cozinha?.id}">${encontroInstance?.cozinha?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.liturgia_e_vigilia?.id}">${encontroInstance?.liturgia_e_vigilia?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.correio_interno?.id}">${encontroInstance?.correio_interno?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.recepcao_aos_palestrantes?.id}">${encontroInstance?.recepcao_aos_palestrantes?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.som_e_iluminacao?.id}">${encontroInstance?.som_e_iluminacao?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.compras?.id}">${encontroInstance?.compras?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.secretaria?.id}">${encontroInstance?.secretaria?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.transito_e_sociodrama?.id}">${encontroInstance?.transito_e_sociodrama?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.ordem_e_limpeza?.id}">${encontroInstance?.ordem_e_limpeza?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.mini_box?.id}">${encontroInstance?.mini_box?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.lanchinho?.id}">${encontroInstance?.lanchinho?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" action="edit" id="${encontroInstance?.visitacao_e_externa?.id}">${encontroInstance?.visitacao_e_externa?.encodeAsHTML()}</g:link></li>
+								</ul>
+								</td>
                             </tr>
                         
                         </tbody>
