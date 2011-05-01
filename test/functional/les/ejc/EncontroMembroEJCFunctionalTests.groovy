@@ -8,7 +8,7 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -21,20 +21,20 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
 		get("http://localhost:8080/les-ejc/encontro/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testVisualizarEncontro() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -48,7 +48,7 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -59,15 +59,15 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		form() {
 			click "Editar"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testExcluirEncontro() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
@@ -78,7 +78,6 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		form() {
 			click "Excluir"
 		}
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
-	}
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"	}
 }

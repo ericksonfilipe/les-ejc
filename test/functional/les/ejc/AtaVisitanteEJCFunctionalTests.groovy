@@ -8,25 +8,25 @@ class AtaVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
 		get("http://localhost:8080/les-ejc/ata/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 	
 	void testCriarAta() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 		
 		get("http://localhost:8080/les-ejc/ata/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

@@ -8,39 +8,39 @@ class OficioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 
 		get("http://localhost:8080/les-ejc/oficio/index");
 
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 
 	void testCriarOficio() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 
 		get("http://localhost:8080/les-ejc/oficio/create");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 
 	void testVisualizarOficio() {
 		get(this.defaultLocation);
 		form() {
 			login = "andre"
-			senha = "andre"
+			senha = "andre123"
 			click "Login"
 		}
 
 		get("http://localhost:8080/les-ejc/oficio/index");
-		assertTitle("Permissao Negada")
-		assertContentContains("Voce nao tem permissao para visualizar essa pagina.")
+		assertContentContains "Permiss"
+		assertContentContains "o Negada"
 	}
 }

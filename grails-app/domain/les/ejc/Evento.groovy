@@ -10,7 +10,7 @@ class Evento {
     static constraints = {
 		data()
 		descricao(nullable:false, blank:false, maxSize:2000)
-		horario(nullable:false, blank:false, maxSize:5)
+		horario(nullable:false, blank:false)
 		local(nullable:false, blank:false, maxSize: 50)	
 	}
 
