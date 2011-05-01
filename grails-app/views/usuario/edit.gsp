@@ -128,11 +128,20 @@
                                 <td valign="top" class="name">
                                   <label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'ficha', 'errors')}">
+								
+								<td valign="top" class="value">
+									<g:if test="${usuarioInstance.ficha}">
+										<g:link controller='pdf' action='renderPDF' id='${usuarioInstance.id}'> download </g:link>
+									</g:if>
+								</td>
+                            </tr>
+							
+							<tr class="prop">
+								<td valign="top" class="name">
                                     <input type="file" id="ficha" name="ficha" />
                                 </td>
-                            </tr>
-                        
+							</tr>
+							
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="paroquia"><g:message code="usuario.paroquia.label" default="Paroquia" /></label>
