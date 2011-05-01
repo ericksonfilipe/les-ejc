@@ -70,7 +70,7 @@
                                   <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
-                                    <g:select name="encontro.id" from="${les.ejc.Encontro.list()}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
+                                    <g:select name="encontro.id" from="${les.ejc.Encontro.findById(circuloInstance?.encontro?.id)}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
                                 </td>
                             </tr>
                         
@@ -90,7 +90,12 @@
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
-            </g:form>
+				<div class="buttons">
+					<table><td>
+					<span class="button"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">Voltar para o Encontro: ${circuloInstance?.encontro?.encodeAsHTML()}</g:link></span>
+					</td></table>
+					</div>
+				</g:form>
         </div>
     </body>
 </html>

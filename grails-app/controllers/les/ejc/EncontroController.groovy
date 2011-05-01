@@ -51,8 +51,10 @@ class EncontroController {
 			return
 		}
         def encontroInstance = new Encontro(params)
-        if (encontroInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'encontro.label', default: 'Encontro'), encontroInstance.id])}"
+		encontroInstance.criaEquipesPredefinidas() //criar todas as equipes
+		if (encontroInstance.save(flush: true)) {
+			
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'encontro.label', default: 'Encontro'), encontroInstance.id])}"
             redirect(action: "show", id: encontroInstance.id)
         }
         else {

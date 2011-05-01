@@ -21,13 +21,6 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="circulo.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: circuloInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="circulo.cor.label" default="Cor" /></td>
                             
                             <td valign="top" class="value">${circuloInstance?.cor?.encodeAsHTML()}</td>
@@ -54,14 +47,7 @@
                             <td valign="top" class="value"><g:link controller="usuario" action="show" id="${circuloInstance?.casalApoio?.id}">${circuloInstance?.casalApoio?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="circulo.encontro.label" default="Encontro" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">${circuloInstance?.encontro?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
+                                      
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="circulo.participantes.label" default="Participantes" /></td>
                             
@@ -85,6 +71,11 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+			<div class="buttons">
+				<table><td>
+				<span class="button"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">Voltar para o Encontro: ${circuloInstance?.encontro?.encodeAsHTML()}</g:link></span>
+				</td></table>
+			</div>
         </div>
     </body>
 </html>

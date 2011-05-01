@@ -31,10 +31,66 @@ class BootStrap {
 		println()
 		
 		println("Cadastrando Encontros...")
-		println("Cadastrando Encontro Mei do Mato...")
-		new Encontro(dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com") , data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
+		println("Cadastrando Encontro Mei do Mato e, portanto, as equipes predefinidas...")
+		new Encontro(codigo:1, dirigenteEspiritual:Usuario.findByEmail("andre@plecas.com"),
+						coordenacao_geral: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.COORDENACAO_GERAL,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						j5: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						coordenacao_de_circulos: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.COORDENACAO_DE_CIRCULOS,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						apresentadores: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.APRESENTADORES,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						bandinha: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.BANDINHA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						boa_vontade: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.BOA_VONTADE,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						cozinha: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.COZINHA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						liturgia_e_vigilia: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.LITURGIA_E_VIGILIA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						correio_interno: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.CORREIO_INTERNO,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						recepcao_aos_palestrantes: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.RECEPCAO_AOS_PALESTRANTES,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						som_e_iluminacao: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.SOM_E_ILUMINACAO,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						compras: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.COMPRAS,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						secretaria: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.SECRETARIA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						transito_e_sociodrama: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.TRANSITO_E_SOCIODRAMA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						ordem_e_limpeza: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.ORDEM_E_LIMPEZA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						mini_box: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.MINI_BOX,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						lanchinho: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.LANCHINHO,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+						visitacao_e_externa: new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.VISITACAO_E_EXTERNA,
+										jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
+										casalCoordenador: Usuario.findByEmail("casal@plecas.com")).save(failOnError: true),
+		
+						data: new Date() , tema: "Mei do Mato", local:"Manaus").save(failOnError: true)
 		println("Encontro Mei do Mato cadastrado!")
-		println("Encontros cadastrados!")
+		println("Encontros e suas Equipes cadastradas!")
 		println()
 		
 		println("Cadastrando Circulos...")
@@ -43,14 +99,6 @@ class BootStrap {
 		casalApoio: Usuario.findByEmail("admin@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
 		println("Circulo Azul cadastrado!")
 		println("Circulos cadastrados!")
-		println()
-		
-		println("Cadastrando Equipes de Trabalho...")
-		println("Cadastrando Equipe J5...")
-		new EquipeDeTrabalho(nomeEquipe: EquipeDeTrabalho.NomeEquipe.J5, jovemCoordenador1: Usuario.findByEmail("admin@plecas.com"),
-		casalCoordenador: Usuario.findByEmail("casal@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
-		println("Equipe J5 cadastrado!")
-		println("Equipes de Trabalho cadastrados!")
 		println()
 		
 		println("Cadastrando Oficio...")
