@@ -35,8 +35,8 @@ class Encontro {
 
     static constraints = {
 		codigo(nullable:false, unique:true, validator: { cod, encontro -> for (Encontro e: Encontro.list()) {
-															if (e.data < encontro.data && e.codigo > cod) return ["encontro.codigo.validator.dataMaior.error", e.data]
-															if (e.data > encontro.data && e.codigo < cod) return ["encontro.codigo.validator.dataMenor.error", e.data]
+															if (e.data < encontro.data && e.codigo > cod) return ["encontro.codigo.validator.dataMaior.error", encontro.data]
+															if (e.data > encontro.data && e.codigo < cod) return ["encontro.codigo.validator.dataMenor.error", encontro.data]
 														 }
 														 return true })
         dirigenteEspiritual(nullable:false, validator: {if (it?.tipo == Tipo.Padre) return true

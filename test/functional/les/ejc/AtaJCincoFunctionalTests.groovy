@@ -32,7 +32,7 @@ class AtaJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get(this.defaultLocation);
 		form() {
 			pauta = "uma pauta"
-			selects['pessoasPresentes'].select "2"
+			selects['pessoasPresentes.id'].select "2"
 			click "Criar"
 		}
 		assertContentContains "O campo [pessoasPresentes] com o valor [[Andre]] nao atinge o tamanho minimo de [2]"
