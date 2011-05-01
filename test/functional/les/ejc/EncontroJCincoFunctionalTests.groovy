@@ -107,4 +107,47 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		assertContentContains "O campo [tema] nao atende ao padrao definido [([a-zA-Z]| )+]"
 	}
 
+	//Testes para Requisito: Os encontros devem ter um número correspondente (1º, 2º, ...), que não pode se repetir e deve seguir a sequência de datas.
+	
+	void testCriarEncontroValido() {
+		get("http://localhost:8080/les-ejc/");
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+		
+		get(this.defaultLocation);
+		def dataEncontro = new Date() + 5
+		form() {
+			codigo = "5"
+			selects['dirigenteEspiritual.id'].select "2"
+			data = dataEncontro
+			tema = "tema"
+			local = "local"
+			click "Criar"
+		}
+		assertContentContains "Encontro 2 criados"
+	}
+	
+	/*void testCodigoInvalidoPoisExistemEncontrosComDataAnteriorECodigoMaior() {
+		get("http://localhost:8080/les-ejc/");
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+		assertContentContains "O c&oacute;digo 5 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a 5/1/11 3:07 PM e c&oacute;digo menor que 5."
+	}
+	
+	void testCodigoInvalidoPoisExistemEncontrosComDataPosteriorECodigoMenor() {
+		get("http://localhost:8080/les-ejc/");
+		form() {
+			login = "admin"
+			senha = "admin"
+			click "Login"
+		}
+		assertContentContains "O c&oacute;digo 5 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a 5/1/11 3:07 PM e c&oacute;digo menor que 5."
+	}*/
+
 }
