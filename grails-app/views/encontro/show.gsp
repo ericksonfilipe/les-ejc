@@ -28,6 +28,13 @@
                             <td valign="top" class="value">${fieldValue(bean: encontroInstance, field: "id")}</td>
                             
                         </tr>
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="encontro.codigo.label" default="Código" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: encontroInstance, field: "codigo")}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></td>
