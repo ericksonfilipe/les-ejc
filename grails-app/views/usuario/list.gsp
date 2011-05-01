@@ -32,7 +32,7 @@
                         
                             <th><g:message code="usuario.endereco.label" default="Endereco" /></th>
                         
-                            <th><g:message code="usuario.telefone1.label" default="Telefone1" /></th>
+                            <g:sortableColumn property="telefone1" title="${message(code: 'usuario.telefone1.label', default: 'Telefone1')}" />
                         
                         </tr>
                     </thead>

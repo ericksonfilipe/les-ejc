@@ -8,7 +8,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -21,7 +21,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -33,7 +33,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -59,7 +59,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -75,7 +75,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -91,7 +91,7 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		

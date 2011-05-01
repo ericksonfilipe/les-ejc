@@ -8,7 +8,7 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -21,7 +21,7 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -33,7 +33,7 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -48,7 +48,7 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -64,7 +64,7 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		

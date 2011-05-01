@@ -8,9 +8,9 @@ class Usuario {
     String nomeUsual
     Calendar dataDeNascimento
 	
-    Telefone telefone1
-    Telefone telefone2
-    Telefone telefone3
+    String telefone1
+    String telefone2
+    String telefone3
     
     String email
     byte[] foto
@@ -35,20 +35,23 @@ class Usuario {
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
         dataDeNascimento(nullable:true)
         endereco(nullable:true)
-		telefone1(nullable:true)
-		telefone3(nullable:true)
-		telefone2(nullable:true)
-		//telefone1(blank:true, maxSize:13, minSize:13, matches:'.[0-9][0-9].[0-9][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]')
-        //telefone2(blank:true, maxSize:13, minSize:13, matches:'.[0-9][0-9].[0-9][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]')
-        //telefone3(blank:true, maxSize:13, minSize:13, matches:'.[0-9][0-9].[0-9][0-9][0-9][0-9].[0-9][0-9][0-9][0-9]')
+		//telefone1(nullable:true)
+		//telefone3(nullable:true)
+		//telefone2(nullable:true)
+		telefone1(blank:true, maxSize:13, minSize:13, matches:'\\([0-9][0-9]\\)[0-9][0-9][0-9][0-9]\\-[0-9][0-9][0-9][0-9]', validator: {valor, objeto -> 
+			if (valor != "" && (objeto.telefone2 == valor || objeto.telefone3 == valor)) return ["erro.telefone.duplicado", valor] else return true })
+		telefone2(blank:true, maxSize:13, minSize:13, matches:'\\([0-9][0-9]\\)[0-9][0-9][0-9][0-9]\\-[0-9][0-9][0-9][0-9]', validator: {valor, objeto -> 
+			if (valor != "" && (objeto.telefone1 == valor || objeto.telefone3 == valor)) return ["erro.telefone.duplicado", valor] else return true })
+		telefone3(blank:true, maxSize:13, minSize:13, matches:'\\([0-9][0-9]\\)[0-9][0-9][0-9][0-9]\\-[0-9][0-9][0-9][0-9]', validator: {valor, objeto -> 
+			if (valor != "" && (objeto.telefone1 == valor || objeto.telefone2 == valor)) return ["erro.telefone.duplicado", valor] else return true })
         email(nullable:true, email:true, unique:true)
 		foto(nullable:true)
 		ficha(nullable:true)
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
-		//senha(nullable:true, password:true, minSize:8)
-		senha(nullable:true, password:true)
+		senha(nullable:true, password:true, minSize:8)
+		//senha(nullable:true, password:true)
 		login(nullable:true, unique:true)
 		j5Atual()
     }

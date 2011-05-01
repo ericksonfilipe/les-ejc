@@ -6,7 +6,7 @@ class FichaFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		get("http://localhost:8080/les-ejc/usuario/create")
@@ -17,7 +17,7 @@ class FichaFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		get("http://localhost:8080/les-ejc/usuario/show/1")
@@ -28,7 +28,7 @@ class FichaFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		get("http://localhost:8080/les-ejc/usuario/edit/1")

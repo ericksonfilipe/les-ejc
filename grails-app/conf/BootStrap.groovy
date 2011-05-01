@@ -11,21 +11,21 @@ class BootStrap {
 		println("Cadastrando Usuarios...")
 		println("Cadastrando Usuario Admin...")
 		new Usuario(nomeCompleto:"admin", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, email:"admin@plecas.com", foto:null, 
+					endereco:null, email:"admin@plecas.com", foto:null, telefone1:"", telefone2:"", telefone3:"",
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
-					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:true, login:"admin", senha:new String("admin".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:true, login:"admin", senha:new String("admin123".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Admin cadastrado!")
 		println("Cadastrando Usuario Andre...")
 		new Usuario(nomeCompleto:"Andre", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, email:"andre@plecas.com", foto:null, 
+					endereco:null, email:"andre@plecas.com", foto:null, telefone1:"", telefone2:"", telefone3:"",
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
-					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, login:"andre", senha:new String("andre".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, login:"andre", senha:new String("andre123".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Andre cadastrado!")
 		println("Cadastrando Usuario Casal...")
 		new Usuario(nomeCompleto:"Casal", nomeUsual:"", dataDeNascimento:null,
-					endereco:null, email:"casal@plecas.com", foto:null, 
+					endereco:null, email:"casal@plecas.com", foto:null, telefone1:"", telefone2:"", telefone3:"",
 					paroquia:"", equipesTrabalhadas:"", observacoes:"",
-					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, login:"casal", senha:new String("casal".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, login:"casal", senha:new String("casal123".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Casal cadastrado!")
 		println("Usuarios cadastrados!")
 		println()
@@ -111,9 +111,9 @@ class BootStrap {
 		
 		println("Usuarios:")
 		println("Login     Senha")
-		println(Usuario.findByEmail("admin@plecas.com").login + "     admin")
-		println(Usuario.findByEmail("andre@plecas.com").login + "     andre")
-		println(Usuario.findByEmail("casal@plecas.com").login + "     casal")
+		println(Usuario.findByEmail("admin@plecas.com").login + "     admin123")
+		println(Usuario.findByEmail("andre@plecas.com").login + "     andre123")
+		println(Usuario.findByEmail("casal@plecas.com").login + "     casal123")
 		println("-------------------------------------------------")
 		
     }

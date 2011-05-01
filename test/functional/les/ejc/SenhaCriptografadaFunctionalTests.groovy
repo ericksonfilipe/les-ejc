@@ -7,7 +7,7 @@ class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalT
 		get(this.defaultLocation)
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		//mensagem "Olá, admin!" separada por causa de problema com acento
@@ -15,14 +15,14 @@ class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalT
 		assertContentContains ", admin!"
 		
 		get ("http://localhost:8080/les-ejc/usuario/senhacriptografada")
-		assertContentContains "<td>admin</td><td>" + new String("admin".encodeAsMD5Hex()) + "</td>"
+		assertContentContains "<td>admin</td><td>" + new String("admin123".encodeAsMD5Hex()) + "</td>"
 	}
 
 	void testCriptografiaAoMudarSenhaDeUsuario() {
 		get(this.defaultLocation)
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		//mensagem "Olá, admin!" separada por causa de problema com acento
@@ -32,35 +32,35 @@ class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalT
         get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
             login = "admin"
-            senha = "admin"
-            senhanova1 = "oie"
-            senhanova2 = "oie"
+            senha = "admin123"
+            senhanova1 = "oie12345"
+            senhanova2 = "oie12345"
             click "Mudar Senha"
         }
         assertContentContains "Senha atualizada com sucesso"
 		
 		get ("http://localhost:8080/les-ejc/usuario/senhacriptografada")	
-		assertContentContains "<td>admin</td><td>" + new String("oie".encodeAsMD5Hex()) + "</td>"
+		assertContentContains "<td>admin</td><td>" + new String("oie12345".encodeAsMD5Hex()) + "</td>"
 		
 		get("http://localhost:8080/les-ejc/app/trocarsenha")
         form() {
             login = "admin"
-            senha = "oie"
-            senhanova1 = "admin"
-            senhanova2 = "admin"
+            senha = "oie12345"
+            senhanova1 = "admin123"
+            senhanova2 = "admin123"
             click "Mudar Senha"
         }
         assertContentContains "Senha atualizada com sucesso"
 		
 		get ("http://localhost:8080/les-ejc/usuario/senhacriptografada")	
-		assertContentContains "<td>admin</td><td>" + new String("admin".encodeAsMD5Hex()) + "</td>"
+		assertContentContains "<td>admin</td><td>" + new String("admin123".encodeAsMD5Hex()) + "</td>"
 	}
 
 	void testCriptografiaAoCriarUsuario(){
 		get(this.defaultLocation)
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		//mensagem "Olá, admin!" separada por causa de problema com acento

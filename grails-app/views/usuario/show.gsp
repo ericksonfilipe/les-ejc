@@ -60,21 +60,21 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="telefone" action="show" id="${usuarioInstance?.telefone1?.id}">${usuarioInstance?.telefone1?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone1")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone2.label" default="Telefone2" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="telefone" action="show" id="${usuarioInstance?.telefone2?.id}">${usuarioInstance?.telefone2?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone2")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone3.label" default="Telefone3" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="telefone" action="show" id="${usuarioInstance?.telefone3?.id}">${usuarioInstance?.telefone3?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone3")}</td>
                             
                         </tr>
                     
@@ -87,25 +87,11 @@
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.foto.label" default="Foto" /></td>
-							
-							<td valign="top" class="value">
-								<g:if test="${usuarioInstance.foto}">
-									<img src="
-										<g:createLink action='renderFoto' id='${usuarioInstance.id}' />
-									"/>
-								</g:if>
-							</td>
                             
                         </tr>
-						
-						<tr class="prop">
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.ficha.label" default="Ficha" /></td>
-							
-							<td valign="top" class="value">
-								<g:if test="${usuarioInstance.ficha}">
-									<g:link controller='pdf' action='renderPDF' id='${usuarioInstance.id}'> download </g:link>
-								</g:if>
-							</td>
                             
                         </tr>
                     
@@ -127,6 +113,13 @@
                             <td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observacoes" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.senha.label" default="Senha" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "senha")}</td>
                             
                         </tr>
                     
