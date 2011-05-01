@@ -78,6 +78,11 @@
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
+				<div class="buttons">
+					<table><td>
+					<span class="button"><g:link controller="encontro" action="show" id="${circuloInstance?.encontro?.id}">Voltar para o Encontro: ${circuloInstance?.encontro?.encodeAsHTML()}</g:link></span>
+					</td></table>
+				</div>
             </g:form>
         </div>
     </body>
