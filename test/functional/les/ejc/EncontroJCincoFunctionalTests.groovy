@@ -118,26 +118,41 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		}
 		
 		get(this.defaultLocation);
-		def dataEncontro = new Date() + 5
+		Calendar hoje = new GregorianCalendar()
 		form() {
 			codigo = "5"
 			selects['dirigenteEspiritual.id'].select "2"
-			data = dataEncontro
+			data_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 5}"
+			data_month = "${hoje.get(Calendar.MONTH) + 1}"
+			data_year = "${hoje.get(Calendar.YEAR)}"
 			tema = "tema"
 			local = "local"
 			click "Criar"
 		}
-		assertContentContains "Encontro 2 criados"
+		assertContentContains "Encontro 2 criado"
 	}
 	
-	/*void testCodigoInvalidoPoisExistemEncontrosComDataAnteriorECodigoMaior() {
+	void testCodigoInvalidoPoisExistemEncontrosComDataAnteriorECodigoMaior() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "O c&oacute;digo 5 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a 5/1/11 3:07 PM e c&oacute;digo menor que 5."
+		
+		get(this.defaultLocation);
+		Calendar hoje = new GregorianCalendar()
+		form() {
+			codigo = "4"
+			selects['dirigenteEspiritual.id'].select "2"
+			data_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 6}"
+			data_month = "${hoje.get(Calendar.MONTH) + 1}"
+			data_year = "${hoje.get(Calendar.YEAR)}"
+			tema = "tema"
+			local = "local"
+			click "Criar"
+		}
+		assertContentContains "O c&oacute;digo 4 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data anterior a"
 	}
 	
 	void testCodigoInvalidoPoisExistemEncontrosComDataPosteriorECodigoMenor() {
@@ -147,7 +162,20 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			senha = "admin"
 			click "Login"
 		}
-		assertContentContains "O c&oacute;digo 5 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a 5/1/11 3:07 PM e c&oacute;digo menor que 5."
-	}*/
+		
+		get(this.defaultLocation);
+		Calendar hoje = new GregorianCalendar()
+		form() {
+			codigo = "8"
+			selects['dirigenteEspiritual.id'].select "2"
+			data_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 2}"
+			data_month = "${hoje.get(Calendar.MONTH) + 1}"
+			data_year = "${hoje.get(Calendar.YEAR)}"
+			tema = "tema"
+			local = "local"
+			click "Criar"
+		}
+		assertContentContains "O c&oacute;digo 8 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a"
+	}
 
 }
