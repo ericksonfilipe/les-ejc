@@ -60,4 +60,9 @@ class EquipeDeTrabalho {
 		return "${nomeEquipe}";
 	}
 	
+        String toStringEncontreiros() {
+            return encontreiros.join(", ")
+
+        }
+
 }
