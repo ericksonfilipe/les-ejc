@@ -12,6 +12,17 @@ class Circulo {
     static hasMany = [ participantes : Usuario ]
 
     static constraints = {
+		encontro(nullable:true, validator: {valor, objeto -> 
+			for (i in valor?.circulos) {
+				for (j in i?.participantes) {
+					for (x in objeto?.participantes) {
+						if (i != objeto && j == x) {
+							return ["erro.participantes.duplicado", x.nomeCompleto, i.nomeCirculo]
+						}
+					}
+				}
+			}
+		})
         cor(nullable:false, editable:false)
         nomeCirculo(nullable:false, blank:false, matches:'([a-zA-Z]| )+')
         jovemCoordenador(nullable:false, tipo: Usuario.Tipo.Jovem)

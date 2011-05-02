@@ -62,14 +62,14 @@ class EncontroController {
 		}
 		def plecas = params
         def encontroInstance = new Encontro(params)
-		encontroInstance.criaEquipesPredefinidas() //criar todas as equipes
+		
 		if (encontroInstance.save(flush: true)) {
-			
+			encontroInstance.criaEquipesPredefinidas() //criar todas as equipes
 			flash.message = "${message(code: 'default.created.message', args: [message(code: 'encontro.label', default: 'Encontro'), encontroInstance.id])}"
             redirect(action: "show", id: encontroInstance.id)
         }
         else {
-			encontroInstance.properties = plecas
+			encontroInstance.properties = new Encontro(plecas)
             render(view: "create", model: [encontroInstance: encontroInstance])
         }
     }

@@ -44,7 +44,26 @@ class Encontro {
         data(nullable:false)
         tema(nullable:false, blank:false, matches:'([a-zA-Z]| )+')
         local(nullable:false, blank:false)
+		
+		coordenacao_geral(nullable:true)
 		j5(nullable:true)
+		coordenacao_de_circulos(nullable:true)
+		apresentadores(nullable:true)
+		bandinha(nullable:true)
+		boa_vontade(nullable:true)
+		cozinha(nullable:true)
+		liturgia_e_vigilia(nullable:true)
+		correio_interno(nullable:true)
+		recepcao_aos_palestrantes(nullable:true)
+		som_e_iluminacao(nullable:true)
+		compras(nullable:true)
+		secretaria(nullable:true)
+		transito_e_sociodrama(nullable:true)
+		ordem_e_limpeza(nullable:true)
+		mini_box(nullable:true)
+		lanchinho(nullable:true)
+		visitacao_e_externa(nullable:true)
+		
     }
 
 	String toString() {
@@ -74,7 +93,6 @@ class Encontro {
 		mini_box = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.MINI_BOX, encontro:this).save(failOnError: true)
 		lanchinho = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.LANCHINHO, encontro:this).save(failOnError: true)
 		visitacao_e_externa = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.VISITACAO_E_EXTERNA, encontro:this).save(failOnError: true)
-		print "pleeeeeeeeeeeeeeeeeeeeeeeeeecassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
 	}
 
 }
