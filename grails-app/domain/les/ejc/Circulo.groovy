@@ -1,5 +1,7 @@
 package les.ejc
 
+import les.ejc.Usuario.Tipo;
+
 class Circulo {
 
     Cor cor
@@ -13,20 +15,29 @@ class Circulo {
 
     static constraints = {
 		encontro(nullable:true, validator: {valor, objeto -> 
-			for (i in valor?.circulos) {
-				for (j in i?.participantes) {
-					for (x in objeto?.participantes) {
+			for (i in valor.properties['circulos']) {
+				for (j in i.properties['participantes']) {
+					for (x in objeto.properties['participantes']) {
 						if (i != objeto && j == x) {
 							return ["erro.participantes.duplicado", x.nomeCompleto, i.nomeCirculo]
 						}
 					}
 				}
 			}
+			for (i in valor.properties['circulos']) {
+				for (j in i.properties['cor']) {
+					if (i != objeto && j == objeto.properties['cor']) {
+						return ["erro.cor.duplicado", i]
+					}
+				}
+			}
 		})
         cor(nullable:false, editable:false)
         nomeCirculo(nullable:false, blank:false, matches:'([a-zA-Z]| )+')
-        jovemCoordenador(nullable:false, tipo: Usuario.Tipo.Jovem)
-        casalApoio(nullable:false, tipo: Usuario.Tipo.Casal)
+        jovemCoordenador(nullable: true, validator: {valor, objeto -> 
+            if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+        casalApoio(nullable:false, validator: {valor, objeto -> 
+            if (valor == null || valor.tipo == Tipo.Casal) return true else return ["erro.tipo.invalido", valor.tipo]})
     }
 
     enum Cor {

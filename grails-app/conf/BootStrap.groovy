@@ -95,8 +95,8 @@ class BootStrap {
 		
 		println("Cadastrando Circulos...")
 		println("Cadastrando Circulo Azul...")
-		new Circulo(cor: Circulo.Cor.Azul, nomeCirculo: "Sem civilizacao", jovemCoordenador: Usuario.findByEmail("andre@plecas.com"), 
-		casalApoio: Usuario.findByEmail("admin@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
+		new Circulo(cor: Circulo.Cor.Azul, nomeCirculo: "Sem civilizacao", jovemCoordenador: Usuario.findByEmail("admin@plecas.com"), 
+		casalApoio: Usuario.findByEmail("casal@plecas.com"), encontro: Encontro.findByTema("Mei do Mato")).save(failOnError: true)
 		println("Circulo Azul cadastrado!")
 		println("Circulos cadastrados!")
 		println()

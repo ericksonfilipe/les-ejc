@@ -26,7 +26,9 @@ class EquipeDeTrabalho {
 		})
         nomeEquipe(nullable:true)
         jovemCoordenador1(nullable: true, validator: {valor, objeto -> 
-            if (valor != null && valor == objeto.properties['jovemCoordenador2']) return ["erro.coordenador.duplicado", valor.nomeUsual] else if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+            if (valor != null && valor == objeto.properties['jovemCoordenador2']) return ["erro.coordenador.duplicado", valor.nomeUsual] 
+			else if (valor == null || valor.tipo == Tipo.Jovem) return true 
+			else return ["erro.tipo.invalido", valor.tipo]})
         jovemCoordenador2(nullable: true, validator: {valor, objeto -> 
             if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
         casalCoordenador(nullable: true, validator: {valor, objeto -> 
