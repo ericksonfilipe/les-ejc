@@ -4,7 +4,17 @@ class EncontroController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
-	def error = {}
+    def gerarhtml = {
+        def encontroInstance = Encontro.get(params.id)
+        if (!encontroInstance) {
+            redirect(action: 'list')
+            return
+        }
+        [encontroInstance:encontroInstance]
+    }
+
+
+    def error = {}
 
     def index = {
 		if (!session.user) {
