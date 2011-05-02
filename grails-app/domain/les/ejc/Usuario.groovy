@@ -31,8 +31,8 @@ class Usuario {
 
 	
     static constraints = {
-        nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
-        nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]| )+')
+        nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
+        nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
         dataDeNascimento(nullable:true)
         endereco(nullable:true)
 		//telefone1(nullable:true)
