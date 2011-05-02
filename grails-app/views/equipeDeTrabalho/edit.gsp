@@ -31,10 +31,7 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="nomeEquipe"><g:message code="equipeDeTrabalho.nomeEquipe.label" default="Nome Equipe" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: equipeDeTrabalhoInstance, field: 'nomeEquipe', 'errors')}">
-                                    <g:select name="nomeEquipe" from="${les.ejc.EquipeDeTrabalho$NomeEquipe?.values()}" keys="${les.ejc.EquipeDeTrabalho$NomeEquipe?.values()*.name()}" value="${equipeDeTrabalhoInstance?.nomeEquipe?.name()}"  />
+                                  <label for="nomeEquipe"><g:message code="equipeDeTrabalho.nomeEquipe.label" default="Equipe: ${equipeDeTrabalhoInstance?.nomeEquipe?.name()}" /></label>
                                 </td>
                             </tr>
                         
