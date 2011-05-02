@@ -51,26 +51,30 @@ class Encontro {
 		return "${tema}";
 	}
 	
+	public getEquipes() {
+		[coordenacao_geral, j5, coordenacao_de_circulos, apresentadores, bandinha, boa_vontade, cozinha, liturgia_e_vigilia, correio_interno, recepcao_aos_palestrantes, som_e_iluminacao, compras, secretaria, transito_e_sociodrama, ordem_e_limpeza, mini_box, lanchinho, visitacao_e_externa]
+	}
 
 	public criaEquipesPredefinidas() {
-		coordenacao_geral
+		coordenacao_geral = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.COORDENACAO_GERAL, encontro:this).save(failOnError: true)
 		j5 = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.J5, encontro:this).save(failOnError: true)
-		coordenacao_de_circulos
-		apresentadores
-		bandinha
-		boa_vontade
-		cozinha
-		liturgia_e_vigilia
-		correio_interno
-		recepcao_aos_palestrantes
-		som_e_iluminacao
-		compras
-		secretaria
-		transito_e_sociodrama
-		ordem_e_limpeza
-		mini_box
-		lanchinho
-		visitacao_e_externa
+		coordenacao_de_circulos = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.COORDENACAO_DE_CIRCULOS, encontro:this).save(failOnError: true)
+		apresentadores = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.APRESENTADORES, encontro:this).save(failOnError: true)
+		bandinha = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.BANDINHA, encontro:this).save(failOnError: true)
+		boa_vontade = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.BOA_VONTADE, encontro:this).save(failOnError: true)
+		cozinha = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.COZINHA, encontro:this).save(failOnError: true)
+		liturgia_e_vigilia = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.LITURGIA_E_VIGILIA, encontro:this).save(failOnError: true)
+		correio_interno = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.CORREIO_INTERNO, encontro:this).save(failOnError: true)
+		recepcao_aos_palestrantes = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.RECEPCAO_AOS_PALESTRANTES, encontro:this).save(failOnError: true)
+		som_e_iluminacao = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.SOM_E_ILUMINACAO, encontro:this).save(failOnError: true)
+		compras = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.COMPRAS, encontro:this).save(failOnError: true)
+		secretaria = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.SECRETARIA, encontro:this).save(failOnError: true)
+		transito_e_sociodrama = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.TRANSITO_E_SOCIODRAMA, encontro:this).save(failOnError: true)
+		ordem_e_limpeza = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.ORDEM_E_LIMPEZA, encontro:this).save(failOnError: true)
+		mini_box = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.MINI_BOX, encontro:this).save(failOnError: true)
+		lanchinho = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.LANCHINHO, encontro:this).save(failOnError: true)
+		visitacao_e_externa = new EquipeDeTrabalho(nomeEquipe: NomeEquipe.VISITACAO_E_EXTERNA, encontro:this).save(failOnError: true)
+		print "pleeeeeeeeeeeeeeeeeeeeeeeeeecassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
 	}
 
 }

@@ -60,6 +60,7 @@ class EncontroController {
 			redirect(controller: 'app', action:'login')
 			return
 		}
+		def plecas = params
         def encontroInstance = new Encontro(params)
 		encontroInstance.criaEquipesPredefinidas() //criar todas as equipes
 		if (encontroInstance.save(flush: true)) {
@@ -68,6 +69,7 @@ class EncontroController {
             redirect(action: "show", id: encontroInstance.id)
         }
         else {
+			encontroInstance.properties = plecas
             render(view: "create", model: [encontroInstance: encontroInstance])
         }
     }
