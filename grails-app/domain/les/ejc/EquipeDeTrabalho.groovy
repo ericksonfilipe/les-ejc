@@ -12,13 +12,21 @@ class EquipeDeTrabalho {
 
     static hasMany = [ encontreiros : Usuario ]
 
-    //static belongsTo = [ encontro : Encontro ]
-
     static constraints = {
-		encontro(nullable:true)
+		encontro(nullable:true, validator: {valor, objeto -> 
+			for (i in valor?.getEquipes()) {
+				for (j in i?.encontreiros) {
+					for (x in objeto?.encontreiros) {
+						if (i != objeto && j == x) {
+							return ["erro.encontreiro.duplicado", x.nomeCompleto, i.nomeEquipe]
+						}
+					}
+				}
+			}
+		})
         nomeEquipe(nullable:true)
         jovemCoordenador1(nullable: true, validator: {valor, objeto -> 
-            if (valor == null && objeto.properties['jovemCoordenador2'] == null && objeto.properties['casalCoordenador'] == null) return "erro.coordenador.insuficiente" else if (valor == objeto.properties['jovemCoordenador2']) return ["erro.coordenador.duplicado", valor.nomeUsual] else if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
+            if (valor != null && valor == objeto.properties['jovemCoordenador2']) return ["erro.coordenador.duplicado", valor.nomeUsual] else if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
         jovemCoordenador2(nullable: true, validator: {valor, objeto -> 
             if (valor == null || valor.tipo == Tipo.Jovem) return true else return ["erro.tipo.invalido", valor.tipo]})
         casalCoordenador(nullable: true, validator: {valor, objeto -> 
