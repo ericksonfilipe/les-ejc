@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho')}" />
+        <g:set var="entityName" value="${message(code: 'equipeDeTrabalho.label', default: 'Equipe de Trabalho')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -70,8 +70,10 @@
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${equipeDeTrabalhoInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                </g:form>
+                    <g:if test="${session?.user?.j5Atual}">
+						<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+					</g:if>
+				</g:form>
             </div>
 			<div class="buttons">
 				<table><td>
