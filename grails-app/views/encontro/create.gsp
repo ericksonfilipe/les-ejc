@@ -51,7 +51,7 @@
                                     <label for="data"><g:message code="encontro.data.label" default="Data" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'data', 'errors')}">
-									<richui:dateChooser name="data" format="dd.MM.yyyy" locale="en" firstDayOfWeek="Mo" />
+									<richui:dateChooser name="data" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="Mo" />
                                 </td>
                             </tr>
                         
