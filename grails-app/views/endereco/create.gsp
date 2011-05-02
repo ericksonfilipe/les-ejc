@@ -59,7 +59,7 @@
                                     <label for="estado"><g:message code="endereco.estado.label" default="Estado" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'estado', 'errors')}">
-                                    <g:select name="estado" from="${enderecoInstance.constraints.estado.inList}" value="${enderecoInstance?.estado}" valueMessagePrefix="endereco.estado"  />
+                                    <g:select name="estado" from="${enderecoInstance.constraints.estado.inList}" value="${enderecoInstance?.estado}" valueMessagePrefix="endereco.estado" />
                                 </td>
                             </tr>
                         

@@ -21,18 +21,18 @@ class Oficio {
 	Date data
 
     static constraints = {
-		nomeRemetente(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
+		nomeRemetente(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
 		estadoCivilRemetente(inList:["Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)"])
-		profissaoRemetente(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
+		profissaoRemetente(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
 		enderecoRemetente(blank:false, size:2..200)
 		
-		nomeDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
-		cargoDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
+		nomeDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
+		cargoDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
 		empresaDestinatario(blank:false, size:2..100)
 		
 		solicitacao(blank:false, size:2..500)
 		objetivoSolicitacao(blank:false, size:2..500)
-		local(blank:false, size:2..100, matches:'([a-zA-Z]| )+')
+		local(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
     }
 	
     public getOficio() {
@@ -56,10 +56,8 @@ class Oficio {
 	
 	private String getLinha() {
 		String linha = "";
-		
 		for(int i = 0; i < tamanhoLinha; i++)
-			linha += "_";
-		
+			linha += "_";		
 		return linha;
 	}
 	
