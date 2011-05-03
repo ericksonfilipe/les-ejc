@@ -6,13 +6,13 @@ import les.ejc.EquipeDeTrabalho;
 
 class Encontro {
 
-	Integer numero
+    Integer numero
     Usuario dirigenteEspiritual
     Date data
     String tema
     String local
 	
-	EquipeDeTrabalho coordenacao_geral
+    EquipeDeTrabalho coordenacao_geral
     EquipeDeTrabalho j5
     EquipeDeTrabalho coordenacao_de_circulos
     EquipeDeTrabalho apresentadores
@@ -42,27 +42,27 @@ class Encontro {
         dirigenteEspiritual(nullable:false, validator: {if (it?.tipo == Tipo.Padre) return true
                                                         else return ["erro.tipo.invalido", it?.tipo]})
         data(nullable:false)
-        tema(nullable:false, blank:false, matches:'([a-zA-Z]| )+')
-        local(nullable:false, blank:false)
+        tema(nullable:false, blank:false, size: 3..50, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
+        local(nullable:false, blank:false, size:3..50)
 		
-		coordenacao_geral(nullable:true)
-		j5(nullable:true)
-		coordenacao_de_circulos(nullable:true)
-		apresentadores(nullable:true)
-		bandinha(nullable:true)
-		boa_vontade(nullable:true)
-		cozinha(nullable:true)
-		liturgia_e_vigilia(nullable:true)
-		correio_interno(nullable:true)
-		recepcao_aos_palestrantes(nullable:true)
-		som_e_iluminacao(nullable:true)
-		compras(nullable:true)
-		secretaria(nullable:true)
-		transito_e_sociodrama(nullable:true)
-		ordem_e_limpeza(nullable:true)
-		mini_box(nullable:true)
-		lanchinho(nullable:true)
-		visitacao_e_externa(nullable:true)
+	coordenacao_geral(nullable:true)
+	j5(nullable:true)
+	coordenacao_de_circulos(nullable:true)
+	apresentadores(nullable:true)
+	bandinha(nullable:true)
+	boa_vontade(nullable:true)
+	cozinha(nullable:true)
+	liturgia_e_vigilia(nullable:true)
+	correio_interno(nullable:true)
+	recepcao_aos_palestrantes(nullable:true)
+	som_e_iluminacao(nullable:true)
+	compras(nullable:true)
+	secretaria(nullable:true)
+	transito_e_sociodrama(nullable:true)
+	ordem_e_limpeza(nullable:true)
+	mini_box(nullable:true)
+	lanchinho(nullable:true)
+	visitacao_e_externa(nullable:true)
 		
     }
 
