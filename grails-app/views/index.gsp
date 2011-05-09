@@ -70,6 +70,7 @@
 					<g:if test="${session.user}">
 						<li class="controller"><g:link controller='encontro'>Encontros</g:link></li>
 						<li class="controller"><g:link controller='usuario'>Usu&aacute;rios</g:link></li>
+						<li class="controller"><g:link controller='evento'>Eventos</g:link></li>
 						<g:if test="${session?.user?.j5Atual}">
 							<li class="controller"><g:link controller='ata'>Atas</g:link></li>
 							<li class="controller"><g:link controller='oficio'>Of&iacute;cios</g:link></li>

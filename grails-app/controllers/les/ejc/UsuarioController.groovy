@@ -2,11 +2,11 @@ package les.ejc
 
 class UsuarioController {
 
-	def senderService
+def senderService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
-	def error = {}
+    
+    def error = {}
 
     def index = {
 		if (!session.user) {
@@ -15,6 +15,38 @@ class UsuarioController {
 			return
 		}
         redirect(action: "list", params: params)
+    }
+
+    def enviarLoginESenha = {
+        def usuarioInstance = Usuario.get(params.id)
+        if (!usuarioInstance) {
+            redirect(action: 'list')
+            return
+        }
+	Random random = new Random()
+        String orig = (1..10).collect { random.nextInt(9) }.join()
+        String origmd5 = orig.encodeAsMD5Hex()
+        usuarioInstance.setSenha(origmd5)
+        usuarioInstance.save()
+	if (usuarioInstance.email != null) {		
+                String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.getLogin()}\nsenha: ${orig}\n" + 
+			  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
+		senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
+	}
+        flash.message = "Enviado Login e Senha para ${usuarioInstance.email} (Usuário Ativo)"
+        redirect(action: 'listNotAtivado')
+    }
+
+
+    def listNotAtivado = {
+        if (!session.user) {
+            flash.message = "Permissão Negada"
+            redirect(controller: 'app', action: 'login')
+            return
+        }  
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        def usuarioInstance = Usuario.findAllByStatusNotEqual('Ativo')
+        [usuarioInstanceList: usuarioInstance, usuarioInstanceTotal: Usuario.count()]
     }
 
     def list = {
@@ -138,7 +170,6 @@ class UsuarioController {
 			return
 		}
         def usuarioInstance = Usuario.get(params.id)
-				
         if (usuarioInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -152,10 +183,6 @@ class UsuarioController {
 			def foto = usuarioInstance.foto
 			def ficha = usuarioInstance.ficha
             usuarioInstance.properties = params
-			
-			//garante nomeUsual automatico se for branco
-			usuarioInstance.geraNomeUsualAutomatico()
-		
 			if (foto != [] && usuarioInstance.foto == []) {
 				usuarioInstance.foto = foto
 			}
@@ -208,18 +235,11 @@ class UsuarioController {
 
 	def renderFoto = {
 		def usuarioInstance = Usuario.get(params.id)
-		/*if (usuarioInstance?.foto) {
+		if (usuarioInstance?.foto) {
 			response.setContentLength(usuarioInstance.foto.length)
 			response.outputStream.write(usuarioInstance.foto)
 		} else {
-			def fotoPadrao = new File("imagem_padrao.png")
-			def foto = fotoPadrao.getBytes()
-			response.setContentLength(foto.length)
-			response.outputStream.write(foto)
-		}*/
-		
-		def fotoPadrao = new File("/imagem_padrao.png").getBytes()
-		response.setContentLength(foto.length)
-		response.outputStream.write(foto)
+			response.sendError(404)
+		}
 	}
 }

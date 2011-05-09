@@ -18,52 +18,86 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
+                <table>
+                    <tbody>
+						
+						<g:if test="${usuarioInstance.foto}">
+									<img src="
+										<g:createLink action='renderFoto' id='${usuarioInstance.id}' />
+									" width="120" height="120" border="2">
+						</g:if>
+						<g:else>
+						<img src="../../image/imagem_padrao.png" width="120" height="120" border="2">
+						</g:else>
 
-				<g:if test="${usuarioInstance.foto}">
-					<img src="
-					<g:createLink action='renderFoto' id='${usuarioInstance.id}' />
-					" width="120" height="120" border="2" align="right">
-				</g:if>
-				<g:else>
-					<img src="${resource(dir:'images/usuario',file:'imagem_padrao.png')}" width="120" height="120" border="2" align="right">
-				</g:else>
+						<br>
+						<tr class="prop">
+						Manter aqui os dados:<br>
+						<br>Nome,
+						<br>Apelido,
+						<br>Aniversario (sem ano), Idade
+						<br>Paróquia
+						<br>Foto
+						<br>Que Encontro fez,
+						<br>De qual circulo fez parte,
+						<br>Se ja coordenou circulo (qual encontro?)
+						<br>Se eh/ja foi do J5 (tempo, funcao)
+						<br>Equipes que trabalhou (com respectivo encontro ao lado)
+						<br>
+						</tr>
+						
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.nomeUsual.label" default="Nome Usual" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeUsual")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></td>
+                            
+                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
+                            
+                        </tr>
 
-				<br><br>
 
-				<g:if test="${usuarioInstance?.tipo != Usuario.Tipo.Casal}">
-				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}
-				<br><br>
-				[ajeitar] Aniversário: ${usuarioInstance?.dataDeNascimento}
-				</g:if>
-				
-				<g:else>
-				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}
-				<br><br>
-				[ajeitar] Aniversário: ${usuarioInstance?.dataDeNascimento}
-				<br><br>
-				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}
-				<br><br>
-				[ajeitar] Aniversário: ${usuarioInstance?.dataDeNascimento2}
-				</g:else>
-				
-				<br><br><br>
-				
-				<g:if test="${usuarioInstance.paroquia}">
-				Paróquia: ${fieldValue(bean: usuarioInstance, field: "paroquia")}
-				<br><br>
-				</g:if>
-				
-				[ajeitar] Encontro: //que encontro fez!
-				<br><br>		
-				[ajeitar] Círculo de Origem: //que circulo foi!
-				<br><br>	
-				[ajeitar] Coordenador de Círculo: //q circulo coordenou? de que encontro!
-				<br><br>	
-				[ajeitar] Equipes Trabalhadas: ${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}  //mostrar nenhuma se for null (mostrar com respectivo encontro ao lado; ou "Outra paroquia")
-				<br><br>	
-				[ajeitar] Integrante do J5: //... se True, mostrar o tempo e a funcao
-				<br><br>	
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.paroquia.label" default="Paroquia" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "paroquia")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}</td>
+                            
+                        </tr>
+                    
 
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.j5Atual}" /></td>
+                            
+                        </tr>
+                    
+
+                    
+					
+                    
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>
