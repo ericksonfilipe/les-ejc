@@ -11,7 +11,9 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+			<g:if test="${session?.user?.j5Atual}">
+				<span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+			</g:if>
         </div>
         <div class="body">
             <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -50,7 +52,7 @@
                             
                         </tr>
                     						
-			<tr class="prop">
+						<tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
@@ -104,15 +106,17 @@
 							</td>
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.ficha.label" default="Ficha" /></td>
-                            
-							<td valign="top" class="value">
-								<g:if test="${usuarioInstance.ficha}">
-									<g:link controller='pdf' action='renderPDF' id='${usuarioInstance.id}'> download </g:link>
-								</g:if>
-							</td>
-                        </tr>
+						<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.ficha.label" default="Ficha" /></td>
+								
+								<td valign="top" class="value">
+									<g:if test="${usuarioInstance.ficha}">
+										<g:link controller='pdf' action='renderPDF' id='${usuarioInstance.id}'> download </g:link>
+									</g:if>
+								</td>
+							</tr>
+						</g:if>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.paroquia.label" default="Paroquia" /></td>
@@ -128,19 +132,23 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observacoes" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.login.label" default="Login" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "login")}</td>
-                            
-                        </tr>
+						<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observacoes" /></td>
+								
+								<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
+								
+							</tr>
+						</g:if>
+						
+						<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.login.label" default="Login" /></td>
+								
+								<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "login")}</td>
+								
+							</tr>
+						</g:if>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></td>
@@ -162,11 +170,13 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
-                            
-                            <td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
-                            
+						<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
+								
+								<td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
+                        </g:if>
+						
                         </tr>
                     
                         <tr class="prop">
@@ -194,18 +204,21 @@
                     </tbody>
                 </table>
             </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${usuarioInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
-            </div>
-			<div class="buttons">
+			<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+				<div class="buttons">
+					<g:form>
+						<g:hiddenField name="id" value="${usuarioInstance?.id}" />
+						<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
+						<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+					</g:form>
+				</div>
+
+				<div class="buttons">
 					<table><td>
-					<span class="button"><g:link action="perfil" id="${usuarioInstance?.id}">Visualizar Perfil de ${usuarioInstance?.encodeAsHTML()}</g:link></span>
+						<span class="button"><g:link action="perfil" id="${usuarioInstance?.id}">Visualizar Perfil de ${usuarioInstance?.encodeAsHTML()}</g:link></span>
 					</td></table>
-			</div>
+				</div>
+			</g:if>
         </div>
     </body>
 </html>
