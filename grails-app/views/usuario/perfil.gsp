@@ -21,8 +21,18 @@
                 <table>
                     <tbody>
 						
+						<g:if test="${usuarioInstance.foto}">
+									<img src="
+										<g:createLink action='renderFoto' id='${usuarioInstance.id}' />
+									" width="120" height="120" border="2">
+						</g:if>
+						<g:else>
+						<img src="../../image/imagem_padrao.png" width="120" height="120" border="2">
+						</g:else>
+
+						<br>
 						<tr class="prop">
-						Manter aqui os dados:
+						Manter aqui os dados:<br>
 						<br>Nome,
 						<br>Apelido,
 						<br>Aniversario (sem ano), Idade
@@ -33,6 +43,7 @@
 						<br>Se ja coordenou circulo (qual encontro?)
 						<br>Se eh/ja foi do J5 (tempo, funcao)
 						<br>Equipes que trabalhou (com respectivo encontro ao lado)
+						<br>
 						</tr>
 						
                         <tr class="prop">
@@ -55,20 +66,7 @@
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
                             
                         </tr>
-                                       
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.foto.label" default="Foto" /></td>
-                            
-							<td valign="top" class="value">
-								<g:if test="${usuarioInstance.foto}">
-									<img src="
-										<g:createLink action='renderFoto' id='${usuarioInstance.id}' />
-									"/>
-								</g:if>
-							</td>
-                        </tr>
-                    
+
 
                     
                         <tr class="prop">
