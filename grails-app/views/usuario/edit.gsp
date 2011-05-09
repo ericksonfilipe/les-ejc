@@ -77,14 +77,6 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="endereco"><g:message code="usuario.endereco.label" default="Endereco" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'endereco', 'errors')}">
-                                    <g:select name="endereco.id" from="${les.ejc.Endereco.list()}" optionKey="id" value="${usuarioInstance?.endereco?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -231,6 +223,20 @@
                                     <g:select name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}"  />
                                 </td>
                             </tr>
+							
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
+
+                            <td>
+								<g:if test="${usuarioInstance?.endereco != null}">
+									<g:link controller="endereco" action="edit" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
+								</g:if>
+								<g:else>
+									<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
+									
+								</g:else>
+							</td>
+						</tr>	
                         
                         </tbody>
                     </table>

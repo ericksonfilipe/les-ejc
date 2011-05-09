@@ -80,15 +80,16 @@
                                     <g:textField name="numero" value="${fieldValue(bean: enderecoInstance, field: 'numero')}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="usuario"><g:message code="endereco.usuario.label" default="Usuario" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: enderecoInstance, field: 'usuario', 'errors')}">
-                                    <g:select name="usuario.id" from="${les.ejc.Usuario.list()}" optionKey="id" value="${enderecoInstance?.usuario?.id}"  />
+                                    <g:select name="usuario.id" from="${les.ejc.Usuario.findById(enderecoInstance?.usuario?.id)}" optionKey="id" value="${enderecoInstance?.usuario?.id}"  />
                                 </td>
-                            </tr>
+                            </tr>								
+
                         
                         </tbody>
                     </table>
@@ -96,6 +97,11 @@
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
+				<div class="buttons">
+					<table><td>
+					<span class="button"><g:link controller="usuario" action="show" id="${enderecoInstance?.usuario?.id}">Voltar para o Usuario: ${enderecoInstance?.usuario?.encodeAsHTML()}</g:link></span>
+					</td></table>
+				</div>	
             </g:form>
         </div>
     </body>

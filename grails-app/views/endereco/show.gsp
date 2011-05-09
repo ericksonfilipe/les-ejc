@@ -68,13 +68,7 @@
                             <td valign="top" class="value">${fieldValue(bean: enderecoInstance, field: "numero")}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="endereco.usuario.label" default="Usuario" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="usuario" action="show" id="${enderecoInstance?.usuario?.id}">${enderecoInstance?.usuario?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
+
                     
                     </tbody>
                 </table>
@@ -86,6 +80,11 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+			<div class="buttons">
+					<table><td>
+					<span class="button"><g:link controller="usuario" action="show" id="${enderecoInstance?.usuario?.id}">Voltar para o Usuario: ${enderecoInstance?.usuario?.encodeAsHTML()}</g:link></span>
+					</td></table>
+			</div>	
         </div>
     </body>
 </html>

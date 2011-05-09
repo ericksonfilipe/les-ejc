@@ -83,9 +83,11 @@ class EnderecoController {
         def enderecoInstance = Endereco.get(params.id)
         if (enderecoInstance) {
             try {
+				def idUsuarioVoltar = enderecoInstance.usuario.id
                 enderecoInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'endereco.label', default: 'Endereco'), params.id])}"
-                redirect(action: "list")
+                def usuarioVoltar = les.ejc.Usuario.findById(idUsuarioVoltar)
+				render(view: "edit", model: [usuarioVoltar])
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'endereco.label', default: 'Endereco'), params.id])}"
