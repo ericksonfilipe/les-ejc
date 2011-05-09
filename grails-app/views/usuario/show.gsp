@@ -1,5 +1,6 @@
 
 <%@ page import="les.ejc.Usuario" %>
+<%@ page import="les.ejc.Usuario.Tipo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,12 +32,14 @@
                             
                         </tr>
 						
-						<tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
-                            
-                        </tr>
+						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
+								
+								<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
+								
+							</tr>
+						</g:if>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.nomeUsual.label" default="Nome Usual" /></td>
@@ -51,13 +54,15 @@
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
                             
                         </tr>
-                    						
-						<tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
-                            
-                            <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
-                            
-                        </tr>
+                    	
+						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
+								
+								<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
+								
+							</tr>
+						</g:if>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
@@ -87,12 +92,14 @@
                             
                         </tr>
 						
-						<tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.email2.label" default="Email(Marido/Casal)" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email2")}</td>
-                            
-                        </tr>
+						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+							<tr class="prop">
+								<td valign="top" class="name"><g:message code="usuario.email2.label" default="Email(Marido/Casal)" /></td>
+								
+								<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email2")}</td>
+								
+							</tr>
+						</g:if>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.foto.label" default="Foto" /></td>

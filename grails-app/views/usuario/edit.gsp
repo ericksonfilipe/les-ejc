@@ -1,6 +1,7 @@
 
 
 <%@ page import="les.ejc.Usuario" %>
+<%@ page import="les.ejc.Usuario.Tipo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -41,14 +42,16 @@
                                 </td>
                             </tr>
 							
-							<tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="nomeCompleto2"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo (Marido/Mulher)" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nomeCompleto2', 'errors')}">
-                                    <g:textField name="nomeCompleto2" maxlength="100" value="${usuarioInstance?.nomeCompleto2}" />
-                                </td>
-                            </tr>
+							<g:if test="${usuarioInstance?.tipo == Tipo.Casal || session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="nomeCompleto2"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo (Marido/Mulher)" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nomeCompleto2', 'errors')}">
+										<g:textField name="nomeCompleto2" maxlength="100" value="${usuarioInstance?.nomeCompleto2}" />
+									</td>
+								</tr>
+							</g:if>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -68,14 +71,16 @@
                                 </td>
                             </tr>
 							
-							<tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento2', 'errors')}">
-                                    <richui:dateChooser name="dataDeNascimento2" format="dd.MM.yyyy" value="${usuarioInstance?.dataDeNascimento2?.getTime()}" locale="en" firstDayOfWeek="Mo" />
-                                </td>
-                            </tr>
+							<g:if test="${usuarioInstance?.tipo == Tipo.Casal || session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento (Marido/Mulher)" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento2', 'errors')}">
+										<richui:dateChooser name="dataDeNascimento2" format="dd.MM.yyyy" value="${usuarioInstance?.dataDeNascimento2?.getTime()}" locale="en" firstDayOfWeek="Mo" />
+									</td>
+								</tr>
+							</g:if>
                         
                         
                             <tr class="prop">
@@ -114,14 +119,16 @@
                                 </td>
                             </tr>
 							
-							<tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="email2"><g:message code="usuario.email2.label" default="Email(Marido/Mulher)" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email2', 'errors')}">
-                                    <g:textField name="email2" value="${usuarioInstance?.email2}" />
-                                </td>
-                            </tr>
+							<g:if test="${usuarioInstance?.tipo == Tipo.Casal || session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="email2"><g:message code="usuario.email2.label" default="Email (Marido/Mulher)" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email2', 'errors')}">
+										<g:textField name="email2" value="${usuarioInstance?.email2}" />
+									</td>
+								</tr>
+							</g:if>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -143,23 +150,25 @@
 								</td>
 							</tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
-                                </td>
+							<tr class="prop">
+								<td valign="top" class="name">
+								  <label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
+								</td>
 								
 								<td valign="top" class="value">
 									<g:if test="${usuarioInstance.ficha}">
 										<g:link controller='pdf' action='renderPDF' id='${usuarioInstance.id}'> download </g:link>
 									</g:if>
 								</td>
-                            </tr>
-							
-							<tr class="prop">
-								<td valign="top" class="name">
-                                    <input type="file" id="ficha" name="ficha" />
-                                </td>
 							</tr>
+							
+							<g:if test="${session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+										<input type="file" id="ficha" name="ficha" />
+									</td>
+								</tr>
+							</g:if>
 							
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -179,23 +188,27 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observacoes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
-                                    <g:textField name="observacoes" value="${usuarioInstance?.observacoes}" />
-                                </td>
-                            </tr>
+							<g:if test="${session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observacoes" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
+										<g:textField name="observacoes" value="${usuarioInstance?.observacoes}" />
+									</td>
+								</tr>
+							</g:if>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'j5Atual', 'errors')}">
-                                    <g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" />
-                                </td>
-                            </tr>
+							<g:if test="${session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'j5Atual', 'errors')}">
+										<g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" />
+									</td>
+								</tr>
+							</g:if>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -206,23 +219,25 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'status', 'errors')}">
-                                    <g:select name="status" from="${les.ejc.Usuario$Status?.values()}" keys="${les.ejc.Usuario$Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
-                                    <g:select name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}"  />
-                                </td>
-                            </tr>
+							<g:if test="${session?.user?.j5Atual}">
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'status', 'errors')}">
+										<g:select name="status" from="${les.ejc.Usuario$Status?.values()}" keys="${les.ejc.Usuario$Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
+									</td>
+								</tr>
+							
+								<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
+										<g:select name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}"  />
+									</td>
+								</tr>
+							</g:if>
 							
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
