@@ -5,14 +5,17 @@ import java.util.Random
 class Usuario {
 
     String nomeCompleto
+	String nomeCompleto2
     String nomeUsual
     Calendar dataDeNascimento
+	Calendar dataDeNascimento2
 	
     String telefone1
     String telefone2
     String telefone3
     
     String email
+	String email2
     byte[] foto
 	byte[] ficha
     String paroquia
@@ -32,12 +35,16 @@ class Usuario {
 	
     static constraints = {
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
+		nomeCompleto2(nullable:true, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+', validator: {nome, usuario ->
+																						if (nome!= null && usuario.tipo != Tipo.Casal) 
+																						return ["usuario.nome2.error.usuarioNaoCasal"]
+																						else return true})
         nomeUsual(blank:true, size:2..40, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
         dataDeNascimento(nullable:true)
+		dataDeNascimento2(nullable:true, validator: {nascimento, usuario -> if (nascimento!= null && usuario.tipo != Tipo.Casal) 
+														return ["usuario.dataDeNascimento2.error.usuarioNaoCasal"]
+														else return true})
         endereco(nullable:true)
-		//telefone1(nullable:true)
-		//telefone3(nullable:true)
-		//telefone2(nullable:true)
 		telefone1(blank:true, maxSize:13, minSize:13, matches:'\\([0-9][0-9]\\)[0-9][0-9][0-9][0-9]\\-[0-9][0-9][0-9][0-9]', validator: {valor, objeto -> 
 			if (valor != "" && (objeto.telefone2 == valor || objeto.telefone3 == valor)) return ["erro.telefone.duplicado", valor] else return true })
 		telefone2(blank:true, maxSize:13, minSize:13, matches:'\\([0-9][0-9]\\)[0-9][0-9][0-9][0-9]\\-[0-9][0-9][0-9][0-9]', validator: {valor, objeto -> 
@@ -45,13 +52,15 @@ class Usuario {
 		telefone3(blank:true, maxSize:13, minSize:13, matches:'\\([0-9][0-9]\\)[0-9][0-9][0-9][0-9]\\-[0-9][0-9][0-9][0-9]', validator: {valor, objeto -> 
 			if (valor != "" && (objeto.telefone1 == valor || objeto.telefone2 == valor)) return ["erro.telefone.duplicado", valor] else return true })
         email(nullable:true, email:true, unique:true)
+		email2(nullable:true, email:true, unique:true, validator: {e, usuario -> if (e!= null && usuario.tipo != Tipo.Casal) 
+														return ["usuario.email2.error.usuarioNaoCasal"]
+														else return true})
 		foto(nullable:true)
 		ficha(nullable:true)
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
         equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
 		senha(nullable:true, password:true, minSize:8)
-		//senha(nullable:true, password:true)
 		login(nullable:true, unique:true)
 		j5Atual()
     }
