@@ -40,6 +40,15 @@
                                     <g:textField name="nomeCompleto" maxlength="100" value="${usuarioInstance?.nomeCompleto}" />
                                 </td>
                             </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="nomeCompleto2"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo (Marido/Mulher)" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nomeCompleto2', 'errors')}">
+                                    <g:textField name="nomeCompleto2" maxlength="100" value="${usuarioInstance?.nomeCompleto2}" />
+                                </td>
+                            </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -55,7 +64,16 @@
                                   <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento', 'errors')}">
-                                    <richui:dateChooser name="dataDeNascimento" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="Mo" />
+                                    <richui:dateChooser name="dataDeNascimento" format="dd.MM.yyyy" value="${usuarioInstance?.dataDeNascimento?.getTime()}" locale="en" firstDayOfWeek="Mo" />
+                                </td>
+                            </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento2', 'errors')}">
+                                    <richui:dateChooser name="dataDeNascimento2" format="dd.MM.yyyy" value="${usuarioInstance?.dataDeNascimento2?.getTime()}" locale="en" firstDayOfWeek="Mo" />
                                 </td>
                             </tr>
                         
@@ -93,6 +111,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email', 'errors')}">
                                     <g:textField name="email" value="${usuarioInstance?.email}" />
+                                </td>
+                            </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="email2"><g:message code="usuario.email2.label" default="Email(Marido/Mulher)" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email2', 'errors')}">
+                                    <g:textField name="email2" value="${usuarioInstance?.email2}" />
                                 </td>
                             </tr>
                         
