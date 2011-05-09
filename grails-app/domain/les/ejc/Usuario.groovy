@@ -142,9 +142,12 @@ class Usuario {
 	/**
 	Se usuario tem nomeUsual em branco, deve ser seu primeiro nome
 	*/
-	private geraNomeUsualAutomatico() {
+	public geraNomeUsualAutomatico() {
 		if (nomeUsual.equals("")) {
 			nomeUsual = nomeCompleto.split(" ")[0]
+			if (nomeCompleto2 != null && !nomeCompleto2?.equals("")) {
+				nomeUsual += " e "+nomeCompleto2.split(" ")[0]
+			}
 		}
 	}
 
@@ -161,7 +164,7 @@ class Usuario {
 	}
 
 	String toString() {
-		return "${nomeCompleto}";
+		return "${nomeUsual}";
 	}
 		
 }
