@@ -104,6 +104,23 @@ class UsuarioController {
             [usuarioInstance: usuarioInstance]
         }
     }
+	
+	def perfil = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
+		
+        def usuarioInstance = Usuario.get(params.id)
+        if (!usuarioInstance) {
+            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
+            redirect(action: "list")
+        }
+        else {
+            [usuarioInstance: usuarioInstance]
+        }
+    }
 
     def edit = {
 		if (!session.user) {
