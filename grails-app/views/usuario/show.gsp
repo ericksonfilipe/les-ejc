@@ -201,6 +201,11 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+			<div class="buttons">
+					<table><td>
+					<span class="button"><g:link action="perfil" id="${usuarioInstance?.id}">Visualizar Perfil de ${usuarioInstance?.encodeAsHTML()}</g:link></span>
+					</td></table>
+			</div>
         </div>
     </body>
 </html>
