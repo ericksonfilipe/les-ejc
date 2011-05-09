@@ -23,13 +23,6 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
@@ -49,14 +42,7 @@
                             <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link></td>
-                            
-                        </tr>
-                    
+                                       
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
                             
@@ -168,6 +154,21 @@
                             <td valign="top" class="value">${usuarioInstance?.tipo?.encodeAsHTML()}</td>
                             
                         </tr>
+						
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
+
+                            <td>
+								<g:if test="${usuarioInstance?.endereco != null}">
+									<g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
+								</g:if>
+								<g:else>
+									<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
+									
+
+								</g:else>
+							</td>
+						</tr>						
                     
                     </tbody>
                 </table>

@@ -55,16 +55,7 @@
                                     <richui:dateChooser name="dataDeNascimento" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="Mo" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="endereco"><g:message code="usuario.endereco.label" default="Endereco" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'endereco', 'errors')}">
-                                    <g:select name="endereco.id" from="${les.ejc.Endereco.list()}" optionKey="id" value="${usuarioInstance?.endereco?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
-                        
+                      
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="telefone1"><g:message code="usuario.telefone1.label" default="Telefone1" /></label>

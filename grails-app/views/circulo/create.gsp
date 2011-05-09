@@ -62,7 +62,7 @@
                                     <g:select name="casalApoio.id" from="${les.ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.casalApoio?.id}"  />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
@@ -70,7 +70,7 @@
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
                                     <g:select name="encontro.id" from="${les.ejc.Encontro.findById(circuloInstance?.encontro?.id)}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
                                 </td>
-                            </tr>
+                            </tr>							
                         
                         </tbody>
                     </table>
