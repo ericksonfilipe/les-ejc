@@ -27,14 +27,16 @@ def senderService
         String orig = (1..10).collect { random.nextInt(9) }.join()
         String origmd5 = orig.encodeAsMD5Hex()
         usuarioInstance.setSenha(origmd5)
+        usuarioInstance.emailEnviado = true
         usuarioInstance.save()
 	if (usuarioInstance.email != null) {		
-                String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.getLogin()}\nsenha: ${orig}\n" + 
+                if (usuarioInstance.login == null) { usuarioInstance.login = usuarioInstance.email }
+                String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${orig}\n" + 
 			  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
 		senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
 	}
         flash.message = "Enviado Login e Senha para ${usuarioInstance.email} (Usuário Ativo)"
-        redirect(action: 'listNotAtivado')
+        redirect(action: 'list')
     }
 
 
@@ -45,8 +47,19 @@ def senderService
             return
         }  
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        def usuarioInstance = Usuario.findAllByStatusNotEqual('Ativo')
+        def usuarioInstance = Usuario.findAllByEmailEnviado(false) + Usuario.findAllByStatusNotEqual('Ativo')
         [usuarioInstanceList: usuarioInstance, usuarioInstanceTotal: Usuario.count()]
+    }
+
+    def emailNotEnviado = {
+         if (!session.user) {
+            flash.message = "Permissão Negada"
+            redirect(controller: 'app', action: 'login')
+            return
+        }  
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        def usuarioInstance = Usuario.findAllByNotEmailEnviado()
+        [usuarioInstanceList: usuarioInstance, usuarioInstanceTotal: Usuario.count()]     
     }
 
     def list = {

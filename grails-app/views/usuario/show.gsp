@@ -14,7 +14,7 @@
 	    <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
 
 	    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-	    <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Não-ativos"/></a></span>
+	    <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Inativos"/></a></span>
 		<g:if test="${session?.user?.j5Atual}">
 			<span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
 		</g:if>
@@ -195,6 +195,11 @@
 			    <td valign="top" class="value">${usuarioInstance?.tipo?.encodeAsHTML()}</td>
 			    
 			</tr>
+			
+                        <tr class="prop">
+			    <td valign="top" class="name"><g:message code="usuario.tipo.label" default="E-Mail Enviado" /></td>
+			    <td valign="top" class="value">${usuarioInstance?.emailEnviado}</td>
+                        </tr>
 						
 			<tr class="prop">
 			    <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
@@ -223,7 +228,7 @@
 							<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
 						</g:if>
 		    <g:if test="${usuarioInstance?.status == Status.Ativo && usuarioInstance?.email != null}">
-			<span class="button"><g:actionSubmit class="edit" action="enviarLoginESenha" value="Enviar Login e Senha por E-mail" /></span>
+			<span class="button"><g:actionSubmit class="edit" action="enviarLoginESenha" value="Enviar Login/Senha por E-mail" /></span>
 		    </g:if>
 
 					</g:form>

@@ -24,6 +24,7 @@ class Usuario {
     Status status
     Tipo tipo
     boolean j5Atual
+    boolean emailEnviado
 	
 	Integer idCirculoQueParticipou
 	Integer idCirculoQueCoordenou
@@ -107,6 +108,7 @@ class Usuario {
 	public realizaCriacoesAutomaticas() {
 		geraNomeUsualAutomatico()
 		geraLoginSenhaAutomaticos()
+                emailEnviado = false
 	}
 	
 	private String getSenhaAleatoria(int digitos) {
@@ -160,7 +162,7 @@ class Usuario {
 	Se usuario tem email e eh cadastrado Ativo, deve ter login e senha
 	*/
 	private geraLoginSenhaAutomaticos() {
-        if (status == Status.Ativo && (email != null)) {
+        if (email != null) {
 			login = email
 			//def novaSenha = nomeUsual
 			//if (dataDeNascimento != null) { novaSenha += dataDeNascimento.get(Calendar.YEAR) }
