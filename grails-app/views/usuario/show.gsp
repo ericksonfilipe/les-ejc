@@ -1,6 +1,6 @@
-
 <%@ page import="les.ejc.Usuario" %>
 <%@ page import="les.ejc.Usuario.Status" %>
+<%@ page import="les.ejc.Usuario.Tipo" %>
 
 <html>
     <head>
@@ -17,7 +17,7 @@
 	    <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Não-ativos"/></a></span>
 
 	    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-			</g:if>
+			
 	</div>
 	<div class="body">
 	    <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -57,7 +57,7 @@
 			    <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
 			    
 			</tr>
-                    	
+			
 						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
 							<tr class="prop">
 								<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
@@ -185,7 +185,7 @@
 								<td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
 								
 								<td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
-                        </g:if>
+			</g:if>
 						
 			</tr>
 		    
