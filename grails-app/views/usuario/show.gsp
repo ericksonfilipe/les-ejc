@@ -1,6 +1,7 @@
 
 <%@ page import="les.ejc.Usuario" %>
 <%@ page import="les.ejc.Usuario.Status" %>
+<%@ page import="les.ejc.Usuario.Tipo" %>
 
 <html>
     <head>
@@ -219,8 +220,9 @@
 					<g:form>
 						<g:hiddenField name="id" value="${usuarioInstance?.id}" />
 						<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-						<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-		  
+						<g:if test="${session?.user?.j5Atual}">
+							<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+						</g:if>
 		    <g:if test="${usuarioInstance?.status == Status.Ativo && usuarioInstance?.email != null}">
 			<span class="button"><g:actionSubmit class="edit" action="enviarLoginESenha" value="Enviar Login e Senha por E-mail" /></span>
 		    </g:if>
