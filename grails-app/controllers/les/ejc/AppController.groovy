@@ -25,7 +25,7 @@ class AppController {
                         render(view: '../index')
                     }
                     else {
-                        flash.message = "Usuário Não-ativo"
+                        flash.message = "Usuário Inativo"
                         redirect(action:"login")    
                     }
                 }
