@@ -2,11 +2,11 @@ package les.ejc
 
 class UsuarioController {
 
-	def senderService
+def senderService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
-	def error = {}
+    
+    def error = {}
 
     def index = {
 		if (!session.user) {
@@ -15,6 +15,38 @@ class UsuarioController {
 			return
 		}
         redirect(action: "list", params: params)
+    }
+
+    def enviarLoginESenha = {
+        def usuarioInstance = Usuario.get(params.id)
+        if (!usuarioInstance) {
+            redirect(action: 'list')
+            return
+        }
+	Random random = new Random()
+        String orig = (1..10).collect { random.nextInt(9) }.join()
+        String origmd5 = orig.encodeAsMD5Hex()
+        usuarioInstance.setSenha(origmd5)
+        usuarioInstance.save()
+	if (usuarioInstance.email != null) {		
+                String mensagem = "Você foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.getLogin()}\nsenha: ${orig}\n" + 
+			  "Aconselhamos que ao logar no sistema, você modifique sua senha!\nAbraços,"
+		senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Paróquia de São Cristóvão", mensagem)
+	}
+        flash.message = "Enviado Login e Senha para ${usuarioInstance.email} (Usuário Ativo)"
+        redirect(action: 'listNotAtivado')
+    }
+
+
+    def listNotAtivado = {
+        if (!session.user) {
+            flash.message = "Permissão Negada"
+            redirect(controller: 'app', action: 'login')
+            return
+        }  
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        def usuarioInstance = Usuario.findAllByStatusNotEqual('Ativo')
+        [usuarioInstanceList: usuarioInstance, usuarioInstanceTotal: Usuario.count()]
     }
 
     def list = {
@@ -99,9 +131,6 @@ class UsuarioController {
 		}
 		
         def usuarioInstance = Usuario.get(params.id)
-		
-		//usuarioInstance.atualizaDadosDeUsuarioNosEncontros()
-		
         if (!usuarioInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
             redirect(action: "list")

@@ -10,10 +10,14 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+		<g:if test="${session?.user?.j5Atual}">
+		    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+		</g:if>
+            <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Não-ativos"/></a></span>
+ 
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1><g:message code="Lista de Usuário" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -24,9 +28,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'usuario.id.label', default: 'Id')}" />
                         
+                            <g:sortableColumn property="nomeCompleto" title="${message(code: 'usuario.nomeCompleto.label', default: 'Nome Completo')}" />
+                        
                             <g:sortableColumn property="nomeUsual" title="${message(code: 'usuario.nomeUsual.label', default: 'Nome Usual')}" />
                         
                             <g:sortableColumn property="dataDeNascimento" title="${message(code: 'usuario.dataDeNascimento.label', default: 'Data De Nascimento')}" />
+                        
+                            <th><g:message code="usuario.endereco.label" default="Endereco" /></th>
+                        
+                            <g:sortableColumn property="telefone1" title="${message(code: 'usuario.telefone1.label', default: 'Telefone1')}" />
                         
                         </tr>
                     </thead>
@@ -36,10 +46,16 @@
                         
                             <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
                         
+                            <td>${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
+                        
                             <td>${fieldValue(bean: usuarioInstance, field: "nomeUsual")}</td>
                         
                             <td><g:formatDate date="${usuarioInstance.dataDeNascimento}" /></td>
-                            
+                        
+                            <td>${fieldValue(bean: usuarioInstance, field: "endereco")}</td>
+                        
+                            <td>${fieldValue(bean: usuarioInstance, field: "telefone1")}</td>
+                        
                         </tr>
                     </g:each>
                     </tbody>
