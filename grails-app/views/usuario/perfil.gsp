@@ -34,17 +34,17 @@
 				<g:if test="${usuarioInstance?.tipo != Usuario.Tipo.Casal}">
 				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}
 				<br><br>
-				[ajeitar] Aniversário: ${usuarioInstance?.dataDeNascimento}
+				Aniversário: <g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
 				</g:if>
 				
 				<g:else>
 				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}
 				<br><br>
-				[ajeitar] Aniversário: ${usuarioInstance?.dataDeNascimento}
+				Aniversário: <g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
 				<br><br>
 				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}
 				<br><br>
-				[ajeitar] Aniversário: ${usuarioInstance?.dataDeNascimento2}
+				[Aniversário: <g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento2}" />
 				</g:else>
 				
 				<br><br><br>
