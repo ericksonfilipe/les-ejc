@@ -1,4 +1,5 @@
 package les.ejc
+import les.ejc.Usuario.Status
 
 class AppController {
 
@@ -18,13 +19,21 @@ class AppController {
 	def authenticate = {
 		def usuario = Usuario.findByLoginAndSenha(params.login, new String(params.senha.encodeAsMD5Hex()))
 		if (usuario) {
-			session.user = usuario
-			flash.message = "Olá, ${usuario.nomeCompleto}!"
-			render(view:'../index')
-		} else {
-			flash.message = "O login e senha digitados são incorretos."
-			redirect(action:"login")
-		}
+                    if (usuario.status == Status.Ativo) {
+                        session.user = usuario
+                        flash.message = "Olá, ${usuario.nomeCompleto}!"
+                        render(view: '../index')
+                    }
+                    else {
+                        flash.message = "Usuário Não-ativo"
+                        redirect(action:"login")    
+                    }
+                }
+                else {
+                    flash.message = "Login/Senha digitados incorretamente."
+                    redirect(action:"login")
+                }
+
 	}
 	
 	def visitante = {
@@ -72,9 +81,9 @@ class AppController {
 			Random random = new Random()
                         String orig = (1..10).collect { random.nextInt(9) }.join()
                         String origmd5 = orig.encodeAsMD5Hex()
-                        usuario.setSenha(origmd5)
+                        usuario.senha = origmd5
                         usuario.save()
-                        String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario.login}\nsenha: ${orig}\nAconselhamos mudar sua senha.\nAbraços"
+                        String mensagem = "Você pediu para recuperar sua senha\n\nlogin: ${usuario?.login}\nsenha: ${orig}\nAconselhamos mudar sua senha.\nAbraços"
 
                         senderService.enviaEmail(usuario.email,"Recuperação de Senha - Paróquia de São Cristóvão", mensagem)
                         flash.message = "Foi enviada uma nova senha para ${params.email}."

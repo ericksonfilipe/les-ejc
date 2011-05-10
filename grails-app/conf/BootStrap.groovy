@@ -13,19 +13,19 @@ class BootStrap {
 		new Usuario(nomeCompleto:"admin", nomeUsual:"admin", dataDeNascimento:null,
 					endereco:null, email:"admin@plecas.com", foto:null, telefone1:"", telefone2:"", telefone3:"",
 					paroquia:"", equipesTrabalhadas:"", observacoes:"", idCirculoQueParticipou:null, idCirculoQueCoordenou:null,
-					status:Usuario.Status.Sem_Contato, tipo:Usuario.Tipo.Jovem, j5Atual:true, login:"admin", senha:new String("admin123".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Jovem, j5Atual:true, emailEnviado: true, login:"admin", senha:new String("admin123".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Admin cadastrado!")
 		println("Cadastrando Usuario Andre...")
 		new Usuario(nomeCompleto:"Andre", nomeUsual:"Andre", dataDeNascimento:null,
 					endereco:null, email:"andre@plecas.com", foto:null, telefone1:"", telefone2:"", telefone3:"",
 					paroquia:"", equipesTrabalhadas:"", observacoes:"", idCirculoQueParticipou:null, idCirculoQueCoordenou:null,
-					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, login:"andre", senha:new String("andre123".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Padre, j5Atual:false, emailEnviado: true, login:"andre", senha:new String("andre123".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Andre cadastrado!")
 		println("Cadastrando Usuario Casal...")
 		new Usuario(nomeCompleto:"Casado", nomeCompleto2:"Casada", nomeUsual:"Casado e Casada", dataDeNascimento:null,
 					endereco:null, email:"casal@plecas.com", foto:null, telefone1:"", telefone2:"", telefone3:"",
 					paroquia:"", equipesTrabalhadas:"", observacoes:"", idCirculoQueParticipou:null, idCirculoQueCoordenou:null,
-					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, login:"casal", senha:new String("casal123".encodeAsMD5Hex())).save(failOnError: true)
+					status:Usuario.Status.Ativo, tipo:Usuario.Tipo.Casal, j5Atual:false, emailEnviado: true, login:"casal", senha:new String("casal123".encodeAsMD5Hex())).save(failOnError: true)
 		println("Usuario Casal cadastrado!")
 		println("Usuarios cadastrados!")
 		println()

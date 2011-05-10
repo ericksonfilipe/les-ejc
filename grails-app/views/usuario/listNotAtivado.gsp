@@ -15,7 +15,7 @@
  
         </div>
         <div class="body">
-            <h1><g:message code="Lista de Usuário Não-ativados" args="[entityName]" /></h1>
+            <h1><g:message code="Lista de Usuário Inativos (Não receberam E-Mail ou não estão com Status Ativo)" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
