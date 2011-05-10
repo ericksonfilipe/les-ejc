@@ -16,9 +16,9 @@
 
 	    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
 	    <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Não-ativos"/></a></span>
-
-	    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-			</g:if>
+		<g:if test="${session?.user?.j5Atual}">
+			<span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+		</g:if>
 	</div>
 	<div class="body">
 	    <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -36,14 +36,14 @@
 			    
 			</tr>
 						
-						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
-							<tr class="prop">
-								<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
-								
-								<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
-								
-							</tr>
-						</g:if>
+			<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
+					
+					<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
+					
+				</tr>
+			</g:if>
 		    
 			<tr class="prop">
 			    <td valign="top" class="name"><g:message code="usuario.nomeUsual.label" default="Nome Usual" /></td>
@@ -58,15 +58,15 @@
 			    <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
 			    
 			</tr>
-                    	
-						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
-							<tr class="prop">
-								<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
-								
-								<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
-								
-							</tr>
-						</g:if>
+
+			<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
+					
+					<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
+					
+				</tr>
+			</g:if>
 		    
 			<tr class="prop">
 			    <td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
