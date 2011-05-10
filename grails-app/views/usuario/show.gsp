@@ -15,9 +15,9 @@
 
 	    <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
 	    <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Não-ativos"/></a></span>
-
-	    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-			
+		<g:if test="${session?.user?.j5Atual}">
+			<span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+		</g:if>
 	</div>
 	<div class="body">
 	    <h1><g:message code="default.show.label" args="[entityName]" /></h1>
@@ -35,14 +35,14 @@
 			    
 			</tr>
 						
-						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
-							<tr class="prop">
-								<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
-								
-								<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
-								
-							</tr>
-						</g:if>
+			<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
+					
+					<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
+					
+				</tr>
+			</g:if>
 		    
 			<tr class="prop">
 			    <td valign="top" class="name"><g:message code="usuario.nomeUsual.label" default="Nome Usual" /></td>
@@ -57,15 +57,15 @@
 			    <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
 			    
 			</tr>
-			
-						<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
-							<tr class="prop">
-								<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
-								
-								<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
-								
-							</tr>
-						</g:if>
+
+			<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
+				<tr class="prop">
+					<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
+					
+					<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
+					
+				</tr>
+			</g:if>
 		    
 			<tr class="prop">
 			    <td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
@@ -219,8 +219,9 @@
 					<g:form>
 						<g:hiddenField name="id" value="${usuarioInstance?.id}" />
 						<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-						<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-		  
+						<g:if test="${session?.user?.j5Atual}">
+							<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+						</g:if>
 		    <g:if test="${usuarioInstance?.status == Status.Ativo && usuarioInstance?.email != null}">
 			<span class="button"><g:actionSubmit class="edit" action="enviarLoginESenha" value="Enviar Login e Senha por E-mail" /></span>
 		    </g:if>
