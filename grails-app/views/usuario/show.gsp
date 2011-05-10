@@ -54,7 +54,7 @@
 			<tr class="prop">
 			    <td valign="top" class="name"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></td>
 			    
-			    <td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento}" /></td>
+			    <td valign="top" class="value"><g:formatDate format="dd/MM/yyyy" date="${usuarioInstance?.dataDeNascimento}" /></td>
 			    
 			</tr>
 
