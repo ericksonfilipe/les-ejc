@@ -1,5 +1,6 @@
 
 <%@ page import="les.ejc.Usuario" %>
+<%@ page import="les.ejc.Circulo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -53,14 +54,38 @@
 				<br><br>
 				</g:if>
 				
-				[ajeitar] Encontro: //que encontro fez!
-				<br><br>		
-				[ajeitar] Círculo de Origem: //que circulo foi!
-				<br><br>	
-				[ajeitar] Coordenador de Círculo: //q circulo coordenou? de que encontro!
-				<br><br>	
-				[ajeitar] Equipes Trabalhadas: ${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}  //mostrar nenhuma se for null (mostrar com respectivo encontro ao lado; ou "Outra paroquia")
-				<br><br>	
+				Encontro:
+				<g:if test="${usuarioInstance.idCirculoQueParticipou}">
+				<g:link controller="encontro" action="show" id="${Circulo.findById(usuarioInstance?.idCirculoQueParticipou)?.encontro?.id}">${Circulo.findById(usuarioInstance?.idCirculoQueParticipou)?.encontro?.encodeAsHTML()}</g:link>
+				</g:if>
+				<g:else>
+				Usuário não cadastrado como encontrista em nenhum encontro.
+				</g:else>
+				<br><br>
+				
+				Círculo de Origem:
+				<g:if test="${usuarioInstance.idCirculoQueParticipou}">
+				<g:link controller="circulo" action="show" id="${usuarioInstance?.idCirculoQueParticipou}">${Circulo.findById(usuarioInstance?.idCirculoQueParticipou).encodeAsHTML()}</g:link>
+				</g:if>
+				<g:else>
+				Usuário não cadastrado como encontrista em nenhum círculo.
+				</g:else>
+				<br><br>
+				
+				<g:if test="${usuarioInstance.idCirculoQueCoordenou}">
+				Coordenador de Círculo: <g:link controller="circulo" action="show" id="${usuarioInstance?.idCirculoQueCoordenou}">${Circulo.findById(usuarioInstance?.idCirculoQueCoordenou).encodeAsHTML()}</g:link>
+				<br><br>
+				</g:if>
+				
+				Equipes Trabalhadas:
+				<g:if test="${usuarioInstance.idCirculoQueCoordenou}">
+				${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}
+				</g:if>
+				<g:else>
+				Nenhuma.
+				</g:else>
+				<br><br>
+				
 				[ajeitar] Integrante do J5: //... se True, mostrar o tempo e a funcao
 				<br><br>	
 

@@ -51,6 +51,10 @@ class CirculoController {
 			return
 		}
         def circuloInstance = new Circulo(params)
+		
+		//atualizar os dados dos usuarios relacionados a esse circulo
+		circuloInstance.atualizaDadosDosUsuariosDesseCirculo()
+		
         if (circuloInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'circulo.label', default: 'Circulo'), circuloInstance.id])}"
             redirect(action: "show", id: circuloInstance.id)
@@ -118,6 +122,10 @@ class CirculoController {
                 }
             }
             circuloInstance.properties = params
+			
+			//atualizar os dados dos usuarios relacionados a esse circulo
+			circuloInstance.atualizaDadosDosUsuariosDesseCirculo()
+		
             if (!circuloInstance.hasErrors() && circuloInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'circulo.label', default: 'Circulo'), circuloInstance.id])}"
                 redirect(action: "show", id: circuloInstance.id)

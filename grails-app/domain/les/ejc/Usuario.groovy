@@ -25,6 +25,9 @@ class Usuario {
     Tipo tipo
     boolean j5Atual
 	
+	Integer idCirculoQueParticipou
+	Integer idCirculoQueCoordenou
+	
     private String login
     private String senha
 
@@ -63,6 +66,8 @@ class Usuario {
 		senha(nullable:true, password:true, minSize:8)
 		login(nullable:true, unique:true)
 		j5Atual()
+		idCirculoQueParticipou(nullable:true)
+		idCirculoQueCoordenou(nullable:true)
     }
 	
     enum Status {

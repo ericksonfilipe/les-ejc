@@ -99,6 +99,9 @@ class UsuarioController {
 		}
 		
         def usuarioInstance = Usuario.get(params.id)
+		
+		//usuarioInstance.atualizaDadosDeUsuarioNosEncontros()
+		
         if (!usuarioInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'usuario.label', default: 'Usuario'), params.id])}"
             redirect(action: "list")
@@ -138,7 +141,6 @@ class UsuarioController {
 			return
 		}
         def usuarioInstance = Usuario.get(params.id)
-				
         if (usuarioInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -152,10 +154,8 @@ class UsuarioController {
 			def foto = usuarioInstance.foto
 			def ficha = usuarioInstance.ficha
             usuarioInstance.properties = params
-			
 			//garante nomeUsual automatico se for branco
 			usuarioInstance.geraNomeUsualAutomatico()
-		
 			if (foto != [] && usuarioInstance.foto == []) {
 				usuarioInstance.foto = foto
 			}
@@ -208,18 +208,11 @@ class UsuarioController {
 
 	def renderFoto = {
 		def usuarioInstance = Usuario.get(params.id)
-		/*if (usuarioInstance?.foto) {
+		if (usuarioInstance?.foto) {
 			response.setContentLength(usuarioInstance.foto.length)
 			response.outputStream.write(usuarioInstance.foto)
 		} else {
-			def fotoPadrao = new File("imagem_padrao.png")
-			def foto = fotoPadrao.getBytes()
-			response.setContentLength(foto.length)
-			response.outputStream.write(foto)
-		}*/
-		
-		def fotoPadrao = new File("/imagem_padrao.png").getBytes()
-		response.setContentLength(foto.length)
-		response.outputStream.write(foto)
+			response.sendError(404)
+		}
 	}
 }

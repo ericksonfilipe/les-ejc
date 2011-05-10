@@ -59,4 +59,12 @@ class Circulo {
 		//se jah tiver um circulo com aquela cor, nao criar outro
 	}
 
+	public atualizaDadosDosUsuariosDesseCirculo() {
+		this.jovemCoordenador?.idCirculoQueCoordenou = this.id
+		this.casalApoio?.idCirculoQueCoordenou = this.id
+		for (usuario in participantes) {
+			usuario.idCirculoQueParticipou = this.id
+		}
+	}
+	
 }
