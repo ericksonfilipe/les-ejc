@@ -25,10 +25,7 @@ class LoginFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 			senha = "senha"
 			click "Login"
 		}
-		
-		//mensagem "O login e senha digitados são incorretos." separada por causa de problema com acento
-		assertContentContains "O login e senha digitados s"
-		assertContentContains "o incorretos."
+		assertContentContains "Login/Senha digitados incorretamente"
 	}
 
 	void testLogout() {

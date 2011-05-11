@@ -17,7 +17,7 @@ class GerarHTMLEncontroTests extends functionaltestplugin.FunctionalTestCase {
                 }
 		assertTitle("Impressão de Encontros")
 		assertContentContains "Encontro Paróquia São Cristóvão"
-		assertContentContains "Dirigente Espiritual: Andre Farias"
+		assertContentContains "Dirigente Espiritual: Andre"
 		assertContentContains "Tema: Mei do Mato"
 		assertContentContains "Local: Manaus"
 	}

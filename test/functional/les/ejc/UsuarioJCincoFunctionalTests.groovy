@@ -90,7 +90,7 @@ class UsuarioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 			nomeCompleto = "123456"
 			click "Criar"
 		}
-		assertContentContains "O campo [nomeCompleto] nao atende ao padrao definido [([a-zA-Z]| )+]"
+		assertContentContains "O campo [nomeCompleto] nao atende ao padrao definido"
 	}
 	
 	void testCadastroDeNomeUsualInvalido(){
@@ -107,7 +107,7 @@ class UsuarioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 			nomeUsual = "Ze1"
 			click "Criar"
 		}
-		assertContentContains "O campo [nomeUsual] nao atende ao padrao definido [([a-zA-Z]| )+]"
+		assertContentContains "O campo [nomeUsual] nao atende ao padrao definido"
 	}
 
 	void testCadastroDeParoquiaInvalido(){

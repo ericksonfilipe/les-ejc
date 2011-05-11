@@ -56,10 +56,8 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		click "1"
 		assertTitle("Mostrar Usuario")
 		assertContentContains("admin@plecas.com")
-		form() {
-			click "Editar"
-		}
-		assertContentContains "Permiss"
+		get("http://localhost:8080/les-ejc/usuario/edit/1");
+                assertContentContains "Permiss"
 		assertContentContains "o Negada"
 	}
 	
@@ -85,43 +83,5 @@ class UsuarioMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 			click "Alterar"
 		}
 		assertContentContains "alterado"
-	}
-	
-	void testExcluirUsuarioDiferente() {
-		get(this.defaultLocation);
-		form() {
-			login = "andre"
-			senha = "andre123"
-			click "Login"
-		}
-		
-		get("http://localhost:8080/les-ejc/usuario/index");
-		click "1"
-		assertTitle("Mostrar Usuario")
-		assertContentContains("admin@plecas.com")
-		form() {
-			click "Excluir"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
-	}
-	
-	void testExcluirProprioUsuario() {
-		get(this.defaultLocation);
-		form() {
-			login = "andre"
-			senha = "andre123"
-			click "Login"
-		}
-		
-		get("http://localhost:8080/les-ejc/usuario/index");
-		click "2"
-		assertTitle("Mostrar Usuario")
-		assertContentContains("andre@plecas.com")
-		form() {
-			click "Excluir"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
 	}
 }

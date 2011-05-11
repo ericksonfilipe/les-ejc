@@ -56,28 +56,7 @@ class EncontroMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTe
 		click "1"
 		assertTitle("Mostrar Encontro")
 		assertContentContains("Manaus")
-		form() {
-			click "Editar"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
+		get("http://localhost:8080/les-ejc/encontro/edit/1");
+		assertContentContains "Permissão Negada"
 	}
-	
-	void testExcluirEncontro() {
-		get(this.defaultLocation);
-		form() {
-			login = "andre"
-			senha = "andre123"
-			click "Login"
-		}
-		
-		get("http://localhost:8080/les-ejc/encontro/index");
-		click "1"
-		assertTitle("Mostrar Encontro")
-		assertContentContains("Manaus")
-		form() {
-			click "Excluir"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"	}
 }

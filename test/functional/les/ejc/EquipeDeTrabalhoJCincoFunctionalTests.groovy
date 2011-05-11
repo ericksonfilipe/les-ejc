@@ -33,18 +33,18 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin123"
-			click "Login"
+			senha = "admin123" 
+                        click "Login"
 		}
 		
 		get("http://localhost:8080/les-ejc/equipeDeTrabalho/index");
-		click "1"
-		assertTitle("Mostrar EquipeDeTrabalho")
+		click "2"
+		assertTitle("Mostrar Equipe de Trabalho")
 		assertContentContains("J5")
 		form() {
 			click "Editar"
 		}
-		assertTitle("Edit EquipeDeTrabalho")
+		assertTitle("Edit Equipe de Trabalho")
 		form() {
 			click "Alterar"
 		}

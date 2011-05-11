@@ -100,6 +100,6 @@ class OficioJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCas
 			nomeRemetente = "123456"
 			click "Criar"
 		}
-		assertContentContains "O campo [nomeRemetente] nao atende ao padrao definido [([a-zA-Z]| )+]"
+		assertContentContains "O campo [nomeRemetente] nao atende ao padrao definido"
 	}
 }

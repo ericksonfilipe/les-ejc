@@ -56,29 +56,8 @@ class CirculoMembroEJCFunctionalTests extends functionaltestplugin.FunctionalTes
 		click "1"
 		assertTitle("Mostrar Circulo")
 		assertContentContains("Azul")
-		form() {
-			click "Editar"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
+		get("http://localhost:8080/les-ejc/circulo/edit/1");
+                assertContentContains "Permissão Negada"
 	}
 	
-	void testExcluirCirculo() {
-		get(this.defaultLocation);
-		form() {
-			login = "andre"
-			senha = "andre123"
-			click "Login"
-		}
-		
-		get("http://localhost:8080/les-ejc/circulo/index");
-		click "1"
-		assertTitle("Mostrar Circulo")
-		assertContentContains("Azul")
-		form() {
-			click "Excluir"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
-	}
 }

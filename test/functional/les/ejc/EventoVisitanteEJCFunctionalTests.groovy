@@ -13,8 +13,7 @@ class EventoVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalT
 		}
 		
 		get("http://localhost:8080/les-ejc/evento/index");
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
+		assertContentContains "Lista de Evento"
 	}
 	
 	void testCriarAta() {
