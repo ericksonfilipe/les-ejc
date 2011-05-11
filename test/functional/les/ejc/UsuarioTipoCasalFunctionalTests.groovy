@@ -4,7 +4,7 @@ class UsuarioTipoCasalFunctionalTests extends functionaltestplugin.FunctionalTes
   
 	private String defaultLocation =  "http://localhost:8080/les-ejc/usuario/create"
 	
-	void testTituloBasico() {
+	void testCriacaoDeUsuarioTipoCasalFuncionando() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -13,23 +13,19 @@ class UsuarioTipoCasalFunctionalTests extends functionaltestplugin.FunctionalTes
 		}
 		
 		get(this.defaultLocation)
-		assertTitle("Criar Usuario")
-		assertContentContains("Criar Usuario")
+		
+		form() {
+			nomeCompleto = "Pessoa"
+			nomeCompleto2 = "outra Pessoa"
+			selects['tipo'].select "Casal"
+			click "Criar"
+		}
+		assertContentContains "criado"
+		assertContentContains "Casal"
+		assertContentContains "Usuario"
 	}
 	
-	void testListaUsuarios(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get("http://localhost:8080/les-ejc/usuario/list");
-		assertContentContains "Lista de Usuario"
-	}
-	
-	void testCadastroValido() {
+	void testCriacaoDeUsuarioQueNaoEhDoTipoCasalComDataDeNasmentoDeMaridoOuMulher() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -38,14 +34,20 @@ class UsuarioTipoCasalFunctionalTests extends functionaltestplugin.FunctionalTes
 		}
 		
 		get(this.defaultLocation);
+
+		Calendar hoje = new GregorianCalendar()
 		form() {
-			nomeCompleto = "Jose da Silva"
+			nomeCompleto = "Pessoa que vai vai ser cadastrada"
+			dataDeNascimento2_day = "${hoje.get(Calendar.DAY_OF_MONTH) + 5}"
+			dataDeNascimento2_month = "${hoje.get(Calendar.MONTH) + 1}"
+			dataDeNascimento2_year = "${hoje.get(Calendar.YEAR)}"
 			click "Criar"
 		}
-		assertContentContains "criado"	
+		assertContentContains "O campo Data de Nascimento (Marido/Mulher)"
+		assertContentContains "for do tipo Casal"
 	}
 
-	void testCadastroNulo(){
+		void testCriacaoDeUsuarioQueNaoEhDoTipoCasalComEmailDeMaridoOuMulher() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
@@ -54,163 +56,14 @@ class UsuarioTipoCasalFunctionalTests extends functionaltestplugin.FunctionalTes
 		}
 		
 		get(this.defaultLocation);
-		form() {
-			click "Criar"
-		}
-		assertContentContains "O campo Nome Completo deve ser preenchido!"
-	}
 
-	
-	void testCadastroNomeVazio(){
-		get("http://localhost:8080/les-ejc/");
 		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = ""
+			nomeCompleto = "Pessoa que vai vai ser cadastrada"
+			email2 = "email@outro.com"
 			click "Criar"
 		}
-		assertContentContains "O campo Nome Completo deve ser preenchido!"
+		assertContentContains "O campo Email (Marido/Mulher)"
+		assertContentContains "for do tipo Casal"
 	}
-
-	void testCadastroNomeInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "123456"
-			click "Criar"
-		}
-		assertContentContains "O campo [nomeCompleto] nao atende ao padrao definido"
-	}
-	
-	void testCadastroDeNomeUsualInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			nomeUsual = "Ze1"
-			click "Criar"
-		}
-		assertContentContains "O campo [nomeUsual] nao atende ao padrao definido"
-	}
-
-	void testCadastroDeParoquiaInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			paroquia = "3 irmas"
-			click "Criar"
-		}
-		assertContentContains "O campo [paroquia] nao atende ao padrao definido [([a-zA-Z]| )+]"
-	}
-
-	void testCadastroDeEquipesTrabalhadasInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			equipesTrabalhadas = "Mais de 1000"
-			click "Criar"
-		}
-		assertContentContains "O campo [equipesTrabalhadas] nao atende ao padrao definido [([a-zA-Z]| )+]"
-	}
-
-	void testCadastroObservacoesInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			observacoes = "123"
-			click "Criar"
-		}
-		assertContentContains "O campo [observacoes] nao atende ao padrao definido [([a-zA-Z]| )+]"
-	}
-
-	void testEmailInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			email = "email@qualquer"
-			click "Criar"
-		}
-		assertContentContains "O campo [email] nao e um endereco de email valido"
-	}
-	
-	void testNomeUsualAutomatico(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			nomeUsual = ""
-			click "Criar"
-		}
-		assertContentContains '<tdvalign="top"class="name">nomeusual</td><tdvalign="top"class="value">jose</td>'
-	}
-	/*
-	void testTelefoneInvalido(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCompleto = "Jose da Silva"
-			telefone = "12345"
-			click "Criar"
-		}
-		assertContentContains "O campo [telefone] com o valor [12345] nao atinge o tamanho minimo de [10]"
-	}
-	*/
 
 }
