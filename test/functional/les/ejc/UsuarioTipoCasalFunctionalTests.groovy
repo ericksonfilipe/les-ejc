@@ -47,7 +47,7 @@ class UsuarioTipoCasalFunctionalTests extends functionaltestplugin.FunctionalTes
 		assertContentContains "for do tipo Casal"
 	}
 
-		void testCriacaoDeUsuarioQueNaoEhDoTipoCasalComEmailDeMaridoOuMulher() {
+	void testCriacaoDeUsuarioQueNaoEhDoTipoCasalComEmailDeMaridoOuMulher() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
