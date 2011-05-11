@@ -14,44 +14,23 @@
 		    <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
 		</g:if>
             <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Inativos"/></a></span>
- 
+
         </div>
         <div class="body">
-            <h1><g:message code="Lista de Usuário" args="[entityName]" /></h1>
+            <h1><g:message code="Lista de Usuários" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
                 <table>
-                    <thead>
-                        <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'usuario.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="nomeCompleto" title="${message(code: 'usuario.nomeCompleto.label', default: 'Nome Completo')}" />
-                        
-                            <g:sortableColumn property="nomeUsual" title="${message(code: 'usuario.nomeUsual.label', default: 'Nome Usual')}" />
-                                               
-                        </tr>
-                    </thead>
                     <tbody>
-                    <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
-                        
-                            <td>${fieldValue(bean: usuarioInstance, field: "nomeUsual")}</td>
-
-                        
-                        </tr>
-                    </g:each>
+                        <tr><g:link action="listJovem">Listar Jovens</g:link></tr>
+						<br \>
+						<tr><g:link action="listCasal">Listar Casais</g:link></tr>
+						<br \>
+						<tr><g:link action="listPadre">Listar Padres</g:link></tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${usuarioInstanceTotal}" />
             </div>
         </div>
     </body>

@@ -68,9 +68,49 @@ def senderService
 			redirect(controller: 'app', action:'login')
 			return
 		}
+    }
+	
+	def listJovem = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
     }
+	
+	def listCasal = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
+    }
+	
+	def listPadre = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
+    }
+	
+	/*
+	def list = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [usuarioInstanceList: Usuario.list(params), usuarioInstanceTotal: Usuario.count()]
+    }
+	*/
 
     def create = {
 		//println("Params: " + params)
