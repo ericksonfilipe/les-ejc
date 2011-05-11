@@ -4,19 +4,6 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
   
 	private String defaultLocation =  "http://localhost:8080/les-ejc/circulo/create"
 	
-	void testTituloBasico() {
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation)
-		assertTitle "Criar Circulo"
-		assertContentContains "Criar Circulo"
-	}
-	
 	void testListaCirculos(){
 		get("http://localhost:8080/les-ejc/");
 		form() {
@@ -29,21 +16,6 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 		assertContentContains "Lista de Circulo"
 	}
 	
-	void testNomeCirculoNulo(){
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation);
-		form() {
-			click "Criar"
-		}
-		assertContentContains "O campo [nomeCirculo] nao pode ficar em branco"
-	}
-	
 	void testNomeCirculoVazio() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
@@ -51,12 +23,14 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 			senha = "admin123"
 			click "Login"
 		}
-		
-		get(this.defaultLocation);
-		form() {
-			nomeCirculo = ""
-			click "Criar"
-		}
+		get("http://localhost:8080/les-ejc/circulo/show/1");
+                form() {
+                        click "Editar"
+                }
+                form() {
+                    nomeCirculo = ""
+                    click "Alterar"
+                }
 		assertContentContains "O campo [nomeCirculo] nao pode ficar em branco"
 	}
 	
@@ -68,12 +42,15 @@ class CirculoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCa
 			click "Login"
 		}
 		
-		get(this.defaultLocation);
-		form() {
-			nomeCirculo = "qu4lqu3r c0154"
-			click "Criar"
-		}
-		assertContentContains "O campo [nomeCirculo] nao atende ao padrao definido [([a-zA-Z]| )+]"
+		get("http://localhost:8080/les-ejc/circulo/show/1");
+                form() {
+                        click "Editar"
+                }
+                form() {
+                    nomeCirculo = "qu4lqu3r c0154"
+                    click "Alterar"
+                }
+		assertContentContains "O campo [nomeCirculo] nao atende ao padrao definido"
 	}
 
 }

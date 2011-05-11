@@ -39,8 +39,8 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		}
 		
 		get("http://localhost:8080/les-ejc/equipeDeTrabalho/index");
-		click "1"
-		assertTitle("Mostrar EquipeDeTrabalho")
+		click "2"
+		assertTitle("Mostrar Equipe de Trabalho")
 		assertContentContains("J5")
 	}
 	
@@ -53,32 +53,10 @@ class EquipeDeTrabalhoMembroEJCFunctionalTests extends functionaltestplugin.Func
 		}
 		
 		get("http://localhost:8080/les-ejc/equipeDeTrabalho/index");
-		click "1"
-		assertTitle("Mostrar EquipeDeTrabalho")
+		click "2"
+		assertTitle("Mostrar Equipe de Trabalho")
 		assertContentContains("J5")
-		form() {
-			click "Editar"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
-	}
-	
-	void testExcluirEquipeDeTrabalho() {
-		get(this.defaultLocation);
-		form() {
-			login = "andre"
-			senha = "andre123"
-			click "Login"
-		}
-		
-		get("http://localhost:8080/les-ejc/equipeDeTrabalho/index");
-		click "1"
-		assertTitle("Mostrar EquipeDeTrabalho")
-		assertContentContains("J5")
-		form() {
-			click "Excluir"
-		}
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
+		get("http://localhost:8080/les-ejc/equipeDeTrabalho/edit/2");
+                assertContentContains "Permissão Negada"
 	}
 }

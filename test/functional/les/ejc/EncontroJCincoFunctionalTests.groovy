@@ -104,7 +104,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			tema = "qu4lqu3r c0154"
 			click "Criar"
 		}
-		assertContentContains "O campo [tema] nao atende ao padrao definido [([a-zA-Z]| )+]"
+		assertContentContains "O campo [tema] nao atende ao padrao definido"
 	}
 
 	//Testes para Requisito: Os encontros devem ter um número correspondente (1º, 2º, ...), que não pode se repetir e deve seguir a sequência de datas.
@@ -113,7 +113,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -129,14 +129,14 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			local = "local"
 			click "Criar"
 		}
-		assertContentContains "Encontro 2 criado"
+		assertContentContains "criado"
 	}
 	
 	void testNumeroInvalidoPoisExistemEncontrosComDataAnteriorEnumeroMaior() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -152,14 +152,14 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			local = "local"
 			click "Criar"
 		}
-		assertContentContains "O n&uacute;mero 4 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data anterior a"
+		assertContentContains "pois existem encontros com data anterior"
 	}
 	
 	void testNumeroInvalidoPoisExistemEncontrosComDataPosteriorEnumeroMenor() {
 		get("http://localhost:8080/les-ejc/");
 		form() {
 			login = "admin"
-			senha = "admin"
+			senha = "admin123"
 			click "Login"
 		}
 		
@@ -175,7 +175,7 @@ class EncontroJCincoFunctionalTests extends functionaltestplugin.FunctionalTestC
 			local = "local"
 			click "Criar"
 		}
-		assertContentContains "O n&uacute;mero 8 n&atilde;o &eacute; v&aacute;lido, pois existem encontros com data posterior a"
+		assertContentContains "pois existem encontros com data posterior"
 	}
 
 }
