@@ -4,8 +4,6 @@ class PerfilUsuarioFunctionalTests extends functionaltestplugin.FunctionalTestCa
   
 	private String defaultLocation =  "http://localhost:8080/les-ejc/usuario/create"
 	
-
-	
 	void testPerfilDePadre(){
 		get("http://localhost:8080/les-ejc/");
 		form() {
