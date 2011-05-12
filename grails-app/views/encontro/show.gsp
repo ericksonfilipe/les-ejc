@@ -83,7 +83,7 @@
                                     
 								<ul>
 								<li><g:link controller="equipeDeTrabalho" action="show" id="${encontroInstance?.coordenacao_geral?.id}">${encontroInstance?.coordenacao_geral?.encodeAsHTML()}</g:link></li>
-								<li><g:link controller="equipeDeTrabalho" action="show" id="${encontroInstance?.j5?.id}">${encontroInstance?.j5?.encodeAsHTML()}</g:link></li>
+								<li><g:link controller="equipeDeTrabalho" name="J5" action="show" id="${encontroInstance?.j5?.id}">${encontroInstance?.j5?.encodeAsHTML()}</g:link></li>
 								<li><g:link controller="equipeDeTrabalho" action="show" id="${encontroInstance?.coordenacao_de_circulos?.id}">${encontroInstance?.coordenacao_de_circulos?.encodeAsHTML()}</g:link></li>
 								<li><g:link controller="equipeDeTrabalho" action="show" id="${encontroInstance?.apresentadores?.id}">${encontroInstance?.apresentadores?.encodeAsHTML()}</g:link></li>
 								<li><g:link controller="equipeDeTrabalho" action="show" id="${encontroInstance?.bandinha?.id}">${encontroInstance?.bandinha?.encodeAsHTML()}</g:link></li>

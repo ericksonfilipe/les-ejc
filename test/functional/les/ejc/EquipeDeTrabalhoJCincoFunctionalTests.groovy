@@ -4,19 +4,6 @@ class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.Functio
   
 	private String defaultLocation =  "http://localhost:8080/les-ejc/equipeDeTrabalho/create"
 	
-	void testTituloBasico() {
-		get("http://localhost:8080/les-ejc/");
-		form() {
-			login = "admin"
-			senha = "admin123"
-			click "Login"
-		}
-		
-		get(this.defaultLocation)
-		assertTitle "Criar EquipeDeTrabalho"
-		assertContentContains "Criar EquipeDeTrabalho"
-	}
-	
 	void testListaEquipesDeTrabalho(){
 		get("http://localhost:8080/les-ejc/");
 		form() {

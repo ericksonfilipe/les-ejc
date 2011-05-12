@@ -26,18 +26,9 @@ class EquipeDeTrabalhoController {
     }
 
     def create = {
-		if (!session.user) {
-                        flash.message = "Permissão Negada"
-			redirect(controller: 'app', action:'login')
-			return
-		} else if (!session.user?.j5Atual) {
-                        flash.message = "Permissão Negada"
-			redirect(controller: 'app', action:'login')
-			return
-		}
-        def equipeDeTrabalhoInstance = new EquipeDeTrabalho()
-        equipeDeTrabalhoInstance.properties = params
-        return [equipeDeTrabalhoInstance: equipeDeTrabalhoInstance]
+		flash.message = "Permissão Negada"
+		redirect(controller: 'app', action:'login')
+		return
     }
 
     def save = {
