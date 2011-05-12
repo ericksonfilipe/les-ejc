@@ -78,7 +78,7 @@
 				</g:if>
 				
 				Equipes Trabalhadas:
-				<g:if test="${usuarioInstance.idCirculoQueCoordenou}">
+				<g:if test="${usuarioInstance.equipesTrabalhadas}">
 				${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}
 				</g:if>
 				<g:else>
