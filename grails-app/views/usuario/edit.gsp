@@ -1,5 +1,3 @@
-
-
 <%@ page import="les.ejc.Usuario" %>
 <%@ page import="les.ejc.Usuario.Tipo" %>
 <html>
@@ -15,18 +13,17 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Inativos"/></a></span>
- 
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+				<div class="message">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${usuarioInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${usuarioInstance}" as="list" />
-            </div>
+				<div class="errors">
+					<g:renderErrors bean="${usuarioInstance}" as="list" />
+				</div>
             </g:hasErrors>
             <g:form method="post"  enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${usuarioInstance?.id}" />
@@ -34,7 +31,6 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="nomeCompleto"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></label>
@@ -212,6 +208,15 @@
 								</tr>
 							</g:if>
 
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="foiJ5"><g:message code="usuario.foiJ5.label" default="Foi J5" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foiJ5', 'errors')}">
+                                    <g:checkBox name="foiJ5" value="${usuarioInstance?.foiJ5}" />
+                                </td>
+                            </tr>
+							
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="atas"><g:message code="usuario.atas.label" default="Atas" /></label>
@@ -250,11 +255,26 @@
 								</g:if>
 								<g:else>
 									<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
-									
 								</g:else>
 							</td>
 						</tr>	
                         
+						<g:if test="${usuarioInstance?.foiJ5 || usuarioInstance?.j5Atual}">
+							<tr class="prop">
+								<td valign="top" class="name">
+									<label for="funcoes"><g:message code="usuario.funcoes.label" default="Funcoes" /></label>
+								</td>
+								<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'funcoes', 'errors')}">
+									<ul>
+										<g:each in="${usuarioInstance?.funcoes?}" var="c">
+											<li><g:link controller="funcaoJCinco" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+										</g:each>
+									</ul>
+									<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'funcoes.label', default: 'Funcoes')])}</g:link>
+								</td>
+							</tr>
+						</g:if>
+						
                         </tbody>
                     </table>
                 </div>
