@@ -24,6 +24,7 @@ class Usuario {
     Status status
     Tipo tipo
     boolean j5Atual
+	boolean foiJ5
     boolean emailEnviado
 	
 	Integer idCirculoQueParticipou
@@ -32,12 +33,13 @@ class Usuario {
     private String login
     private String senha
 
-	static hasMany = [atas:Ata]
+	static hasMany = [atas:Ata, funcoes : FuncaoJCinco]
 	static belongsTo = [Ata]
 	static hasOne = [ endereco : Endereco ]
 
 	
     static constraints = {
+		funcoes(nullable:true)
         nomeCompleto(blank:false, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
 		nomeCompleto2(nullable:true, size:2..100, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+', validator: {nome, usuario ->
 																						if (nome!= null && usuario.tipo != Tipo.Casal) 

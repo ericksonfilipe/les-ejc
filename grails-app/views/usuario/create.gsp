@@ -1,5 +1,3 @@
-
-
 <%@ page import="les.ejc.Usuario" %>
 <html>
     <head>
@@ -13,12 +11,12 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-             <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Inativos"/></a></span>
+            <span class="menuButton"><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Lista de Inativos"/></a></span>
         </div>
         <div class="body">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+				<div class="message">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${usuarioInstance}">
             <div class="errors">
@@ -29,7 +27,6 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="nomeCompleto"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></label>
@@ -173,7 +170,16 @@
                                     <g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" />
                                 </td>
                             </tr>
-                        
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="foiJ5"><g:message code="usuario.foiJ5.label" default="Foi J5" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foiJ5', 'errors')}">
+                                    <g:checkBox name="foiJ5" value="${usuarioInstance?.foiJ5}" />
+                                </td>
+                            </tr>
+							
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
@@ -191,7 +197,6 @@
                                     <g:select name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}"  />
                                 </td>
                             </tr>
-                        
                         </tbody>
                     </table>
                 </div>

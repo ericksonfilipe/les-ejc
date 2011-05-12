@@ -34,17 +34,35 @@
 				<g:if test="${usuarioInstance?.tipo != Usuario.Tipo.Casal}">
 				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}
 				<br><br>
-				Aniversário: <g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
+				Aniversário:
+					<g:if test="${usuarioInstance?.dataDeNascimento}">
+					<g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
+					</g:if>
+					<g:else>
+					Não informado
+					</g:else>
 				</g:if>
 				
 				<g:else>
 				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}
 				<br><br>
-				Aniversário: <g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
+				Aniversário:
+					<g:if test="${usuarioInstance?.dataDeNascimento}">
+					<g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
+					</g:if>
+					<g:else>
+					Não informado
+					</g:else>
 				<br><br>
 				Nome Completo: ${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}
 				<br><br>
-				[Aniversário: <g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento2}" />
+				Aniversário:
+					<g:if test="${usuarioInstance?.dataDeNascimento}">
+					<g:formatDate format="dd/MM" date="${usuarioInstance?.dataDeNascimento}" />
+					</g:if>
+					<g:else>
+					Não informado
+					</g:else>				
 				</g:else>
 				
 				<br><br><br>
@@ -86,8 +104,20 @@
 				</g:else>
 				<br><br>
 				
-				[ajeitar] Integrante do J5: //... se True, mostrar o tempo e a funcao
-				<br><br>	
+				<g:if test="${usuarioInstance.j5Atual}">
+				Integrante atual do J5
+				</g:if>
+				<br>
+				<g:if test="${usuarioInstance.foiJ5 && !usuarioInstance.j5Atual}">
+				Foi Integrante do J5
+				</g:if>
+				<g:if test="${usuarioInstance.j5Atual || usuarioInstance.foiJ5}">
+				<br />
+				Funções:
+				<g:each in="${usuarioInstance.funcoes?}" var="c">
+					<li>${c} - <g:formatDate format="MM/yyyy" date="${c.dataInicio}" /> - <g:formatDate format="MM/yyyy" date="${c.dataFim}" /></li>
+				</g:each>
+				</g:if>
 
             </div>
         </div>
