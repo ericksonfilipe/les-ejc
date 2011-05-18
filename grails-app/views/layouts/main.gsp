@@ -8,8 +8,15 @@
     </head>
     <body>
 		<div class="pagina">
-			<div class="login">
-				<g:loginControl />
+			<div class="loginHeader">
+				<span class="userLogged">
+					<g:if test="${session.user}">
+						Ol&aacute;, ${session.user}!
+					</g:if>
+				</span>
+				<span class="loginControl">
+					<g:loginControl />
+				</span>
 			</div>
 			<div class="bordaBox">
 				<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
