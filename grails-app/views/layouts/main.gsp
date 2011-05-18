@@ -5,6 +5,7 @@
         <!--<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" /> -->
         <g:layoutHead />
         <g:javascript library="application" />
+		<resource:accordion skin="default" />
     </head>
     <body>
 		<div class="pagina">
@@ -31,41 +32,35 @@
 							<!-- <img src="${resource(dir:'images',file:'logo.png')}" height="100%" width="100%"/> -->
 						</div>
 						<div class="dir">
-							<!-- <h1>Encontro de Jovens com Cristo - EJC</h1><h2>Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</h2>Campina Grande - PB -->
+							<!-- EJC - Encontro de Jovens com Cristo<br />Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o<br />Diocese de Campina Grande - PB -->
 						</div>
 					</div>
 					
 					<div class="menu">
+						<ul>
+							<li><a href="#" >Home</a></li>
+							<li><a href="#" id="current">Products</a>
+								<ul>
+									<li><a href="#">Drop Down CSS Menus</a></li>
+									<li><a href="#">Horizontal CSS Menus</a></li>
+									<li><a href="#">Vertical CSS Menus</a></li>
+									<li><a href="#">Dreamweaver Menus</a></li>
+							   </ul>
+						  </li>
+							<li><a href="/faq.php">FAQ</a>
+								<ul>
+								<li><a href="#">Drop Down CSS Menus</a></li>
+								<li><a href="#">Horizontal CSS Menus</a></li>
+								<li><a href="#">Vertical CSS Menus</a></li>
+								<li><a href="#">Dreamweaver Menus</a></li>
+								</ul>
+						  </li>
+							<li><a href="/contact/contact.php">Contact</a></li>
+						</ul>
 					</div>
 					
 					<div class="main">
 						<g:layoutBody />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla<br />
-						bla
-						bla
 					</div>
 				</div>
 				<b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b>
