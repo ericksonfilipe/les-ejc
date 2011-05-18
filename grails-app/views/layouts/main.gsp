@@ -5,45 +5,89 @@
         <!--<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" /> -->
         <g:layoutHead />
         <g:javascript library="application" />
-		<!-- Nao faco a minima ideia da utilidade de um <div> dentro de um <head> =S,
-			 maaaaas como tah funfando entao deixa assim. -->
-		<div id="header">
-		  <div id="loginHeader">
-			<g:loginControl />
-		  </div>
-		</div>
     </head>
     <body>
-		<div id="corpo">
-			<div id="spinner" class="spinner" style="display:none;">
-				<img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
+		<div class="pagina">
+			<div class="login">
+				<g:loginControl />
 			</div>
-			<div id="topo">
-				<div id="imagem">
-					<img src="${resource(dir:'images',file:'logo.png')}" />
+			<div class="bordaBox">
+				<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
+				<div class="conteudo">
+					<!-- Esse spinner eu nao sei pra que serve -->
+					<div id="spinner" class="spinner" style="display:none;">
+						<img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
+					</div>
+					
+					<div class="topo">
+						<div class="esq">
+							<!-- <img src="${resource(dir:'images',file:'logo.png')}" height="100%" width="100%"/> -->
+						</div>
+						<div class="dir">
+							<!-- <h1>Encontro de Jovens com Cristo - EJC</h1><h2>Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</h2>Campina Grande - PB -->
+						</div>
+					</div>
+					
+					<div class="menu">
+					</div>
+					
+					<div class="main">
+						<g:layoutBody />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla<br />
+						bla
+						bla
+					</div>
 				</div>
-				<div id="logo">
-					<h1>Encontro de Jovens com Cristo - EJC</h1><h2>Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</h2>Campina Grande - PB
+				<b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b>
+			</div>
+			<div class="rodape">
+				&copy; Site desenvolvido por Andr&eacute; farias, Erickson Santos, Janderson Aguiar, Leandro de Assis
+				<div class="contato">
+					[email de contato]
 				</div>
-			</div>
-			<div class="nav">
-				<span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-				<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s" args="[entityName]" /></g:link></span>
-				<span class="menuButton"><g:link controller='usuario'>Usu&aacute;rios</g:link></span>
-				<span class="menuButton"><g:link controller='encontro'>Encontros</g:link></span>
-				<span class="menuButton"><g:link controller='ata'>Atas</g:link></span>
-				<span class="menuButton"><g:link controller='oficio'>Of&iacute;cios</g:link></span>
-				<span class="menuButton"><g:link action="trocarsenha">Mudar Senha</g:link></span>
-			</div>
-			<!--<div id="logo">Sistema de Gerenciamento do EJC da Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</div>-->
-			<div id="main">
-				<g:layoutBody />
-			</div>
-			
-			<div id="rodape">
-				<hr />
-				Site desenvolvido por n&oacute;s mesmos
 			</div>
 		</div>
+				<!--
+				<div class="nav">
+					<span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+					<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s" args="[entityName]" /></g:link></span>
+					<span class="menuButton"><g:link controller='usuario'>Usu&aacute;rios</g:link></span>
+					<span class="menuButton"><g:link controller='encontro'>Encontros</g:link></span>
+					<span class="menuButton"><g:link controller='ata'>Atas</g:link></span>
+					<span class="menuButton"><g:link controller='oficio'>Of&iacute;cios</g:link></span>
+					<span class="menuButton"><g:link action="trocarsenha">Mudar Senha</g:link></span>
+					<g:loginControl />
+				</div>
+				<!--<div id="logo">Sistema de Gerenciamento do EJC da Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</div>-->
+				<!--
+				<div id="main">
+					<g:layoutBody />
+				</div>
+				
+				
+				-->
     </body>
 </html>

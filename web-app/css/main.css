@@ -12,52 +12,79 @@ html * {
 }
 
 body {
-    background: #06f;
+    background: #004080;
     color: #333;
     font: 11px verdana, arial, helvetica, sans-serif;
 }
 
-#corpo {
-	margin-left: auto;
-	margin-right: auto;
-	border-style: solid;
-	border-width: thin;
-	width: 800px;
-	background-color: #fff;
+.pagina {
+	width:800px;
+	margin: 50px auto 50px auto;
 }
 
-#rodape {
+.login {
 	position: relative;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
-	margin-top: 100px;
-	margin-bottom: 20px;
+	color: #fff;
+	margin: 0 20px 7px auto;
+	height: 15px;
+	text-align: right;
 }
 
-#main {
-	background-color: #fff;
+/* Borda arredondada, agradecimentos: http://codigofonte.uol.com.br/codigo/css/efeitos/criar-bordas-arredondadas-sem-utilizar-imagens */
+.bordaBox {bbackground: ttransparent; width:100%; margin-bottom: 10px;}
+.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b4, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b, .bordaBox .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b {height:1px;}
+.bordaBox .b2, .bordaBox .b3, .bordaBox .b4 {background:#fff; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBox .b1 {margin:0 5px; background:#999;}
+.bordaBox .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBox .b3 {margin:0 2px;}
+.bordaBox .b4 {height:2px; margin:0 1px;}
+.bordaBox .conteudo {padding:5px;display:block; background:#fff; border-left:1px solid #999; border-right:1px solid #999; height: 600px;}
+
+.topo {
+	height: 137px;
+	margin: 10px 10px 10px 10px;
 }
 
-#topo {
-	height: 100px;
-	border-width: thin;
-	background-color: #CCC;
-	text-align: center;
-}
-#imagem {
+.esq {
 	position: relative;
 	float: left;
 	height: 100%;
-	width: 144px;
-	border-right-style: solid;
+	width: 145;
+	border-style: solid;
 	border-width: thin;
 }
-#logo {
+
+.dir {
 	position: relative;
 	height: 100%;
 	border-width: thin;
+	border-style: solid;
+}
+
+.menu {
+	background-color: #D4D4D4;
+	margin: 20px 10px 10px 10px;
+	height: 27px;
+	border-width: thin;
+	border-style: solid;
+}
+
+.main {
+	margin: 20px 10px 10px 10px;
+	border-width: thin;
+	border-style: solid;
+}
+
+.rodape {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: #fff;
+}
+
+.contato {
+	position: relative;
+	float: right;
 }
 
 a:link, a:visited, a:hover {
@@ -312,10 +339,4 @@ th.desc a {
 .buttons input.save {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
-}
-
-#loginHeader {
-  float: right;
-  color: #fff;
-  padding-top: 75px;
 }
