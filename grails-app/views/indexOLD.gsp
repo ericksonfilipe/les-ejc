@@ -8,7 +8,7 @@
         <style type="text/css" media="screen">
 
         #nav {
-            margin-top:0px;
+            margin-top:20px;
             margin-left:30px;
             width:228px;
             float:left;
@@ -54,12 +54,30 @@
         </style>
     </head>
     <body>
+		<div class="nav">
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+			<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s" args="[entityName]" /></g:link></span>
+		</div>
         <div id="pageBody">
 			<g:if test="${flash.message}">
-				<div class="message">${flash.message}</div>
+            <div class="message">${flash.message}</div>
 			</g:if>
             <h1>Okaerinasai</h1>
-            E aew manolo? Quais as news do index?
+            <div id="controllerList" class="dialog">
+                <h2>Opcoes:</h2>
+                <ul>
+					<li class="controller"><g:link controller='evento'>Eventos</g:link></li>
+					<g:if test="${session.user}">
+						<li class="controller"><g:link controller='encontro'>Encontros</g:link></li>
+						<li class="controller"><g:link controller='usuario'>Usu&aacute;rios</g:link></li>
+						<g:if test="${session?.user?.j5Atual}">
+							<li class="controller"><g:link controller='ata'>Atas</g:link></li>
+							<li class="controller"><g:link controller='oficio'>Of&iacute;cios</g:link></li>
+						</g:if>
+						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
+					</g:if>
+                </ul>
+            </div>
        </div>
     </body>
 </html>
