@@ -22,12 +22,19 @@ body {
 	margin: 50px auto 50px auto;
 }
 
-.login {
+.loginHeader {
 	position: relative;
 	color: #fff;
 	margin: 0 20px 7px auto;
 	height: 15px;
 	text-align: right;
+}
+
+.userLogged {
+	margin-right: 100px;
+}
+
+.loginControl {
 }
 
 /* Borda arredondada, agradecimentos: http://codigofonte.uol.com.br/codigo/css/efeitos/criar-bordas-arredondadas-sem-utilizar-imagens */
