@@ -1,6 +1,11 @@
-html * {
+* {
     margin: 0;
-    /*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+	/*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+}
+
+html  {
+	height: 100%;
+	overflow-y: scroll;
 }
 
 /* GENERAL */
@@ -12,13 +17,18 @@ html * {
 }
 
 body {
-    background: #004080;
+	background: #50A0FF;
     color: #333;
-    font: 11px verdana, arial, helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
+    font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial,
+        sans-serif;
+    font-size: 0.75em;
 }
 
 .pagina {
 	width:800px;
+	height: 100%;
 	margin: 50px auto 50px auto;
 }
 
@@ -38,7 +48,7 @@ body {
 }
 
 /* Borda arredondada, agradecimentos: http://codigofonte.uol.com.br/codigo/css/efeitos/criar-bordas-arredondadas-sem-utilizar-imagens */
-.bordaBox {bbackground: ttransparent; width:100%; margin-bottom: 10px;}
+.bordaBox {bbackground: ttransparent; width:100%; height: auto; margin-bottom: 10px;}
 .bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b4, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b, .bordaBox .b4b {display:block; overflow:hidden; font-size:1px;}
 .bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b {height:1px;}
 .bordaBox .b2, .bordaBox .b3, .bordaBox .b4 {background:#fff; border-left:1px solid #999; border-right:1px solid #999;}
@@ -46,7 +56,7 @@ body {
 .bordaBox .b2 {margin:0 3px; border-width:0 2px;}
 .bordaBox .b3 {margin:0 2px;}
 .bordaBox .b4 {height:2px; margin:0 1px;}
-.bordaBox .conteudo {padding:5px;display:block; background:#fff; border-left:1px solid #999; border-right:1px solid #999; height: 600px;}
+.bordaBox .conteudo {padding:5px;display:block; background:#fff; border-left:1px solid #999; border-right:1px solid #999; height: auto;}
 
 .topo {
 	height: 137px;
@@ -150,6 +160,7 @@ body {
 	margin: 20px 10px 10px 10px;
 	border-width: thin;
 	border-style: solid;
+	height: 100%;
 }
 
 .rodape {
