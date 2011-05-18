@@ -12,7 +12,7 @@
 			<div class="loginHeader">
 				<span class="userLogged">
 					<g:if test="${session.user}">
-						Ol&aacute;, ${session.user}!
+						Usu&aacute;rio Logado: <g:link controller="usuario" action="show" id="${session.user.id}">${session.user}</g:link>
 					</g:if>
 				</span>
 				<span class="loginControl">
