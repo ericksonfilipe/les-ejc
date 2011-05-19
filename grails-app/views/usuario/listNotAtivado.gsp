@@ -9,7 +9,9 @@
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="Lista de Usuário Inativos (Não receberam E-Mail ou não estão com Status Ativo)" args="[entityName]" /></h1>
+            <h2>Usu&aacute;rios Inativos</h2>
+			<h3>(Não receberam E-Mail ou não estão com Status Ativo) </h3>
+			<br/>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>

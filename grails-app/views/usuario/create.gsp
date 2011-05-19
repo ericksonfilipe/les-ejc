@@ -6,8 +6,30 @@
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
 		<resource:dateChooser />
+		<g:javascript library="prototype" />
+		<g:javascript>
+			function escondeTudo() {
+				document.getElementById('coisa').hide();
+				document.getElementById('coisa1').hide();
+				document.getElementById('coisa2').hide();
+			}
+			
+			Event.observe(window, 'load', escondeTudo, false);
+			
+			function plecas() {
+				if (document.getElementById('tipo-usuario').value == 'Casal') {
+					document.getElementById('coisa').show();
+					document.getElementById('coisa1').show();
+					document.getElementById('coisa2').show();
+				} else {
+					escondeTudo();
+				}
+			
+			//window.onload = escondeTudo();
+			}
+		</g:javascript>
     </head>
-    <body>
+    <body onload="escondeTudo()">
         <div id="pageBody">
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -18,7 +40,7 @@
                 <g:renderErrors bean="${usuarioInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save"  enctype="multipart/form-data">
+            <g:form action="save"  enctype="multipart/form-data" >
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -31,7 +53,7 @@
                                 </td>
                             </tr>
 							
-							<tr class="prop">
+							<tr id="coisa" class="prop">
                                 <td valign="top" class="name">
                                     <label for="nomeCompleto2"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></label>
                                 </td>
@@ -58,7 +80,7 @@
                                 </td>
                             </tr>
 							
-							<tr class="prop">
+							<tr id="coisa1" class="prop">
                                 <td valign="top" class="name">
                                     <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></label>
                                 </td>
@@ -103,7 +125,7 @@
                                 </td>
                             </tr>
 							
-							<tr class="prop">
+							<tr id="coisa2" class="prop">
                                 <td valign="top" class="name">
                                     <label for="email2"><g:message code="usuario.email2.label" default="Email (Marido/Mulher)" /></label>
                                 </td>
@@ -189,7 +211,7 @@
                                     <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
-                                    <g:select name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}"  />
+                                    <g:select id="tipo-usuario" name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}" onChange="plecas()" />
                                 </td>
                             </tr>
                         </tbody>
