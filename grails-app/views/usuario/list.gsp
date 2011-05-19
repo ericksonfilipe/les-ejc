@@ -6,20 +6,31 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
+		<style type="text/css" media="screen">
+			.links {
+				text-align: center;
+				margin-top: 40px;
+			}
+			
+			.imagem {
+				padding: 40px;
+			}
+        </style>
     </head>
     <body>
         <div id="pageBody">
-		<center>
+            <h1>Usu&aacute;rios</h1>
+			<div class="links">
 				<span class="imagem">
-					<g:link controller="usuario" action="listJovem"><img src="${resource(dir:'images',file:'jovens.png')}" /></g:link>
+					<g:link action="listJovem"><img src="${resource(dir:'images',file:'jovens.png')}" /></g:link>
 				</span>
 				<span class="imagem">
-					<g:link controller='usuario' action='listCasal'><img src="${resource(dir:'images',file:'casais.png')}" /></g:link>
+					<g:link action="listCasal"><img src="${resource(dir:'images',file:'casais.png')}" /></g:link>
 				</span>
 				<span class="imagem">
-					<g:link controller='usuario' action='listPadre'><img src="${resource(dir:'images',file:'padres.png')}" /></g:link>
-				</span>				
-        </center>
-		</div>
+					<g:link action="listPadre"><img src="${resource(dir:'images',file:'padres.png')}" /></g:link>
+				</span>
+			</div>
+        </div>
     </body>
 </html>
