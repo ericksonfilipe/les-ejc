@@ -8,7 +8,7 @@
         <title>Senhas Criptografadas</title>
     </head>
     <body>
-        <div class="body">
+        <div id="pageBody">
             <h1>Senhas Criptografadas (para teste)</h1>
 
             <div class="list">

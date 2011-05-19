@@ -12,7 +12,7 @@
 				<ul>
 					<li><g:loginControl /></li>
 					<g:if test="${session.user}">
-						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
+						<li><g:link controller="app" action="trocarsenha">Mudar Senha</g:link></li>
 						<li>Ol&aacute;, ${session.user}!</li>
 					</g:if>
 				</ul>
@@ -30,14 +30,20 @@
 							<img src="${resource(dir:'images',file:'logo.png')}" height="100%" width="100%"/>
 						</div>
 						<div class="dir">
-							EJC - Encontro de Jovens com Cristo<br />Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o<br />Diocese de Campina Grande - PB
-						</div>
+						   <center>
+						   <h1><big>EJC - Encontro de Jovens com Cristo</big></h1>
+						   <br />
+						   <h1>Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</h1>
+						   <br />
+						   <h2>Diocese de Campina Grande - PB</h2>
+						   </center>
+					   </div>
 					</div>
 					
 					<div class="menu">
 						<ul>
 							<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-							<li><g:link controller="app" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s" args="[entityName]" /></g:link></li>
+							<li><g:link controller="app" action="sobrenos.gsp"><g:message code="Quem Somos" args="[entityName]" /></g:link></li>
 							<li><g:link controller='usuario'>Usu&aacute;rios</g:link>
 								<ul>
 									<li><g:link controller='usuario' action='create'>Adicionar Usu&aacute;rios</g:link></li>
@@ -46,7 +52,13 @@
 									<li><g:link controller='usuario' action='listPadre'>Visualizar Padres</g:link></li>
 									<li><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Visualizar Usu&aacute;rios Pendentes"/></li>
 								</ul>
-						  </li>
+							</li>
+							<li><g:link controller='evento'>Eventos</g:link>
+								<ul>
+									<li><g:link controller='evento' action='create'>Adicionar Eventos</g:link></li>
+									<li><g:link controller='evento' action='list'>Visualizar Eventos</g:link></li>
+								</ul>
+							</li>
 							<li><g:link controller='encontro'>Encontros</g:link>
 								<ul>
 									<li><g:link controller='encontro' action='create'>Adicionar Encontros</g:link></li>
@@ -75,9 +87,9 @@
 				<b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b>
 			</div>
 			<div class="rodape">
-				&copy; Site desenvolvido por Andr&eacute; farias, Erickson Santos, Janderson Aguiar, Leandro de Assis
+				&copy; Site desenvolvido por Andr&eacute; Farias, Erickson Santos, Janderson Aguiar, Leandro de Assis
 				<div class="contato">
-					[email de contato]
+					<a href="mailto:projetoles20111@googlegroups.com">Contate-nos!</a>
 				</div>
 			</div>
 		</div>
