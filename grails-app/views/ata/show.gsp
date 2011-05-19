@@ -59,8 +59,13 @@
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="ata.pauta.label" default="Pauta" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: ataInstance, field: "pauta")}</td>
+                            <td>
+                <g:form>
+                    <g:hiddenField name="id" value="${ataInstance?.id}" />
+                    <span><g:actionSubmit class="gerarhtml" action="gerarhtml" value="Visualizar Ata (para imprimir)" target="_blank"/></span>
+                    
+                </g:form>							
+							</td>
                             
                         </tr>
                     
@@ -70,10 +75,8 @@
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${ataInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="gerarhtml" action="gerarhtml" value="Imprimir Ata" /></span>
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                    
                 </g:form>
 
             </div>

@@ -8,6 +8,8 @@
         <g:set var="entityName" value="${message(code: 'ata.label', default: 'Ata')}" />
         <title>Editar Ata</title>
 		<resource:dateChooser />
+		<resource:richTextEditor />
+
     </head>
     <body>
         <div id="pageBody">
@@ -54,12 +56,12 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
+							<tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="pauta"><g:message code="ata.pauta.label" default="Pauta" /></label>
+                                    <label for="pauta"><g:message code="ata.pauta.label" default="Pauta" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: ataInstance, field: 'pauta', 'errors')}">
-                                    <g:textArea name="pauta" cols="40" rows="5" value="${ataInstance?.pauta}" />
+                                   <richui:richTextEditor name="pauta" value="${ataInstance?.pauta}" width="525" />
                                 </td>
                             </tr>
                         

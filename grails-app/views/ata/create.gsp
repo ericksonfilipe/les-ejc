@@ -8,6 +8,8 @@
         <g:set var="entityName" value="${message(code: 'ata.label', default: 'Ata')}" />
         <title>Adicionar Ata</title>
 		<resource:dateChooser />
+		<resource:richTextEditor />
+
     </head>
     <body>
         <div id="pageBody">
@@ -33,16 +35,7 @@
                                     <richui:dateChooser name="data" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="SU" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="pauta"><g:message code="ata.pauta.label" default="Pauta" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: ataInstance, field: 'pauta', 'errors')}">
-                                    <g:textArea name="pauta" cols="40" rows="5" value="${ataInstance?.pauta}" />
-                                </td>
-                            </tr>
-							
+						
 							<tr class="prop">
                                 <td valign="top" class="name">
 									<label for="pessoasPresentes"><g:message code="ata.pessoasPresentes.label" default="Pessoas Presentes" /></label>
@@ -60,6 +53,17 @@
 									<g:select name="pessoasAusentes" from="${les.ejc.Usuario.list()}" value="ataInstance.pessoasAusentes.id" optionKey="id" multiple="yes" /> 
 								</td>
 							</tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="pauta"><g:message code="ata.pauta.label" default="Pauta" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: ataInstance, field: 'pauta', 'errors')}">
+                                   <richui:richTextEditor name="pauta" value="${ataInstance?.pauta}" width="525" />
+                                </td>
+                            </tr>
+							
+							
                         
                         </tbody>
                     </table>
