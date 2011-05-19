@@ -13,7 +13,7 @@
 					<li><g:loginControl /></li>
 					<g:if test="${session.user}">
 						<li><g:link controller="app" action="trocarsenha">Mudar Senha</g:link></li>
-						<li>Ol&aacute;, ${session.user}!</li>
+						<li><b>Ol&aacute;, </b><g:link controller="usuario" action="perfil" id="${session.user.id}">${session.user}!</g:link></li>
 					</g:if>
 				</ul>
 			</div>
