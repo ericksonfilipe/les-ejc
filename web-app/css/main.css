@@ -168,9 +168,9 @@ body {
 }
 
 a:link, a:visited, a:hover {
-    color: #666;
-    font-weight: bold;
-    text-decoration: none;
+    color: #000000;
+    
+    text-decoration: underline;
 }
 
 /*
