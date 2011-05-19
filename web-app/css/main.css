@@ -181,6 +181,10 @@ h1 {
     margin: .8em 0 .3em 0;
 }
 */
+h2 {
+	color: #36C;
+	padding-bottom: 10px;
+}
 
 ul {
     padding-left: 15px;

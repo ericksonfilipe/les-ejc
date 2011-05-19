@@ -5,11 +5,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'encontro.label', default: 'Encontro')}" />
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
+        <title>Dados do Encontro</title>
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h2>Dados do Encontro</h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
