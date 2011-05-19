@@ -12,29 +12,34 @@ html * {
 }
 
 body {
-    background: #004080;
+    /*background: #004080;*/
+	background: #0079B2;
     color: #333;
     font: 11px verdana, arial, helvetica, sans-serif;
 }
 
 .pagina {
-	width:800px;
+	width:900px;
 	margin: 50px auto 50px auto;
 }
 
 .loginHeader {
-	position: relative;
 	color: #fff;
 	margin: 0 20px 7px auto;
-	height: 15px;
+	height: auto;
 	text-align: right;
 }
 
-.userLogged {
-	margin-right: 100px;
+.loginHeader ul {
+	height:20px;
+	list-style:none;
+	margin:0 10px 0 0;
+	padding:0;
 }
 
-.loginControl {
+.loginHeader li{
+	float:right;
+	padding: 0 5px 0 5px;
 }
 
 /* Borda arredondada, agradecimentos: http://codigofonte.uol.com.br/codigo/css/efeitos/criar-bordas-arredondadas-sem-utilizar-imagens */
@@ -46,7 +51,7 @@ body {
 .bordaBox .b2 {margin:0 3px; border-width:0 2px;}
 .bordaBox .b3 {margin:0 2px;}
 .bordaBox .b4 {height:2px; margin:0 1px;}
-.bordaBox .conteudo {padding:5px;display:block; background:#fff; border-left:1px solid #999; border-right:1px solid #999; height: 600px;}
+.bordaBox .conteudo {padding:5px 0 5px 0;display:block; background:#fff; border-left:1px solid #999; border-right:1px solid #999; height: 600px;}
 
 .topo {
 	height: 137px;
@@ -69,6 +74,7 @@ body {
 	border-style: solid;
 }
 
+/* Menu drop-down, agradecimentos: http://cssmenumaker.com/builder/menu_info.php?menu=055 */
 .menu{
 	border:none;
 	border:0px;
@@ -78,7 +84,7 @@ body {
 	font-size:14px;
 	font-weight:bold;
 	color:8e8e8e;
-	}
+}
 .menu ul{
 	background: url(../images/menu-bg.gif) top left repeat-x;
 	height:43px;
@@ -101,7 +107,10 @@ body {
 .menu li a:hover{
 	color:#000000;
 	text-decoration:none;
+	background:url(../images/current-bg.gif) top left repeat-x;
+	color:#ffffff;
 }
+
 .menu li ul{
 	background:#e0e0e0;
 	border-left:2px solid #0079b2;

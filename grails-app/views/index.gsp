@@ -59,7 +59,10 @@
 				<div class="message">${flash.message}</div>
 			</g:if>
             <h1>Bem vindo</h1>
-            E aew manolo? Quais as news do index?
+            News<br />
+			News<br />
+			News<br />
+			News News News
        </div>
     </body>
 </html>

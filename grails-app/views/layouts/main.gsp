@@ -5,19 +5,17 @@
         <!--<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" /> -->
         <g:layoutHead />
         <g:javascript library="application" />
-		<resource:accordion skin="default" />
     </head>
     <body>
 		<div class="pagina">
 			<div class="loginHeader">
-				<span class="userLogged">
+				<ul>
+					<li><g:loginControl /></li>
 					<g:if test="${session.user}">
-						Ol&aacute;, ${session.user}!
+						<li><g:link action="trocarsenha">Mudar Senha</g:link></li>
+						<li>Ol&aacute;, ${session.user}!</li>
 					</g:if>
-				</span>
-				<span class="loginControl">
-					<g:loginControl />
-				</span>
+				</ul>
 			</div>
 			<div class="bordaBox">
 				<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
@@ -29,33 +27,33 @@
 					
 					<div class="topo">
 						<div class="esq">
-							<!-- <img src="${resource(dir:'images',file:'logo.png')}" height="100%" width="100%"/> -->
+							<img src="${resource(dir:'images',file:'logo.png')}" height="100%" width="100%"/>
 						</div>
 						<div class="dir">
-							<!-- EJC - Encontro de Jovens com Cristo<br />Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o<br />Diocese de Campina Grande - PB -->
+							EJC - Encontro de Jovens com Cristo<br />Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o<br />Diocese de Campina Grande - PB
 						</div>
 					</div>
 					
 					<div class="menu">
 						<ul>
-							<li><a href="#" >Home</a></li>
-							<li><a href="#" id="current">Products</a>
+							<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+<!--							
+					
+					
+					
+					
+					 -->
+							<li><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s" args="[entityName]" /></g:link></li>
+							<li><g:link controller='usuario'>Usu&aacute;rios</g:link>
 								<ul>
-									<li><a href="#">Drop Down CSS Menus</a></li>
-									<li><a href="#">Horizontal CSS Menus</a></li>
-									<li><a href="#">Vertical CSS Menus</a></li>
-									<li><a href="#">Dreamweaver Menus</a></li>
-							   </ul>
-						  </li>
-							<li><a href="/faq.php">FAQ</a>
-								<ul>
-								<li><a href="#">Drop Down CSS Menus</a></li>
-								<li><a href="#">Horizontal CSS Menus</a></li>
-								<li><a href="#">Vertical CSS Menus</a></li>
-								<li><a href="#">Dreamweaver Menus</a></li>
+									<li><g:link controller='usuario' action='create'>Adicionar Usu&aacute;rios</g:link></li>
+									<li><a href="#">Visualizar Usu&aacute;rios</a></li>
 								</ul>
 						  </li>
-							<li><a href="/contact/contact.php">Contact</a></li>
+							<li><g:link controller='encontro'>Encontros</g:link></li>
+							<li><g:link controller='ata'>Atas</g:link></li>
+							<li><g:link controller='oficio'>Of&iacute;cios</g:link></li>
+							<li></li>
 						</ul>
 					</div>
 					
