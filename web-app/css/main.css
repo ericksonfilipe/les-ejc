@@ -24,7 +24,7 @@ body {
 }
 
 .loginHeader {
-	color: #fff;
+	color: #000;
 	margin: 0 20px 7px auto;
 	height: auto;
 	text-align: right;
@@ -169,7 +169,7 @@ body {
 
 a:link, a:visited, a:hover {
     color: #000000;
-    
+    font-weight: bold;
     text-decoration: underline;
 }
 

@@ -6,11 +6,11 @@ class AppController {
         def senderService
 
         def index = {
-		if (session.user) {
+/*		if (session.user) {
 			render(view:'../index')
 		} else {
 			redirect(action:"login")
-		}
+		}*/
 	}
 
 	def login = {
@@ -43,7 +43,7 @@ class AppController {
 	def logout = {
 		flash.message = "Usuário ${session.user.nomeCompleto} desconectado!"
 		session.user = null
-		redirect(controller:"app", action:"login")
+		redirect(controller:"app", action:"index")
 	}
     
 	def esqueciminhasenha = {
