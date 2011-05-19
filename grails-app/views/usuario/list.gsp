@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
+        <title>Usu&aacute;rios</title>
 		<style type="text/css" media="screen">
 			.links {
 				text-align: center;
@@ -19,7 +19,7 @@
     </head>
     <body>
         <div id="pageBody">
-            <h1>Usu&aacute;rios</h1>
+            <h2>Usu&aacute;rios</h2>
 			<div class="links">
 				<span class="imagem">
 					<g:link action="listJovem"><img src="${resource(dir:'images',file:'jovens.png')}" /></g:link>

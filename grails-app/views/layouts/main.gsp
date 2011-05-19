@@ -35,7 +35,7 @@
 						   <br />
 						   <h1>Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</h1>
 						   <br />
-						   <h2>Diocese de Campina Grande - PB</h2>
+						   <h3>Diocese de Campina Grande - PB</h3>
 						   </center>
 					   </div>
 					</div>
@@ -43,40 +43,42 @@
 					<div class="menu">
 						<ul>
 							<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-							<li><g:link controller="app" action="sobrenos.gsp"><g:message code="Quem Somos" args="[entityName]" /></g:link></li>
-							<li><g:link controller='usuario'>Usu&aacute;rios</g:link>
-								<ul>
-									<li><g:link controller='usuario' action='create'>Adicionar Usu&aacute;rios</g:link></li>
-									<li><g:link controller='usuario' action='listJovem'>Visualizar Jovens</g:link></li>
-									<li><g:link controller='usuario' action='listCasal'>Visualizar Casais</g:link></li>
-									<li><g:link controller='usuario' action='listPadre'>Visualizar Padres</g:link></li>
-									<li><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Visualizar Usu&aacute;rios Pendentes"/></li>
-								</ul>
-							</li>
-							<li><g:link controller='evento'>Eventos</g:link>
-								<ul>
-									<li><g:link controller='evento' action='create'>Adicionar Eventos</g:link></li>
-									<li><g:link controller='evento' action='list'>Visualizar Eventos</g:link></li>
-								</ul>
-							</li>
-							<li><g:link controller='encontro'>Encontros</g:link>
-								<ul>
-									<li><g:link controller='encontro' action='create'>Adicionar Encontros</g:link></li>
-									<li><g:link controller='encontro' action='list'>Visualizar Encontros</g:link></li>
-								</ul>
-							</li>
-							<li><g:link controller='ata'>Atas</g:link>
-								<ul>
-									<li><g:link controller='ata' action='create'>Adicionar Atas</g:link></li>
-									<li><g:link controller='ata' action='list'>Visualizar Atas</g:link></li>
-								</ul>
-							</li>
-							<li><g:link controller='oficio'>Of&iacute;cios</g:link>
-								<ul>
-									<li><g:link controller='oficio' action='create'>Adicionar Of&iacute;cios</g:link></li>
-									<li><g:link controller='oficio' action='list'>Visualizar Of&iacute;cios</g:link></li>
-								</ul>
-							</li>
+							<g:if test="${session.user}">
+								<li><g:link controller="app" action="sobrenos.gsp"><g:message code="Quem Somos" args="[entityName]" /></g:link></li>
+								<li><g:link controller='usuario'>Usu&aacute;rios</g:link>
+									<ul>
+										<li><g:link controller='usuario' action='create'>Adicionar Usu&aacute;rios</g:link></li>
+										<li><g:link controller='usuario' action='listJovem'>Visualizar Jovens</g:link></li>
+										<li><g:link controller='usuario' action='listCasal'>Visualizar Casais</g:link></li>
+										<li><g:link controller='usuario' action='listPadre'>Visualizar Padres</g:link></li>
+										<li><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Visualizar Usu&aacute;rios Pendentes"/></li>
+									</ul>
+								</li>
+								<li><g:link controller='evento'>Eventos</g:link>
+									<ul>
+										<li><g:link controller='evento' action='create'>Adicionar Eventos</g:link></li>
+										<li><g:link controller='evento' action='list'>Visualizar Eventos</g:link></li>
+									</ul>
+								</li>
+								<li><g:link controller='encontro'>Encontros</g:link>
+									<ul>
+										<li><g:link controller='encontro' action='create'>Adicionar Encontros</g:link></li>
+										<li><g:link controller='encontro' action='list'>Visualizar Encontros</g:link></li>
+									</ul>
+								</li>
+								<li><g:link controller='ata'>Atas</g:link>
+									<ul>
+										<li><g:link controller='ata' action='create'>Adicionar Atas</g:link></li>
+										<li><g:link controller='ata' action='list'>Visualizar Atas</g:link></li>
+									</ul>
+								</li>
+								<li><g:link controller='oficio'>Of&iacute;cios</g:link>
+									<ul>
+										<li><g:link controller='oficio' action='create'>Adicionar Of&iacute;cios</g:link></li>
+										<li><g:link controller='oficio' action='list'>Visualizar Of&iacute;cios</g:link></li>
+									</ul>
+								</li>
+							</g:if>
 						</ul>
 					</div>
 					

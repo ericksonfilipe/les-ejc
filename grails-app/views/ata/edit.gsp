@@ -6,12 +6,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'ata.label', default: 'Ata')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <title>Editar Ata</title>
 		<resource:dateChooser />
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h2>Editar Ata</h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
