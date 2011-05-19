@@ -24,14 +24,14 @@
 				<span class="imagem">
 					<g:link controller='evento' action='list'><img src="${resource(dir:'images',file:'eventos.png')}" /></g:link>
 				</span>
-				
+			</div>
+			<div><br /><br /></div>
+			<div class="links">
 				<span class="imagem">
 					<g:link controller="app" action="login"><img src="${resource(dir:'images',file:'login.jpg')}" /></g:link>
 				</span>
-				<span class="imagem">
-					<a href="http://www.paroquiadesaocristovaocg.com" target="_blank"><img src="${resource(dir:'images',file:'sc.jpg')}" /></a>
-				</span>
 			</div>
+			<center><br />Site da Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o: <a href="http://www.paroquiadesaocristovaocg.com" target="_blank">www.paroquiadesaocristovaocg.com</a><br /><br /></center>
        </div>
     </body>
 </html>

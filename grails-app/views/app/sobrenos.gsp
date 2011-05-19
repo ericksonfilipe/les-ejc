@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="pageBody">
-		<h1>Sobre Nós</h1>
+		<h1>Quem Somos</h1>
 		<br>
 		<h2>Sobre o EJC</h2>
 		<br>
