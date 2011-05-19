@@ -5,11 +5,7 @@
     <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>         
   </head>
   <body>
-	<div class="nav">
-        <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-		<span class="menuButton"><g:link class="menu" action="sobrenos.gsp"><g:message code="Sobre N&oacute;s"/></g:link></span>
-    </div>
-    <div class="body">
+	<div id="pageBody">
       <h1>Login</h1>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
