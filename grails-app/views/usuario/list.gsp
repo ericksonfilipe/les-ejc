@@ -9,21 +9,17 @@
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="Lista de Usuários" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <div class="list">
-                <table>
-                    <tbody>
-                        <tr><g:link action="listJovem">Listar Jovens</g:link></tr>
-						<br \>
-						<tr><g:link action="listCasal">Listar Casais</g:link></tr>
-						<br \>
-						<tr><g:link action="listPadre">Listar Padres</g:link></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+		<center>
+				<span class="imagem">
+					<g:link controller="usuario" action="listJovem"><img src="${resource(dir:'images',file:'jovens.png')}" /></g:link>
+				</span>
+				<span class="imagem">
+					<g:link controller='usuario' action='listCasal'><img src="${resource(dir:'images',file:'casais.png')}" /></g:link>
+				</span>
+				<span class="imagem">
+					<g:link controller='usuario' action='listPadre'><img src="${resource(dir:'images',file:'padres.png')}" /></g:link>
+				</span>				
+        </center>
+		</div>
     </body>
 </html>
