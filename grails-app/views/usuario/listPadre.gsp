@@ -7,47 +7,25 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
+		<style type="text/css" media="screen">
+			.lista {
+				margin-top: 20px;
+				margin-left: 20px;
+			}
+        </style>
     </head>
     <body>
-        <div id="pageBody">
-            <h1><g:message code="Lista de Padres" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <div class="list">
-                <table>
-                    <thead>
-                        <tr>
-
-                            <g:sortableColumn property="id" title="${message(code: 'usuario.id.label', default: 'Id')}" />
-
-                            <g:sortableColumn property="nomeCompleto" title="${message(code: 'usuario.nomeCompleto.label', default: 'Nome Completo')}" />
-
-                            <g:sortableColumn property="nomeUsual" title="${message(code: 'usuario.nomeUsual.label', default: 'Nome Usual')}" />
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
+		<div id="pageBody">
+            <h1>Usu&aacute;rios > Padres</h1>
+			<div class="lista">
+				<ul>
+					<g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
 						<g:if test="${usuarioInstance.tipo == Tipo.Padre}">
-							<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-
-								<td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
-
-								<td>${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
-
-								<td>${fieldValue(bean: usuarioInstance, field: "nomeUsual")}</td>
-
-
-							</tr>
+							<li><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</g:link></li>
 						</g:if>
-                    </g:each>
-                    </tbody>
-                </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${usuarioInstanceTotal}" />
-            </div>
+					</g:each>
+				</ul>
+			</div>
         </div>
     </body>
 </html>
