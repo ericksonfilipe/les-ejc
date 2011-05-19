@@ -38,7 +38,7 @@
 	   </g:if >
 	   <g:else>
 			<div id="pageBody">
-				<div class="links">
+
 				<richui:carousel direction="horizontal" >
 				<richui:carouselItem> <g:link controller="app" action="sobrenos.gsp"><img src="${resource(dir:'images',file:'quemsomos.png')}" /></g:link> </richui:carouselItem>
 				<richui:carouselItem> <g:link controller="encontro" action="list"><img src="${resource(dir:'images',file:'encontros.png')}" /></g:link> <br/></richui:carouselItem>
@@ -47,7 +47,7 @@
 				<richui:carouselItem> <g:link controller="ata" action="list"><img src="${resource(dir:'images',file:'atas.png')}" /></g:link> </richui:carouselItem>
 				<richui:carouselItem> <g:link controller="oficio" action="list"><img src="${resource(dir:'images',file:'oficios.png')}" /></g:link> </richui:carouselItem>
 				</richui:carousel>
-				</div>
+
 			</div>
 			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
