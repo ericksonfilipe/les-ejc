@@ -22,8 +22,6 @@
                         
                             <g:sortableColumn property="data" title="${message(code: 'ata.data.label', default: 'Data')}" />
                         
-                            <g:sortableColumn property="pauta" title="${message(code: 'ata.pauta.label', default: 'Pauta')}" />
-                        
                         </tr>
                     </thead>
                     <tbody>
@@ -33,8 +31,6 @@
                             <td><g:link action="show" id="${ataInstance.id}">${fieldValue(bean: ataInstance, field: "id")}</g:link></td>
                         
                             <td><g:formatDate date="${ataInstance.data}" /></td>
-                        
-                            <td>${fieldValue(bean: ataInstance, field: "pauta")}</td>
                         
                         </tr>
                     </g:each>

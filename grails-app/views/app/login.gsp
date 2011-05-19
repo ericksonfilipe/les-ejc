@@ -6,7 +6,7 @@
   </head>
   <body>
 	<div id="pageBody">
-      <h1>Login</h1>
+      <h2>Login</h2>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
