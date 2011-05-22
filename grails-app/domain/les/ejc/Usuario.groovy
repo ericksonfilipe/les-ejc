@@ -30,6 +30,9 @@ class Usuario {
 	Integer idCirculoQueParticipou
 	Integer idCirculoQueCoordenou
 	
+	Integer[] idsEquipesQueParticipouEmSaoCristovao
+	Integer[] idsEquipesQueCoordenouEmSaoCristovao
+	
     private String login
     private String senha
 
@@ -64,13 +67,15 @@ class Usuario {
 		foto(nullable:true)
 		ficha(nullable:true)
         paroquia(blank:true, matches:'([a-zA-Z]| )+')
-        equipesTrabalhadas(blank:true, matches:'([a-zA-Z]| )+')
+        equipesTrabalhadas(blank:true)
         observacoes(blank:true, matches:'([a-zA-Z]| )+')
 		senha(nullable:true, password:true, minSize:8)
 		login(nullable:true, unique:true)
 		j5Atual()
 		idCirculoQueParticipou(nullable:true)
 		idCirculoQueCoordenou(nullable:true)
+		idsEquipesQueParticipouEmSaoCristovao(nullable:true)
+		idsEquipesQueCoordenouEmSaoCristovao(nullable:true)	
     }
 	
     enum Status {

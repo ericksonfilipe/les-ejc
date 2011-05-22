@@ -60,9 +60,38 @@ class EquipeDeTrabalho {
 		return "${nomeEquipe}";
 	}
 	
-        String toStringEncontreiros() {
-            return encontreiros.join(", ")
+    String toStringEncontreiros() {
+        return encontreiros.join(", ")
+    }
+	
+	/**
+	Atualiza dados dos usuários desta equipe em relação a equipes coordenadas e que participou
+	*/
+	public atualizaDadosDosUsuariosDestaEquipe() {
+		atualizaDadosDeCoordenador(jovemCoordenador1)
+		atualizaDadosDeCoordenador(jovemCoordenador2)
+		atualizaDadosDeCoordenador(casalCoordenador)
+		for (usuario in encontreiros) atualizaDadosDeEquipista(usuario)
+	}
+	
+	private atualizaDadosDeCoordenador(usuario) {
+		if (this.usuario?.idsEquipesQueCoordenouEmSaoCristovao == null) {
+			this.usuario?.idsEquipesQueCoordenouEmSaoCristovao = [this.id]
+        } else if (!(this.id in this.usuario?.idsEquipesQueCoordenouEmSaoCristovao)) {
+			def listaTemp = (List) this.usuario?.idsEquipesQueCoordenouEmSaoCristovao
+			listaTemp.add(this.id)
+			this.usuario?.idsEquipesQueCoordenouEmSaoCristovao = (Integer[]) listaTemp
+		}	
+	}
 
-        }
-
+	private atualizaDadosDeEquipista(usuario) {
+		if (usuario.idsEquipesQueParticipouEmSaoCristovao == null) 
+			usuario.idsEquipesQueParticipouEmSaoCristovao = [this.id]
+		else if (!(this.id in usuario.idsEquipesQueParticipouEmSaoCristovao)) {
+			def listaTemp = (List) usuario.idsEquipesQueParticipouEmSaoCristovao
+			listaTemp.add(this.id)
+			usuario.idsEquipesQueParticipouEmSaoCristovao = (Integer[]) listaTemp
+		}	
+	}
+	
 }

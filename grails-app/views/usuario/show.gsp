@@ -1,7 +1,7 @@
 <%@ page import="les.ejc.Usuario" %>
 <%@ page import="les.ejc.Usuario.Status" %>
 <%@ page import="les.ejc.Usuario.Tipo" %>
-
+<%@ page import="les.ejc.EquipeDeTrabalho" %>
 <html>
     <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -102,9 +102,21 @@
 						<td valign="top" class="name"><g:message code="usuario.paroquia.label" default="Paroquia" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "paroquia")}</td>
 					</tr>
-					
+								
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas" /></td>
+						<td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em São Cristóvão" /></td>
+						<td valign="top" class="value">
+						<g:each in="${usuarioInstance.idsEquipesQueCoordenouEmSaoCristovao}" var="e">
+							<li><g:link controller="equipeDeTrabalho" action="show" id="${e}">${EquipeDeTrabalho.findById(e)?.encodeAsHTML()}</g:link> (coordenação)</li> 
+						</g:each>
+						<g:each in="${usuarioInstance.idsEquipesQueParticipouEmSaoCristovao}" var="e">
+							<li><g:link controller="equipeDeTrabalho" action="show" id="${e}">${EquipeDeTrabalho.findById(e)?.encodeAsHTML()}</g:link></li> 
+						</g:each>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em Outras Paróquias" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}</td>
 					</tr>
 					

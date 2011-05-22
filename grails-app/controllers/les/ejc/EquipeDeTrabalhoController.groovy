@@ -42,6 +42,10 @@ class EquipeDeTrabalhoController {
 			return
 		}
         def equipeDeTrabalhoInstance = new EquipeDeTrabalho(params)
+		
+		//atualizar os dados dos usuarios relacionados a esta equipe
+		equipeDeTrabalhoInstance.atualizaDadosDosUsuariosDestaEquipe()
+		
         if (equipeDeTrabalhoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho'), equipeDeTrabalhoInstance.id])}"
             redirect(action: "show", id: equipeDeTrabalhoInstance.id)
@@ -109,6 +113,10 @@ class EquipeDeTrabalhoController {
                 }
             }
             equipeDeTrabalhoInstance.properties = params
+			
+			//atualizar os dados dos usuarios relacionados a esta equipe
+			equipeDeTrabalhoInstance.atualizaDadosDosUsuariosDestaEquipe()
+			
             if (!equipeDeTrabalhoInstance.hasErrors() && equipeDeTrabalhoInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'equipeDeTrabalho.label', default: 'EquipeDeTrabalho'), equipeDeTrabalhoInstance.id])}"
                 redirect(action: "show", id: equipeDeTrabalhoInstance.id)
