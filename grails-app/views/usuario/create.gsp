@@ -44,6 +44,16 @@
                 <div class="dialog">
                     <table>
                         <tbody>
+						
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
+                                    <g:select id="tipo-usuario" name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}" onChange="plecas()" />
+                                </td>
+                            </tr>						
+						
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="nomeCompleto"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></label>
@@ -163,21 +173,25 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas" /></label>
+                                  <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em São Cristóvão" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
-                                    <g:textField name="equipesTrabalhadas" value="${usuarioInstance?.equipesTrabalhadas}" />
+                                  [informação preenchida automaticamente, a partir da inserção dos encontreiros nos encontros]
+                                </td>
+                            </tr>						
+						
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em Outras Paróquias" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
+                                    [informe a equipe e a paróquia; também informe caso tenha coordenado]<br />
+									<g:textArea name="equipesTrabalhadas" value="${usuarioInstance?.equipesTrabalhadas}" />
+									<br/>[ex.: Lanchinho (3º EJC Catedral) - coordenador]
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observacoes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
-                                    <g:textField name="observacoes" value="${usuarioInstance?.observacoes}" />
-                                </td>
-                            </tr>
+
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -205,15 +219,20 @@
                                     <g:select name="status" from="${les.ejc.Usuario$Status?.values()}" keys="${les.ejc.Usuario$Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
-                                    <g:select id="tipo-usuario" name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}" onChange="plecas()" />
-                                </td>
-                            </tr>
+							
+							
+
+							<tr class="prop">
+									<td valign="top" class="name">
+									  <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observacoes" /></label>
+									</td>
+									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
+										<g:textArea name="observacoes" value="${usuarioInstance?.observacoes}" />
+									</td>
+							</tr>
+						
+							
+                       
                         </tbody>
                     </table>
                 </div>

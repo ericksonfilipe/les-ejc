@@ -1,6 +1,7 @@
 
 <%@ page import="les.ejc.Usuario" %>
 <%@ page import="les.ejc.Circulo" %>
+<%@ page import="les.ejc.EquipeDeTrabalho" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -91,9 +92,25 @@
 				<br><br>
 				</g:if>
 				
-				Equipes Trabalhadas:
+				Equipes Trabalhadas em São Cristóvão:
+				<g:if test="${usuarioInstance.idsEquipesQueCoordenouEmSaoCristovao || usuarioInstance.idsEquipesQueParticipouEmSaoCristovao}">
+					<g:each in="${usuarioInstance.idsEquipesQueCoordenouEmSaoCristovao}" var="e">
+						<li><g:link controller="equipeDeTrabalho" action="show" id="${e}">${EquipeDeTrabalho.findById(e)?.encodeAsHTML()}</g:link> (coordenação)</li> 
+					</g:each>
+					<g:each in="${usuarioInstance.idsEquipesQueParticipouEmSaoCristovao}" var="e">
+						<li><g:link controller="equipeDeTrabalho" action="show" id="${e}">${EquipeDeTrabalho.findById(e)?.encodeAsHTML()}</g:link></li> 
+					</g:each>
+				</g:if>
+				<g:else>
+				Nenhuma
+				<br>
+				</g:else>
+				<br>
+				
+				
+				Equipes Trabalhadas em Outras Paróquias:
 				<g:if test="${usuarioInstance.equipesTrabalhadas}">
-				${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}
+				<ul>${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}</ul>
 				</g:if>
 				<g:else>
 				Nenhuma.
@@ -114,6 +131,9 @@
 					<li>${c} - <g:formatDate format="MM/yyyy" date="${c.dataInicio}" /> - <g:formatDate format="MM/yyyy" date="${c.dataFim}" /></li>
 				</g:each>
 				</g:if>
+				
+				
+				
 
             </div>
         </div>
