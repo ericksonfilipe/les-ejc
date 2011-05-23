@@ -3,7 +3,26 @@ package les.ejc
 class EncontroController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
+    
+    def circulos = {
+        def encontroInstance = Encontro.get(params.id)
+        if (!encontroInstance) {
+            redirect(action: 'list')
+            return
+        }
+        [encontroInstance:encontroInstance]
+    }
+
+    def equipes = {
+        def encontroInstance = Encontro.get(params.id)
+        if (!encontroInstance) {
+            redirect(action: 'list')
+            return
+        }
+        [encontroInstance:encontroInstance]
+    }
+
+
     def gerarhtml = {
         def encontroInstance = Encontro.get(params.id)
         if (!encontroInstance) {

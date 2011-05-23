@@ -67,4 +67,7 @@ class Circulo {
 		}
 	}
 	
+        String toStringEncontreiros() {
+            return participantes.join(", ")
+        }
 }
