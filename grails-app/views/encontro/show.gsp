@@ -82,9 +82,9 @@
             <g:form target="_blank">
                 <g:hiddenField name="id" value="${encontroInstance?.id}" />					
 		<g:if test="${session?.user?.j5Atual}">
-                    <span class="button"><g:actionSubmit class="gerarhtml" action="gerarhtml" value="Imprimir"/></span>
-                    <span class="button"><g:actionSubmit class="gerarhtml" action="circulos" value="Detalhes Círculos" /></span>
-                    <span class="button"><g:actionSubmit class="gerarhtml" action="equipes" value="Detalhes Equipes" /></span>
+                    <span class="button"><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
+                    <span class="button"><g:actionSubmit class="print" action="circulos" value="Detalhes Círculos" /></span>
+                    <span class="button"><g:actionSubmit class="print" action="equipes" value="Detalhes Equipes" /></span>
 		</g:if>
 	    </g:form>
              <g:form>
