@@ -13,6 +13,13 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+            <div class="buttons">
+            <g:form target="_blank">
+                <g:hiddenField name="id" value="${ataInstance?.id}" />
+                <span><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
+            </g:form>							
+            </div>
+            <br>
             <div class="dialog">
                 <table>
                     <tbody>
@@ -60,12 +67,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="ata.pauta.label" default="Pauta" /></td>
                             <td>
-                <g:form>
-                    <g:hiddenField name="id" value="${ataInstance?.id}" />
-                    <span><g:actionSubmit class="gerarhtml" action="gerarhtml" value="Visualizar Ata (para imprimir)" target="_blank"/></span>
-                    
-                </g:form>							
-							</td>
+						</td>
                             
                         </tr>
                     
