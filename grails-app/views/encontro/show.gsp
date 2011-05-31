@@ -12,6 +12,19 @@
             <g:if test="${flash.message}">
                 <div class="message">${flash.message}</div>
             </g:if>
+            <div class="buttons">
+            <g:form target="_blank">
+                <g:hiddenField name="id" value="${encontroInstance?.id}" />					
+		<g:if test="${session?.user?.j5Atual}">
+                    <td text-align="right">
+                    <span class="button"><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
+                    <span class="button"><g:actionSubmit class="print" action="circulos" value="Detalhes Círculos" /></span>
+                    <span class="button"><g:actionSubmit class="print" action="equipes" value="Detalhes Equipes" /></span>
+                    </td>
+		</g:if>
+	    </g:form>
+            </div>
+            <br>
             <div class="dialog">
             <table>
                 <tbody>			
@@ -73,25 +86,18 @@
 				<li><g:link controller="equipeDeTrabalho" action="show" id="${encontroInstance?.visitacao_e_externa?.id}">${encontroInstance?.visitacao_e_externa?.encodeAsHTML()}</g:link></li>
 			    </ul>
 			</td>
-                    </tr>
-                    
+                    </tr>                    
                 </tbody>
             </table>
         </div>
         <div class="buttons">
-            <g:form target="_blank">
-                <g:hiddenField name="id" value="${encontroInstance?.id}" />					
-		<g:if test="${session?.user?.j5Atual}">
-                    <span class="button"><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
-                    <span class="button"><g:actionSubmit class="print" action="circulos" value="Detalhes Círculos" /></span>
-                    <span class="button"><g:actionSubmit class="print" action="equipes" value="Detalhes Equipes" /></span>
-		</g:if>
-	    </g:form>
              <g:form>
                 <g:hiddenField name="id" value="${encontroInstance?.id}" />					
 		<g:if test="${session?.user?.j5Atual}">
+                    <td text-align="left">
 		    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
 		    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                    </td>
 		</g:if>
 	    </g:form>
         </div>
