@@ -30,6 +30,13 @@
                             <td valign="top" class="value"><g:formatDate date="${eventoInstance?.data}" /></td>
                             
                         </tr>
+						
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="evento.nome.label" default="Nome" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: eventoInstance, field: "nome")}</td>
+                            
+                        </tr>						
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="evento.descricao.label" default="Descricao" /></td>
