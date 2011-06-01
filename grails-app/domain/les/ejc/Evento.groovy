@@ -2,7 +2,7 @@ package les.ejc
 
 class Evento {
 
-	Calendar data
+	Date data
 	String local
 	String horario
 	String descricao
