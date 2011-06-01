@@ -33,6 +33,15 @@
                                     <richui:dateChooser name="data" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="SU" />
                                 </td>
                             </tr>
+							
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="nome"><g:message code="evento.nome.label" default="Nome" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: eventoInstance, field: 'nome', 'errors')}">
+                                    <g:textField name="nome" value="${eventoInstance?.nome}" />
+                                </td>
+                            </tr>							
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

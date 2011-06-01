@@ -22,7 +22,9 @@
                         
                             <g:sortableColumn property="data" title="${message(code: 'evento.data.label', default: 'Data')}" />
                         
-                            <g:sortableColumn property="descricao" title="${message(code: 'evento.descricao.label', default: 'Descricao')}" />
+                            <g:sortableColumn property="descricao" title="${message(code: 'evento.nome.label', default: 'Nome')}" />
+							
+							<g:sortableColumn property="descricao" title="${message(code: 'evento.descricao.label', default: 'Descricao')}" />
                         
                             <g:sortableColumn property="horario" title="${message(code: 'evento.horario.label', default: 'Horario')}" />
                         
@@ -38,7 +40,9 @@
                         
                             <td><g:formatDate date="${eventoInstance.data}" /></td>
                         
-                            <td>${fieldValue(bean: eventoInstance, field: "descricao")}</td>
+                            <td>${fieldValue(bean: eventoInstance, field: "nome")}</td>
+							
+							<td>${fieldValue(bean: eventoInstance, field: "descricao")}</td>
                         
                             <td>${fieldValue(bean: eventoInstance, field: "horario")}</td>
                         
