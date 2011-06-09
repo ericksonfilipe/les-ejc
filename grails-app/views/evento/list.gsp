@@ -16,6 +16,9 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+			<g:form target="_blank">
+                <span><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
+            </g:form>
 			<richui:accordion style="width:100%">
 				<g:each in="${(Set)eventoInstanceList.collect{it.data.getYear()} }" status="i" var="data">
 					<richui:accordionItem id="${i}" caption="${data + 1900}">
@@ -38,7 +41,6 @@
 					</richui:accordionItem>
 				</g:each>
 			</richui:accordion>
-            </div>
         </div>
     </body>
 </html>

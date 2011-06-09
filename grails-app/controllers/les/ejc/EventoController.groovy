@@ -13,6 +13,10 @@ class EventoController {
         redirect(action: "list", params: params)
     }
 
+	def gerarhtml = {
+        [eventoInstanceList: Evento.list()]
+    }
+
     def list = {
 //		if (!session?.user?.j5Atual) {
 //                        flash.message = "Permissão Negada"
