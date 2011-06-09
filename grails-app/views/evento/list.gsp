@@ -18,7 +18,7 @@
             </g:if>
 			<richui:accordion style="width:100%">
 				<g:each in="${(Set)eventoInstanceList.collect{it.data.getYear()} }" status="i" var="data">
-					<richui:accordionItem id="${i}" caption="${data}">
+					<richui:accordionItem id="${i}" caption="${data + 1900}">
 						<richui:tabView id="tabView">
 							<richui:tabLabels>
 								<g:each in="${['janeiro', 'fevereiro', 'marco', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']}" status="m" var="mes">
@@ -30,7 +30,7 @@
 									<richui:tabContent>
 										<richui:calendarMonthView items="${(List)eventoInstanceList}" createLink="true" 
 										constraintDateFields="['data', 'data']" displayField="subject"
-										 teaser="true" teaserLength="20" weekOfYear="false" month="${m}" action="show" />
+										 teaser="true" teaserLength="10" weekOfYear="false" month="${new Date(month:m);}" action="show" />
 									</richui:tabContent>
 								</g:each>
 							</richui:tabContents>
