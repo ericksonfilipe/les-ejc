@@ -2,7 +2,7 @@ package les.ejc
 
 class Ata {
 
-	Calendar data
+	Date data
 	String pauta
 	static hasMany = [pessoasPresentes:Usuario, pessoasAusentes:Usuario]
 
