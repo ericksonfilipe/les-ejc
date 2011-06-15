@@ -75,22 +75,22 @@ class EquipeDeTrabalho {
 	}
 	
 	private atualizaDadosDeCoordenador(usuario) {
-		if (this.usuario?.idsEquipesQueCoordenouEmSaoCristovao == null) {
-			this.usuario?.idsEquipesQueCoordenouEmSaoCristovao = [this.id]
-        } else if (!(this.id in this.usuario?.idsEquipesQueCoordenouEmSaoCristovao)) {
-			def listaTemp = (List) this.usuario?.idsEquipesQueCoordenouEmSaoCristovao
+		if (usuario?.idsEquipesQueCoordenouEmSaoCristovao == null) {
+			usuario?.idsEquipesQueCoordenouEmSaoCristovao = [this.id]
+        } else if (!(this.id in usuario?.idsEquipesQueCoordenouEmSaoCristovao)) {
+			def listaTemp = (List) usuario?.idsEquipesQueCoordenouEmSaoCristovao
 			listaTemp.add(this.id)
-			this.usuario?.idsEquipesQueCoordenouEmSaoCristovao = (Integer[]) listaTemp
+			usuario?.idsEquipesQueCoordenouEmSaoCristovao = (Integer[]) listaTemp
 		}	
 	}
 
 	private atualizaDadosDeEquipista(usuario) {
-		if (usuario.idsEquipesQueParticipouEmSaoCristovao == null) 
-			usuario.idsEquipesQueParticipouEmSaoCristovao = [this.id]
+		if (usuario?.idsEquipesQueParticipouEmSaoCristovao == null) 
+			usuario?.idsEquipesQueParticipouEmSaoCristovao = [this.id]
 		else if (!(this.id in usuario.idsEquipesQueParticipouEmSaoCristovao)) {
-			def listaTemp = (List) usuario.idsEquipesQueParticipouEmSaoCristovao
+			def listaTemp = (List) usuario?.idsEquipesQueParticipouEmSaoCristovao
 			listaTemp.add(this.id)
-			usuario.idsEquipesQueParticipouEmSaoCristovao = (Integer[]) listaTemp
+			usuario?.idsEquipesQueParticipouEmSaoCristovao = (Integer[]) listaTemp
 		}	
 	}
 	
