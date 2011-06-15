@@ -96,6 +96,10 @@
 							</li>
 							</g:if>
 							
+							<g:if test="${!session.user}">
+							<li><g:link controller='noticia' action='list'>Not&iacute;cias</g:link></li>
+							</g:if>
+							
 						</ul>
 					</div>
 					

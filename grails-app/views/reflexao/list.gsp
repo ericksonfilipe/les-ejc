@@ -8,13 +8,11 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
-            <h2>Reflexoes</h2>
-            <g:if test="${flash.message}">
+            <h2>Reflex&otilde;es</h2>
+			<span class="menuButton"><g:link class="create" action="create"><g:message code="Inserir Reflex&atilde;o" args="[entityName]" /></g:link></span>
+            <br/><br/>
+			<g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
@@ -25,6 +23,10 @@
                             <g:sortableColumn property="id" title="${message(code: 'reflexao.id.label', default: 'Id')}" />
                         
                             <g:sortableColumn property="texto" title="${message(code: 'reflexao.texto.label', default: 'Texto')}" />
+							
+
+							
+					
                         
                         </tr>
                     </thead>
@@ -35,7 +37,24 @@
                             <td><g:link action="show" id="${reflexaoInstance.id}">${fieldValue(bean: reflexaoInstance, field: "id")}</g:link></td>
                         
                             <td>${fieldValue(bean: reflexaoInstance, field: "texto")}</td>
+							
                         
+						            
+                    <td><g:form>
+                    <g:hiddenField name="id" value="${reflexaoInstance?.id}" />
+                    <g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
+                    </g:form></td>
+					
+					<td><g:form>
+                    <g:hiddenField name="id" value="${reflexaoInstance?.id}" />
+                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                    </g:form></td>
+					
+					
+                
+            </div>
+						
+						
                         </tr>
                     </g:each>
                     </tbody>
@@ -45,5 +64,6 @@
                 <g:paginate total="${reflexaoInstanceTotal}" />
             </div>
         </div>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </body>
 </html>
