@@ -29,23 +29,19 @@
                     <tbody>
                     <g:each in="${noticiaInstanceList}" status="i" var="noticiaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
                             <td>${fieldValue(bean: noticiaInstance, field: "descricao")}</td>
 
 							<g:if test="${session.user?.j5Atual}">
-					
-								<td><g:form>
+						    <td><g:form>
 								<g:hiddenField name="id" value="${noticiaInstance?.id}" />
 								<g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
-								</g:form></td>
+							</g:form></td>
 					
-								<td><g:form>
+							<td><g:form>
 								<g:hiddenField name="id" value="${noticiaInstance?.id}" />
 								<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-								</g:form></td>
-								
+							</g:form></td>
 							</g:if>
-                        
                         </tr>
                     </g:each>
                     </tbody>
