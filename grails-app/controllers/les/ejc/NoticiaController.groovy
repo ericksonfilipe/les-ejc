@@ -23,7 +23,7 @@ class NoticiaController {
         def noticiaInstance = new Noticia(params)
         if (noticiaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'noticia.label', default: 'Noticia'), noticiaInstance.id])}"
-            redirect(action: "show", id: noticiaInstance.id)
+            redirect(action: "list", id: noticiaInstance.id)
         }
         else {
             render(view: "create", model: [noticiaInstance: noticiaInstance])
@@ -67,7 +67,7 @@ class NoticiaController {
             noticiaInstance.properties = params
             if (!noticiaInstance.hasErrors() && noticiaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'noticia.label', default: 'Noticia'), noticiaInstance.id])}"
-                redirect(action: "show", id: noticiaInstance.id)
+                redirect(action: "list", id: noticiaInstance.id)
             }
             else {
                 render(view: "edit", model: [noticiaInstance: noticiaInstance])
@@ -89,7 +89,7 @@ class NoticiaController {
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'noticia.label', default: 'Noticia'), params.id])}"
-                redirect(action: "show", id: params.id)
+                redirect(action: "list", id: params.id)
             }
         }
         else {

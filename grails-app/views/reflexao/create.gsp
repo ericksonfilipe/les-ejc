@@ -9,12 +9,10 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
-            <h2>Criar Reflexao</h2>
+            <h2>Criar Reflex&atilde;o</h2>
+			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver as reflex&otilde;es cadastradas" args="[entityName]" /></g:link></span>
+			<br/><br/>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -45,5 +43,6 @@
                 </div>
             </g:form>
         </div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </body>
 </html>

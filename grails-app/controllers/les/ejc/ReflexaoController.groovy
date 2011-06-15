@@ -23,7 +23,7 @@ class ReflexaoController {
         def reflexaoInstance = new Reflexao(params)
         if (reflexaoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), reflexaoInstance.id])}"
-            redirect(action: "show", id: reflexaoInstance.id)
+            redirect(action: "list", id: reflexaoInstance.id)
         }
         else {
             render(view: "create", model: [reflexaoInstance: reflexaoInstance])
@@ -67,7 +67,7 @@ class ReflexaoController {
             reflexaoInstance.properties = params
             if (!reflexaoInstance.hasErrors() && reflexaoInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), reflexaoInstance.id])}"
-                redirect(action: "show", id: reflexaoInstance.id)
+                redirect(action: "list", id: reflexaoInstance.id)
             }
             else {
                 render(view: "edit", model: [reflexaoInstance: reflexaoInstance])
@@ -89,7 +89,7 @@ class ReflexaoController {
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), params.id])}"
-                redirect(action: "show", id: params.id)
+                redirect(action: "list", id: params.id)
             }
         }
         else {
