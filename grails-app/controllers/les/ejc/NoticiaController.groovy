@@ -14,12 +14,22 @@ class NoticiaController {
     }
 
     def create = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def noticiaInstance = new Noticia()
         noticiaInstance.properties = params
         return [noticiaInstance: noticiaInstance]
     }
 
     def save = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def noticiaInstance = new Noticia(params)
         if (noticiaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'noticia.label', default: 'Noticia'), noticiaInstance.id])}"
@@ -42,6 +52,11 @@ class NoticiaController {
     }
 
     def edit = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def noticiaInstance = Noticia.get(params.id)
         if (!noticiaInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'noticia.label', default: 'Noticia'), params.id])}"
@@ -53,6 +68,11 @@ class NoticiaController {
     }
 
     def update = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def noticiaInstance = Noticia.get(params.id)
         if (noticiaInstance) {
             if (params.version) {
@@ -80,6 +100,11 @@ class NoticiaController {
     }
 
     def delete = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def noticiaInstance = Noticia.get(params.id)
         if (noticiaInstance) {
             try {

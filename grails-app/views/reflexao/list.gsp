@@ -19,39 +19,23 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'reflexao.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="texto" title="${message(code: 'reflexao.texto.label', default: 'Texto')}" />
-							
-
-							
-					
-                        
-                        </tr>
+                            <g:sortableColumn property="texto" title="${message(code: 'reflexao.texto.label', default: 'Frase de Reflex&atilde;o')}" />
+						</tr>
                     </thead>
                     <tbody>
                     <g:each in="${reflexaoInstanceList}" status="i" var="reflexaoInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${reflexaoInstance.id}">${fieldValue(bean: reflexaoInstance, field: "id")}</g:link></td>
-                        
                             <td>${fieldValue(bean: reflexaoInstance, field: "texto")}</td>
-							
-                        
-						            
-                    <td><g:form>
-                    <g:hiddenField name="id" value="${reflexaoInstance?.id}" />
-                    <g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
-                    </g:form></td>
-					
-					<td><g:form>
-                    <g:hiddenField name="id" value="${reflexaoInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                    </g:form></td>
-					
-					
-                
+							<td><g:form>
+								<g:hiddenField name="id" value="${reflexaoInstance?.id}" />
+								<g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
+								</g:form>
+					        </td>
+					        <td><g:form>
+								<g:hiddenField name="id" value="${reflexaoInstance?.id}" />
+								<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+								</g:form>
+					         </td>
             </div>
 						
 						
