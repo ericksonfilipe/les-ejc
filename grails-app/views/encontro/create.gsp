@@ -10,10 +10,10 @@
 		<resource:dateChooser />
     </head>
     <body>
-        <div id="pageBody">
-            <h2>Adicionar Encontro</h2>
+		<div id="pageBody">
+            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+				<div class="message">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${encontroInstance}">
             <div class="errors">
