@@ -17,6 +17,10 @@ def senderService
         redirect(action: "list", params: params)
     }
 
+	def aniversarios = {
+		[usuarioInstanceList : Usuario.list()]
+	}
+
     def enviarLoginESenha = {
         def usuarioInstance = Usuario.get(params.id)
         if (!usuarioInstance) {

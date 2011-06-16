@@ -7,8 +7,8 @@ class Usuario {
     String nomeCompleto
 	String nomeCompleto2
     String nomeUsual
-    Calendar dataDeNascimento
-	Calendar dataDeNascimento2
+    Date dataDeNascimento
+	Date dataDeNascimento2
 	
     String telefone1
     String telefone2

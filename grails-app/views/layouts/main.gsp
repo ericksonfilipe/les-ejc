@@ -88,7 +88,7 @@
 							<g:if test="${session.user}">
 							<li><g:link>Outros</g:link>
 								<ul>
-									<li><g:link controller='aniversario' action='list'>Anivers&aacute;rios</g:link></li>
+									<li><g:link controller='usuario' action='aniversarios'>Anivers&aacute;rios</g:link></li>
 									<li><g:link controller='enquete' action='list'>Enquetes</g:link></li>
 									<li><g:link controller='noticia' action='list'>Not&iacute;cias</g:link></li>
 									<g:if test="${session.user?.j5Atual}"><li><g:link controller='reflexao' action='list'>Reflex&otilde;es</g:link></li></g:if>
