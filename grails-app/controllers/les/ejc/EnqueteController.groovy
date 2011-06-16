@@ -41,7 +41,7 @@ class EnqueteController {
     }
 
     def show = {
-        def enqueteInstance = Enquete.get(params.id)
+        /*def enqueteInstance = Enquete.get(params.id)
         if (!enqueteInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'enquete.label', default: 'Enquete'), params.id])}"
             redirect(action: "list")
@@ -49,6 +49,8 @@ class EnqueteController {
         else {
             [enqueteInstance: enqueteInstance]
         }
+		*/
+		redirect(action: "list", params: params)
     }
 
     def edit = {
