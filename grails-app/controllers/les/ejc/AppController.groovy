@@ -5,34 +5,26 @@ class AppController {
 
         def senderService
 
-        def index = {
-/*		if (session.user) {
-			render(view:'../index')
-		} else {
-			redirect(action:"login")
-		}*/
-	}
+        def index = {}
 
-	def login = {
-	}
+	def login = {}
 
 	def authenticate = {
 		def usuario = Usuario.findByLoginAndSenha(params.login, new String(params.senha.encodeAsMD5Hex()))
 		if (usuario) {
-                    if (usuario.status == Status.Ativo) {
-                        session.user = usuario
-                        flash.message = "Olá, ${usuario.nomeCompleto}!"
-                        render(view: '../index')
-                    }
-                    else {
-                        flash.message = "Usuário Inativo"
-                        redirect(action:"login")    
-                    }
-                }
-                else {
-                    flash.message = "Login/Senha digitados incorretamente."
-                    redirect(action:"login")
-                }
+			if (usuario.status == Status.Ativo) {
+				session.user = usuario
+				flash.message = "Olá, ${usuario.nomeCompleto}!"
+				redirect(action:"index")
+			}
+			else {
+				flash.message = "Usuário Inativo"
+				redirect(action:"login")    
+			}
+        } else {
+			flash.message = "Login/Senha digitados incorretamente."
+			redirect(action:"login")
+		}
 
 	}
 	

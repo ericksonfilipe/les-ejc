@@ -58,14 +58,16 @@
 							</li>
 							</g:if>
 							
-							<li><g:link controller='encontro'>Encontros</g:link>
-								<g:if test="${session.user?.j5Atual}">
-								<ul>
-									<li><g:link controller='encontro' action='create'>Adicionar Encontros</g:link></li>
-									<li><g:link controller='encontro' action='list'>Visualizar Encontros</g:link></li>
-								</ul>
-								</g:if>
-							</li>
+							<g:if test="${session.user}">
+							   <li><g:link controller='encontro'>Encontros</g:link>
+									   <g:if test="${session.user?.j5Atual}">
+									   <ul>
+											   <li><g:link controller='encontro' action='create'>Adicionar Encontros</g:link></li>
+											   <li><g:link controller='encontro' action='list'>Visualizar Encontros</g:link></li>
+									   </ul>
+									   </g:if>
+							   </li>
+						   </g:if>
 								
 							<li><g:link controller='evento'>Eventos</g:link>
 								<g:if test="${session.user?.j5Atual}">

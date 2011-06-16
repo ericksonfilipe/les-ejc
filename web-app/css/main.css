@@ -169,6 +169,20 @@ body {
 	float: right;
 }
 
+#frase {
+	float: right;
+	text-align: center;
+	width: 500px;
+	padding-bottom: 20px;
+}
+
+#noticia {
+	float: right;
+	text-align: center;
+	width: 500px;
+	padding-top: 40px;
+}
+
 .rodape {
 	margin-left: 20px;
 	margin-right: 20px;
