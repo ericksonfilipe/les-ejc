@@ -9,23 +9,41 @@
         <title>Votar</title>
     </head>
     <body>
-        <div id="pageBody">
-            <h1>Votar em enquete: ${enqueteInstance?.titulo}</h1>
+        <div id="body">
+            <h2>Votar em enquete: ${enqueteInstance?.titulo}</h2>
+			
+			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver as enquetes cadastradas" args="[entityName]" /></g:link></span>
+			<br/><br/>
+			
             <g:hasErrors bean="${enqueteInstance}">
             <div class="errors">
                 <g:renderErrors bean="${enqueteInstance}" as="list" />
             </div>
             </g:hasErrors>
-                <div class="dialog">
-					<g:each in="${enqueteInstance?.opcoes?}" var="c">
-						<g:if test="${c.enquete.fechada}">
-							<li>${c} - Votos: ${c.votos}</li>
-						</g:if>
-						<g:if test="${!c.enquete.fechada}">
-							<li><g:link controller="opcaoEnquete" action="votar" id="${c.id}">${c}</g:link> - Votos: ${c.votos}</li>
-						</g:if>
-					</g:each>
-                </div>
+			
+				<div class="list">
+                <table>
+                    <thead>
+                        <tr>
+                            <g:sortableColumn property="opcao" title="${message(code: 'opcaoEnquete.opcao.label', default: 'Opcao')}" />                        
+                            <g:sortableColumn property="votos" title="${message(code: 'opcaoEnquete.votos.label', default: 'Votos')}" />
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <g:each in="${enqueteInstance?.opcoes?}" status="i" var="opcaoEnqueteInstance">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                            <td>${fieldValue(bean: opcaoEnqueteInstance, field: "opcao")}</td>
+                            <td>${fieldValue(bean: opcaoEnqueteInstance, field: "votos")}</td>
+							<g:if test="${!opcaoEnqueteInstance.enquete.fechada}">
+								<td>
+									<li><g:link controller="opcaoEnquete" action="votar" id="${opcaoEnqueteInstance.id}">Votar</g:link></li>
+								</td>
+							</g:if>
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
