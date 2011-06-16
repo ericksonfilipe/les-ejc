@@ -156,6 +156,19 @@ body {
 	height: auto;
 }
 
+#carrossel {
+	display: block;
+}
+
+#resto {
+	padding-top: 550px;
+	padding-left: 20px;
+}
+
+#mapa {
+	float: right;
+}
+
 .rodape {
 	margin-left: 20px;
 	margin-right: 20px;

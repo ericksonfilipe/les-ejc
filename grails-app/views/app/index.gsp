@@ -1,24 +1,13 @@
 <html>
     <head>
-        
 		<meta http-equiv="Content-Type" content="text/html" />
         <meta name="layout" content="main" />
 		<resource:carousel />
+		<resource:map key="ABCDE" />
 		<title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
-		
-        <style type="text/css" media="screen">
-			.links {
-				text-align: center;
-			}
-			
-			.imagem {
-				padding: 50px;
-			}
-        </style>
     </head>
     <body>
-		<div id="pageBody">
-
+		<div id="carrossel">
 			<richui:carousel direction="vertical" itemsStyle="height: 450px;">
 				<richui:carouselItem> <g:link controller="app" action="sobrenos.gsp"><img src="${resource(dir:'images',file:'quemsomos.png')}" /></g:link> </richui:carouselItem>
 				
@@ -41,15 +30,15 @@
 				</g:if>
 				
 			</richui:carousel>
-			
-			<g:link controller="app" action="login"><img src="${resource(dir:'images',file:'acessorestrito.png')}" /></g:link>
-		
+			<div id="mapa">
+			<center><h3>Localizacao da Paroquia e das Comunidades</h3></center><br>		
+		<richui:map lat="-7.22702" lng="-35.89919" zoomLevel="15"
+		markers="${[[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>Paróquia São Cristovão</b><br>Rua Delmiro Gouveia - São José<br>Campina Grande - PB, 58107-735<br>(0xx)83 3341-5584'],
+			    [latitude: -7.22925, longitude: -35.90451, draggable: false, description: '<b>Comunidade Nossa Senhora Aparecida</b>']]}" />
+				</div>
 		</div>
-			
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		
+		<div id="resto">
+			<g:link controller="app" action="login"><img src="${resource(dir:'images',file:'acessorestrito.png')}" /></g:link>
+		</div>		
     </body>
 </html>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
 	<resource:reflectionImage />
-        <resource:map key="ABCDE" />
+    <resource:map key="ABCDE" />
     <title>Quem Somos</title>         
     </script>
   </head>
