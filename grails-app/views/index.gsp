@@ -46,11 +46,6 @@
 			<g:link controller="app" action="login"><img src="${resource(dir:'images',file:'acesso.png')}" /></g:link>
 		
 		</div>
-			
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 		
     </body>
 </html>

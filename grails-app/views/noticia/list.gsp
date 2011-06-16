@@ -51,6 +51,5 @@
                 <g:paginate total="${noticiaInstanceTotal}" />
             </div>
         </div>
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </body>
 </html>
