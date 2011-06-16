@@ -1,3 +1,6 @@
+
+<%@ page import="les.ejc.Reflexao" %>
+
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -42,6 +45,14 @@
       </g:form>
           <br>
           <g:link action="esqueciminhasenha">Esqueci Minha Senha!</g:link>
+		  <br/><br/><br/>
+		  
+		  <g:if test="${Reflexao.list()}">
+			<center><h4><i>
+				${Reflexao.list()[new Random().nextInt(Reflexao.list().size())]}
+			</i><h4></center>
+		  </g:if>
+		  
     </div>
   </body>
 </html>
