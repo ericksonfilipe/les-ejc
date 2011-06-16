@@ -44,6 +44,5 @@
                 </div>
             </g:form>
         </div>
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </body>
 </html>

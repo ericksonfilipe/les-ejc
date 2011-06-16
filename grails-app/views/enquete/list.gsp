@@ -8,32 +8,51 @@
         <title>Enquetes</title>
     </head>
     <body>
-        <div id="pageBody">
-            <h1>Enquetes</h1>
-            <g:if test="${flash.message}">
+		<div class="body">
+			<h2>Enquetes</h2>
+			
+			<g:if test="${session.user?.j5Atual}">
+				<span class="menuButton"><g:link class="create" action="create"><g:message code="Criar Enquete" args="[entityName]" /></g:link></span>
+				<br/><br/>
+			</g:if>
+			
+			<g:if test="${flash.message}">
 				<div class="message">${flash.message}</div>
-            </g:if>
-            <div class="list">
-                <table>
-                    <thead>
-                        <tr>
-                            <g:sortableColumn property="id" title="${message(code: 'enquete.id.label', default: 'Id')}" />
-                            <g:sortableColumn property="titulo" title="${message(code: 'enquete.titulo.label', default: 'Titulo')}" />
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <g:each in="${enqueteInstanceList}" status="i" var="enqueteInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                            <td><g:link action="show" id="${enqueteInstance.id}">${fieldValue(bean: enqueteInstance, field: "id")}</g:link></td>
-                            <td>${fieldValue(bean: enqueteInstance, field: "titulo")}</td>
-                        </tr>
-                    </g:each>
-                    </tbody>
-                </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${enqueteInstanceTotal}" />
-            </div>
-        </div>
+			</g:if>
+			<div class="list">
+				<table>
+					<thead>
+						<tr>
+							<g:sortableColumn property="titulo" title="${message(code: 'enquete.titulo.label', default: 'Titulo')}" />
+						</tr>
+					</thead>
+					<tbody>
+					<g:each in="${enqueteInstanceList}" status="i" var="enqueteInstance">
+						<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+							<td>${fieldValue(bean: enqueteInstance, field: "titulo")}</td>
+							<g:if test="${session.user?.j5Atual}">
+								<td><g:form>
+									<g:hiddenField name="id" value="${enqueteInstance?.id}" />
+									<g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
+								</g:form></td>
+						
+								<td><g:form>
+									<g:hiddenField name="id" value="${enqueteInstance?.id}" />
+									<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+								</g:form></td>
+							</g:if>
+							<td><g:form>
+									<g:hiddenField name="id" value="${enqueteInstance?.id}" />
+									<g:actionSubmit class="edit" action="votar" value="Votar" />
+								</g:form></td>
+						</tr>
+					</g:each>
+					</tbody>
+				</table>
+			</div>
+			<div class="paginateButtons">
+				<g:paginate total="${enqueteInstanceTotal}" />
+			</div>
+		</div>
     </body>
 </html>
