@@ -9,14 +9,14 @@
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
+
         <div class="body">
-            <h2>Editar Reflexao</h2>
-            <g:if test="${flash.message}">
+            <h2>Editar Reflex&atilde;o</h2>
+			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver as reflex&otilde;es cadastradas" args="[entityName]" /></g:link></span>
+			<span class="menuButton"><g:link class="create" action="create"><g:message code="Inserir Reflex&atilde;o" args="[entityName]" /></g:link></span>
+			<br/><br/>
+			
+			<g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${reflexaoInstance}">
@@ -49,5 +49,8 @@
                 </div>
             </g:form>
         </div>
+		<br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/>
     </body>
 </html>

@@ -5,25 +5,45 @@ class ReflexaoController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
         redirect(action: "list", params: params)
     }
 
     def list = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [reflexaoInstanceList: Reflexao.list(params), reflexaoInstanceTotal: Reflexao.count()]
     }
 
     def create = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def reflexaoInstance = new Reflexao()
         reflexaoInstance.properties = params
         return [reflexaoInstance: reflexaoInstance]
     }
 
     def save = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def reflexaoInstance = new Reflexao(params)
         if (reflexaoInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), reflexaoInstance.id])}"
-            redirect(action: "show", id: reflexaoInstance.id)
+            redirect(action: "list", id: reflexaoInstance.id)
         }
         else {
             render(view: "create", model: [reflexaoInstance: reflexaoInstance])
@@ -31,6 +51,11 @@ class ReflexaoController {
     }
 
     def show = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def reflexaoInstance = Reflexao.get(params.id)
         if (!reflexaoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), params.id])}"
@@ -42,6 +67,11 @@ class ReflexaoController {
     }
 
     def edit = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def reflexaoInstance = Reflexao.get(params.id)
         if (!reflexaoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), params.id])}"
@@ -53,6 +83,11 @@ class ReflexaoController {
     }
 
     def update = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def reflexaoInstance = Reflexao.get(params.id)
         if (reflexaoInstance) {
             if (params.version) {
@@ -67,7 +102,7 @@ class ReflexaoController {
             reflexaoInstance.properties = params
             if (!reflexaoInstance.hasErrors() && reflexaoInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), reflexaoInstance.id])}"
-                redirect(action: "show", id: reflexaoInstance.id)
+                redirect(action: "list", id: reflexaoInstance.id)
             }
             else {
                 render(view: "edit", model: [reflexaoInstance: reflexaoInstance])
@@ -80,6 +115,11 @@ class ReflexaoController {
     }
 
     def delete = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def reflexaoInstance = Reflexao.get(params.id)
         if (reflexaoInstance) {
             try {
@@ -89,7 +129,7 @@ class ReflexaoController {
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'reflexao.label', default: 'Reflexao'), params.id])}"
-                redirect(action: "show", id: params.id)
+                redirect(action: "list", id: params.id)
             }
         }
         else {

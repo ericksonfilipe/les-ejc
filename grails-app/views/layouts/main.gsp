@@ -56,6 +56,7 @@
 									<g:if test="${session.user?.j5Atual}"><li><a class="list" href="${createLink(uri: '/usuario/listNotAtivado')}"><g:message code="Visualizar Usu&aacute;rios Pendentes"/></li></g:if>
 								</ul>
 							</li>
+							</g:if>
 							
 							<li><g:link controller='encontro'>Encontros</g:link>
 								<g:if test="${session.user?.j5Atual}">
@@ -65,7 +66,6 @@
 								</ul>
 								</g:if>
 							</li>
-							</g:if>							
 								
 							<li><g:link controller='evento'>Eventos</g:link>
 								<g:if test="${session.user?.j5Atual}">
@@ -96,6 +96,10 @@
 							</li>
 							</g:if>
 							
+							<g:if test="${!session.user}">
+							<li><g:link controller='noticia' action='list'>Not&iacute;cias</g:link></li>
+							</g:if>
+							
 						</ul>
 					</div>
 					
@@ -121,6 +125,7 @@
 					<span class="menuButton"><g:link controller='ata'>Atas</g:link></span>
 					<span class="menuButton"><g:link controller='oficio'>Of&iacute;cios</g:link></span>
 					<span class="menuButton"><g:link action="trocarsenha">Mudar Senha</g:link></span>
+					<span class="menuButton"><g:link controller='enquete'>Enquetes</g:link></span>
 					<g:loginControl />
 				</div>
 				<!--<div id="logo">Sistema de Gerenciamento do EJC da Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</div>-->

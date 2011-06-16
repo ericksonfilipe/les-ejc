@@ -1,41 +1,36 @@
 
 
-<%@ page import="les.ejc.Noticia" %>
+<%@ page import="les.ejc.Enquete" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'noticia.label', default: 'Noticia')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <g:set var="entityName" value="${message(code: 'enquete.label', default: 'Enquete')}" />
+        <title>Criar Enquete</title>
     </head>
     <body>
-
-        <div class="body">
-            <h2>Criar Notícia</h2>
-			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver as notícias cadastradas" args="[entityName]" /></g:link></span>
-			<br/><br/>
+        <div id="pageBody">
+            <h1>Criar Enquete</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${noticiaInstance}">
+            <g:hasErrors bean="${enqueteInstance}">
             <div class="errors">
-                <g:renderErrors bean="${noticiaInstance}" as="list" />
+                <g:renderErrors bean="${enqueteInstance}" as="list" />
             </div>
             </g:hasErrors>
             <g:form action="save" >
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="descricao"><g:message code="noticia.descricao.label" default="Descricao" /></label>
+                                    <label for="titulo"><g:message code="enquete.titulo.label" default="Titulo" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: noticiaInstance, field: 'descricao', 'errors')}">
-                                    <g:textArea name="descricao" cols="40" rows="5" value="${noticiaInstance?.descricao}" />
+                                <td valign="top" class="value ${hasErrors(bean: enqueteInstance, field: 'titulo', 'errors')}">
+                                    <g:textField name="titulo" value="${enqueteInstance?.titulo}" />
                                 </td>
                             </tr>
-                        
                         </tbody>
                     </table>
                 </div>
@@ -44,6 +39,5 @@
                 </div>
             </g:form>
         </div>
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </body>
 </html>
