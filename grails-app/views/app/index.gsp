@@ -42,7 +42,7 @@
 				
 			</richui:carousel>
 			
-			<g:link controller="app" action="login"><img src="${resource(dir:'images',file:'acesso.png')}" /></g:link>
+			<g:link controller="app" action="login"><img src="${resource(dir:'images',file:'acessorestrito.png')}" /></g:link>
 		
 		</div>
 			
