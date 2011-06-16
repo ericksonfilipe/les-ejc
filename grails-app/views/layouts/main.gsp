@@ -65,7 +65,7 @@
 								</ul>
 								</g:if>
 							</li>
-							</g:if>							
+								<li><g:link controller='ata'>Atas</g:link>
 								
 							<li><g:link controller='evento'>Eventos</g:link>
 								<g:if test="${session.user?.j5Atual}">
@@ -83,6 +83,12 @@
 									<li><g:link controller='oficio' action='list'>Of&iacute;cios</g:link></li>
 								</ul>
 							</li>
+								<li><g:link controller='enquete'>Enquetes</g:link>
+									<ul>
+										<li><g:link controller='enquete' action='create'>Adicionar Enquetes</g:link></li>
+										<li><g:link controller='enquete' action='list'>Visualizar Enquetes</g:link></li>
+									</ul>
+								</li>
 							</g:if>
 								
 							<g:if test="${session.user}">
@@ -125,6 +131,7 @@
 					<span class="menuButton"><g:link controller='ata'>Atas</g:link></span>
 					<span class="menuButton"><g:link controller='oficio'>Of&iacute;cios</g:link></span>
 					<span class="menuButton"><g:link action="trocarsenha">Mudar Senha</g:link></span>
+					<span class="menuButton"><g:link controller='enquete'>Enquetes</g:link></span>
 					<g:loginControl />
 				</div>
 				<!--<div id="logo">Sistema de Gerenciamento do EJC da Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</div>-->
