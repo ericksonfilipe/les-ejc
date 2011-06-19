@@ -33,7 +33,7 @@
 									<richui:tabContent>
 										<richui:calendarMonthView items="${(List)eventoInstanceList}" createLink="true" 
 										constraintDateFields="['data', 'data']" displayField="subject"
-										 teaser="true" teaserLength="10" weekOfYear="false" month="${new Date(month:m);}" action="show" />
+										teaser="true" teaserLength="10" weekOfYear="false" month="${new Date(month:m);}" action="show" />
 									</richui:tabContent>
 								</g:each>
 							</richui:tabContents>

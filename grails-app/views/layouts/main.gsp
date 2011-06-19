@@ -114,7 +114,7 @@
 			<div class="rodape">
 				&copy; Site desenvolvido por Andr&eacute; Farias, Erickson Santos, Janderson Aguiar, Leandro de Assis
 				<div class="contato">
-					<a href="mailto:projetoles20111@googlegroups.com">Contate-nos!</a>
+					<g:link controller='contato'>Contate-nos!</g:link>
 				</div>
 			</div>
 		</div>
