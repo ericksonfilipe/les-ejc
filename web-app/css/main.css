@@ -1,0 +1,456 @@
+html * {
+    margin: 0;
+    /*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+}
+
+/* GENERAL */
+
+.spinner {
+    padding: 5px;
+    position: absolute;
+    right: 0;
+}
+
+body {
+    /*background: #004080;*/
+	background: #0079B2;
+    color: #333;
+    font: 11px verdana, arial, helvetica, sans-serif;
+}
+
+.pagina {
+	width:900px;
+	margin: 50px auto 50px auto;
+}
+
+.loginHeader {
+	color: #000;
+	margin: 0 20px 7px auto;
+	height: auto;
+	text-align: right;
+}
+
+.loginHeader ul {
+	height:20px;
+	list-style:none;
+	margin:0 10px 0 0;
+	padding:0;
+}
+
+.loginHeader li{
+	float:right;
+	padding: 0 5px 0 5px;
+}
+
+/* Borda arredondada, agradecimentos: http://codigofonte.uol.com.br/codigo/css/efeitos/criar-bordas-arredondadas-sem-utilizar-imagens */
+.bordaBox {bbackground: ttransparent; width:100%; margin-bottom: 10px;}
+.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b4, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b, .bordaBox .b4b {display:block; overflow:hidden; font-size:1px;}
+.bordaBox .b1, .bordaBox .b2, .bordaBox .b3, .bordaBox .b1b, .bordaBox .b2b, .bordaBox .b3b {height:1px;}
+.bordaBox .b2, .bordaBox .b3, .bordaBox .b4 {background:#fff; border-left:1px solid #999; border-right:1px solid #999;}
+.bordaBox .b1 {margin:0 5px; background:#999;}
+.bordaBox .b2 {margin:0 3px; border-width:0 2px;}
+.bordaBox .b3 {margin:0 2px;}
+.bordaBox .b4 {height:2px; margin:0 1px;}
+.bordaBox .conteudo {padding:5px 0 5px 0;display:block; background:#fff; border-left:1px solid #999; border-right:1px solid #999; height: auto;}
+
+.topo {
+	height: 137px;
+	margin: 10px 10px 10px 10px;
+}
+
+.esq {
+	position: relative;
+	float: left;
+	height: 100%;
+	width: 197;
+}
+
+.dir {
+	position: relative;
+	height: 100%;
+}
+
+/* Menu drop-down, agradecimentos: http://cssmenumaker.com/builder/menu_info.php?menu=055 */
+.menu{
+	border:none;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	font-family:verdana,geneva,arial,helvetica,sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	color:8e8e8e;
+}
+.menu ul{
+	background: url(../images/menu-bg.gif) top left repeat-x;
+	height:43px;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.menu li{
+	float:left;
+}
+.menu li a{
+	color:#666666;
+	display:block;
+	font-weight:bold;
+	line-height:43px;
+	padding:0px 25px;
+	text-align:center;
+	text-decoration:none;
+}
+.menu li a:hover{
+	color:#000000;
+	text-decoration:none;
+	background:url(../images/current-bg.gif) top left repeat-x;
+	color:#ffffff;
+}
+
+.menu li ul{
+	background:#e0e0e0;
+	border-left:2px solid #0079b2;
+	border-right:2px solid #0079b2;
+	border-bottom:2px solid #0079b2;
+	display:none;
+	height:auto;
+	filter:alpha(opacity=95);
+	opacity:0.95;
+	position:absolute;
+	width:225px;
+	z-index:200;
+	/*top:1em;
+	/*left:0;*/
+}
+.menu li:hover ul{
+	display:block;
+}
+.menu li li {
+	display:block;
+	float:none;
+	width:225px;
+}
+.menu li ul a{
+	display:block;
+	font-size:12px;
+	font-style:normal;
+	padding:0px 10px 0px 15px;
+	text-align:left;
+}
+.menu li ul a:hover{
+	background:#949494;
+	color:#000000;
+	opacity:1.0;
+	filter:alpha(opacity=100);
+}
+.menu p{
+	clear:left;
+}
+.menu #current{
+	background:url(../images/current-bg.gif) top left repeat-x;
+	color:#ffffff;
+}
+
+.main {
+	margin: 20px 10px 10px 10px;
+	height: auto;
+}
+
+#carrossel {
+	display: block;
+}
+
+#resto {
+	padding-top: 550px;
+	padding-left: 20px;
+}
+
+#mapa {
+	float: right;
+}
+
+#frase {
+	float: right;
+	text-align: center;
+	width: 500px;
+	padding-bottom: 20px;
+}
+
+#noticia {
+	float: right;
+	text-align: center;
+	width: 500px;
+	padding-top: 40px;
+}
+
+.rodape {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: #fff;
+}
+
+.contato {
+	position: relative;
+	float: right;
+}
+
+a:link, a:visited, a:hover {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/*
+h1 {
+    color: #48802c;
+    font-weight: normal;
+    font-size: 16px;
+    margin: .8em 0 .3em 0;
+}
+*/
+h2 {
+	color: #36C;
+	padding-bottom: 10px;
+}
+
+ul {
+    padding-left: 15px;
+}
+
+input, select, textarea {
+    background-color: #fcfcfc;
+    border: 1px solid #ccc;
+    font: 11px verdana, arial, helvetica, sans-serif;
+    margin: 2px 0;
+    padding: 2px 4px;
+}
+select {
+   padding: 2px 2px 2px 0;
+}
+textarea {
+	width: 250px;
+	height: 150px;
+	vertical-align: top;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #b2d1ff;
+}
+
+.body {
+    margin: 0 15px 10px 15px;
+}
+
+/* NAVIGATION MENU */
+
+.nav {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    border-style: solid none solid none;
+    margin-top: 0px;
+    padding: 7px 12px;
+}
+
+.menuButton {
+    font-size: 10px;
+    padding: 0 5px;
+}
+.menuButton a {
+    color: #333;
+    padding: 4px 6px;
+}
+.menuButton a.home {
+    background: url(../images/skin/house.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+.menuButton a.list {
+    background: url(../images/skin/database_table.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+.menuButton a.create {
+    background: url(../images/skin/database_add.png) center left no-repeat;
+    color: #333;
+    padding-left: 25px;
+}
+
+/* MESSAGES AND ERRORS */
+
+.message {
+    background: #f3f8fc url(../images/skin/information.png) 8px 50% no-repeat;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
+    margin: 10px 0 5px 0;
+    padding: 5px 5px 5px 30px
+}
+
+div.errors {
+    background: #fff3f3;
+    border: 1px solid red;
+    color: #cc0000;
+    margin: 10px 0 5px 0;
+    padding: 5px 0 5px 0;
+}
+div.errors ul {
+    list-style: none;
+    padding: 0;
+}
+div.errors li {
+	background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+    line-height: 16px;
+    padding-left: 30px;
+}
+
+td.errors select {
+    border: 1px solid red;
+}
+td.errors input {
+    border: 1px solid red;
+}
+td.errors textarea {
+    border: 1px solid red;
+}
+
+/* TABLES */
+
+table {
+    border: 1px solid #ccc;
+    width: 100%
+}
+tr {
+    border: 0;
+}
+td, th {
+    font: 11px verdana, arial, helvetica, sans-serif;
+    line-height: 12px;
+    padding: 5px 6px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background: #fff url(../images/skin/shadow.jpg);
+    color: #666;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 17px;
+    padding: 2px 6px;
+}
+th a:link, th a:visited, th a:hover {
+    color: #333;
+    display: block;
+    font-size: 10px;
+    text-decoration: none;
+    width: 100%;
+}
+th.asc a, th.desc a {
+    background-position: right;
+    background-repeat: no-repeat;
+}
+th.asc a {
+    background-image: url(../images/skin/sorted_asc.gif);
+}
+th.desc a {
+    background-image: url(../images/skin/sorted_desc.gif);
+}
+
+.odd {
+    background: #f7f7f7;
+}
+.even {
+    background: #fff;
+}
+
+/* LIST */
+
+.list table {
+    border-collapse: collapse;
+}
+.list th, .list td {
+    border-left: 1px solid #ddd;
+}
+.list th:hover, .list tr:hover {
+    background: #b2d1ff;
+}
+
+/* PAGINATION */
+
+.paginateButtons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    border-top: 0;
+    color: #666;
+    font-size: 10px;
+    overflow: hidden;
+    padding: 10px 3px;
+}
+.paginateButtons a {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #ccc #aaa #aaa #ccc;
+    color: #666;
+    margin: 0 3px;
+    padding: 2px 6px;
+}
+.paginateButtons span {
+    padding: 2px 3px;
+}
+
+/* DIALOG */
+
+.dialog table {
+    padding: 5px 0;
+}
+
+.prop {
+    padding: 5px;
+}
+.prop .name {
+    text-align: left;
+    width: 15%;
+    white-space: nowrap;
+}
+.prop .value {
+    text-align: left;
+    width: 85%;
+}
+
+/* ACTION BUTTONS */
+
+.buttons {
+    background: #fff url(../images/skin/shadow.jpg) bottom repeat-x;
+    border: 1px solid #ccc;
+    color: #666;
+    font-size: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.buttons input {
+    background: #fff;
+    border: 0;
+    color: #333;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 3px;
+    overflow: visible;
+    padding: 2px 6px;
+}
+.buttons input.delete {
+    background: transparent url(../images/skin/database_delete.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.edit {
+    background: transparent url(../images/skin/database_edit.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.save {
+    background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
+.buttons input.print {
+    background: transparent url(../images/skin/database_print.png) 5px 50% no-repeat;
+    padding-left: 28px;
+}
