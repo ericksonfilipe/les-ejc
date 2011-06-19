@@ -40,6 +40,16 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="noticiaPrincipal"><g:message code="noticia.noticiaPrincipal.label" default="Noticia Principal" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: noticiaInstance, field: 'noticiaPrincipal', 'errors')}">
+                                    <g:checkBox name="noticiaPrincipal" value="${noticiaInstance?.noticiaPrincipal}" />
+                                </td>
+                            </tr>
+							
+                        
                         </tbody>
                     </table>
                 </div>

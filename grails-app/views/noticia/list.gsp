@@ -20,18 +20,29 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
+			
+			
                 <table>
+				
                     <thead>
                         <tr>
                             <g:sortableColumn property="descricao" title="${message(code: 'noticia.descricao.label', default: 'Descri&ccedil;&atilde;o')}" />
                         </tr>
                     </thead>
                     <tbody>
+					<g:form>
                     <g:each in="${noticiaInstanceList}" status="i" var="noticiaInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                            <td>${fieldValue(bean: noticiaInstance, field: "descricao")}</td>
+							
+							<g:if test="${noticiaInstance.noticiaPrincipal}">
+							<td><b>${fieldValue(bean: noticiaInstance, field: "descricao")}</b></td>
+							</g:if>
+							<g:else>
+							<td>${fieldValue(bean: noticiaInstance, field: "descricao")}</td>
+							</g:else>
 
 							<g:if test="${session.user?.j5Atual}">
+
 						    <td><g:form>
 								<g:hiddenField name="id" value="${noticiaInstance?.id}" />
 								<g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
@@ -39,17 +50,25 @@
 					
 							<td><g:form>
 								<g:hiddenField name="id" value="${noticiaInstance?.id}" />
-								<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+								<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 							</g:form></td>
+
 							</g:if>
                         </tr>
                     </g:each>
+					</g:form>
+
+					
+					
                     </tbody>
                 </table>
+
+				
             </div>
             <div class="paginateButtons">
                 <g:paginate total="${noticiaInstanceTotal}" />
             </div>
+			
         </div>
     </body>
 </html>

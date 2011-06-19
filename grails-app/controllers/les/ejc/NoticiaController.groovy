@@ -1,5 +1,7 @@
 package les.ejc
 
+import les.ejc.Noticia
+
 class NoticiaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -31,9 +33,16 @@ class NoticiaController {
 			return
 		}	
         def noticiaInstance = new Noticia(params)
-        if (noticiaInstance.save(flush: true)) {
+
+		if (noticiaInstance.noticiaPrincipal == true && existeNoticiaPrincipal(noticiaInstance)) {
+			flash.message = "Já existe uma Notícia cadastrada para ser visualizada na página inicial!"
+			render(view: "create", model: [noticiaInstance: noticiaInstance])
+			return					
+		}
+
+		if (noticiaInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'noticia.label', default: 'Noticia'), noticiaInstance.id])}"
-            redirect(action: "list", id: noticiaInstance.id)
+			redirect(action: "list", id: noticiaInstance.id)
         }
         else {
             render(view: "create", model: [noticiaInstance: noticiaInstance])
@@ -74,6 +83,7 @@ class NoticiaController {
 			return
 		}	
         def noticiaInstance = Noticia.get(params.id)
+			
         if (noticiaInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -85,6 +95,13 @@ class NoticiaController {
                 }
             }
             noticiaInstance.properties = params
+
+			if (noticiaInstance.noticiaPrincipal == true && existeNoticiaPrincipal(noticiaInstance)) {
+				flash.message = "Já existe uma Notícia cadastrada para ser visualizada na página inicial!"
+				render(view: "edit", model: [noticiaInstance: noticiaInstance])
+				return					
+			}	
+
             if (!noticiaInstance.hasErrors() && noticiaInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'noticia.label', default: 'Noticia'), noticiaInstance.id])}"
                 redirect(action: "list", id: noticiaInstance.id)
@@ -122,4 +139,11 @@ class NoticiaController {
             redirect(action: "list")
         }
     }
+	
+	def existeNoticiaPrincipal(noticiaInstance){
+		for (noticia in les.ejc.Noticia.list()) {
+			if (noticia.noticiaPrincipal == true && noticia != noticiaInstance) return true
+		}
+		return false
+	}
 }

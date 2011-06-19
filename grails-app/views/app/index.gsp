@@ -1,9 +1,13 @@
+<%@ page import="les.ejc.Reflexao" %>
+<%@ page import="les.ejc.Noticia" %>
+
 <html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html" />
         <meta name="layout" content="main" />
 		<resource:carousel />
 		<resource:map key="ABCDE" />
+		
 		<title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
     </head>
     <body>
@@ -31,23 +35,40 @@
 					
 			</richui:carousel>
 			<div id="mapa">
-				<center><h3>Frase do dia</h3></center><br>
+				
 				<div id="frase">
-					Esta eh a frase dod ia, sei la pq nem sei o que deve estar aqui, mas jah podeeeee ahhhhhhh, temos q terminar esse troco. Que monte de coisa aleatoria, aleatoriamente serah.
+					<g:if test="${Reflexao.list()}">
+						<hr size="2" color="#0079B2">
+						<center><big><i>
+							${Reflexao.list()[new Random().nextInt(Reflexao.list().size())]}
+						</i></big></center>
+						<hr size="2" color="#0079B2">
+					</g:if>	
 				</div>
-				<center><h3>Localizacao da Paroquia e das Comunidades</h3></center><br>		
+
+
+				
+				<center><h3>Localização da Paróquia e das Comunidades</h3></center><br>		
 				<richui:map lat="-7.22702" lng="-35.89919" zoomLevel="15"
 					markers="${[[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>Paróquia São Cristovão</b>
 					<br>Rua Delmiro Gouveia - São José<br>Campina Grande - PB, 58107-735<br>(0xx)83 3341-5584'],
 					[latitude: -7.22925, longitude: -35.90451, draggable: false, 
 					description: '<b>Comunidade Nossa Senhora Aparecida</b>']]}"
 				/>
-				<br>
+				<br/><br/>
+
 				<div id="frase">
-					<h3>Noticias</h3>
-					<br>
-					Uma noticia do noticiario que estah noticiando oh, mamigoooo, pense num negoco. Olhai =D vamos lah.
-				</div>
+					<hr size="2" color="#0079B2">
+					<br/>
+					<g:each in="${Noticia.list()}" status="i" var="noticiaInstance">
+						<g:if test="${noticiaInstance.noticiaPrincipal}">
+							<p align="justify"><i>${fieldValue(bean: noticiaInstance, field: "descricao")}</i></p>
+						</g:if>	
+					</g:each>
+					<br/>
+					<p align="right"><g:link controller="noticia" action="list">Clique aqui</g:link> para ver todas as notícias cadastradas</p>
+				</div>				
+				
 			</div>
 		</div>
 		<div id="resto">
