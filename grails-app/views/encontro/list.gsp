@@ -2,6 +2,7 @@
 <%@ page import="les.ejc.Encontro" %>
 <html>
     <head>
+		<resource:autoComplete skin="default" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'encontro.label', default: 'Encontro')}" />
@@ -20,6 +21,11 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+			
+			<h3>Procurar Encontro</h3>
+			<richui:autoComplete name="pegarEncontro" action="${createLinkTo('dir': 'encontro/pegarEncontros')}" onItemSelect="document.location.href = \'${createLinkTo(dir: 'encontro/show')}/\' + id;" />
+			<br />
+			
             <div class="list">
                 <table>
                     <thead>

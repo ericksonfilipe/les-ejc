@@ -2,6 +2,7 @@
 <%@ page import="les.ejc.Usuario" %>
 <html>
     <head>
+		<resource:autoComplete skin="default" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
@@ -18,6 +19,11 @@
         </style>
     </head>
     <body>
+		
+		<h3>Procurar Usuario</h3>
+			<richui:autoComplete name="pegarUsuario" action="${createLinkTo('dir': 'usuario/pegarUsuarios')}" onItemSelect="document.location.href = \'${createLinkTo(dir: 'usuario/show')}/\' + id;" />
+		<br />
+		
         <div id="pageBody">
             <h2>Usu&aacute;rios</h2>
 			<div class="links">

@@ -2,6 +2,7 @@
 <%@ page import="les.ejc.Ata" %>
 <html>
     <head>
+		<resource:autoComplete skin="default" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'ata.label', default: 'Ata')}" />
@@ -13,6 +14,12 @@
     <body>
         <div id="pageBody">
             <h2>Atas</h2>
+			
+			<g:if test="${session.user?.j5Atual}">
+				<span class="menuButton"><g:link class="create" action="create"><g:message code="Criar Ata" args="[entityName]" /></g:link></span>
+				<br/><br/>
+			</g:if>
+			
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>

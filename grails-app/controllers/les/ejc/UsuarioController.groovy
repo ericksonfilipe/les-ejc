@@ -1,5 +1,7 @@
 package les.ejc
 
+import les.ejc.Usuario.Tipo;
+
 class UsuarioController {
 
 def senderService
@@ -7,7 +9,77 @@ def senderService
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
     
     def error = {}
-
+	
+	def pegarUsuarios = {
+		List usuarios = Usuario.findAllByNomeCompletoIlike("%${params.query}%")
+		
+		// Criar resposta XML
+		render(contentType: "text/xml") {
+			results() {
+				for (i in usuarios) {
+					result(name: i.nomeCompleto, id: i.id)
+				}
+			}
+		}
+	}
+	
+	def pegarUsuariosCasados = {
+		List usuarios = Usuario.findAllByNomeCompletoIlike("%${params.query}%")
+		
+		List<Usuario> usuariosParaResposta = new ArrayList<Usuario>();
+		
+		for (i in usuarios)
+			if (i.tipo == Tipo.Casal)
+				usuariosParaResposta.add(i);
+		
+		// Criar resposta XML
+		render(contentType: "text/xml") {
+			results() {
+				for (i in usuariosParaResposta) {
+					result(name: i.nomeCompleto, id: i.id)
+				}
+			}
+		}
+	}
+	
+	def pegarUsuariosJovens = {
+		List usuarios = Usuario.findAllByNomeCompletoIlike("%${params.query}%")
+		
+		List<Usuario> usuariosParaResposta = new ArrayList<Usuario>();
+		
+		for (i in usuarios)
+			if (i.tipo == Tipo.Jovem)
+				usuariosParaResposta.add(i);
+		
+		// Criar resposta XML
+		render(contentType: "text/xml") {
+			results() {
+				for (i in usuariosParaResposta) {
+					result(name: i.nomeCompleto, id: i.id)
+				}
+			}
+		}
+	}
+	
+	def pegarUsuariosPadres = {
+		List usuarios = Usuario.findAllByNomeCompletoIlike("%${params.query}%")
+		
+		List<Usuario> usuariosParaResposta = new ArrayList<Usuario>();
+		
+		for (i in usuarios)
+			if (i.tipo == Tipo.Padre)
+				usuariosParaResposta.add(i);
+		
+		// Criar resposta XML
+		render(contentType: "text/xml") {
+			results() {
+				for (i in usuariosParaResposta) {
+					result(name: i.nomeCompleto, id: i.id)
+				}
+			}
+		}
+	}
+	
     def index = {
 		if (!session.user) {
                         flash.message = "Permissão Negada"

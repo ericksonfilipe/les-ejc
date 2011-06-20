@@ -4,6 +4,19 @@ class EncontroController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
     
+	def pegarEncontros = {
+		List encontros = Encontro.findAllByTemaIlike("%${params.query}%")
+		
+		// Criar resposta XML
+		render(contentType: "text/xml") {
+			results() {
+				for (i in encontros) {
+					result(name: i.tema, id: i.id)
+				}
+			}
+		}
+	}
+	
     def circulos = {
         def encontroInstance = Encontro.get(params.id)
         if (!encontroInstance) {

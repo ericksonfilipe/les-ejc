@@ -2,6 +2,7 @@
 <%@ page import="les.ejc.Evento" %>
 <html>
     <head>
+		<resource:autoComplete skin="default" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
 		<resource:accordion skin="default" />
@@ -16,6 +17,11 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+			
+			<h3>Procurar Evento</h3>
+			<richui:autoComplete name="pegarEvento" action="${createLinkTo('dir': 'evento/pegarEventos')}" onItemSelect="document.location.href = \'${createLinkTo(dir: 'evento/show')}/\' + id;" />
+			<br />
+			
 			<g:form target="_blank">
                 <span><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
             </g:form>

@@ -3,7 +3,7 @@ package les.ejc
 class AtaController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-    
+	
     def gerarhtml = {
         def ataInstance = Ata.get(params.id)
         if (!ataInstance) {

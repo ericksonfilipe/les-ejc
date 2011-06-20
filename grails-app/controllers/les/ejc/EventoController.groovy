@@ -3,7 +3,20 @@ package les.ejc
 class EventoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+	
+	def pegarEventos = {
+		List eventos = Evento.findAllByNomeIlike("%${params.query}%")
+		
+		// Criar resposta XML
+		render(contentType: "text/xml") {
+			results() {
+				for (i in eventos) {
+					result(name: i.nome, id: i.id)
+				}
+			}
+		}
+	}
+	
     def index = {
 //		if (!session?.user?.j5Atual) {
 //                        flash.message = "Permissão Negada"
