@@ -11,8 +11,12 @@
         <title>Atas</title>
     </head>
     <body>
-        <div id="pageBody">
+        <div id="body">
             <h2>Atas</h2>
+			<span class="menuButton">
+				<g:link class="create" action="create"><g:message code="Criar Ata" args="[entityName]" /></g:link>
+			</span>
+			<br/><br/>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -38,9 +42,6 @@
 					</richui:accordionItem>
 				</g:each>
 			</richui:accordion>
-            <div class="paginateButtons">
-                <g:paginate total="${ataInstanceTotal}" />
-            </div>
         </div>
     </body>
 </html>
