@@ -94,12 +94,17 @@
 									<li><g:link controller='enquete' action='list'>Enquetes</g:link></li>
 									<li><g:link controller='noticia' action='list'>Not&iacute;cias</g:link></li>
 									<g:if test="${session.user?.j5Atual}"><li><g:link controller='reflexao' action='list'>Reflex&otilde;es</g:link></li></g:if>
+									<g:link controller='contato'>Fale Conosco</g:link>
 								</ul>
 							</li>
 							</g:if>
 							
 							<g:if test="${!session.user}">
 							<li><g:link controller='noticia' action='list'>Not&iacute;cias</g:link></li>
+							</g:if>
+							
+							<g:if test="${!session.user}">
+							<li><g:link controller='contato'>Fale Conosco</g:link></li>
 							</g:if>
 							
 						</ul>
@@ -114,7 +119,7 @@
 			<div class="rodape">
 				&copy; Site desenvolvido por Andr&eacute; Farias, Erickson Santos, Janderson Aguiar, Leandro de Assis
 				<div class="contato">
-					<g:link controller='contato'>Contate-nos!</g:link>
+					<a href="mailto:projetoles20111@googlegroups.com">Contate-nos!</a>
 				</div>
 			</div>
 		</div>
