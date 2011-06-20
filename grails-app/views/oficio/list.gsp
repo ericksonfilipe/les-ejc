@@ -21,14 +21,10 @@
                             <g:sortableColumn property="id" title="${message(code: 'oficio.id.label', default: 'Id')}" />
                         
                             <g:sortableColumn property="nomeRemetente" title="${message(code: 'oficio.nomeRemetente.label', default: 'Nome Remetente')}" />
-                        
-                            <g:sortableColumn property="estadoCivilRemetente" title="${message(code: 'oficio.estadoCivilRemetente.label', default: 'Estado Civil Remetente')}" />
-                        
-                            <g:sortableColumn property="profissaoRemetente" title="${message(code: 'oficio.profissaoRemetente.label', default: 'Profissao Remetente')}" />
-                        
-                            <g:sortableColumn property="enderecoRemetente" title="${message(code: 'oficio.enderecoRemetente.label', default: 'Endereco Remetente')}" />
-                        
+                                              
                             <g:sortableColumn property="nomeDestinatario" title="${message(code: 'oficio.nomeDestinatario.label', default: 'Nome Destinatario')}" />
+							
+							<g:sortableColumn property="solicitacao" title="${message(code: 'oficio.solicitacao.label', default: 'Solicitacao')}" />
                         
                         </tr>
                     </thead>
@@ -40,13 +36,9 @@
                         
                             <td>${fieldValue(bean: oficioInstance, field: "nomeRemetente")}</td>
                         
-                            <td>${fieldValue(bean: oficioInstance, field: "estadoCivilRemetente")}</td>
-                        
-                            <td>${fieldValue(bean: oficioInstance, field: "profissaoRemetente")}</td>
-                        
-                            <td>${fieldValue(bean: oficioInstance, field: "enderecoRemetente")}</td>
-                        
                             <td>${fieldValue(bean: oficioInstance, field: "nomeDestinatario")}</td>
+							
+							<td>${fieldValue(bean: oficioInstance, field: "solicitacao")}</td>
                         
                         </tr>
                     </g:each>

@@ -22,13 +22,9 @@
 							
 							<g:sortableColumn property="numero" title="${message(code: 'encontro.numero.label', default: 'Número')}" />
                         
-                            <th><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></th>
-                        
                             <g:sortableColumn property="data" title="${message(code: 'encontro.data.label', default: 'Data')}" />
                         
                             <g:sortableColumn property="tema" title="${message(code: 'encontro.tema.label', default: 'Tema')}" />
-                        
-                            <g:sortableColumn property="local" title="${message(code: 'encontro.local.label', default: 'Local')}" />
                         
                         </tr>
                     </thead>
@@ -39,15 +35,11 @@
                             <td><g:link action="show" id="${encontroInstance.id}">${fieldValue(bean: encontroInstance, field: "id")}</g:link></td>
                         
 							<td>${fieldValue(bean: encontroInstance, field: "numero")}</td>
-							
-                            <td>${fieldValue(bean: encontroInstance, field: "dirigenteEspiritual")}</td>
-                        
+							                        
                             <td><g:formatDate date="${encontroInstance.data}" /></td>
                         
                             <td>${fieldValue(bean: encontroInstance, field: "tema")}</td>
-                        
-                            <td>${fieldValue(bean: encontroInstance, field: "local")}</td>
-                        
+
                         </tr>
                     </g:each>
                     </tbody>

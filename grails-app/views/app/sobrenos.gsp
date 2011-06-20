@@ -35,11 +35,7 @@
 		<p align="center"><b>Padre José Vanildo</b></p>
 		<br><br>		
 		<p align="justify">Mais informações no site: <a href="http://www.paroquiadesaocristovaocg.com" target="_blank">www.paroquiadesaocristovaocg.com</a>.</p>
-		<br><br>
-		<h3>Localização da Paróquia e das Comunidades</h3><br>		
-		<center><richui:map lat="-7.22702" lng="-35.89919" zoomLevel="15"
-		markers="${[[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>Paróquia São Cristovão</b><br>Rua Delmiro Gouveia - São José<br>Campina Grande - PB, 58107-735<br>(0xx)83 3341-5584'],
-			    [latitude: -7.22925, longitude: -35.90451, draggable: false, description: '<b>Comunidade Nossa Senhora Aparecida</b>']]}" /></center>	
+		<br>
     </div>
     
   </body>
