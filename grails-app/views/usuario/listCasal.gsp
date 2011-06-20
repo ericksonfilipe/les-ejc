@@ -8,7 +8,7 @@
         <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
 		<g:javascript library="prototype" />
 		<g:javascript>
-			function pei(id) {
+			function exibe(id) {
 				link = "/les-ejc/usuario/show/" + id;
 				window.open(link, "_self");
 			}
@@ -34,7 +34,7 @@
                     <tbody>
                     <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
 						<g:if test="${usuarioInstance.tipo == Tipo.Casal}">
-							<tr class="${(i % 2) == 0 ? 'odd' : 'even'}" onMouseDown="pei('${usuarioInstance.id}');">
+							<tr class="${(i % 2) == 0 ? 'odd' : 'even'}" onMouseDown="exibe('${usuarioInstance.id}');">
 
 								<td>${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
 

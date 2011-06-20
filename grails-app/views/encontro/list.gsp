@@ -6,6 +6,13 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'encontro.label', default: 'Encontro')}" />
         <title>Encontros</title>
+		<g:javascript library="prototype" />
+		<g:javascript>
+			function exibe(id) {
+				link = "/les-ejc/encontro/show/" + id;
+				window.open(link, "_self");
+			}
+		</g:javascript>
     </head>
     <body>
         <div id="pageBody">
@@ -18,8 +25,6 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'encontro.id.label', default: 'Id')}" />
-							
 							<g:sortableColumn property="numero" title="${message(code: 'encontro.numero.label', default: 'Número')}" />
                         
                             <th><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></th>
@@ -34,9 +39,7 @@
                     </thead>
                     <tbody>
                     <g:each in="${encontroInstanceList}" status="i" var="encontroInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${encontroInstance.id}">${fieldValue(bean: encontroInstance, field: "id")}</g:link></td>
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}" onMouseDown="exibe('${encontroInstance.id}');">
                         
 							<td>${fieldValue(bean: encontroInstance, field: "numero")}</td>
 							
