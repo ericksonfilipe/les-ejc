@@ -6,6 +6,13 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
+		<g:javascript library="prototype" />
+		<g:javascript>
+			function exibe(id) {
+				link = "/les-ejc/usuario/show/" + id;
+				window.open(link, "_self");
+			}
+		</g:javascript>
     </head>
     <body>
         <div id="pageBody">
@@ -18,8 +25,6 @@
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="id" title="${message(code: 'usuario.id.label', default: 'Id')}" />
-
                             <g:sortableColumn property="nomeCompleto" title="${message(code: 'usuario.nomeCompleto.label', default: 'Nome Completo')}" />
 
                             <g:sortableColumn property="nomeUsual" title="${message(code: 'usuario.nomeUsual.label', default: 'Nome Usual')}" />
@@ -29,9 +34,7 @@
                     <tbody>
                     <g:each in="${usuarioInstanceList}" status="i" var="usuarioInstance">
 						<g:if test="${usuarioInstance.tipo == Tipo.Jovem}">
-							<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-
-								<td><g:link action="show" id="${usuarioInstance.id}">${fieldValue(bean: usuarioInstance, field: "id")}</g:link></td>
+							<tr class="${(i % 2) == 0 ? 'odd' : 'even'}" onMouseDown="exibe('${usuarioInstance.id}');">
 
 								<td>${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
 

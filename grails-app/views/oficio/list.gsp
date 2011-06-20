@@ -6,6 +6,13 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'oficio.label', default: 'Oficio')}" />
         <title>Of&iacute;cios</title>
+		<g:javascript library="prototype" />
+		<g:javascript>
+			function exibe(id) {
+				link = "/les-ejc/oficio/show/" + id;
+				window.open(link, "_self");
+			}
+		</g:javascript>
     </head>
     <body>
         <div id="pageBody">
@@ -17,8 +24,6 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'oficio.id.label', default: 'Id')}" />
                         
                             <g:sortableColumn property="nomeRemetente" title="${message(code: 'oficio.nomeRemetente.label', default: 'Nome Remetente')}" />
                         
@@ -34,9 +39,7 @@
                     </thead>
                     <tbody>
                     <g:each in="${oficioInstanceList}" status="i" var="oficioInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${oficioInstance.id}">${fieldValue(bean: oficioInstance, field: "id")}</g:link></td>
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}" onMouseDown="exibe('${oficioInstance.id}');">
                         
                             <td>${fieldValue(bean: oficioInstance, field: "nomeRemetente")}</td>
                         
