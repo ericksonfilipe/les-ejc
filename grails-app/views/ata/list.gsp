@@ -12,7 +12,7 @@
         <title>Atas</title>
     </head>
     <body>
-        <div id="pageBody">
+        <div id="body">
             <h2>Atas</h2>
 			
 			<g:if test="${session.user?.j5Atual}">
@@ -45,9 +45,6 @@
 					</richui:accordionItem>
 				</g:each>
 			</richui:accordion>
-            <div class="paginateButtons">
-                <g:paginate total="${ataInstanceTotal}" />
-            </div>
         </div>
     </body>
 </html>
