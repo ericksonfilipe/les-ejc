@@ -1,14 +1,15 @@
-<%@ page import="les.ejc.Reflexao" %>
+Ôªø<%@ page import="les.ejc.Reflexao" %>
 <%@ page import="les.ejc.Noticia" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <html>
     <head>
-		<meta http-equiv="Content-Type" content="text/html" />
+		<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8" />
         <meta name="layout" content="main" />
 		<resource:carousel />
 		<resource:map key="ABCDE" />
 		
-		<title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
+		<title>EJC - Par√≥quia S√£o Crist√≥v√£o</title>
     </head>
     <body>
 		<div id="carrossel">
@@ -48,10 +49,10 @@
 
 
 				
-				<center><h3>LocalizaÁ„o da ParÛquia e das Comunidades</h3></center><br>		
+				<center><h3>Localiza√ß√£o da Par√≥quia e das Comunidades</h3></center><br>		
 				<richui:map lat="-7.22702" lng="-35.89919" zoomLevel="15"
-					markers="${[[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>ParÛquia S„o Cristov„o</b>
-					<br>Rua Delmiro Gouveia - S„o JosÈ<br>Campina Grande - PB, 58107-735<br>(0xx)83 3341-5584'],
+					markers="${[[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>Par√≥quia S√£o Cristov√£o</b>
+					<br>Rua Delmiro Gouveia - S√£o Jos√©<br>Campina Grande - PB, 58107-735<br>(0xx)83 3341-5584'],
 					[latitude: -7.22925, longitude: -35.90451, draggable: false, 
 					description: '<b>Comunidade Nossa Senhora Aparecida</b>']]}"
 				/>
@@ -66,7 +67,7 @@
 						</g:if>	
 					</g:each>
 					<br/>
-					<p align="right"><g:link controller="noticia" action="list">Clique aqui</g:link> para ver todas as notÌcias cadastradas</p>
+					<p align="right"><g:link controller="noticia" action="list">Clique aqui</g:link> para ver todas as not√≠cias cadastradas</p>
 				</div>				
 				
 			</div>

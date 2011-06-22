@@ -17,7 +17,7 @@ class NoticiaController {
 
     def create = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -28,14 +28,14 @@ class NoticiaController {
 
     def save = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
         def noticiaInstance = new Noticia(params)
 
 		if (noticiaInstance.noticiaPrincipal == true && existeNoticiaPrincipal(noticiaInstance)) {
-			flash.message = "J· existe uma NotÌcia cadastrada para ser visualizada na p·gina inicial!"
+			flash.message = "J√° existe uma Not√≠cia cadastrada para ser visualizada na p√°gina inicial!"
 			render(view: "create", model: [noticiaInstance: noticiaInstance])
 			return					
 		}
@@ -62,7 +62,7 @@ class NoticiaController {
 
     def edit = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -78,7 +78,7 @@ class NoticiaController {
 
     def update = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -97,7 +97,7 @@ class NoticiaController {
             noticiaInstance.properties = params
 
 			if (noticiaInstance.noticiaPrincipal == true && existeNoticiaPrincipal(noticiaInstance)) {
-				flash.message = "J· existe uma NotÌcia cadastrada para ser visualizada na p·gina inicial!"
+				flash.message = "J√° existe uma Not√≠cia cadastrada para ser visualizada na p√°gina inicial!"
 				render(view: "edit", model: [noticiaInstance: noticiaInstance])
 				return					
 			}	
@@ -118,7 +118,7 @@ class NoticiaController {
 
     def delete = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	

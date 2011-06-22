@@ -1,6 +1,6 @@
 package les.ejc
 
-class DetalhesEquipeEncontroTests extends functionaltestplugin.FunctionalTestCase {
+class DetalhesEquipesEncontroTests extends functionaltestplugin.FunctionalTestCase {
   
 	private String defaultLocation = "http://localhost:8080/les-ejc/encontro/show/1"
 	

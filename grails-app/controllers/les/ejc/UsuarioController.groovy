@@ -82,7 +82,7 @@ def senderService
 	
     def index = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -107,18 +107,18 @@ def senderService
         usuarioInstance.save()
 	if (usuarioInstance.email != null) {		
                 if (usuarioInstance.login == null) { usuarioInstance.login = usuarioInstance.email }
-                String mensagem = "VocÍ foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${orig}\n" + 
-			  "Aconselhamos que ao logar no sistema, vocÍ modifique sua senha!\nAbraÁos,"
-		senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - ParÛquia de S„o CristÛv„o", mensagem)
+                String mensagem = "Voc√™ foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${orig}\n" + 
+			  "Aconselhamos que ao logar no sistema, voc√™ modifique sua senha!\nAbra√ßos,"
+		senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Par√≥quia de S√£o Crist√≥v√£o", mensagem)
 	}
-        flash.message = "Enviado Login e Senha para ${usuarioInstance.email} (Usu·rio Ativo)"
+        flash.message = "Enviado Login e Senha para ${usuarioInstance.email} (Usu√°rio Ativo)"
         redirect(action: 'list')
     }
 
 
     def listNotAtivado = {
         if (!session.user) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
             redirect(controller: 'app', action: 'login')
             return
         }  
@@ -129,7 +129,7 @@ def senderService
 
     def emailNotEnviado = {
          if (!session.user) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
             redirect(controller: 'app', action: 'login')
             return
         }  
@@ -140,7 +140,7 @@ def senderService
 
     def list = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -148,7 +148,7 @@ def senderService
 	
 	def listJovem = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -158,7 +158,7 @@ def senderService
 	
 	def listCasal = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -168,7 +168,7 @@ def senderService
 	
 	def listPadre = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -179,7 +179,7 @@ def senderService
 	/*
 	def list = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -191,11 +191,11 @@ def senderService
     def create = {
 		//println("Params: " + params)
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		} else if (!session.user?.j5Atual) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -206,7 +206,7 @@ def senderService
 
     def save = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -221,9 +221,9 @@ def senderService
 		
 			//envia email notificando login e senha
 			if (usuarioInstance.email != null) {
-				//String mensagem = "VocÍ foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${senhaNaoCriptografada}\n" + 
-				//				  "Aconselhamos que ao logar no sistema, vocÍ modifique sua senha!\nAbraÁos,"
-				//senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - ParÛquia de S„o CristÛv„o", mensagem)
+				//String mensagem = "Voc√™ foi cadastrado(a) no sistema\n\nlogin: ${usuarioInstance.login}\nsenha: ${senhaNaoCriptografada}\n" + 
+				//				  "Aconselhamos que ao logar no sistema, voc√™ modifique sua senha!\nAbra√ßos,"
+				//senderService.enviaEmail(usuarioInstance.email, "Bem Vindo ao Sistema do EJC - Par√≥quia de S√£o Crist√≥v√£o", mensagem)
             }
 			
 			usuarioInstance.senha = new String(usuarioInstance.senha.encodeAsMD5Hex())
@@ -237,7 +237,7 @@ def senderService
 
     def show = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -254,7 +254,7 @@ def senderService
 	
 	def perfil = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -271,13 +271,13 @@ def senderService
 
     def edit = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
 		else if (!session.user?.j5Atual) {
 			if (params.id.toLong() != session.user.id) {
-                        	flash.message = "Permiss„o Negada"
+                        	flash.message = "Permiss√£o Negada"
 				redirect(controller: 'app', action:'login')
 				return
 			}
@@ -294,7 +294,7 @@ def senderService
 
     def update = {
 		if (!session.user) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -336,7 +336,7 @@ def senderService
 
     def delete = {
 		if (!session.user || !session.user?.j5Atual) {
-                        flash.message = "Permiss„o Negada"
+                        flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
