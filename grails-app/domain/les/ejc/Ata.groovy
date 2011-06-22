@@ -1,4 +1,4 @@
-package les.ejc
+﻿package les.ejc
 
 class Ata {
 
@@ -19,6 +19,6 @@ class Ata {
     }
 
 	String toString() {
-		return "Ata da reuni�o do dia: ${data}"
+		return "Ata da reunião do dia: ${data}"
 	}
 }

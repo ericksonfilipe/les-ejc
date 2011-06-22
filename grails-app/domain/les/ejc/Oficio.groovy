@@ -21,18 +21,18 @@ class Oficio {
 	Date data
 
     static constraints = {
-		nomeRemetente(blank:false, size:2..100, matches:'([a-zA-Z]|È|…|·|¡|Û|”|„|√|¸|‹|Á|«|Ù|‘| |)+')
-		estadoCivilRemetente(inList:["Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Vi˙vo(a)"])
-		profissaoRemetente(blank:false, size:2..100, matches:'([a-zA-Z]|È|…|·|¡|Û|”|„|√|¸|‹|Á|«|Ù|‘| |)+')
+		nomeRemetente(blank:false, size:2..100, matches:'([a-zA-Z]|√©|√â|√°|√Å|√≥|√ì|√£|√É|√º|√ú|√ß|√á|√¥|√î| |)+')
+		estadoCivilRemetente(inList:["Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Vi√∫vo(a)"])
+		profissaoRemetente(blank:false, size:2..100, matches:'([a-zA-Z]||√©|√â|√°|√Å|√≥|√ì|√£|√É|√º|√ú|√ß|√á|√¥|√î| |)+')
 		enderecoRemetente(blank:false, size:2..200)
 		
-		nomeDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]|È|…|·|¡|Û|”|„|√|¸|‹|Á|«|Ù|‘| |)+')
-		cargoDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]|È|…|·|¡|Û|”|„|√|¸|‹|Á|«|Ù|‘| |)+')
+		nomeDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]|√©|√â|√°|√Å|√≥|√ì|√£|√É|√º|√ú|√ß|√á|√¥|√î| |)+')
+		cargoDestinatario(blank:false, size:2..100, matches:'([a-zA-Z]|√©|√â|√°|√Å|√≥|√ì|√£|√É|√º|√ú|√ß|√á|√¥|√î| |)+')
 		empresaDestinatario(blank:false, size:2..100)
 		
 		solicitacao(blank:false, size:2..500)
 		objetivoSolicitacao(blank:false, size:2..500)
-		local(blank:false, size:2..100, matches:'([a-zA-Z]|È|…|·|¡|Û|”|„|√|¸|‹|Á|«|Ù|‘| |)+')
+		local(blank:false, size:2..100, matches:'([a-zA-Z]|√©|√â|√°|√Å|√≥|√ì|√£|√É|√º|√ú|√ß|√á|√¥|√î| |)+')
     }
 	
     public getOficio() {

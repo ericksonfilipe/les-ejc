@@ -1,7 +1,7 @@
-<html>
+﻿<html>
 
     <head>
-		<meta http-equiv="Content-Type" content="text/html" />
+		<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8" />
         <meta name="layout" content="main" />
 		<resource:carousel />
 		<title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>

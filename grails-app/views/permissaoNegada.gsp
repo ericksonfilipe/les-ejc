@@ -1,6 +1,6 @@
-<html>
+﻿<html>
   <head>
-	  <title>Permiss&atilde;o Negada</title>
+	  <title>Permissão Negada</title>
   </head>
 
   <body>

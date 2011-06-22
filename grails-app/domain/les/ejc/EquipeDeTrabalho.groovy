@@ -65,7 +65,7 @@ class EquipeDeTrabalho {
     }
 	
 	/**
-	Atualiza dados dos usu·rios desta equipe em relaÁ„o a equipes coordenadas e que participou
+	Atualiza dados dos usu√°rios desta equipe em rela√ß√£o a equipes coordenadas e que participou
 	*/
 	public atualizaDadosDosUsuariosDestaEquipe() {
 		atualizaDadosDeCoordenador(jovemCoordenador1)

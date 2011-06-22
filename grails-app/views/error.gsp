@@ -1,4 +1,4 @@
-<html>
+﻿<html>
   <head>
 	  <title>Grails Runtime Exception</title>
 	  <style type="text/css">

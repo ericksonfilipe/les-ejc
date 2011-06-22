@@ -6,7 +6,7 @@ class ReflexaoController {
 
     def index = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -15,7 +15,7 @@ class ReflexaoController {
 
     def list = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -25,7 +25,7 @@ class ReflexaoController {
 
     def create = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -36,7 +36,7 @@ class ReflexaoController {
 
     def save = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -52,7 +52,7 @@ class ReflexaoController {
 
     def show = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -68,7 +68,7 @@ class ReflexaoController {
 
     def edit = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -84,7 +84,7 @@ class ReflexaoController {
 
     def update = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	
@@ -116,7 +116,7 @@ class ReflexaoController {
 
     def delete = {
 		if (!session.user?.j5Atual) {
-            flash.message = "Permiss„o Negada"
+            flash.message = "Permiss√£o Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}	

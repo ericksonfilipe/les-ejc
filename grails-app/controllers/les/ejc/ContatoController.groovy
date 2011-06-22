@@ -10,7 +10,7 @@ class ContatoController {
 
 	def contatenos = {
 		if (params.mensagem == null || params.email == null || params.mensagem == "" || params.email == "") {
-			flash.message = "Você precisa preencher os campos abaixo!"
+			flash.message = "VocÃª precisa preencher os campos abaixo!"
 			redirect(controller: "contato", action:"index")
 		} else if (params.mensagem.size() < 15) {
 			flash.message = "A mensagem precisa ter pelo menos 15 caracteres!"
