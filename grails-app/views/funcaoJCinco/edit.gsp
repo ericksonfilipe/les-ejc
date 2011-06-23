@@ -10,7 +10,7 @@
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h2>Editar Função J5</h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -28,16 +28,16 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="dataInicio"><g:message code="funcaoJCinco.dataInicio.label" default="Data Inicio" /></label>
+                                  <label for="dataInicio"><g:message code="funcaoJCinco.dataInicio.label" default="Data de Início" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: funcaoJCincoInstance, field: 'dataInicio', 'errors')}">
-                                    <g:datePicker name="dataInicio" precision="day" value="${funcaoJCincoInstance?.dataInicio}"  />
+                                    <g:datePicker name="dataInicio" precision="month" value="${funcaoJCincoInstance?.dataInicio}"  />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="funcao"><g:message code="funcaoJCinco.funcao.label" default="Funcao" /></label>
+                                  <label for="funcao"><g:message code="funcaoJCinco.funcao.label" default="Função" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: funcaoJCincoInstance, field: 'funcao', 'errors')}">
                                     <g:select name="funcao" from="${les.ejc.FuncaoJCinco$EnumFuncao?.values()}" keys="${les.ejc.FuncaoJCinco$EnumFuncao?.values()*.name()}" value="${funcaoJCincoInstance?.funcao?.name()}"  />
@@ -46,10 +46,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="dataFim"><g:message code="funcaoJCinco.dataFim.label" default="Data Fim" /></label>
+                                  <label for="dataFim"><g:message code="funcaoJCinco.dataFim.label" default="Data de Término" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: funcaoJCincoInstance, field: 'dataFim', 'errors')}">
-                                    <g:datePicker name="dataFim" precision="day" value="${funcaoJCincoInstance?.dataFim}" default="none" noSelection="['': '']" />
+                                    <g:datePicker name="dataFim" precision="month" value="${funcaoJCincoInstance?.dataFim}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
                         
