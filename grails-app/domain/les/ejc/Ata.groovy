@@ -1,4 +1,4 @@
-﻿package les.ejc
+package les.ejc
 
 class Ata {
 

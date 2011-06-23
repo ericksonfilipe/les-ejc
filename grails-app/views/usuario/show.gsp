@@ -19,6 +19,12 @@
 	    <div class="dialog">
 			<table>
 				<tbody>
+				
+					<tr class="prop">
+						<td valign="top" class="name"><g:message code="usuario.tipo.label" default="Tipo" /></td>
+						<td valign="top" class="value">${usuarioInstance?.tipo?.encodeAsHTML()}</td>
+					</tr>				
+				
 					<tr class="prop">
 						<td valign="top" class="name"><g:message code="usuario.nomeCompleto.label" default="Nome Completo" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto")}</td>
@@ -27,7 +33,7 @@
 								
 					<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
 						<tr class="prop">
-							<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></td>
+							<td valign="top" class="name"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo (Marido/Mulher)" /></td>
 							<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "nomeCompleto2")}</td>
 						</tr>
 					</g:if>
@@ -38,29 +44,29 @@
 					</tr>
 					
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></td>
+						<td valign="top" class="name"><g:message code="usuario.dataDeNascimento.label" default="Data de Nascimento" /></td>
 						<td valign="top" class="value"><g:formatDate format="dd/MM/yyyy" date="${usuarioInstance?.dataDeNascimento}" /></td>
 					</tr>
 
 					<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
 						<tr class="prop">
-							<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></td>
+							<td valign="top" class="name"><g:message code="usuario.dataDeNascimento2.label" default="Data de Nascimento (Marido/Mulher)" /></td>
 							<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
 						</tr>
 					</g:if>
 					
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefone1" /></td>
+						<td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefones" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone1")}</td>
 					</tr>
 					
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.telefone2.label" default="Telefone2" /></td>
+						<td valign="top" class="name"><g:message code="usuario.telefone2.label" default="" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone2")}</td>
 					</tr>
 					
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.telefone3.label" default="Telefone3" /></td>
+						<td valign="top" class="name"><g:message code="usuario.telefone3.label" default="" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "telefone3")}</td>
 					</tr>
 					
@@ -71,7 +77,7 @@
 								
 					<g:if test="${usuarioInstance?.tipo == Tipo.Casal}">
 						<tr class="prop">
-							<td valign="top" class="name"><g:message code="usuario.email2.label" default="Email(Marido/Casal)" /></td>
+							<td valign="top" class="name"><g:message code="usuario.email2.label" default="Email (Marido/Mulher)" /></td>
 							<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "email2")}</td>
 						</tr>
 					</g:if>
@@ -99,7 +105,7 @@
 					</g:if>
 					
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.paroquia.label" default="Paroquia" /></td>
+						<td valign="top" class="name"><g:message code="usuario.paroquia.label" default="Paróquia" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "paroquia")}</td>
 					</tr>
 								
@@ -119,13 +125,6 @@
 						<td valign="top" class="name"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em Outras Paróquias" /></td>
 						<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "equipesTrabalhadas")}</td>
 					</tr>
-					
-					<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
-						<tr class="prop">
-							<td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observacoes" /></td>
-							<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
-						</tr>
-					</g:if>
 								
 					<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
 						<tr class="prop">
@@ -135,45 +134,33 @@
 					</g:if>
 					
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></td>
-						<td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.j5Atual}" /></td>
+						<td valign="top" class="name"><g:message code="usuario.foiJ5.label" default="Foi membro do J5?" /></td>
+						<td><g:if test="${usuarioInstance?.foiJ5}">Sim</g:if><g:else>Não</g:else></td>
 					</tr>
-					
+
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.foiJ5.label" default="Foi J5" /></td>
-						<td valign="top" class="value"><g:formatBoolean boolean="${usuarioInstance?.foiJ5}" /></td>
+						<td valign="top" class="name"><g:message code="usuario.j5Atual.label" default="É membro atual do J5?" /></td>
+						<td><g:if test="${usuarioInstance?.j5Atual}">Sim</g:if><g:else>Não</g:else></td>
 					</tr>
 					
-					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.atas.label" default="Atas" /></td>
-						<td valign="top" style="text-align: left;" class="value">
-							<ul>
-								<g:each in="${usuarioInstance.atas}" var="a">
-									<li><g:link controller="ata" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
-								</g:each>
-							</ul>
-						</td>
-					</tr>
-					
-					<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+					<g:if test="${usuarioInstance?.foiJ5 || usuarioInstance?.j5Atual}">
 						<tr class="prop">
-							<td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
-							<td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
+							<td valign="top" class="name">
+								<label for="funcoes"><g:message code="usuario.funcoes.label" default="Funções assumidas como J5" /></label>
+							</td>
+							<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'funcoes', 'errors')}">
+								<ul>
+									<g:each in="${usuarioInstance?.funcoes?}" var="c">
+										<li><g:link controller="funcaoJCinco" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+									</g:each>
+								</ul>
+								<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${"Adicionar Função J5"}</g:link>
+								</td>
 						</tr>
 					</g:if>
-					
+
 					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.tipo.label" default="Tipo" /></td>
-						<td valign="top" class="value">${usuarioInstance?.tipo?.encodeAsHTML()}</td>
-					</tr>
-					
-					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.tipo.label" default="E-Mail Enviado" /></td>
-						<td valign="top" class="value">${usuarioInstance?.emailEnviado}</td>
-					</tr>
-								
-					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
+						<td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereço" /></td>
 						<td>
 							<g:if test="${usuarioInstance?.endereco != null}">
 								<g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
@@ -182,22 +169,27 @@
 								<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
 							</g:else>
 						</td>
-					</tr>						
-				
-					<g:if test="${usuarioInstance?.foiJ5 || usuarioInstance?.j5Atual}">
+					</tr>	
+					
+					<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
 						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="funcoes"><g:message code="usuario.funcoes.label" default="Funcoes" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'funcoes', 'errors')}">
-							
-							<ul>
-								<g:each in="${usuarioInstance?.funcoes?}" var="c">
-									<li><g:link controller="funcaoJCinco" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-								</g:each>
-							</ul>
+							<td valign="top" class="name"><g:message code="usuario.status.label" default="Status" /></td>
+							<td valign="top" class="value">${usuarioInstance?.status?.encodeAsHTML()}</td>
 						</tr>
 					</g:if>
+										
+					<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
+						<tr class="prop">
+							<td valign="top" class="name"><g:message code="usuario.observacoes.label" default="Observações" /></td>
+							<td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "observacoes")}</td>
+						</tr>
+					</g:if>
+								
+					<tr class="prop">
+						<td valign="top" class="name"><g:message code="usuario.tipo.label" default="Email Enviado" /></td>
+						<td><g:if test="${usuarioInstance?.emailEnviado}">Sim</g:if><g:else>Não</g:else></td>
+					</tr>
+
 				</tbody>
 			</table>
 	    </div>

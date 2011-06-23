@@ -68,7 +68,7 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></label>
+                                  <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data de Nascimento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento', 'errors')}">
                                     <richui:dateChooser name="dataDeNascimento" format="dd.MM.yyyy" value="${usuarioInstance?.dataDeNascimento?.getTime()}" locale="en" firstDayOfWeek="Mo" />
@@ -78,7 +78,7 @@
 							<g:if test="${usuarioInstance?.tipo == Tipo.Casal || session?.user?.j5Atual}">
 								<tr class="prop">
 									<td valign="top" class="name">
-									  <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento (Marido/Mulher)" /></label>
+									  <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data de Nascimento (Marido/Mulher)" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento2', 'errors')}">
 										<richui:dateChooser name="dataDeNascimento2" format="dd.MM.yyyy" value="${usuarioInstance?.dataDeNascimento2?.getTime()}" locale="en" firstDayOfWeek="Mo" />
@@ -89,7 +89,7 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="telefone1"><g:message code="usuario.telefone1.label" default="Telefone1" /></label>
+                                  <label for="telefone1"><g:message code="usuario.telefone1.label" default="Telefones" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone1', 'errors')}">
                                     <g:textField name="telefone1" maxlength="13" value="${usuarioInstance?.telefone1}" />
@@ -97,18 +97,14 @@
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="telefone2"><g:message code="usuario.telefone2.label" default="Telefone2" /></label>
-                                </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone2', 'errors')}">
                                     <g:textField name="telefone2" maxlength="13" value="${usuarioInstance?.telefone2}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="telefone3"><g:message code="usuario.telefone3.label" default="Telefone3" /></label>
-                                </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone3', 'errors')}">
                                     <g:textField name="telefone3" maxlength="13" value="${usuarioInstance?.telefone3}" />
                                 </td>
@@ -158,25 +154,26 @@
 								<td valign="top" class="name">
 								  <label for="ficha"><g:message code="usuario.ficha.label" default="Ficha" /></label>
 								</td>
+							
 								
 								<td valign="top" class="value">
 									<g:if test="${usuarioInstance.ficha}">
 										<g:link controller='pdf' action='renderPDF' id='${usuarioInstance.id}'> download </g:link>
 									</g:if>
+									<g:else>
+										[Ficha de Inscrição ainda não cadastrada]
+									</g:else>
+									<br/>
+									<g:if test="${session?.user?.j5Atual}">
+										<input type="file" id="ficha" name="ficha" />
+									</g:if>	
 								</td>
 							</tr>
 							
-							<g:if test="${session?.user?.j5Atual}">
-								<tr class="prop">
-									<td valign="top" class="name">
-										<input type="file" id="ficha" name="ficha" />
-									</td>
-								</tr>
-							</g:if>
 							
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="paroquia"><g:message code="usuario.paroquia.label" default="Paroquia" /></label>
+                                  <label for="paroquia"><g:message code="usuario.paroquia.label" default="Paróquia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'paroquia', 'errors')}">
                                     <g:textField name="paroquia" value="${usuarioInstance?.paroquia}" />
@@ -188,7 +185,7 @@
                                   <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em São Cristóvão" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
-                                  [informação preenchida automaticamente, a partir da inserção dos encontreiros nos encontros]
+                                  [Informação preenchida automaticamente pelo sistema; visualizada em Perfil]
                                 </td>
                             </tr>
 							
@@ -197,7 +194,7 @@
                                   <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em Outras Paróquias" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
-                                    [informe a equipe e a paróquia; também informe caso tenha coordenado]<br />
+                                    Informe a Equipe e a Paróquia (também informe caso tenha coordenado)<br />
 									<g:textArea name="equipesTrabalhadas" value="${usuarioInstance?.equipesTrabalhadas}" />
 									<br />[ex.: Lanchinho (3º EJC Catedral) - coordenador]
                                 </td>
@@ -206,52 +203,28 @@
 							<g:if test="${session?.user?.j5Atual}">
 								<tr class="prop">
 									<td valign="top" class="name">
-									  <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></label>
+									  <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="É membro atual do J5?" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'j5Atual', 'errors')}">
-										<g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" />
+										<g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" /> (marque caso positivo)
 									</td>
 								</tr>
 							</g:if>
 
 							<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="foiJ5"><g:message code="usuario.foiJ5.label" default="Foi J5" /></label>
+                                    <label for="foiJ5"><g:message code="usuario.foiJ5.label" default="Foi membro do J5?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foiJ5', 'errors')}">
-                                    <g:checkBox name="foiJ5" value="${usuarioInstance?.foiJ5}" />
+                                    <g:checkBox name="foiJ5" value="${usuarioInstance?.foiJ5}" /> (marque caso positivo)
                                 </td>
                             </tr>
-							
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="atas"><g:message code="usuario.atas.label" default="Atas" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'atas', 'errors')}">
-                                    
-                                </td>
-                            </tr>
-                        
 
-
-							
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereco" /></td>
-
-                            <td>
-								<g:if test="${usuarioInstance?.endereco != null}">
-									<g:link controller="endereco" action="edit" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
-								</g:if>
-								<g:else>
-									<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
-								</g:else>
-							</td>
-						</tr>	
                         
 						<g:if test="${usuarioInstance?.foiJ5 || usuarioInstance?.j5Atual}">
 							<tr class="prop">
 								<td valign="top" class="name">
-									<label for="funcoes"><g:message code="usuario.funcoes.label" default="Funcoes" /></label>
+									<label for="funcoes"><g:message code="usuario.funcoes.label" default="Funções assumidas como J5" /></label>
 								</td>
 								<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'funcoes', 'errors')}">
 									<ul>
@@ -259,7 +232,7 @@
 											<li><g:link controller="funcaoJCinco" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
 										</g:each>
 									</ul>
-									<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'funcoes.label', default: 'Funcoes')])}</g:link>
+									<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${"Adicionar Função J5"}</g:link>
 								</td>
 							</tr>
 						</g:if>
@@ -287,12 +260,27 @@
 						</g:if>						
 						
 						
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereço" /></td>
+
+                            <td>
+								<g:if test="${usuarioInstance?.endereco != null}">
+									<g:link controller="endereco" action="edit" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
+								</g:if>
+								<g:else>
+									<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${"Adicionar Endereço"}</g:link>
+								</g:else>
+							</td>
+						</tr>							
+						
                         </tbody>
                     </table>
                 </div>
                 <div class="buttons">
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                    <g:if test="${session?.user?.j5Atual}">
+						<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+					</g:if>
                 </div>
             </g:form>
         </div>
