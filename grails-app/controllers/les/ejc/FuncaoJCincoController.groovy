@@ -5,15 +5,30 @@ class FuncaoJCincoController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
         redirect(action: "list", params: params)
     }
 
     def list = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [funcaoJCincoInstanceList: FuncaoJCinco.list(params), funcaoJCincoInstanceTotal: FuncaoJCinco.count()]
     }
 
     def create = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def funcaoJCincoInstance = new FuncaoJCinco()
         funcaoJCincoInstance.properties = params
         return [funcaoJCincoInstance: funcaoJCincoInstance]
@@ -31,6 +46,11 @@ class FuncaoJCincoController {
     }
 
     def show = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def funcaoJCincoInstance = FuncaoJCinco.get(params.id)
         if (!funcaoJCincoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'funcaoJCinco.label', default: 'FuncaoJCinco'), params.id])}"
@@ -42,6 +62,11 @@ class FuncaoJCincoController {
     }
 
     def edit = {
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}	
         def funcaoJCincoInstance = FuncaoJCinco.get(params.id)
         if (!funcaoJCincoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'funcaoJCinco.label', default: 'FuncaoJCinco'), params.id])}"

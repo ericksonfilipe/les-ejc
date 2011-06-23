@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h2>Mostrar  Função J5</h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -18,30 +18,23 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="funcaoJCinco.id.label" default="Id" /></td>
+                            <td valign="top" class="name"><g:message code="funcaoJCinco.dataInicio.label" default="Data de Início" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: funcaoJCincoInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="funcaoJCinco.dataInicio.label" default="Data Inicio" /></td>
-                            
-                            <td valign="top" class="value"><g:formatDate date="${funcaoJCincoInstance?.dataInicio}" /></td>
+                            <td valign="top" class="value"><g:formatDate format="MMMM 'de' yyyy" date="${funcaoJCincoInstance?.dataInicio}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="funcaoJCinco.funcao.label" default="Funcao" /></td>
+                            <td valign="top" class="name"><g:message code="funcaoJCinco.funcao.label" default="Função" /></td>
                             
                             <td valign="top" class="value">${funcaoJCincoInstance?.funcao?.encodeAsHTML()}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="funcaoJCinco.dataFim.label" default="Data Fim" /></td>
+                            <td valign="top" class="name"><g:message code="funcaoJCinco.dataFim.label" default="Data de Término" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${funcaoJCincoInstance?.dataFim}" /></td>
+                            <td valign="top" class="value"><g:formatDate format="MMMM 'de' yyyy" date="${funcaoJCincoInstance?.dataFim}" /></td>
                             
                         </tr>
                     
