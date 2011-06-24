@@ -32,7 +32,7 @@
                                   <label for="data"><g:message code="evento.data.label" default="Data" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: eventoInstance, field: 'data', 'errors')}">
-                                    <richui:dateChooser name="data" format="dd.MM.yyyy" value="${new Date()}" locale="en" firstDayOfWeek="SU" />
+                                    <richui:dateChooser name="data" format="dd.MM.yyyy" value="${eventoInstance.data}" locale="en" firstDayOfWeek="SU" time="true" hourClass="horaCss" minuteClass="horaCss"/>
                                 </td>
                             </tr>
 							
@@ -53,16 +53,7 @@
                                     <g:textArea name="descricao" cols="40" rows="5" value="${eventoInstance?.descricao}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="horario"><g:message code="evento.horario.label" default="Horario" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: eventoInstance, field: 'horario', 'errors')}">
-                                    <g:textField name="horario" value="${eventoInstance?.horario}" />
-                                </td>
-                            </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="local"><g:message code="evento.local.label" default="Local" /></label>
