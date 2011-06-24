@@ -19,6 +19,8 @@ class FuncaoJCinco {
 	}
 	
 	String toString() {
+		if (funcao == EnumFuncao.PosEncontro) return "Pós Encontro"
+		if (funcao == EnumFuncao.Financas) return "Finanças"
 		return "${funcao}"
 	}
 }
