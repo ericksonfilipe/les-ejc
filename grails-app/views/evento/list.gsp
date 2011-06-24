@@ -2,12 +2,12 @@
 <%@ page import="les.ejc.Evento" %>
 <html>
     <head>
-		<resource:autoComplete skin="default" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+		<resource:autoComplete skin="default" />
 		<resource:accordion skin="default" />
 		<resource:calendarMonthView />
-		<resource:tabView skin="default" />
+		<resource:tabView />
         <g:set var="entityName" value="${message(code: 'evento.label', default: 'Evento')}" />
         <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
     </head>
