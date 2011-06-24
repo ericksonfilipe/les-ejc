@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
-        <title>Usu&aacute;rios</title>
+        <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
 		<style type="text/css" media="screen">
 			.links {
 				text-align: center;

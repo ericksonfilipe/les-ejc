@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'reflexao.label', default: 'Reflexao')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
     </head>
     <body>
         <div class="body">
