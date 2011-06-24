@@ -10,9 +10,14 @@
 		<g:javascript library="prototype" />
 		<g:javascript>
 			function escondeTudo() {
-				document.getElementById('coisa').hide();
-				document.getElementById('coisa1').hide();
-				document.getElementById('coisa2').hide();
+				if ('${usuarioInstance.tipo}' != '${Tipo.Casal}' || document.getElementById('tipo-usuario').value != '${Tipo.Casal}') {
+					document.getElementById('coisa').hide();
+					
+					document.getElementById('coisa1').hide();
+					
+					document.getElementById('coisa2').hide();
+					
+				}
 			}
 			
 			Event.observe(window, 'load', escondeTudo, false);
@@ -23,6 +28,11 @@
 					document.getElementById('coisa1').show();
 					document.getElementById('coisa2').show();
 				} else {
+					document.getElementById('nomeCompleto2').value = "";
+					document.getElementById('dataDeNascimento2_day').value = "selected";
+					document.getElementById('dataDeNascimento2_month').value = "selected";
+					document.getElementById('dataDeNascimento2_year').value = "selected";
+					document.getElementById('email2').value = "";
 					escondeTudo();
 				}
 			
@@ -103,7 +113,7 @@
                                     <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data de Nascimento (Marido/Mulher)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento2', 'errors')}">
-                                    <g:datePicker name="dataDeNascimento" precision="day" value="${usuarioInstance?.dataDeNascimento2}" default="none" noSelection="['': '']" />
+                                    <g:datePicker name="dataDeNascimento2" precision="day" value="${usuarioInstance?.dataDeNascimento2}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
 
