@@ -196,7 +196,7 @@
 										<li><g:link controller="funcaoJCinco" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
 									</g:each>
 								</ul>
-									<g:if test="${session.user?.j5Atual || (session.user?.foiJ5 && (usuarioInstance?.id == session.user?.id))}">
+									<g:if test="${session.user?.j5Atual || (usuarioInstance?.foiJ5 && (usuarioInstance?.id == session.user?.id))}">
 									<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${"Adicionar Função J5"}</g:link>
 									</g:if>									
 								</td>

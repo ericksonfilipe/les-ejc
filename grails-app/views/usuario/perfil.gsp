@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="Perfil de ${usuarioInstance?.encodeAsHTML()}" args="[entityName]" /></h1>
+            <h2><g:message code="Perfil de ${usuarioInstance?.encodeAsHTML()}" args="[entityName]" /></h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
