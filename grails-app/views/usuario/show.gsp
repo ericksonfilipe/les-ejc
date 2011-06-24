@@ -196,7 +196,9 @@
 										<li><g:link controller="funcaoJCinco" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
 									</g:each>
 								</ul>
-								<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${"Adicionar Função J5"}</g:link>
+									<g:if test="${session.user?.j5Atual || (session.user?.foiJ5 && (usuarioInstance?.id == session.user?.id))}">
+									<g:link controller="funcaoJCinco" action="create" params="['usuario.id': usuarioInstance?.id]">${"Adicionar Função J5"}</g:link>
+									</g:if>									
 								</td>
 						</tr>
 					</g:if>
@@ -231,9 +233,9 @@
 					<span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
 					<g:if test="${session?.user?.j5Atual}">
 						<span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-					</g:if>
-					<g:if test="${usuarioInstance?.status == Status.Ativo && usuarioInstance?.email != null}">
+						<g:if test="${usuarioInstance?.status == Status.Ativo && usuarioInstance?.email != null}">
 						<span class="button"><g:actionSubmit class="edit" action="enviarLoginESenha" value="Enviar Login/Senha por E-mail" /></span>
+						</g:if>
 					</g:if>
 				</g:form>
 			</div>

@@ -9,7 +9,7 @@
     </head>
     <body>
         <div id="pageBody">
-            <h2>Mostrar  Função J5</h2>
+            <h2>Mostrar Função J5</h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -41,6 +41,8 @@
                     </tbody>
                 </table>
             </div>
+
+			<g:if test="${session.user?.j5Atual || (session.user?.foiJ5 && (funcaoJCincoInstance?.usuario?.id == session.user?.id))}">
             <div class="buttons">
                 <g:form>
                     <g:hiddenField name="id" value="${funcaoJCincoInstance?.id}" />
@@ -48,6 +50,8 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>
+			</g:if>
+			
 			<div class="buttons">
 					<table><td>
 					<span class="button"><g:link controller="usuario" action="show" id="${funcaoJCincoInstance?.usuario?.id}">Voltar para o Usuario: ${funcaoJCincoInstance?.usuario?.encodeAsHTML()}</g:link></span>

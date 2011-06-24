@@ -24,11 +24,18 @@ class FuncaoJCincoController {
     }
 
     def create = {
-		if (!session.user?.j5Atual) {
-            flash.message = "Permissão Negada"
+		if (!session.user?.j5Atual && !session.user?.foiJ5) {
+			flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
-		}	
+		}
+		if (session.user?.foiJ5) {
+			if (params.usuario?.id?.toLong() != session.user?.id) {
+                flash.message = "Permissão Negada"
+				redirect(controller: 'app', action:'login')
+				return
+			}
+		}			
         def funcaoJCincoInstance = new FuncaoJCinco()
         funcaoJCincoInstance.properties = params
         return [funcaoJCincoInstance: funcaoJCincoInstance]
@@ -46,7 +53,7 @@ class FuncaoJCincoController {
     }
 
     def show = {
-		if (!session.user?.j5Atual) {
+		if (!session.user) {
             flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
@@ -62,12 +69,22 @@ class FuncaoJCincoController {
     }
 
     def edit = {
-		if (!session.user?.j5Atual) {
+		if (!session.user?.j5Atual && !session.user?.foiJ5) {
             flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
-		}	
+		}
+		
         def funcaoJCincoInstance = FuncaoJCinco.get(params.id)
+		
+		if (session.user?.foiJ5) {
+			if (funcaoJCincoInstance?.usuario?.id != session.user?.id) {
+                flash.message = "Permissão Negada"
+				redirect(controller: 'app', action:'login')
+				return
+			}
+		}	
+		
         if (!funcaoJCincoInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'funcaoJCinco.label', default: 'FuncaoJCinco'), params.id])}"
             redirect(action: "list")

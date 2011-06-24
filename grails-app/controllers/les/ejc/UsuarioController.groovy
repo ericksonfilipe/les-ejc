@@ -140,7 +140,7 @@ def senderService
 
     def list = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -148,7 +148,7 @@ def senderService
 	
 	def listJovem = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -158,7 +158,7 @@ def senderService
 	
 	def listCasal = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -168,7 +168,7 @@ def senderService
 	
 	def listPadre = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -179,7 +179,7 @@ def senderService
 	/*
 	def list = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -190,12 +190,8 @@ def senderService
 
     def create = {
 		//println("Params: " + params)
-		if (!session.user) {
-                        flash.message = "Permissão Negada"
-			redirect(controller: 'app', action:'login')
-			return
-		} else if (!session.user?.j5Atual) {
-                        flash.message = "Permissão Negada"
+		if (!session.user?.j5Atual) {
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -206,7 +202,7 @@ def senderService
 
     def save = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -237,7 +233,7 @@ def senderService
 
     def show = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -254,7 +250,7 @@ def senderService
 	
 	def perfil = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -270,14 +266,9 @@ def senderService
     }
 
     def edit = {
-		if (!session.user) {
-                        flash.message = "Permissão Negada"
-			redirect(controller: 'app', action:'login')
-			return
-		}
-		else if (!session.user?.j5Atual) {
+		if (!session.user?.j5Atual) {
 			if (params.id.toLong() != session.user.id) {
-                        	flash.message = "Permissão Negada"
+                flash.message = "Permissão Negada"
 				redirect(controller: 'app', action:'login')
 				return
 			}
@@ -294,7 +285,7 @@ def senderService
 
     def update = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
@@ -336,7 +327,7 @@ def senderService
 
     def delete = {
 		if (!session.user || !session.user?.j5Atual) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}
