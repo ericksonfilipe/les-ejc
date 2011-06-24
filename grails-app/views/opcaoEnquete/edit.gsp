@@ -6,11 +6,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'opcaoEnquete.label', default: 'OpcaoEnquete')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
     </head>
     <body>
         <div id="pageBody">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h2>Editar Opção de Enquete</h2>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>

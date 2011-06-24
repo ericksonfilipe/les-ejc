@@ -7,12 +7,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'encontro.label', default: 'Encontro')}" />
-        <title>Adicionar Encontro</title>
+        <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
 		<resource:dateChooser />
     </head>
     <body>
 		<div id="pageBody">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h2>Criar Encontro</h2>
             <g:if test="${flash.message}">
 				<div class="message">${flash.message}</div>
             </g:if>

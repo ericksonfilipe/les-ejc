@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'oficio.label', default: 'Oficio')}" />
-        <title>Of&iacute;cios</title>
+        <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
 		<g:javascript library="prototype" />
 		<g:javascript>
 			function exibe(id) {

@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'ata.label', default: 'Ata')}" />
-        <title>Dados da Ata</title>
+        <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
     </head>
     <body>
         <div id="pageBody">
