@@ -50,7 +50,7 @@ class EncontroController {
 
     def index = {
 		if (!session.user) {
-                        flash.message = "Permissão Negada"
+            flash.message = "Permissão Negada"
 			redirect(controller: 'app', action:'login')
 			return
 		}

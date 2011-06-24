@@ -5,7 +5,7 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'usuario.label', default: 'Usuario')}" />
         <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
-		<resource:dateChooser />
+		
 		<g:javascript library="prototype" />
 		<g:javascript>
 			function escondeTudo() {
@@ -31,7 +31,7 @@
     </head>
     <body onload="escondeTudo()">
         <div id="pageBody">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h2>Adicionar Usuário</h2>
             <g:if test="${flash.message}">
 				<div class="message">${flash.message}</div>
             </g:if>
@@ -65,7 +65,7 @@
 							
 							<tr id="coisa" class="prop">
                                 <td valign="top" class="name">
-                                    <label for="nomeCompleto2"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo(Marido/Mulher)" /></label>
+                                    <label for="nomeCompleto2"><g:message code="usuario.nomeCompleto2.label" default="Nome Completo (Marido/Mulher)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'nomeCompleto2', 'errors')}">
                                     <g:textField name="nomeCompleto2" maxlength="100" value="${usuarioInstance?.nomeCompleto2}" />
@@ -83,25 +83,80 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data De Nascimento" /></label>
+                                    <label for="dataDeNascimento"><g:message code="usuario.dataDeNascimento.label" default="Data de Nascimento" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento', 'errors')}">
-                                    <richui:dateChooser name="dataDeNascimento" format="dd.MM.yyyy" locale="en" firstDayOfWeek="Mo" />
+                                    <g:datePicker name="dataDeNascimento" precision="day" value="${usuarioInstance?.dataDeNascimento}" default="none" noSelection="['': '']" />
+									
                                 </td>
                             </tr>
 							
 							<tr id="coisa1" class="prop">
                                 <td valign="top" class="name">
-                                    <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data De Nascimento(Marido/Mulher)" /></label>
+                                    <label for="dataDeNascimento2"><g:message code="usuario.dataDeNascimento2.label" default="Data de Nascimento (Marido/Mulher)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'dataDeNascimento2', 'errors')}">
-                                    <richui:dateChooser name="dataDeNascimento2" format="dd.MM.yyyy" locale="en" firstDayOfWeek="Mo" />
+                                    <g:datePicker name="dataDeNascimento" precision="day" value="${usuarioInstance?.dataDeNascimento2}" default="none" noSelection="['': '']" />
                                 </td>
                             </tr>
-                      
+
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="telefone1"><g:message code="usuario.telefone1.label" default="Telefone1" /></label>
+                                    <label for="rua"><g:message code="usuario.rua.label" default="Rua/Avenida" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'rua', 'errors')}">
+                                    <g:textField name="rua" maxlength="100" value="${usuarioInstance?.rua}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="numero"><g:message code="usuario.numero.label" default="Número" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'numero', 'errors')}">
+                                    <g:textField name="numero" value="${fieldValue(bean: usuarioInstance, field: 'numero')}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="complemento"><g:message code="usuario.complemento.label" default="Complemento" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'complemento', 'errors')}">
+                                    <g:textField name="complemento" value="${usuarioInstance?.complemento}" />
+                                </td>
+                            </tr>							
+							
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="bairro"><g:message code="usuario.bairro.label" default="Bairro" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'bairro', 'errors')}">
+                                    <g:textField name="bairro" maxlength="100" value="${usuarioInstance?.bairro}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="cidade"><g:message code="usuario.cidade.label" default="Cidade" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'cidade', 'errors')}">
+                                    <g:textField name="cidade" maxlength="100" value="${usuarioInstance?.cidade}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="estado"><g:message code="usuario.estado.label" default="Estado" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'estado', 'errors')}">
+                                    <g:select name="estado" from="${usuarioInstance.constraints.estado.inList}" value="${usuarioInstance?.estado}" valueMessagePrefix="usuario.estado" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="telefone1"><g:message code="usuario.telefone1.label" default="Telefones" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone1', 'errors')}">
                                     <g:textField name="telefone1" maxlength="13" value="${usuarioInstance?.telefone1}" />
@@ -109,18 +164,14 @@
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="telefone2"><g:message code="usuario.telefone2.label" default="Telefone2" /></label>
-                                </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone2', 'errors')}">
                                     <g:textField name="telefone2" maxlength="13" value="${usuarioInstance?.telefone2}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="telefone3"><g:message code="usuario.telefone3.label" default="Telefone3" /></label>
-                                </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'telefone3', 'errors')}">
                                     <g:textField name="telefone3" maxlength="13" value="${usuarioInstance?.telefone3}" />
                                 </td>
@@ -140,7 +191,7 @@
                                     <label for="email2"><g:message code="usuario.email2.label" default="Email (Marido/Mulher)" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'email2', 'errors')}">
-                                    <g:textField name="email2" value="${usuarioInstance?.email}" />
+                                    <g:textField name="email2" value="${usuarioInstance?.email2}" />
                                 </td>
                             </tr>
                         
@@ -164,7 +215,7 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="paroquia"><g:message code="usuario.paroquia.label" default="Paroquia" /></label>
+                                    <label for="paroquia"><g:message code="usuario.paroquia.label" default="Paróquia" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'paroquia', 'errors')}">
                                     <g:textField name="paroquia" value="${usuarioInstance?.paroquia}" />
@@ -176,7 +227,7 @@
                                   <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em São Cristóvão" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
-                                  [informação preenchida automaticamente, a partir da inserção dos encontreiros nos encontros]
+                                  [Informação preenchida automaticamente, a partir da inserção dos encontreiros nos encontros]
                                 </td>
                             </tr>						
 						
@@ -185,29 +236,27 @@
                                     <label for="equipesTrabalhadas"><g:message code="usuario.equipesTrabalhadas.label" default="Equipes Trabalhadas em Outras Paróquias" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'equipesTrabalhadas', 'errors')}">
-                                    [informe a equipe e a paróquia; também informe caso tenha coordenado]<br />
+                                    Informe a Equipe e a Paróquia (também informe caso tenha coordenado)<br />
 									<g:textArea name="equipesTrabalhadas" value="${usuarioInstance?.equipesTrabalhadas}" />
 									<br/>[ex.: Lanchinho (3º EJC Catedral) - coordenador]
                                 </td>
                             </tr>
                         
-
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="J5 Atual" /></label>
+                                    <label for="j5Atual"><g:message code="usuario.j5Atual.label" default="É membro atual do J5?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'j5Atual', 'errors')}">
-                                    <g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" />
+                                    <g:checkBox name="j5Atual" value="${usuarioInstance?.j5Atual}" /> (marque caso positivo)
                                 </td>
                             </tr>
 							
 							<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="foiJ5"><g:message code="usuario.foiJ5.label" default="Foi J5" /></label>
+                                    <label for="foiJ5"><g:message code="usuario.foiJ5.label" default="Foi membro do J5?" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'foiJ5', 'errors')}">
-                                    <g:checkBox name="foiJ5" value="${usuarioInstance?.foiJ5}" />
+                                    <g:checkBox name="foiJ5" value="${usuarioInstance?.foiJ5}" /> (marque caso positivo)
                                 </td>
                             </tr>
 							
@@ -220,11 +269,9 @@
                                 </td>
                             </tr>
 							
-							
-
 							<tr class="prop">
 									<td valign="top" class="name">
-									  <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observacoes" /></label>
+									  <label for="observacoes"><g:message code="usuario.observacoes.label" default="Observações" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'observacoes', 'errors')}">
 										<g:textArea name="observacoes" value="${usuarioInstance?.observacoes}" />

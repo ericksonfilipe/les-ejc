@@ -54,6 +54,48 @@
 							<td valign="top" class="value"><g:formatDate date="${usuarioInstance?.dataDeNascimento2}" /></td>
 						</tr>
 					</g:if>
+                   
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.rua.label" default="Rua" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "rua")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.bairro.label" default="Bairro" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "bairro")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.cidade.label" default="Cidade" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "cidade")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.estado.label" default="Estado" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "estado")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.complemento.label" default="Complemento" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "complemento")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="usuario.numero.label" default="Numero" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: usuarioInstance, field: "numero")}</td>
+                            
+                        </tr>
 					
 					<tr class="prop">
 						<td valign="top" class="name"><g:message code="usuario.telefone1.label" default="Telefones" /></td>
@@ -158,18 +200,6 @@
 								</td>
 						</tr>
 					</g:if>
-
-					<tr class="prop">
-						<td valign="top" class="name"><g:message code="usuario.endereco.label" default="Endereço" /></td>
-						<td>
-							<g:if test="${usuarioInstance?.endereco != null}">
-								<g:link controller="endereco" action="show" id="${usuarioInstance?.endereco?.id}">${usuarioInstance?.endereco?.encodeAsHTML()}</g:link>
-							</g:if>
-							<g:else>
-								<g:link controller="endereco" action="create" params="['usuario.id': usuarioInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'endereco.label', default: 'Endereco')])}</g:link>
-							</g:else>
-						</td>
-					</tr>	
 					
 					<g:if test="${usuarioInstance.id == session.user.id || session?.user?.j5Atual}">
 						<tr class="prop">
