@@ -30,14 +30,18 @@
                         </tr>
                     </thead>
                     <tbody>
+					${enqueteInstance.usuarioJaVotou(session.user.id)}
+					${session.user.id instanceof Long}
                     <g:each in="${enqueteInstance?.opcoes?}" status="i" var="opcaoEnqueteInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td>${fieldValue(bean: opcaoEnqueteInstance, field: "opcao")}</td>
                             <td>${fieldValue(bean: opcaoEnqueteInstance, field: "votos")}</td>
 							<g:if test="${!opcaoEnqueteInstance.enquete.fechada}">
-								<td>
-									<li><g:link controller="opcaoEnquete" action="votar" id="${opcaoEnqueteInstance.id}">Votar</g:link></li>
-								</td>
+								<g:if test="${!enqueteInstance.usuarioJaVotou(session.user.id)}">
+									<td>
+										<li><g:link controller="opcaoEnquete" action="votar" id="${opcaoEnqueteInstance.id}">Votar</g:link></li>
+									</td>
+								</g:if>
 							</g:if>
                         </tr>
                     </g:each>

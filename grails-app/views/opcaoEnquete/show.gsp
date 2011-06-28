@@ -50,7 +50,7 @@
             </div>
 			<div class="buttons">
 					<table><td>
-					<span class="button"><g:link controller="enquete" action="show" id="${opcaoEnqueteInstance?.enquete?.id}">Voltar para a Enquete: ${opcaoEnqueteInstance?.enquete?.encodeAsHTML()}</g:link></span>
+					<span class="button"><g:link controller="enquete" action="edit" id="${opcaoEnqueteInstance?.enquete?.id}">Voltar para a Enquete: ${opcaoEnqueteInstance?.enquete?.encodeAsHTML()}</g:link></span>
 					</td></table>
 			</div>
         </div>

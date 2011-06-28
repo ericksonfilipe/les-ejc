@@ -14,6 +14,14 @@
 			
 			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver as enquetes cadastradas" args="[entityName]" /></g:link></span>
 			<span class="menuButton"><g:link class="create" action="create"><g:message code="Criar Enquete" args="[entityName]" /></g:link></span>
+			<span class="menuButton"><g:link class="list" action="abrirFecharEnquete" id="${enqueteInstance.id}">
+			<g:if test="${enqueteInstance.fechada}">
+				<g:message code="Abrir Enquete" args="[entityName]" />
+			</g:if>
+			<g:if test="${!enqueteInstance.fechada}">
+				<g:message code="Fechar Enquete" args="[entityName]" />
+			</g:if>
+			</g:link></span>
 			<br/><br/>
 			
             <g:if test="${flash.message}">
@@ -39,16 +47,16 @@
                                     <g:textField name="titulo" value="${enqueteInstance?.titulo}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="fechada"><g:message code="enquete.fechada.label" default="Fechada" /></label>
+							
+							<tr class="prop">
+								<td valign="top" class="name">
+                                    <label for="descricao"><g:message code="enquete.descricao.label" default="Descrição" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: enqueteInstance, field: 'fechada', 'errors')}">
-                                    <g:checkBox name="fechada" value="${enqueteInstance?.fechada}" />
+                                <td valign="top" class="value ${hasErrors(bean: enqueteInstance, field: 'descricao', 'errors')}">
+                                    <g:textField name="descricao" value="${enqueteInstance?.descricao}" />
                                 </td>
                             </tr>
-                        
+							
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="opcoes"><g:message code="enquete.opcoes.label" default="Opcoes" /></label>

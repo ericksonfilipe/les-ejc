@@ -34,6 +34,14 @@
                                 <td valign="top" class="value ${hasErrors(bean: enqueteInstance, field: 'titulo', 'errors')}">
                                     <g:textField name="titulo" value="${enqueteInstance?.titulo}" />
                                 </td>
+							</tr>
+							<tr class="prop">
+								<td valign="top" class="name">
+                                    <label for="descricao"><g:message code="enquete.descricao.label" default="Descrição" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: enqueteInstance, field: 'descricao', 'errors')}">
+                                    <g:textField name="descricao" value="${enqueteInstance?.descricao}" />
+                                </td>
                             </tr>
                         </tbody>
                     </table>
