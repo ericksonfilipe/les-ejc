@@ -1,5 +1,7 @@
 package les.ejc
 
+import les.ejc.Enquete;
+
 class OpcaoEnqueteController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -10,6 +12,10 @@ class OpcaoEnqueteController {
 	
 	def votar = {
 		def opcaoEnqueteInstance = OpcaoEnquete.get(params.id)
+		println opcaoEnqueteInstance.enquete
+		
+		print "votar "
+		opcaoEnqueteInstance.enquete.usuarioVotou(session.user.id)
 		
 		if (opcaoEnqueteInstance) {
 			opcaoEnqueteInstance.computarVotos();

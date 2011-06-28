@@ -8,9 +8,30 @@ class EnqueteController {
         redirect(action: "list", params: params)
     }
 	
-	def votar = {
+	def abrirFecharEnquete = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
+		
 		def enqueteInstance = Enquete.get(params.id)
 		
+		if (enqueteInstance.fechada)
+			enqueteInstance.fechada = false
+		else
+			enqueteInstance.fechada = true
+			
+		redirect(action: "edit", params: params)
+	}
+	
+	def votar = {
+		if (!session.user) {
+                        flash.message = "Permissão Negada"
+			redirect(controller: 'app', action:'login')
+			return
+		}
+		def enqueteInstance = Enquete.get(params.id)
 		if (!enqueteInstance) {
             redirect(action: 'list')
             return

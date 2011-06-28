@@ -33,7 +33,8 @@ class AppController {
 	}
 
 	def logout = {
-		flash.message = "Usuário ${session.user.nomeCompleto} desconectado!"
+		if (session.user)
+			flash.message = "Usuário ${session.user.nomeCompleto} desconectado!"
 		session.user = null
 		redirect(controller:"app", action:"index")
 	}

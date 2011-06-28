@@ -24,12 +24,14 @@
 					<thead>
 						<tr>
 							<g:sortableColumn property="titulo" title="${message(code: 'enquete.titulo.label', default: 'Titulo')}" />
+							<g:sortableColumn property="descricao" title="${message(code: 'enquete.descricao.label', default: 'Descrição')}" />
 						</tr>
 					</thead>
 					<tbody>
 					<g:each in="${enqueteInstanceList}" status="i" var="enqueteInstance">
 						<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 							<td>${fieldValue(bean: enqueteInstance, field: "titulo")}</td>
+							<td>${fieldValue(bean: enqueteInstance, field: "descricao")}</td>
 							<g:if test="${session.user?.j5Atual}">
 								<td><g:form>
 									<g:hiddenField name="id" value="${enqueteInstance?.id}" />
