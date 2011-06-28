@@ -12,6 +12,10 @@
     <body>
         <div id="pageBody">
             <h2>Criar Ofício</h2>
+			
+			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver os oficios cadastrados" args="[entityName]" /></g:link></span>
+			<br/><br/>
+			
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
