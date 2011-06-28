@@ -12,16 +12,14 @@ class OpcaoEnqueteController {
 	
 	def votar = {
 		def opcaoEnqueteInstance = OpcaoEnquete.get(params.id)
-		println opcaoEnqueteInstance.enquete
 		
-		print "votar "
-		opcaoEnqueteInstance.enquete.usuarioVotou(session.user.id)
-		
-		if (opcaoEnqueteInstance) {
+		if (!opcaoEnqueteInstance.enquete.usuarioJaVotou(session.user.id) && opcaoEnqueteInstance) {
+			opcaoEnqueteInstance.enquete.usuarioVotou(session.user.id);
 			opcaoEnqueteInstance.computarVotos();
 			redirect(controller: 'enquete', action:'votar', id: opcaoEnqueteInstance.enquete.id)
 		} else {
-			
+			flash.message = "Voce ja votou nessa enquete!"
+			redirect(controller: 'enquete', action:'votar', id: opcaoEnqueteInstance.enquete.id)
 		}
 	}
 

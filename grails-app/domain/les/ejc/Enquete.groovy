@@ -5,7 +5,7 @@ class Enquete {
     String titulo
 	String descricao
 	boolean fechada = false
-	List<Long> usuariosQueVotaram = new ArrayList<Long>()
+	List usuariosQueVotaram = []
 	
 	static hasMany = [opcoes:OpcaoEnquete]
 	
@@ -19,10 +19,7 @@ class Enquete {
 	}
 	
 	public boolean usuarioJaVotou(Long id) {
-		println usuariosQueVotaram
 		for (i in usuariosQueVotaram) {
-			print "AKE: "
-			println i
 			if (i == id) {
 				return true
 			}
@@ -32,8 +29,6 @@ class Enquete {
 	
 	public void usuarioVotou(Long id) {
 		usuariosQueVotaram.add(id);
-		print "--> "
-		println usuariosQueVotaram
 	}
 	
 	String toString() {

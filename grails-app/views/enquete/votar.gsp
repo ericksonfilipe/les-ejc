@@ -11,9 +11,12 @@
     <body>
         <div id="body">
             <h2>Votar em enquete: ${enqueteInstance?.titulo}</h2>
-			
 			<span class="menuButton"><g:link class="list" action="list"><g:message code="Ver as enquetes cadastradas" args="[entityName]" /></g:link></span>
 			<br/><br/>
+			
+			<g:if test="${flash.message}">
+				<div class="message">${flash.message}</div>
+            </g:if>
 			
             <g:hasErrors bean="${enqueteInstance}">
             <div class="errors">
@@ -30,8 +33,6 @@
                         </tr>
                     </thead>
                     <tbody>
-					${enqueteInstance.usuarioJaVotou(session.user.id)}
-					${session.user.id instanceof Long}
                     <g:each in="${enqueteInstance?.opcoes?}" status="i" var="opcaoEnqueteInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                             <td>${fieldValue(bean: opcaoEnqueteInstance, field: "opcao")}</td>
