@@ -1,4 +1,4 @@
-<%@ page import="les.ejc.Ata" %>
+<%@ page import="ejc.Ata" %>
 <html>
   <head>
 	  <title>Impressão de Atas</title>

@@ -1,4 +1,4 @@
-<%@ page import="les.ejc.Evento" %>
+<%@ page import="ejc.Evento" %>
 <html>
   <head>
 	  <title>Impressão de Eventos</title>

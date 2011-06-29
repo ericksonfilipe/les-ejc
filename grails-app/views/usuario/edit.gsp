@@ -1,5 +1,5 @@
-<%@ page import="les.ejc.Usuario" %>
-<%@ page import="les.ejc.Usuario.Tipo" %>
+<%@ page import="ejc.Usuario" %>
+<%@ page import="ejc.Usuario.Tipo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -64,7 +64,7 @@
                                     <label for="tipo"><g:message code="usuario.tipo.label" default="Tipo" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'tipo', 'errors')}">
-                                    <g:select id="tipo-usuario" name="tipo" from="${les.ejc.Usuario$Tipo?.values()}" keys="${les.ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}" onChange="plecas()" />
+                                    <g:select id="tipo-usuario" name="tipo" from="${ejc.Usuario$Tipo?.values()}" keys="${ejc.Usuario$Tipo?.values()*.name()}" value="${usuarioInstance?.tipo?.name()}" onChange="plecas()" />
                                 </td>
                             </tr>
 							</g:if>							
@@ -327,7 +327,7 @@
                                     <label for="status"><g:message code="usuario.status.label" default="Status" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: usuarioInstance, field: 'status', 'errors')}">
-                                    <g:select name="status" from="${les.ejc.Usuario$Status?.values()}" keys="${les.ejc.Usuario$Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
+                                    <g:select name="status" from="${ejc.Usuario$Status?.values()}" keys="${ejc.Usuario$Status?.values()*.name()}" value="${usuarioInstance?.status?.name()}"  />
                                 </td>
                             </tr>
 							

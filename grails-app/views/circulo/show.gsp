@@ -1,5 +1,5 @@
 
-<%@ page import="les.ejc.Circulo" %>
+<%@ page import="ejc.Circulo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

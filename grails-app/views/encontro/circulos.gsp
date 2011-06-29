@@ -1,4 +1,4 @@
-<%@ page import="les.ejc.Encontro" %>
+<%@ page import="ejc.Encontro" %>
 <html>
   <head>
 	  <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>

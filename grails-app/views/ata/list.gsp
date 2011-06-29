@@ -1,5 +1,5 @@
 
-<%@ page import="les.ejc.Ata" %>
+<%@ page import="ejc.Ata" %>
 <html>
     <head>
 		<resource:autoComplete skin="default" />

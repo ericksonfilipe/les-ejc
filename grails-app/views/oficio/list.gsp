@@ -1,5 +1,5 @@
 
-<%@ page import="les.ejc.Oficio" %>
+<%@ page import="ejc.Oficio" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

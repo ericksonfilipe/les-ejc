@@ -1,7 +1,7 @@
-<%@ page import="les.ejc.Usuario" %>
-<%@ page import="les.ejc.Usuario.Status" %>
-<%@ page import="les.ejc.Usuario.Tipo" %>
-<%@ page import="les.ejc.EquipeDeTrabalho" %>
+<%@ page import="ejc.Usuario" %>
+<%@ page import="ejc.Usuario.Status" %>
+<%@ page import="ejc.Usuario.Tipo" %>
+<%@ page import="ejc.EquipeDeTrabalho" %>
 <html>
     <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

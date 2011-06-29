@@ -1,4 +1,4 @@
-<%@ page import="les.ejc.Encontro" %>
+<%@ page import="ejc.Encontro" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

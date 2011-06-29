@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.Encontro" %>
+<%@ page import="ejc.Encontro" %>
 <html>
     <head>
 		<resource:autoComplete skin="default" />
@@ -39,7 +39,7 @@
                                     <label for="dirigenteEspiritual"><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'dirigenteEspiritual', 'errors')}">
-									<g:select name="dirigenteEspiritual.id" from="${les.ejc.Usuario.findByTipo(les.ejc.Usuario.Tipo.Padre)}" optionKey="id" value="${encontroInstance?.dirigenteEspiritual?.id}" />
+									<g:select name="dirigenteEspiritual.id" from="${ejc.Usuario.findByTipo(ejc.Usuario.Tipo.Padre)}" optionKey="id" value="${encontroInstance?.dirigenteEspiritual?.id}" />
                                 </td>
                             </tr>
                         

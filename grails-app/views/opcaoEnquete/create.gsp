@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.OpcaoEnquete" %>
+<%@ page import="ejc.OpcaoEnquete" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -37,7 +37,7 @@
                                     <label for="enquete"><g:message code="opcaoEnquete.enquete.label" default="Enquete" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: opcaoEnqueteInstance, field: 'enquete', 'errors')}">
-                                    <g:select name="enquete.id" from="${les.ejc.Enquete.findById(opcaoEnqueteInstance?.enquete?.id)}" optionKey="id" value="${opcaoEnqueteInstance?.enquete?.id}"  />
+                                    <g:select name="enquete.id" from="${ejc.Enquete.findById(opcaoEnqueteInstance?.enquete?.id)}" optionKey="id" value="${opcaoEnqueteInstance?.enquete?.id}"  />
                                 </td>
                             </tr>
                         </tbody>

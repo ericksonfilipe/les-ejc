@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.Enquete" %>
+<%@ page import="ejc.Enquete" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

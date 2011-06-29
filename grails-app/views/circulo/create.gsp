@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.Circulo" %>
+<%@ page import="ejc.Circulo" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -29,7 +29,7 @@
                                     <label for="cor"><g:message code="circulo.cor.label" default="Cor" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'cor', 'errors')}">
-                                    <g:select name="cor" from="${les.ejc.Circulo$Cor?.values()}" keys="${les.ejc.Circulo$Cor?.values()*.name()}" value="${circuloInstance?.cor?.name()}"  />
+                                    <g:select name="cor" from="${ejc.Circulo$Cor?.values()}" keys="${ejc.Circulo$Cor?.values()*.name()}" value="${circuloInstance?.cor?.name()}"  />
                                 </td>
                             </tr>
                         
@@ -47,7 +47,7 @@
                                     <label for="jovemCoordenador"><g:message code="circulo.jovemCoordenador.label" default="Jovem Coordenador" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'jovemCoordenador', 'errors')}">
-                                    <g:select name="jovemCoordenador.id" from="${les.ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.jovemCoordenador?.id}"  />
+                                    <g:select name="jovemCoordenador.id" from="${ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.jovemCoordenador?.id}"  />
                                 </td>
                             </tr>
                         
@@ -56,7 +56,7 @@
                                     <label for="casalApoio"><g:message code="circulo.casalApoio.label" default="Casal Apoio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'casalApoio', 'errors')}">
-                                    <g:select name="casalApoio.id" from="${les.ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.casalApoio?.id}"  />
+                                    <g:select name="casalApoio.id" from="${ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.casalApoio?.id}"  />
                                 </td>
                             </tr>
 
@@ -65,7 +65,7 @@
                                     <label for="encontro"><g:message code="circulo.encontro.label" default="Encontro" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'encontro', 'errors')}">
-                                    <g:select name="encontro.id" from="${les.ejc.Encontro.findById(circuloInstance?.encontro?.id)}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
+                                    <g:select name="encontro.id" from="${ejc.Encontro.findById(circuloInstance?.encontro?.id)}" optionKey="id" value="${circuloInstance?.encontro?.id}"  />
                                 </td>
                             </tr>							
                         

@@ -1,5 +1,5 @@
 
-<%@ page import="les.ejc.Encontro" %>
+<%@ page import="ejc.Encontro" %>
 <html>
     <head>
 		<resource:autoComplete skin="default" />
