@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.Encontro" %>
+<%@ page import="ejc.Encontro" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -40,7 +40,7 @@
                                   <label for="dirigenteEspiritual"><g:message code="encontro.dirigenteEspiritual.label" default="Dirigente Espiritual" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: encontroInstance, field: 'dirigenteEspiritual', 'errors')}">
-                                    <g:select name="dirigenteEspiritual.id" from="${les.ejc.Usuario.list()}" optionKey="id" value="${encontroInstance?.dirigenteEspiritual?.id}"  />
+                                    <g:select name="dirigenteEspiritual.id" from="${ejc.Usuario.list()}" optionKey="id" value="${encontroInstance?.dirigenteEspiritual?.id}"  />
                                 </td>
                             </tr>
                         

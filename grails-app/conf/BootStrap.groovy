@@ -1,8 +1,8 @@
-import les.ejc.Usuario
-import les.ejc.Encontro
-import les.ejc.Circulo
-import les.ejc.EquipeDeTrabalho
-import les.ejc.Oficio
+import ejc.Usuario
+import ejc.Encontro
+import ejc.Circulo
+import ejc.EquipeDeTrabalho
+import ejc.Oficio
 
 class BootStrap {
 

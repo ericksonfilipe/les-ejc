@@ -1,5 +1,5 @@
-﻿<%@ page import="les.ejc.Reflexao" %>
-<%@ page import="les.ejc.Noticia" %>
+﻿<%@ page import="ejc.Reflexao" %>
+<%@ page import="ejc.Noticia" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <html>

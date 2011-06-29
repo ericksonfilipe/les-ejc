@@ -1,5 +1,5 @@
 ﻿
-<%@ page import="les.ejc.Reflexao" %>
+<%@ page import="ejc.Reflexao" %>
 
 <html>
   <head>

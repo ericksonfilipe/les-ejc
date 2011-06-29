@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.FuncaoJCinco" %>
+<%@ page import="ejc.FuncaoJCinco" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -38,7 +38,7 @@
                                     <label for="funcao"><g:message code="funcaoJCinco.funcao.label" default="Função" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: funcaoJCincoInstance, field: 'funcao', 'errors')}">
-                                    <g:select name="funcao" from="${les.ejc.FuncaoJCinco$EnumFuncao?.values()}" keys="${les.ejc.FuncaoJCinco$EnumFuncao?.values()*.name()}" value="${funcaoJCincoInstance?.funcao?.name()}"  />
+                                    <g:select name="funcao" from="${ejc.FuncaoJCinco$EnumFuncao?.values()}" keys="${ejc.FuncaoJCinco$EnumFuncao?.values()*.name()}" value="${funcaoJCincoInstance?.funcao?.name()}"  />
                                 </td>
                             </tr>
                         
@@ -56,7 +56,7 @@
                                     <label for="usuario"><g:message code="funcaoJCinco.usuario.label" default="Usuario" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: funcaoJCincoInstance, field: 'usuario', 'errors')}">
-                                    <g:select name="usuario.id" from="${les.ejc.Usuario.findById(funcaoJCincoInstance?.usuario.id)}" optionKey="id" value="${funcaoJCincoInstance?.usuario?.id}"  />
+                                    <g:select name="usuario.id" from="${ejc.Usuario.findById(funcaoJCincoInstance?.usuario.id)}" optionKey="id" value="${funcaoJCincoInstance?.usuario?.id}"  />
                                 </td>
                             </tr>
                         

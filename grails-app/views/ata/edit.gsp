@@ -1,6 +1,6 @@
 
 
-<%@ page import="les.ejc.Ata" %>
+<%@ page import="ejc.Ata" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -43,7 +43,7 @@
                                   <label for="pessoasPresentes"><g:message code="ata.pessoasPresentes.label" default="Pessoas Presentes" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: ataInstance, field: 'pessoasPresentes', 'errors')}">
-                                    <g:select name="pessoasPresentes" from="${les.ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${ataInstance?.pessoasPresentes*.id}" />
+                                    <g:select name="pessoasPresentes" from="${ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${ataInstance?.pessoasPresentes*.id}" />
                                 </td>
                             </tr>
                         
@@ -52,7 +52,7 @@
                                   <label for="pessoasAusentes"><g:message code="ata.pessoasAusentes.label" default="Pessoas Ausentes" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: ataInstance, field: 'pessoasAusentes', 'errors')}">
-                                    <g:select name="pessoasAusentes" from="${les.ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${ataInstance?.pessoasAusentes*.id}" />
+                                    <g:select name="pessoasAusentes" from="${ejc.Usuario.list()}" multiple="yes" optionKey="id" size="5" value="${ataInstance?.pessoasAusentes*.id}" />
                                 </td>
                             </tr>
                         

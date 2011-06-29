@@ -1,5 +1,5 @@
-<%@ page import="les.ejc.Usuario" %>
-<%@ page import="les.ejc.Usuario.Tipo" %>
+<%@ page import="ejc.Usuario" %>
+<%@ page import="ejc.Usuario.Tipo" %>
 <html>
     <head>
 		<resource:autoComplete skin="default" />
