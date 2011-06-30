@@ -2,9 +2,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
-	<resource:reflectionImage />
     <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>         
-    </script>
   </head>
   <body>
     <div class="pageBody">
@@ -18,7 +16,7 @@
 			O EJC, entretanto, não se resume a um fim de semana. Consiste em um dos principais movimentos jovens da Igreja Católica no Brasil, tendo como objetivo despertar a juventude para a pessoa e proposta de Jesus Cristo, desenvolvendo com os jovens um processo global de formação a partir da fé, formando líderes capacitados a atuar em diversas pastorais/ministérios da Igreja e comprometidos com a liberação integral do homem na sociedade.
 		</p>
 		<br>
-		<center><richui:reflectionImage src="${createLinkTo(dir:'images',file:'j5.jpg')}" reflectionHeight="10"/></center>
+		<center><img src="${createLinkTo(dir:'images',file:'j5.jpg')}" /></center>
 		<p align="center"><b>Equipe J5 (Coordenação EJC)</b>
 		<br>Jovens: Alessandra Teixeira, Danielle Gomes, Jason Aguiar, Kayo Fellipe, Péricles Gervásio
 		<br>Casais: Wellington e Viviane, Charles e Nena, Miguel e Alvinha, Williams e Soraia, Fabrício e Patrícia 
@@ -30,7 +28,7 @@
 		Instalada oficialmente em 1960, a Igreja Matriz Paróquia de São Cristóvão, integrante da Diocese de Campina Grande-PB, está, atualmente, situada no bairro do Centenário, nas proximidades da Av. Floriano Peixoto, contando na sua estrutura com o Centro Pastoral para reuniões de pastorais, movimentos e serviços, além da formação de leigos de suas comunidades.
 		</p>
 		<br>
-		<center><richui:reflectionImage src="${createLinkTo(dir:'images',file:'padre.jpg')}" reflectionHeight="10"/></center>
+		<center><img src="${createLinkTo(dir:'images',file:'padre.jpg')}" /></center>
 		<p align="center"><b>Padre José Vanildo</b></p>
 		<br><br>		
 		<p align="justify">Mais informações no site: <a href="http://www.paroquiadesaocristovaocg.com" target="_blank">www.paroquiadesaocristovaocg.com</a>.</p>
