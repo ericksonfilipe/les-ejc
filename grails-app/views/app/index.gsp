@@ -56,11 +56,19 @@
 
 				
 				<center><h3>Localização da Paróquia e das Comunidades</h3></center><br>		
-				<richui:map lat="-7.22702" lng="-35.89919" zoomLevel="15"
-					markers="${[[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>Paróquia São Cristovão</b>
+				<richui:map lat="-7.22925" lng="-35.90451" zoomLevel="14,5"
+					markers="${[
+					[latitude: -7.22702, longitude: -35.89919, draggable: false, description: '<b>Paróquia São Cristovão</b>
 					<br>Rua Delmiro Gouveia - São José<br>Campina Grande - PB, 58107-735<br>(0xx)83 3341-5584'],
 					[latitude: -7.22925, longitude: -35.90451, draggable: false, 
-					description: '<b>Comunidade Nossa Senhora Aparecida</b>']]}"
+					description: '<b>Comunidade Nossa Senhora Aparecida</b>'],
+					[latitude: -7.22244, longitude: -35.91024, draggable: false, 
+					description: '<b>Comunidade Nossa Senhora de Fátima</b>'],
+					[latitude: -7.22379, longitude: -35.90801, draggable: false, 
+					description: '<b>Comunidade Santa Luzia</b>'],
+					[latitude: -7.23008, longitude: -35.91422, draggable: false, 
+					description: '<b>Comunidade Santa Bárbara</b>']
+					]}"
 				/>
 				<br/><br/>
 
