@@ -1,4 +1,4 @@
-package ejc
+﻿package ejc
 
 class EnvioDeEmailsJob {
      static triggers = {
@@ -58,7 +58,7 @@ Abracos!
 O EJC da Paroquia de Sao Cristovao convida voce a participar do ${eventos[e].nome}, no dia ${eventos[e].data}.
 ${eventos[e].descricao}
 
-Contamos com sua presenca.
+Contamos com sua presença.
 Abracos!
 """
 				senderService.enviaEmail(usuarios[u].email, "[EJC Sao Cristovao] ${eventos[e].nome}", mensagem)
