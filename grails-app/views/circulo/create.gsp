@@ -1,5 +1,3 @@
-
-
 <%@ page import="ejc.Circulo" %>
 <%@ page import="ejc.Usuario.Tipo" %>
 
