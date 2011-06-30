@@ -30,6 +30,12 @@
                             <g:sortableColumn property="nomeDestinatario" title="${message(code: 'oficio.nomeDestinatario.label', default: 'Nome Destinatario')}" />
 							
 							<g:sortableColumn property="solicitacao" title="${message(code: 'oficio.solicitacao.label', default: 'Solicitacao')}" />
+							
+							<g:sortableColumn property="nomeRemetente" title="Imprimir" />
+							
+							<g:sortableColumn property="nomeRemetente" title="Editar" />
+							
+							<g:sortableColumn property="nomeRemetente" title="Excluir" />
                         
                         </tr>
                     </thead>
