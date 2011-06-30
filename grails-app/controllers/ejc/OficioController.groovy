@@ -8,6 +8,16 @@ class OficioController {
         redirect(action: "list", params: params)
     }
 	
+	def gerarhtml = {
+        def oficioInstance = Oficio.get(params.id)
+		
+        if (!oficioInstance) {
+            redirect(action: 'list')
+            return
+        }
+        [oficioInstance:oficioInstance]
+    }
+	
 	def error = {}
 
     def list = {
