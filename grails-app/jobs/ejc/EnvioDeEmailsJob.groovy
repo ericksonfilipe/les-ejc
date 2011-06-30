@@ -44,17 +44,13 @@ Abracos!
 		def eventos = Evento.list()
 		
 		List eventosParaAvisar = []
-		println "oeeeeeeee"
 		println eventos.size() 
 		for (int e in 0..<eventos.size()) {
-			println "aqui1"
 			Calendar dataEvento = eventos[e].data
 			if ( saoDoisDiasAntesDaData(dataEvento) ) {
 				eventosParaAvisar.add(eventos[e])
-				println ("aqui2")
 			}
 		}
-		println ("aqui3")
 		Calendar data = new GregorianCalendar()
 		for (int e in 0..<eventosParaAvisar.size()) {
 			for (int u in 0..<usuarios.size()) {
@@ -62,14 +58,13 @@ Abracos!
 O EJC da Paroquia de Sao Cristovao convida voce a participar do ${eventos[e].nome}, no dia ${eventos[e].data}.
 ${eventos[e].descricao}
 
-Contamos com sua presen�a.
+Contamos com sua presenca.
 Abracos!
 """
 				senderService.enviaEmail(usuarios[u].email, "[EJC Sao Cristovao] ${eventos[e].nome}", mensagem)
 			}
 
 		}
-		println("evento")
 		
 	}
 
