@@ -1,4 +1,4 @@
-﻿package ejc
+package ejc
 
 class EnvioDeEmailsJob {
      static triggers = {
