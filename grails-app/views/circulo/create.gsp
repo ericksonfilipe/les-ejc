@@ -1,6 +1,8 @@
 
 
 <%@ page import="ejc.Circulo" %>
+<%@ page import="ejc.Usuario.Tipo" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -47,7 +49,7 @@
                                     <label for="jovemCoordenador"><g:message code="circulo.jovemCoordenador.label" default="Jovem Coordenador" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'jovemCoordenador', 'errors')}">
-                                    <g:select name="jovemCoordenador.id" from="${ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.jovemCoordenador?.id}"  />
+                                    <g:select name="jovemCoordenador.id" from="${ejc.Usuario.findAllWhere(tipo:Tipo.Jovem)}" optionKey="id" value="${circuloInstance?.jovemCoordenador?.id}"  />
                                 </td>
                             </tr>
                         
@@ -56,7 +58,7 @@
                                     <label for="casalApoio"><g:message code="circulo.casalApoio.label" default="Casal Apoio" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: circuloInstance, field: 'casalApoio', 'errors')}">
-                                    <g:select name="casalApoio.id" from="${ejc.Usuario.list()}" optionKey="id" value="${circuloInstance?.casalApoio?.id}"  />
+                                    <g:select name="casalApoio.id" from="${ejc.Usuario.findAllWhere(tipo:Tipo.Casal)}" optionKey="id" value="${circuloInstance?.casalApoio?.id}"  />
                                 </td>
                             </tr>
 
