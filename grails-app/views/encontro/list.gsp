@@ -10,7 +10,7 @@
 		<g:javascript library="prototype" />
 		<g:javascript>
 			function exibe(id) {
-				link = "/les-ejc/encontro/show/" + id;
+				link = "/ejc/encontro/show/" + id;
 				window.open(link, "_self");
 			}
 		</g:javascript>
@@ -45,7 +45,7 @@
                         
 							<td>${fieldValue(bean: encontroInstance, field: "numero")}</td>
 							                        
-                            <td><g:formatDate date="${encontroInstance.data}" /></td>
+                            <td><g:formatDate format="dd/MM/yyyy" date="${encontroInstance.data}" /></td>
                         
                             <td>${fieldValue(bean: encontroInstance, field: "tema")}</td>
 

@@ -10,7 +10,7 @@
 		<g:javascript library="prototype" />
 		<g:javascript>
 			function exibe(id) {
-				link = "/les-ejc/usuario/show/" + id;
+				link = "/ejc/usuario/show/" + id;
 				window.open(link, "_self");
 			}
 		</g:javascript>

@@ -38,7 +38,7 @@
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name"><g:message code="encontro.data.label" default="Data" /></td>
-                        <td valign="top" class="value"><g:formatDate date="${encontroInstance?.data}" /></td>
+                        <td valign="top" class="value"><g:formatDate format="dd/MM/yyyy" date="${encontroInstance?.data}" /></td>
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name"><g:message code="encontro.tema.label" default="Tema" /></td>
