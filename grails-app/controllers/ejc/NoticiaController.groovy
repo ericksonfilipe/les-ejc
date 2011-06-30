@@ -33,7 +33,6 @@ class NoticiaController {
 			return
 		}	
         def noticiaInstance = new Noticia(params)
-
 		if (noticiaInstance.noticiaPrincipal == true && existeNoticiaPrincipal(noticiaInstance)) {
 			flash.message = "Já existe uma Notícia cadastrada para ser visualizada na página inicial!"
 			render(view: "create", model: [noticiaInstance: noticiaInstance])
@@ -141,7 +140,7 @@ class NoticiaController {
     }
 	
 	def existeNoticiaPrincipal(noticiaInstance){
-		for (noticia in les.ejc.Noticia.list()) {
+		for (noticia in ejc.Noticia.list()) {
 			if (noticia.noticiaPrincipal == true && noticia != noticiaInstance) return true
 		}
 		return false

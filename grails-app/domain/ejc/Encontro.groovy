@@ -42,7 +42,7 @@ class Encontro {
         dirigenteEspiritual(nullable:false, validator: {if (it?.tipo == Tipo.Padre) return true
                                                         else return ["erro.tipo.invalido", it?.tipo]})
         data(nullable:false)
-        tema(nullable:false, blank:false, size: 3..50, matches:'([a-zA-Z]|é|É|á|Á|ó|Ó|ã|Ã|ü|Ü|ç|Ç|ô|Ô| |)+')
+        tema(nullable:false, blank:false, size: 3..50)
         local(nullable:false, blank:false, size:3..50)
 		
 	coordenacao_geral(nullable:true)
