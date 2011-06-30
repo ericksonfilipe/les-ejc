@@ -7,12 +7,6 @@
         <g:set var="entityName" value="${message(code: 'oficio.label', default: 'Oficio')}" />
         <title>EJC - Par&oacute;quia S&atilde;o Crist&oacute;v&atilde;o</title>
 		<g:javascript library="prototype" />
-		<g:javascript>
-			function exibe(id) {
-				link = "/ejc/oficio/show/" + id;
-				window.open(link, "_self");
-			}
-		</g:javascript>
     </head>
     <body>
         <div id="pageBody">
@@ -41,7 +35,7 @@
                     </thead>
                     <tbody>
                     <g:each in="${oficioInstanceList}" status="i" var="oficioInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}" onMouseDown="exibe('${oficioInstance.id}');">
+                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td>${fieldValue(bean: oficioInstance, field: "nomeRemetente")}</td>
                         
@@ -50,6 +44,11 @@
 							<td>${fieldValue(bean: oficioInstance, field: "solicitacao")}</td>
 							
 							<g:if test="${session.user?.j5Atual}">
+								<td><g:form target="_blank">
+									<g:hiddenField name="id" value="${oficioInstance?.id}" />
+									<g:actionSubmit class="print" action="gerarhtml" value="Imprimir" />
+								</g:form></td>
+								
 								<td><g:form>
 									<g:hiddenField name="id" value="${oficioInstance?.id}" />
 									<g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" />
