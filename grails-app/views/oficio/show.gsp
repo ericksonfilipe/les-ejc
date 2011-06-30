@@ -13,6 +13,16 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
+			
+			<g:form target="_blank">
+                <g:hiddenField name="id" value="${oficioInstance?.id}" />
+				<g:if test="${session?.user?.j5Atual}">
+					<td text-align="right">
+						<span class="button"><g:actionSubmit class="print" action="gerarhtml" value="Imprimir"/></span>
+					</td>
+				</g:if>
+			</g:form>
+		
             <div class="dialog">
                 <table>
                     <tbody>
