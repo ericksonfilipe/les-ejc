@@ -9,6 +9,7 @@ class SenderService {
     def enviaEmail(emailDestinatario, assunto, mensagem) {
 		mailService.sendMail {
 			to emailDestinatario
+			from "ejcsaocristovao@gmail.com"
 			subject assunto
 			body "${mensagem}\n---\nAtenciosamente,\nFamilia EJC"
 		}
