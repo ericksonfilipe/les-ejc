@@ -33,7 +33,6 @@
                         
                             <g:sortableColumn property="dataDeNascimento" title="${message(code: 'usuario.dataDeNascimento.label', default: 'Data De Nascimento')}" />
                         
-                            <th><g:message code="usuario.endereco.label" default="Endereco" /></th>
                         
                             <g:sortableColumn property="telefone1" title="${message(code: 'usuario.telefone1.label', default: 'Telefone1')}" />
                         
@@ -49,7 +48,6 @@
                         
                             <td><g:formatDate date="${usuarioInstance.dataDeNascimento}" /></td>
                         
-                            <td>${fieldValue(bean: usuarioInstance, field: "endereco")}</td>
                         
                             <td>${fieldValue(bean: usuarioInstance, field: "telefone1")}</td>
                         

@@ -7,7 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html"; charset=UTF-8" />
         <meta name="layout" content="main" />
 		<resource:carousel />
-		<resource:map key="ABCDE" />
+		<resource:map key="ABQIAAAAZXgX7H1ZXSu7Pjj3ddmADRQbfzDEqKVYuArH0Vj2v8KOrFkhkRTNoEwzl1ifpwuZlw10rN8ubdiOnQ" />
 		
 		<title>EJC - Paróquia São Cristóvão</title>
     </head>
