@@ -1,4 +1,4 @@
-package les.ejc
+package ejc
 
 class SenhaCriptografadaFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 	private String defaultLocation =  "http://localhost:8080/les-ejc/"

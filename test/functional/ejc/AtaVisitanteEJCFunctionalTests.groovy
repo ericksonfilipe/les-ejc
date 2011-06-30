@@ -1,8 +1,8 @@
-package les.ejc
+package ejc
 
 class AtaVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalTestCase {
   
-	private String defaultLocation =  "http://localhost:8080/les-ejc/"
+	private String defaultLocation =  "http://localhost:8080/ejc/app/login"
 	
 	void testTituloBasico(){
 		get(this.defaultLocation);
@@ -12,9 +12,11 @@ class AtaVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 			click "Login"
 		}
 		
-		get("http://localhost:8080/les-ejc/ata/index");
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
+		get("http://localhost:8080/ejc/ata/index");
+		assertContentContains "Login"
+		assertContentContains "Senha"
+		assertContentContains "Login"
+		assertContentContains "Esqueci Minha Senha!" 
 	}
 	
 	void testCriarAta() {
@@ -25,8 +27,10 @@ class AtaVisitanteEJCFunctionalTests extends functionaltestplugin.FunctionalTest
 			click "Login"
 		}
 		
-		get("http://localhost:8080/les-ejc/ata/create");
-		assertContentContains "Permiss"
-		assertContentContains "o Negada"
+		get("http://localhost:8080/ejc/ata/create");
+		assertContentContains "Login"
+		assertContentContains "Senha"
+		assertContentContains "Login"
+		assertContentContains "Esqueci Minha Senha!" 
 	}
 }
