@@ -1,4 +1,4 @@
-package les.ejc
+package ejc
 
 class EquipeDeTrabalhoJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCase {
   

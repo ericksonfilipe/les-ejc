@@ -1,11 +1,11 @@
-package les.ejc
+package ejc
 
 class AtaJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCase {
   
-	private String defaultLocation =  "http://localhost:8080/les-ejc/ata/create"
+	private String defaultLocation = "http://localhost:8080/les-ejc/ata/create"
 	
 	void testSemPautaEPessoasPresentes(){
-		get("http://localhost:8080/les-ejc/");
+		get("http://localhost:8080/les-ejc/app/login");
 		form() {
 			login = "admin"
 			senha = "admin123"
@@ -13,7 +13,7 @@ class AtaJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 		}
 		
 		get(this.defaultLocation);
-		form() {
+		form('Adicionar Ata') {
 			click "Criar"
 		}
 		
@@ -22,7 +22,7 @@ class AtaJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 	}
 	
 	void testPessoasPresentesMenorQue2() {
-		get("http://localhost:8080/les-ejc/");
+		get("http://localhost:8080/les-ejc/app/login");
 		form() {
 			login = "admin"
 			senha = "admin123"
@@ -39,7 +39,7 @@ class AtaJCincoFunctionalTests extends functionaltestplugin.FunctionalTestCase {
 	}
 	
 	void testOk() {
-		get("http://localhost:8080/les-ejc/");
+		get("http://localhost:8080/les-ejc/app/login");
 		form() {
 			login = "admin"
 			senha = "admin123"
