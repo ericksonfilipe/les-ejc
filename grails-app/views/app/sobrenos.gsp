@@ -21,8 +21,8 @@
 		<br>
 		<center><richui:reflectionImage src="${createLinkTo(dir:'images',file:'j5.jpg')}" reflectionHeight="10"/></center>
 		<p align="center"><b>Equipe J5 (Coordenação EJC)</b>
-		<br>Jovens: Danielle Gomes, Alessandra Teixeira, Péricles Gervásio
-		<br>Casais: Wellington e Viviane, Charles e Nena, Fabrício e Patrícia 
+		<br>Jovens: Alessandra Teixeira, Danielle Gomes, Jason Aguiar, Kayo Fellipe, Péricles Gervásio
+		<br>Casais: Wellington e Viviane, Charles e Nena, Miguel e Alvinha, Williams e Soraia, Fabrício e Patrícia 
 		</p>
 		<br><br>
 		<h3>Sobre a Paróquia</h3>
