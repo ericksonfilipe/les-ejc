@@ -1,0 +1,3 @@
+O projeto consiste na implementação de um sistema de gerenciamento de encontros (EJC) realizados na Paróquia São Cristóvão e, com isso, melhor gerenciamento das pessoas que fizeram/farão e trabalharam/trabalharão em cada encontro, facilitando: (i) arquivamento do que já foi realizado, (ii) contato para os eventos que estão sendo feitos, e (iii) promoção de novos encontros, geralmente anuais.
+
+http://projetoles.acunote.com/
